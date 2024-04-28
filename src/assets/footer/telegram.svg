@@ -1,0 +1,20 @@
+<svg width="32.000000" height="32.000000" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<desc>
+			Created with Pixso.
+	</desc>
+	<defs>
+		<clipPath id="clip5_6381">
+			<rect id="logos:telegram" width="27.428572" height="27.428572" transform="translate(1.523926 1.523926)" fill="white" fill-opacity="0"/>
+		</clipPath>
+		<clipPath id="clip5_6382">
+			<rect id="wa'" rx="6.095238" width="32.000000" height="32.000000" fill="white" fill-opacity="0"/>
+		</clipPath>
+	</defs>
+	<rect id="wa'" rx="6.095238" width="32.000000" height="32.000000" fill="#26A4E4" fill-opacity="1.000000"/>
+	<g clip-path="url(#clip5_6382)">
+		<rect id="logos:telegram" width="27.428572" height="27.428572" transform="translate(1.523926 1.523926)" fill="#FFFFFF" fill-opacity="0"/>
+		<g clip-path="url(#clip5_6381)">
+			<path id="Vector" d="M7.73 15.09C11.73 13.35 14.39 12.2 15.72 11.64C19.53 10.06 20.32 9.78 20.84 9.77C20.95 9.77 21.21 9.8 21.37 9.93C21.51 10.05 21.55 10.2 21.57 10.31C21.58 10.41 21.61 10.66 21.59 10.85C21.38 13.01 20.49 18.28 20.04 20.71C19.84 21.73 19.47 22.08 19.1 22.11C18.3 22.18 17.7 21.59 16.93 21.08C15.72 20.29 15.04 19.8 13.87 19.02C12.51 18.13 13.39 17.64 14.16 16.84C14.36 16.63 17.87 13.44 17.94 13.15C17.95 13.11 17.96 12.98 17.88 12.91C17.8 12.83 17.68 12.86 17.59 12.88C17.47 12.91 15.54 14.18 11.81 16.7C11.26 17.08 10.77 17.26 10.32 17.25C9.83 17.24 8.89 16.98 8.19 16.75C7.33 16.47 6.65 16.32 6.71 15.85C6.74 15.6 7.08 15.35 7.73 15.09Z" fill="#FFFFFF" fill-opacity="1.000000" fill-rule="nonzero"/>
+		</g>
+	</g>
+</svg>

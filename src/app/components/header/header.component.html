@@ -1,0 +1,144 @@
+<header class="comp-header">
+  <div class="header-part">
+    <img src="../../../assets/header/apple.svg" alt="apple" />
+    <div class="links">
+      <a routerLink="/all-catalog">Весь каталог</a>
+      <div class="promotion">
+        <img src="../../../assets/header/fire-emoji.svg" alt="fire-emoji" />
+        Акции
+      </div>
+      <a routerLink="/warranty">Гарантия</a>
+      <a routerLink="/refund">Политика возврата</a>
+      <a routerLink="/credit">Кредит</a>
+      <a routerLink="/delivery">Доставка и оплата</a>
+      <a routerLink="/review">Отзывы</a>
+      <a routerLink="/contacts">Контакты</a>
+    </div>
+    <div class="telephone">
+      <div class="tel-number">
+        <img src="../../../assets/header/telephone.svg" alt="telephone" />
+        <p>+7 812 561 96 62</p>
+      </div>
+      <span>Вам перезвонить?</span>
+    </div>
+  </div>
+
+  <div class="header-part">
+    <div class="catalog">
+      <img src="../../../assets/header/catalog-dots.svg" alt="dots" />
+      Каталог товаров
+    </div>
+    <input type="search" placeholder="Поиск по каталогу товаров" />
+    <div class="functions">
+      <img src="../../../assets/header/heart.svg" alt="heart" />
+      <img src="../../../assets/header/compare.svg" alt="compare" />
+    </div>
+    <button>В корзине</button>
+  </div>
+
+  <div class="header-part">
+    <div class="card">
+      <img src="../../../assets/header/iphone.svg" alt="iphone" />
+      <p>iPhone</p>
+    </div>
+    <div class="card">
+      <img src="../../../assets/header/ipad.svg" alt="ipad" />
+      <p>iPad</p>
+    </div>
+    <div class="card">
+      <img src="../../../assets/header/macbook_imac.svg" alt="macbookandimac" />
+      <p>Macbook и iMac</p>
+    </div>
+    <div class="card">
+      <img src="../../../assets/header/applewatch.svg" alt="watch" />
+      <p>Watch</p>
+    </div>
+    <div class="card">
+      <img src="../../../assets/header/airpods.svg" alt="gadgets" />
+      <p>Гаджеты</p>
+    </div>
+    <div class="card">
+      <img
+        src="../../../assets/header/iphoneaccessories.svg"
+        alt="accessories"
+      />
+      <p>Аксессуары</p>
+    </div>
+    <img src="../../../assets/header/banneriphone.svg" alt="banneriphone" />
+  </div>
+</header>
+
+<header class="tablet-header">
+  <img src="../../../assets/header/apple.svg" alt="apple" />
+  <input type="search" placeholder="Поиск по каталогу товаров" />
+  <div class="tel-number">
+    <img
+      src="../../../assets/header/telephone.svg"
+      alt="telephone"
+      width="15px"
+      height="20px"
+    />
+    <p>+7 812 561 96 62</p>
+  </div>
+  <img
+    class="tel-icon"
+    src="../../../assets/header/telephone.svg"
+    alt="telephone"
+    width="15px"
+    height="20px"
+  />
+  <img
+    src="../../../assets/header/bx_menu.svg"
+    alt="bx-menu"
+    (click)="openHeader()"
+  />
+</header>
+@if (isHeaderOpen) {
+<div class="header-open">
+  <div class="header-part">
+    <p class="a">Ваш город <span>Москва</span></p>
+  </div>
+  <div class="header-part">
+    <div class="open-links">
+      <div class="links">
+        <a href="">Весь каталог</a>
+        <div class="promotion">
+          <img src="../../../assets/header/fire-emoji.svg" alt="fire-emoji" />
+          Акции
+        </div>
+        <a>Гарантия</a>
+        <a>Политика возврата</a>
+        <a>Кредит</a>
+      </div>
+      <div class="links">
+        <a>Доставка и оплата</a>
+        <a>Отзывы</a>
+        <a>Контакты</a>
+        <div class="links-icons">
+          <img
+            src="../../../assets/footer/whatsapp.svg"
+            alt="whatsapp"
+            width="32px"
+            height="32px"
+            class="open-header-link whatsapp"
+          />
+          <img
+            src="../../../assets/footer/telegram.svg"
+            alt="telegram"
+            width="32px"
+            height="32px"
+            class="open-header-link"
+          />
+          <img
+            src="../../../assets/footer/vk.svg"
+            alt=""
+            width="32px"
+            height="32px"
+            class="open-header-link"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+}

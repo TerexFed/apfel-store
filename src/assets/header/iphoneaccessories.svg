@@ -1,0 +1,15 @@
+<svg width="48.000000" height="48.000000" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<desc>
+			Created with Pixso.
+	</desc>
+	<defs>
+		<clipPath id="clip3_6904">
+			<rect id="iphonex_119956 5" width="48.000000" height="48.000000" fill="white" fill-opacity="0"/>
+		</clipPath>
+	</defs>
+	<rect id="iphonex_119956 5" width="48.000000" height="48.000000" fill="#FFFFFF" fill-opacity="0"/>
+	<g clip-path="url(#clip3_6904)">
+		<path id="Vector" d="M17 6C15.34 6 14 7.34 14 9L14 39C14 40.65 15.34 42 17 42L31.02 42C32.67 42 34.02 40.65 34.02 39L34.02 9C34.02 7.34 32.67 6 31.02 6L31 6C30.44 6 30 6.44 30 7C30 8.65 28.65 10 27 10L21 10C19.34 10 18 8.65 18 7C18 6.44 17.55 6 17 6ZM19.82 6C19.93 6.31 20 6.64 20 7C20 7.55 20.44 8 21 8L27 8C27.55 8 28 7.55 28 7C28 6.64 28.06 6.31 28.17 6L19.82 6ZM12 9C12 6.23 14.23 4 17 4L31.02 4C33.78 4 36.02 6.23 36.02 9L36.02 39C36.02 41.76 33.78 44 31.02 44L17 44C14.23 44 12 41.76 12 39L12 9Z" fill="#CCCCCC" fill-opacity="1.000000" fill-rule="nonzero"/>
+		<rect id="Rectangle 12" x="15.928711" y="7.357147" rx="3.000000" width="16.142857" height="32.428570" stroke="#CCCCCC" stroke-opacity="1.000000" stroke-width="1.000000" stroke-dasharray="2 2"/>
+	</g>
+</svg>

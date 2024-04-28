@@ -1,0 +1,97 @@
+.scroll-goods {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  background: rgb(208, 234, 252);
+  height: 480px;
+  z-index: 2;
+  padding: 0 140px 0 140px;
+}
+.text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.text-info {
+  margin-left: 50px;
+}
+.right-arrow {
+  align-self: center;
+}
+.left-arrow {
+  align-self: center;
+}
+h2 {
+  display: flex;
+  align-items: baseline;
+}
+.ellips {
+  border: 11px solid rgb(30, 50, 64);
+  border-radius: 500px;
+  width: 100px;
+  height: 45px;
+}
+.big-iphone {
+  margin-top: 10%;
+}
+.price {
+  display: flex;
+  align-items: flex-end;
+  margin: 35px 0 22px 0;
+}
+.price > h4 {
+  padding: 0 16px 3px 0;
+}
+@media (width < 1245px) {
+  .text {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+  .text-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  .big-iphone {
+    margin-top: 5%;
+  }
+  .price {
+    margin: 0;
+  }
+}
+@media (width < 811px) {
+  .scroll-goods {
+    padding: 0 20px 0 20px;
+  }
+  .big-iphone {
+    width: 260px;
+    height: 307px;
+    margin-left: 30px;
+  }
+  h2 {
+    font-size: 40px;
+  }
+  .ellips {
+    border: 5px solid rgb(30, 50, 64);
+    border-radius: 210px;
+    width: 42px;
+    height: 19px;
+  }
+  h4 {
+    font-size: 20px;
+  }
+  h3 {
+    font-size: 30px;
+  }
+}
+
+@media (width < 380px) {
+  .big-iphone {
+    margin-top: 25%;
+    width: 203px;
+    height: 277px;
+    margin-left: 30px;
+  }
+}
