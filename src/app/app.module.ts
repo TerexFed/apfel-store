@@ -17,6 +17,7 @@ import { ContactPageComponent } from './pages/contact-page/contact-page.componen
 import { FavouritesPageComponent } from './pages/favourites-page/favourites-page.component';
 import { AllCatalogPageComponent } from './pages/all-catalog-page/all-catalog-page.component';
 import { BenefitsComponent } from './components/benefits/benefits.component';
+import { DistributionComponent } from './components/distribution/distribution.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { BenefitsComponent } from './components/benefits/benefits.component';
     ContactPageComponent,
     FavouritesPageComponent,
     AllCatalogPageComponent,
-    BenefitsComponent
+    BenefitsComponent,
+    DistributionComponent
   ],
   imports: [
     BrowserModule,

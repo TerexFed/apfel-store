@@ -43,6 +43,15 @@ h2 {
   padding: 0 16px 3px 0;
 }
 @media (width < 1245px) {
+  .scroll-goods {
+    padding: 0 20px 0 20px;
+  }
+  .ellips {
+    border: 7.5px solid rgb(30, 50, 64);
+    width: 68.16px;
+    height: 30.47px;
+    border-radius: 150px;
+  }
   .text {
     display: flex;
     flex-direction: column-reverse;
@@ -62,9 +71,6 @@ h2 {
   }
 }
 @media (width < 811px) {
-  .scroll-goods {
-    padding: 0 20px 0 20px;
-  }
   .big-iphone {
     width: 260px;
     height: 307px;

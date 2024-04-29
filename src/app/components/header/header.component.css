@@ -49,7 +49,7 @@ span {
   justify-content: center;
   align-items: center;
   color: white;
-  width: 215px;
+  width: 235px;
   padding: 13px 16px 13px 16px;
   border-radius: 16px;
   background: rgb(0, 113, 228);
@@ -102,10 +102,13 @@ button {
   display: flex;
   align-items: center;
 }
-.card:hover > p,
-.card:hover > img {
+.card:hover > p {
   color: rgb(0, 113, 228);
 }
+.card:hover > img {
+  filter: invert(41%) sepia(86%) saturate(5961%) hue-rotate(214deg) brightness(97%) contrast(98%);
+}
+
 .card > p {
   padding-left: 8px;
 }
@@ -163,7 +166,8 @@ button {
   }
 }
 @media (width < 1280px) {
-  .tablet-header, .header-open {
+  .tablet-header,
+  .header-open {
     padding: 0 20px 0 20px;
   }
 }
@@ -179,7 +183,7 @@ button {
   .header-open {
     height: 380px;
   }
-  .links{
+  .links {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
