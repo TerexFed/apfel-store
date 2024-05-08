@@ -18,6 +18,8 @@ import { FavouritesPageComponent } from './pages/favourites-page/favourites-page
 import { AllCatalogPageComponent } from './pages/all-catalog-page/all-catalog-page.component';
 import { BenefitsComponent } from './components/benefits/benefits.component';
 import { DistributionComponent } from './components/distribution/distribution.component';
+import { GadgetItemComponent } from './components/gadget-item/gadget-item.component';
+import { CustomCurrencyPipe } from './pipes/custom-currency/custom-currency.component';
 
 @NgModule({
   declarations: [
@@ -36,11 +38,13 @@ import { DistributionComponent } from './components/distribution/distribution.co
     FavouritesPageComponent,
     AllCatalogPageComponent,
     BenefitsComponent,
-    DistributionComponent
+    DistributionComponent,
+    GadgetItemComponent,
+    CustomCurrencyPipe,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
   providers: [
     provideClientHydration()
