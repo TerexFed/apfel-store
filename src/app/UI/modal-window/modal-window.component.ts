@@ -7,7 +7,6 @@ import { Component, ElementRef, EventEmitter, Output } from '@angular/core';
 })
 export class ModalWindowComponent {
   @Output() closeEvent = new EventEmitter();
-  @Output() submitEvent = new EventEmitter();
 
   constructor(private elementRef: ElementRef) { }
 
