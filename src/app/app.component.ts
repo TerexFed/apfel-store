@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { ModalWindowService } from './services/modal-window.service';
+
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,5 @@ import { Component } from '@angular/core';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  
+
 }

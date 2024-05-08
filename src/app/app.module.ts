@@ -18,6 +18,9 @@ import { FavouritesPageComponent } from './pages/favourites-page/favourites-page
 import { AllCatalogPageComponent } from './pages/all-catalog-page/all-catalog-page.component';
 import { BenefitsComponent } from './components/benefits/benefits.component';
 import { DistributionComponent } from './components/distribution/distribution.component';
+import { ModalWindowComponent } from './UI/modal-window/modal-window.component';
+import { BasketComponent } from './modals/basket/basket.component';
+import { CallBackComponent } from './modals/call-back/call-back.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +39,10 @@ import { DistributionComponent } from './components/distribution/distribution.co
     FavouritesPageComponent,
     AllCatalogPageComponent,
     BenefitsComponent,
-    DistributionComponent
+    DistributionComponent,
+    ModalWindowComponent,
+    BasketComponent,
+    CallBackComponent,
   ],
   imports: [
     BrowserModule,
