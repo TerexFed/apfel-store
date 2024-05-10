@@ -16,10 +16,11 @@ import { ReviewPageComponent } from './pages/review-page/review-page.component';
 import { ContactPageComponent } from './pages/contact-page/contact-page.component';
 import { FavouritesPageComponent } from './pages/favourites-page/favourites-page.component';
 import { AllCatalogPageComponent } from './pages/all-catalog-page/all-catalog-page.component';
-import { BenefitsComponent } from './components/benefits/benefits.component';
-import { DistributionComponent } from './components/distribution/distribution.component';
+import { BenefitsComponent } from './components/main-page-components/benefits/benefits.component';
+import { DistributionComponent } from './components/main-page-components/distribution/distribution.component';
 import { GadgetItemComponent } from './components/gadget-item/gadget-item.component';
 import { CustomCurrencyPipe } from './pipes/custom-currency/custom-currency.component';
+import { GadgetListComponent } from './components/gadget-list/gadget-list.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { CustomCurrencyPipe } from './pipes/custom-currency/custom-currency.comp
     DistributionComponent,
     GadgetItemComponent,
     CustomCurrencyPipe,
+    GadgetListComponent,
   ],
   imports: [
     BrowserModule,

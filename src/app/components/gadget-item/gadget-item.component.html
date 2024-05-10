@@ -13,11 +13,14 @@
     </div>
     <p class="name">{{gadget.name}}</p>
     <img class="gadget-image" src="/assets/gadget-item/iphone.jpg" alt="gadget-image">
+    @if (gadget.isAvailable) {
     <div class="second-section">
-        <p><span [class]="'isAvailable ' + (gadget.isAvailable ? 'available' : 'unavailable')"></span>
-            {{gadget.isAvailable ? 'Есть в наличии' : 'Отсутствует'}}</p>
+        <!-- <p><span [class]="'isAvailable ' + (gadget.isAvailable ? 'available' : 'unavailable')"></span>
+                {{gadget.isAvailable ? 'Есть в наличии' : 'Отсутствует'}}</p> -->
+        <p><span class="isAvailable available"></span>Есть в наличии</p>
         <p>Гарантия {{gadget.guarantee}} год</p>
     </div>
+    @if (windowWidth > 900) {
     <div class="prices-section">
         <p [class]="gadget.discountPrice ? 'old-price' : 'price'">{{gadget.price | customCurrency }}</p>
         @if(gadget.discountPrice){
@@ -29,8 +32,31 @@
             [src]="'/assets/gadget-item/cart-' + (gadget.isInCart ? 'active' : 'inactive') + '.svg'" alt="cart">
         {{ gadget.isInCart ? 'в корзине' : 'в корзину' }}
     </button>
+    } @else {
+    <div class="prices-section">
+        <!-- <p [class]="gadget.discountPrice ? 'old-price' : 'price'">{{gadget.price | customCurrency }}</p>
+            @if(gadget.discountPrice){
+            <p class="price">{{gadget.discountPrice | customCurrency}}</p>
+            } -->
+        @if (gadget.discountPrice) {
+        <p class="old-price">{{gadget.price | customCurrency }}</p>
+        }
+        <button [class]="'add-to-cart ' + (gadget.isInCart ? 'in-cart' : 'not-in-cart')">
+            <img class="gadget-is-in-cart"
+                [src]="'/assets/gadget-item/cart-' + (gadget.isInCart ? 'active' : 'inactive') + '.svg'" alt="cart">
+            <span>{{ (gadget.discountPrice || gadget.price) | customCurrency }}</span>
+        </button>
+    </div>
+    }
     <div class="last-section">
         <p>Хочу дешевле</p>
         <p>Купить в 1 клик</p>
     </div>
+    } @else {
+    <div class="preorder">
+        <p><span class="isAvailable unavailable"></span>Ожидается поступление</p>
+        <p>Мы можем сообщить вам, когда товар появится в наличии</p>
+        <p>Сообщить о поступлении</p>
+    </div>
+    }
 </div>

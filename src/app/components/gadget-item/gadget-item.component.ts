@@ -1,24 +1,25 @@
-import { Component } from '@angular/core';
+import { Component, HostListener, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-gadget-item',
   templateUrl: './gadget-item.component.html',
   styleUrl: './gadget-item.component.scss'
 })
-export class GadgetItemComponent {
-  gadget: any = {
-    rating: 4.3,
-    reviews: 14,
-    isFavorite: false,
-    name: 'Apple iPhone XS Max 256 ГБ золотой',
-    isAvailable: true,
-    guarantee: 1,
-    price: 1233,
-    discountPrice: 333,
-    isInCart: false,
-  }
+export class GadgetItemComponent implements OnInit {
+  @Input() gadget: any
 
   get5RatingArr() {
-    return new Array(Math.round(5)).fill(true)
+    return new Array(5).fill(true)
+  }
+
+  windowWidth: number = 1440
+
+  ngOnInit(): void {
+    this.windowWidth = globalThis.innerWidth;
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event: any) {
+    this.windowWidth = event.target.innerWidth;
   }
 }
