@@ -21,6 +21,8 @@ import { DistributionComponent } from './components/distribution/distribution.co
 import { GadgetItemComponent } from './components/gadget-item/gadget-item.component';
 import { CustomCurrencyPipe } from './pipes/custom-currency/custom-currency.component';
 import { GadgetListComponent } from './components/gadget-list/gadget-list.component';
+import { BasketComponent as ModalBasketComponent } from './modals/basket/basket.component';
+import { CallBackComponent as ModalCallbackComponent } from './modals/call-back/call-back.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,6 +44,8 @@ import { GadgetListComponent } from './components/gadget-list/gadget-list.compon
     GadgetItemComponent,
     CustomCurrencyPipe,
     GadgetListComponent,
+    ModalBasketComponent,
+    ModalCallbackComponent,
   ],
   imports: [
     BrowserModule,
