@@ -1,7 +1,4 @@
-$black-color: #100e0e;
-$primary-color: #0071e4;
-$alter-text-color: rgb(30, 50, 64);
-$gray-text-color: rgb(88, 86, 86);
+@import './variables.scss';
 
 * {
   margin: 0;
@@ -11,22 +8,25 @@ $gray-text-color: rgb(88, 86, 86);
 
 body {
   font-family: "SF Pro Display", sans-serif;
+  width: 1200px;
+  margin: 0 auto;
 }
 
-header {
-  padding: 0 140px 0 140px;
-}
+// header {
+//   padding: 0 140px 0 140px;
+// }
 
 h2 {
-  color: $alter-text-color;
   font-size: 88px;
   font-weight: 700;
   line-height: 105px;
   letter-spacing: 0%;
 }
 
+
+
 h3 {
-  color: $alter-text-color;
+  // color: $alter-text-color;
   font-size: 48px;
   font-weight: 400;
   line-height: 57px;
@@ -40,31 +40,31 @@ h3 {
   }
 
   &.not-found-text {
-    color: $black-color;
+    // color: $black-color;
     font-weight: 700;
     font-size: 40px;
     line-height: 48px;
   }
 
   &.normal {
-    color: $black-color;
+    // color: $black-color;
   }
-  @media (max-width: 620px) {
-    &.normal {
-      font-size: 32px;
-    }
-  }
+  // @media (max-width: 620px) {
+  //   &.normal {
+  //     font-size: 32px;
+  //   }
+  // }
 }
 
 h4 {
-  color: $alter-text-color;
+  // color: $alter-text-color;
   font-size: 32px;
   font-weight: 400;
   line-height: 38px;
   letter-spacing: 0%;
 
   &.normal {
-    color: $black-color;
+    // color: $black-color;
     font-weight: 700;
     font-size: 32px;
     line-height: 38px;
@@ -87,52 +87,52 @@ h6 {
   letter-spacing: 0%;
 
   &.ben-card-h6 {
-    color: $black-color;
+    // color: $black-color;
     font-weight: 700;
     font-size: 24px;
     line-height: 29px;
   }
 
   &.gray {
-    color: $gray-text-color;
+    // color: $gray-text-color;
     font-size: 24px;
     font-weight: 400;
     line-height: 29px;
   }
-  @media (max-width: 620px) {
-    &.gray {
-      font-size: 16px;
-    }
-  }
+  // @media (max-width: 620px) {
+  //   &.gray {
+  //     font-size: 16px;
+  //   }
+  // }
 }
 
 a {
-  color: $black-color;
+  // color: $black-color;
   text-decoration: none;
   font-size: 18px;
   font-weight: 400;
   line-height: 21px;
 
   &:hover {
-    color: $primary-color;
+    // color: $primary-color;
     text-decoration: underline;
     transition: 0.25s;
   }
 }
 
 p {
-  color: $black-color;
+  // color: $black-color;
   font-size: 20px;
   font-weight: 400;
   line-height: 24px;
   letter-spacing: 0%;
 
   &.gray {
-    color: $gray-text-color;
+    // color: $gray-text-color;
   }
 
   &.a {
-    color: $black-color;
+    // color: $black-color;
     font-size: 18px;
     font-weight: 400;
     line-height: 21px;
@@ -144,7 +144,7 @@ p {
 }
 
 sup {
-  color: $gray-text-color;
+  // color: $gray-text-color;
   font-size: 16px;
   font-weight: 400;
   line-height: 19px;
@@ -161,7 +161,7 @@ sup {
 
 li {
   list-style-type: none;
-  color: $black-color;
+  // color: $black-color;
   font-size: 16px;
   font-weight: 400;
   line-height: 19px;
@@ -180,26 +180,26 @@ button {
   padding: 16px 30px 16px 30px;
 }
 
-@media (max-width: 1245px) {
-  h2 {
-    font-size: 60px;
-  }
+// @media (max-width: 1245px) {
+//   h2 {
+//     font-size: 60px;
+//   }
 
-  h4 {
-    font-size: 32px;
-  }
+//   h4 {
+//     font-size: 32px;
+//   }
 
-  .info-text {
-    > h5 {
-      font-size: 32px;
-    }
+//   .info-text {
+//     > h5 {
+//       font-size: 32px;
+//     }
 
-    > h6 {
-      font-size: 16px;
-    }
+//     > h6 {
+//       font-size: 16px;
+//     }
 
-    > button {
-      font-size: 16px;
-    }
-  }
-}
+//     > button {
+//       font-size: 16px;
+//     }
+//   }
+// }
