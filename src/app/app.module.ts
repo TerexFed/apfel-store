@@ -20,6 +20,7 @@ import { BenefitsComponent } from './components/benefits/benefits.component';
 import { DistributionComponent } from './components/distribution/distribution.component';
 import { ModalWindowComponent } from './UI/modal-window/modal-window.component';
 import { BasketComponent } from './modals/basket/basket.component';
+//
 import { CallBackComponent } from './modals/call-back/call-back.component';
 
 @NgModule({
