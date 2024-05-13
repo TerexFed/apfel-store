@@ -18,11 +18,9 @@ import { FavouritesPageComponent } from './pages/favourites-page/favourites-page
 import { AllCatalogPageComponent } from './pages/all-catalog-page/all-catalog-page.component';
 import { BenefitsComponent } from './components/benefits/benefits.component';
 import { DistributionComponent } from './components/distribution/distribution.component';
-import { ModalWindowComponent } from './UI/modal-window/modal-window.component';
-import { BasketComponent } from './modals/basket/basket.component';
-//
-import { CallBackComponent } from './modals/call-back/call-back.component';
-
+import { GadgetItemComponent } from './components/gadget-item/gadget-item.component';
+import { CustomCurrencyPipe } from './pipes/custom-currency/custom-currency.component';
+import { GadgetListComponent } from './components/gadget-list/gadget-list.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,13 +39,13 @@ import { CallBackComponent } from './modals/call-back/call-back.component';
     AllCatalogPageComponent,
     BenefitsComponent,
     DistributionComponent,
-    ModalWindowComponent,
-    BasketComponent,
-    CallBackComponent,
+    GadgetItemComponent,
+    CustomCurrencyPipe,
+    GadgetListComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
   providers: [
     provideClientHydration()

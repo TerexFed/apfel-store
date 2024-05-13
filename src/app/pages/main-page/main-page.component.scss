@@ -1,16 +1,26 @@
 .bottom-text {
-  height: 115px;
   z-index: 2;
   position: relative;
   display: flex;
-  justify-content: center;
-  text-align: center;
+  flex-direction: column;
   background-color: white;
-  padding: 0 25% 0 25%;
+  padding: 24px;
+  gap: 41px;
+
+  h3 {
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  p {
+    color: #0071e4;
+  }
 }
+
 .tablet-form {
   display: none;
 }
+
 h4.normal {
   z-index: 2;
   background-color: white;
@@ -20,24 +30,29 @@ h4.normal {
   letter-spacing: 0%;
   padding: 32px 140px 22px 140px;
 }
+
 sup.new-iphone-text {
   background-color: white;
   margin-bottom: 32px;
   padding: 0 140px 0 140px;
 }
+
 .main {
   display: flex;
   flex-direction: column;
 }
+
 .info {
   display: flex;
   align-items: center;
   background-color: black;
   height: 360px;
 }
-.info > img {
+
+.info>img {
   margin: 100px 88px 0 120px;
 }
+
 .info-text {
   display: flex;
   flex-direction: column;
@@ -45,58 +60,70 @@ sup.new-iphone-text {
   align-items: start;
   height: 190px;
 }
-.info-text > h6 {
+
+.info-text>h6 {
   margin: 16px 0 16px 0;
 }
 
 @media (width < 1560px) {
-  .bottom-text > h3 {
+  .bottom-text>h3 {
     font-size: 40px;
     width: fit-content;
   }
 }
+
 @media (width < 990px) {
   h4.normal {
     padding: 20px;
   }
+
   sup.new-iphone-text {
     padding: 20px;
   }
 }
+
 @media (width < 840px) {
   .bottom-text {
     padding: 0 15% 0 15%;
   }
-  .bottom-text > h3 {
+
+  .bottom-text>h3 {
     font-size: 24px;
     width: fit-content;
   }
 }
+
 @media (width < 760px) {
-  .info > img {
+  .info>img {
     margin: 100px 50px 0 40px;
   }
 }
+
 @media (width < 560px) {
   .bottom-text {
     padding: 0 5px 0 5px;
   }
-  .info > img {
+
+  .info>img {
     width: 120px;
     height: 263px;
   }
+
   h4.normal {
     font-size: 20px;
   }
+
   sup.new-iphone-text {
     font-size: 16px;
   }
 }
+
 @media (width < 495px) {
-  .info > img {
+  .info>img {
     margin: 30% 24px 0 20px;
   }
 }
+
 @media (width < 330px) {
   .info-text {
     margin-bottom: 20%;
