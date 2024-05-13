@@ -15,8 +15,6 @@
     <img class="gadget-image" src="/assets/gadget-item/iphone.jpg" alt="gadget-image">
     @if (gadget.isAvailable) {
     <div class="second-section">
-        <!-- <p><span [class]="'isAvailable ' + (gadget.isAvailable ? 'available' : 'unavailable')"></span>
-                {{gadget.isAvailable ? 'Есть в наличии' : 'Отсутствует'}}</p> -->
         <p><span class="isAvailable available"></span>Есть в наличии</p>
         <p>Гарантия {{gadget.guarantee}} год</p>
     </div>
@@ -34,10 +32,6 @@
     </button>
     } @else {
     <div class="prices-section">
-        <!-- <p [class]="gadget.discountPrice ? 'old-price' : 'price'">{{gadget.price | customCurrency }}</p>
-            @if(gadget.discountPrice){
-            <p class="price">{{gadget.discountPrice | customCurrency}}</p>
-            } -->
         @if (gadget.discountPrice) {
         <p class="old-price">{{gadget.price | customCurrency }}</p>
         }
