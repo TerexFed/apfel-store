@@ -1,4 +1,4 @@
-import { ComponentFactoryResolver, Inject, Injectable, Injector, TemplateRef } from '@angular/core';
+import { ComponentFactoryResolver, ComponentRef, Inject, Injectable, Injector, TemplateRef } from '@angular/core';
 
 import { DOCUMENT } from '@angular/common';
 import { Subject } from 'rxjs';
@@ -8,7 +8,7 @@ import { ModalWindowComponent } from '../UI/modal-window/modal-window.component'
   providedIn: 'root'
 })
 export class ModalWindowService {
-  private modalNotifier?: Subject<string>;
+  private modalComponentRef: ComponentRef<ModalWindowComponent> | null = null;
   constructor(
     private resolver: ComponentFactoryResolver,
     private injector: Injector,
@@ -16,6 +16,9 @@ export class ModalWindowService {
   ) {}
 
   open(content: TemplateRef<any>) {
+    this.closeModal()
+    this.document.body.scrollTop = 0; 
+    this.document.documentElement.scrollTop = 0;
     const modalComponentFactory = this.resolver.resolveComponentFactory(
       ModalWindowComponent
     );
@@ -29,13 +32,15 @@ export class ModalWindowService {
     modalComponent.hostView.detectChanges();
 
     this.document.body.appendChild(modalComponent.location.nativeElement);
-    this.modalNotifier = new Subject();
-    return this.modalNotifier?.asObservable();
+    this.modalComponentRef = modalComponent
   }
 
   closeModal() {
-    this.document.body.classList.remove('modal-open')
-    this.modalNotifier?.complete();
+    if (this.modalComponentRef) {
+      this.document.body.classList.remove('modal-open');
+      this.modalComponentRef.destroy();
+      this.modalComponentRef = null;
+    }
   }
 
 }

@@ -23,6 +23,8 @@ import { CustomCurrencyPipe } from './pipes/custom-currency/custom-currency.comp
 import { GadgetListComponent } from './components/gadget-list/gadget-list.component';
 import { BasketComponent as ModalBasketComponent } from './modals/basket/basket.component';
 import { CallBackComponent as ModalCallbackComponent } from './modals/call-back/call-back.component';
+import { ApplicationSendComponent } from './modals/application-send/application-send.component';
+import { PriceLowerComponent } from './modals/price-lower/price-lower.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,6 +48,8 @@ import { CallBackComponent as ModalCallbackComponent } from './modals/call-back/
     GadgetListComponent,
     ModalBasketComponent,
     ModalCallbackComponent,
+    ApplicationSendComponent,
+    PriceLowerComponent,
   ],
   imports: [
     BrowserModule,

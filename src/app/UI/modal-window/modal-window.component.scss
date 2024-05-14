@@ -13,11 +13,14 @@
 .modal-window {
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
     background-color: #ffffff;
     border-radius: 16px;
     padding: 30px;
+    width: 553px;
     z-index: 4;
+}
+.modal-window > img {
+    align-self: flex-end;
 }
 .modal-content {
     display: flex;

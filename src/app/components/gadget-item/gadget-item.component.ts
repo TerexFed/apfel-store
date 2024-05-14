@@ -1,4 +1,5 @@
-import { Component, HostListener, Input, OnInit } from '@angular/core';
+import { Component, HostListener, Input, OnInit, TemplateRef } from '@angular/core';
+import { ModalWindowService } from '../../services/modal-window.service';
 
 @Component({
   selector: 'app-gadget-item',
@@ -6,6 +7,7 @@ import { Component, HostListener, Input, OnInit } from '@angular/core';
   styleUrl: './gadget-item.component.scss'
 })
 export class GadgetItemComponent implements OnInit {
+  constructor(public modalService: ModalWindowService) { }
   @Input() gadget: any
 
   get5RatingArr() {
@@ -21,5 +23,10 @@ export class GadgetItemComponent implements OnInit {
   @HostListener('window:resize', ['$event'])
   onResize(event: any) {
     this.windowWidth = event.target.innerWidth;
+  }
+
+
+  public openModal(modalTemplate: TemplateRef<any>) {
+    this.modalService.open(modalTemplate)
   }
 }

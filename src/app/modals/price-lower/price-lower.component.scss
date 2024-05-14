@@ -1,14 +1,12 @@
-.callback {
+.price-lower {
     display: flex;
     flex-direction: column;
     align-items: center;
-
-    > h4 {
-        margin: 24px 0 10px 0;
-    }
-    > button {
-        margin-top: 10px;
-    }   
+    text-align: center;
+}
+sup{
+    width: 357px;
+    margin: 8px 0 16px 0;
 }
 input[type="text"] {
     border: 1px solid rgb(219, 219, 219);
@@ -17,14 +15,26 @@ input[type="text"] {
     width: 246px;
     height: 56px;
     color: rgb(135, 135, 135);
-    font-size: 24px;
+    font-size: 16px;
     font-weight: 400;
     line-height: 29px;
     letter-spacing: 0%;
     outline: none;
     padding-left: 24px;
-    margin: 24px 0 16px 0;
+}
+.two-inputs {
+    display: flex;
+    justify-content: center;
+}
+input.top-input {
+    width: 100%;
+    margin: 0 0 8px 0;
+}
+input[placeholder="+7"] {
+    font-size: 24px;
+    margin: 0 0 0 4px;
 }
 button {
-    width: 246px;
+    margin-top: 16px;
+    width: 100%;
 }

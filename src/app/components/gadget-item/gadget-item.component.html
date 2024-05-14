@@ -43,7 +43,7 @@
     </div>
     }
     <div class="last-section">
-        <p>Хочу дешевле</p>
+        <p (click)="openModal(lowerPrice)">Хочу дешевле</p>
         <p>Купить в 1 клик</p>
     </div>
     } @else {
@@ -54,3 +54,7 @@
     </div>
     }
 </div>
+
+<ng-template #lowerPrice>
+    <price-lower></price-lower>
+  </ng-template>
