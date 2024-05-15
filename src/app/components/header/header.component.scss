@@ -1,8 +1,20 @@
+@import "../../../variables.scss";
+
+.comp-header {
+  padding: 0 120px 0 120px;
+  width: 1440px;
+  margin: 0 auto;
+}
+
+.apple-logo {
+  margin: -8px 0 0 15px;
+}
+
 .header-part {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 100px;
+  height: 94px;
 }
 
 .tablet-header {
@@ -12,11 +24,19 @@
 .links {
   display: flex;
   align-items: center;
+  gap: 21px;
 }
 
 .links > a {
-  margin: 0 24px 0 24px;
+  color: black;
+  font-weight: 400;
+  line-height: 21.48px;
+  font-size: 18px;
 }
+
+// .links > a:not(:last-child){
+//   margin-right: 23px;
+// }
 
 .promotion {
   display: flex;
@@ -28,12 +48,19 @@
 
 .telephone {
   display: flex;
-  flex-direction: column;
   justify-content: right;
+  flex-direction: column;
+}
+
+.tel-number__number {
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 23.87px;
 }
 
 .tel-number {
   display: flex;
+  margin: 13px -18px 0 0px;
 }
 
 .tel-icon {
@@ -41,15 +68,15 @@
 }
 
 .tel-number > p {
-  padding-left: 5px;
+  margin-left: 8px;
 }
 
-span {
-  color: rgb(0, 113, 228);
+.tel-number__text {
+  color: $bg-color;
   font-size: 16px;
   font-weight: 400;
   line-height: 19px;
-  letter-spacing: 0%;
+  letter-spacing: 0;
   text-align: right;
 }
 
@@ -58,17 +85,17 @@ span {
   justify-content: center;
   align-items: center;
   color: white;
-  width: 235px;
-  padding: 13px 16px 13px 16px;
+  width: 25%;
+  // padding: 16px 13px 16px 13px;
+  padding: 12px;
   border-radius: 16px;
   background: rgb(0, 113, 228);
-
   color: rgb(255, 255, 255);
-  font-family: SF Pro Display;
   font-size: 20px;
   font-weight: 400;
   line-height: 24px;
-  letter-spacing: 0%;
+  letter-spacing: 0;
+  text-align: left;
 }
 
 input[type="search"] {
@@ -80,7 +107,7 @@ input[type="search"] {
   font-size: 20px;
   font-weight: 400;
   line-height: 24px;
-  letter-spacing: 0%;
+  letter-spacing: 0;
   color: rgb(183, 183, 183);
   outline: none;
   border: none;
@@ -95,20 +122,23 @@ input[type="search"] {
 }
 
 .functions > img {
-  margin: 24px;
+  margin: 12px;
 }
 
-button {
+.button {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
   border-radius: 16px;
-  background: rgb(82, 209, 22);
+  background: $buy-bg;
   border: none;
   padding: 0px 16px 0px 16px;
-  width: 215px;
+  width: 230px;
   height: 56px;
   font-size: 20px;
   font-weight: 400;
   line-height: 24px;
-  letter-spacing: 0%;
+  letter-spacing: 0;
   color: rgb(255, 255, 255);
 }
 
