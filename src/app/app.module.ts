@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
+import {MatDialogModule} from '@angular/material/dialog';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -25,6 +26,8 @@ import { BasketComponent as ModalBasketComponent } from './modals/basket/basket.
 import { CallBackComponent as ModalCallbackComponent } from './modals/call-back/call-back.component';
 import { ApplicationSendComponent } from './modals/application-send/application-send.component';
 import { PriceLowerComponent } from './modals/price-lower/price-lower.component';
+import { AdmissionComponent } from './modals/admission/admission.component';
+import { ModalWindowComponent } from './UI/modal-window/modal-window.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,10 +53,13 @@ import { PriceLowerComponent } from './modals/price-lower/price-lower.component'
     ModalCallbackComponent,
     ApplicationSendComponent,
     PriceLowerComponent,
+    AdmissionComponent,
+    ModalWindowComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    MatDialogModule
   ],
   providers: [
     provideClientHydration()

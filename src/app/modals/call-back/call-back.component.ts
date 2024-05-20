@@ -1,5 +1,4 @@
-import { Component, TemplateRef } from '@angular/core';
-import { ModalWindowService } from '../../services/modal-window.service';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'modal-callback',
@@ -7,9 +6,5 @@ import { ModalWindowService } from '../../services/modal-window.service';
   styleUrl: './call-back.component.scss'
 })
 export class CallBackComponent {
-  constructor(public modalService: ModalWindowService) { }
-
-  public openModal(modalTemplate: TemplateRef<any>) {
-    this.modalService.open(modalTemplate)
-  }
+  
 }

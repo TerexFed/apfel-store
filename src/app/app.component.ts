@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { ModalWindowService } from './services/modal-window.service';
 
 
 @Component({

@@ -1,60 +1,96 @@
 <div class="gadget">
-    <div class="first-section">
-        <div class="rating-stars">
-            @for (_ of get5RatingArr(); track $index) {
-            <img [src]="'/assets/gadget-item/star-' + ($index+1 <= gadget.rating ? 'active' : 'inactive') + '.svg'"
-                alt="rating">
-            }
-        </div>
-        <p class="reviews-count">({{gadget.reviews}})</p>
-        <img class="self-end"
-            [src]="'/assets/gadget-item/heart-' + (gadget.isFavorite ? 'active' : 'inactive') + '.svg'" alt="">
-        <img src="/assets/gadget-item/compare.svg" alt="">
+  <div class="first-section">
+    <div class="rating-stars">
+      @for (_ of get5RatingArr(); track $index) {
+      <img
+        [src]="
+          '/assets/gadget-item/star-' +
+          ($index + 1 <= gadget.rating ? 'active' : 'inactive') +
+          '.svg'
+        "
+        alt="rating"
+      />
+      }
     </div>
-    <p class="name">{{gadget.name}}</p>
-    <img class="gadget-image" src="/assets/gadget-item/iphone.jpg" alt="gadget-image">
-    @if (gadget.isAvailable) {
-    <div class="second-section">
-        <p><span class="isAvailable available"></span>Есть в наличии</p>
-        <p>Гарантия {{gadget.guarantee}} год</p>
-    </div>
-    @if (windowWidth > 900) {
-    <div class="prices-section">
-        <p [class]="gadget.discountPrice ? 'old-price' : 'price'">{{gadget.price | customCurrency }}</p>
-        @if(gadget.discountPrice){
-        <p class="price">{{gadget.discountPrice | customCurrency}}</p>
-        }
-    </div>
-    <button [class]="'add-to-cart ' + (gadget.isInCart ? 'in-cart' : 'not-in-cart')">
-        <img class="gadget-is-in-cart image-size-24"
-            [src]="'/assets/gadget-item/cart-' + (gadget.isInCart ? 'active' : 'inactive') + '.svg'" alt="cart">
-        {{ gadget.isInCart ? 'в корзине' : 'в корзину' }}
+    <p class="reviews-count">({{ gadget.reviews }})</p>
+    <img
+      class="self-end"
+      [src]="
+        '/assets/gadget-item/heart-' +
+        (gadget.isFavorite ? 'active' : 'inactive') +
+        '.svg'
+      "
+      alt=""
+    />
+    <img src="/assets/gadget-item/compare.svg" alt="" />
+  </div>
+  <p class="name">{{ gadget.name }}</p>
+  <img
+    class="gadget-image"
+    src="/assets/gadget-item/iphone.jpg"
+    alt="gadget-image"
+  />
+  @if (gadget.isAvailable) {
+  <div class="second-section">
+    <p><span class="isAvailable available"></span>Есть в наличии</p>
+    <p>Гарантия {{ gadget.guarantee }} год</p>
+  </div>
+  @if (windowWidth > 900) {
+  <div class="prices-section">
+    <p [class]="gadget.discountPrice ? 'old-price' : 'price'">
+      {{ gadget.price | customCurrency }}
+    </p>
+    @if(gadget.discountPrice){
+    <p class="price">{{ gadget.discountPrice | customCurrency }}</p>
+    }
+  </div>
+  <button
+    [class]="'add-to-cart ' + (gadget.isInCart ? 'in-cart' : 'not-in-cart')"
+  >
+    <img
+      class="gadget-is-in-cart image-size-24"
+      [src]="
+        '/assets/gadget-item/cart-' +
+        (gadget.isInCart ? 'active' : 'inactive') +
+        '.svg'
+      "
+      alt="cart"
+    />
+    {{ gadget.isInCart ? "в корзине" : "в корзину" }}
+  </button>
+  } @else {
+  <div class="prices-section">
+    @if (gadget.discountPrice) {
+    <p class="old-price">{{ gadget.price | customCurrency }}</p>
+    }
+    <button
+      [class]="'add-to-cart ' + (gadget.isInCart ? 'in-cart' : 'not-in-cart')"
+    >
+      <img
+        class="gadget-is-in-cart"
+        [src]="
+          '/assets/gadget-item/cart-' +
+          (gadget.isInCart ? 'active' : 'inactive') +
+          '.svg'
+        "
+        alt="cart"
+      />
+      <span>{{ gadget.discountPrice || gadget.price | customCurrency }}</span>
     </button>
-    } @else {
-    <div class="prices-section">
-        @if (gadget.discountPrice) {
-        <p class="old-price">{{gadget.price | customCurrency }}</p>
-        }
-        <button [class]="'add-to-cart ' + (gadget.isInCart ? 'in-cart' : 'not-in-cart')">
-            <img class="gadget-is-in-cart"
-                [src]="'/assets/gadget-item/cart-' + (gadget.isInCart ? 'active' : 'inactive') + '.svg'" alt="cart">
-            <span>{{ (gadget.discountPrice || gadget.price) | customCurrency }}</span>
-        </button>
-    </div>
-    }
-    <div class="last-section">
-        <p (click)="openModal(lowerPrice)">Хочу дешевле</p>
-        <p>Купить в 1 клик</p>
-    </div>
-    } @else {
-    <div class="preorder">
-        <p><span class="isAvailable unavailable"></span>Ожидается поступление</p>
-        <p>Мы можем сообщить вам, когда товар появится в наличии</p>
-        <p>Сообщить о поступлении</p>
-    </div>
-    }
+  </div>
+  }
+  <div class="last-section">
+    <p (click)="openDialogOneClick()">Хочу дешевле</p>
+    <p>Купить в 1 клик</p>
+  </div>
+  } @else {
+  <div class="preorder">
+    <p><span class="isAvailable unavailable"></span>Ожидается поступление</p>
+    <p>Мы можем сообщить вам, когда товар появится в наличии</p>
+    <p (click)="openDialogAdmission()">
+      Сообщить о поступлении
+    </p>
+  </div>
+  }
 </div>
 
-<ng-template #lowerPrice>
-    <price-lower></price-lower>
-  </ng-template>

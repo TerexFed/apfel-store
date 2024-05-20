@@ -1,5 +1,6 @@
 import { Component, TemplateRef } from '@angular/core';
-import { ModalWindowService } from '../../services/modal-window.service';
+import { ModalWindowComponent } from '../../UI/modal-window/modal-window.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-header',
@@ -7,14 +8,14 @@ import { ModalWindowService } from '../../services/modal-window.service';
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent {
-
-  constructor(public modalService: ModalWindowService) { }
+  constructor(public dialog: MatDialog) { }
 
   public isHeaderOpen = false
   public openHeader() {
     this.isHeaderOpen = !this.isHeaderOpen
   }
-  public openModal(modalTemplate: TemplateRef<any>) {
-    this.modalService.open(modalTemplate)
+
+  openDialog() {
+    this.dialog.open(ModalWindowComponent, { data: { type: 'Basket'} })
   }
 }
