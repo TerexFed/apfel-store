@@ -1,18 +1,26 @@
-<div class="distribution">
+<section class="bg">
+  <div class="distribution">
     <img
       src="../../../assets/main-page/distribution_image.svg"
       alt="distribution_image"
     />
     <div class="text">
-      <h3 class="normal">Подписка на рассылку акций!</h3>
-      <h6 class="gray">
-        Подпишитесь на рассылку, чтобы узнавать о всех акциях первым
-      </h6>
+      <div class="text__card">
+        <h3 class="normal">Подписка на рассылку акций!</h3>
+        <h6 class="gray">
+          Подпишитесь на рассылку, чтобы узнавать о всех акциях первым
+        </h6>
+      </div>
       <form class="main-form">
         <h3 class="form-text">Скидка 10%</h3>
         <p>на первую покупку за подписку</p>
         <div class="form-info">
-          <input type="text" placeholder="+ 7" />
+          <input
+            type="tel"
+            inputmode="numeric"
+            pattern="\+7\d{10}"
+            placeholder="+ 7"
+          />
           <button class="gray">подписаться</button>
         </div>
       </form>
@@ -22,10 +30,15 @@
           <sup>на первую покупку за подписку</sup>
         </div>
         <div class="form-info">
-          <input type="text" placeholder="+ 7" />
+          <input
+            type="tel"
+            inputmode="numeric"
+            pattern="\+7\d{10}"
+            placeholder="+ 7"
+          />
           <button class="gray">подписаться</button>
         </div>
       </form>
     </div>
   </div>
-  
+</section>

@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { MainPageComponent } from './pages/main-page/main-page.component';
-import { ScrollGoodsComponent } from './components/scroll-goods/scroll-goods.component';
+import { ScrollGoodsComponent } from './components/main-page-components/scroll-goods/scroll-goods.component';
 import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { WarrantyPageComponent } from './pages/warranty-page/warranty-page.component';
@@ -16,8 +16,9 @@ import { ReviewPageComponent } from './pages/review-page/review-page.component';
 import { ContactPageComponent } from './pages/contact-page/contact-page.component';
 import { FavouritesPageComponent } from './pages/favourites-page/favourites-page.component';
 import { AllCatalogPageComponent } from './pages/all-catalog-page/all-catalog-page.component';
-import { BenefitsComponent } from './components/benefits/benefits.component';
-import { DistributionComponent } from './components/distribution/distribution.component';
+import { BenefitsComponent } from './components/main-page-components/benefits/benefits.component';
+import { DistributionComponent } from './components/main-page-components/distribution/distribution.component';
+import { NewModelsComponent } from './components/main-page-components/new-models/new-models.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { DistributionComponent } from './components/distribution/distribution.co
     FavouritesPageComponent,
     AllCatalogPageComponent,
     BenefitsComponent,
-    DistributionComponent
+    DistributionComponent,
+    NewModelsComponent
   ],
   imports: [
     BrowserModule,

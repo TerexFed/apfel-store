@@ -1,0 +1,112 @@
+@import "../../../../variables.scss";
+
+.new-models__text {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.bottom-text {
+  background-color: white;
+  padding: 0 25% 0 25%;
+}
+
+h4.normal {
+  background-color: white;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 38px;
+  letter-spacing: 0;
+}
+
+p.text {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 19.09px;
+  text-align: left;
+  color: $accent-text-color;
+}
+
+.new-iphone-text {
+  background-color: white;
+  margin-bottom: 32px;
+}
+
+.bg {
+  background-color: black;
+}
+
+.info {
+  display: flex;
+  align-items: center;
+  max-width: 1200px;
+  overflow: hidden;
+  height: 360px;
+  margin: 0 auto;
+}
+
+.info > img {
+  margin: 270px 88px 0 0;
+}
+
+.info-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: start;
+  // height: 190px;
+}
+
+.info-text > h6 {
+  margin: 16px 0 16px 0;
+}
+
+@media screen and (max-width: 1025px) {
+  .info > img {
+    margin: 100px 50px 0 40px;
+  }
+
+  .new-models__text {
+    padding: 10px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  h4.normal {
+    padding: 15px;
+    font-size: 24px;
+  }
+
+  .new-iphone-text,
+  .text {
+    padding: 0 15px 0 15px;
+  }
+}
+
+@media (max-width: 576px) {
+  .info > img {
+    margin: 3% 24px 0 16px;
+    width: 65px;
+    height: 153px;
+  }
+  .info {
+    height: 151px;
+  }
+  .info-text {
+
+    justify-content: center;
+
+    h5 {
+      font-size: clamp(1.25rem, -1.0938rem + 11.7188vw, 3.125rem);
+      height: 45px;
+    }
+    h6 {
+      font-size: clamp(1rem, -0.0938rem + 5.4688vw, 1.875rem);
+      font-weight: 500;
+      line-height: 19.09px;
+    }
+
+    button {
+      width: 80%;
+    }
+  }
+}

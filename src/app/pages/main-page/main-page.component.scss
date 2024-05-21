@@ -1,104 +1,12 @@
+@import "../../../variables.scss";
+
 .bottom-text {
   height: 115px;
-  z-index: 2;
-  position: relative;
   display: flex;
   justify-content: center;
   text-align: center;
   background-color: white;
-  padding: 0 25% 0 25%;
-}
-.tablet-form {
-  display: none;
-}
-h4.normal {
-  z-index: 2;
-  background-color: white;
-  font-size: 32px;
-  font-weight: 700;
-  line-height: 38px;
-  letter-spacing: 0%;
-  padding: 32px 140px 22px 140px;
-}
-sup.new-iphone-text {
-  background-color: white;
-  margin-bottom: 32px;
-  padding: 0 140px 0 140px;
-}
-.main {
-  display: flex;
-  flex-direction: column;
-}
-.info {
-  display: flex;
-  align-items: center;
-  background-color: black;
-  height: 360px;
-}
-.info > img {
-  margin: 100px 88px 0 120px;
-}
-.info-text {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: start;
-  height: 190px;
-}
-.info-text > h6 {
-  margin: 16px 0 16px 0;
-}
-
-@media (width < 1560px) {
-  .bottom-text > h3 {
-    font-size: 40px;
-    width: fit-content;
-  }
-}
-@media (width < 990px) {
-  h4.normal {
-    padding: 20px;
-  }
-  sup.new-iphone-text {
-    padding: 20px;
-  }
-}
-@media (width < 840px) {
-  .bottom-text {
-    padding: 0 15% 0 15%;
-  }
-  .bottom-text > h3 {
-    font-size: 24px;
-    width: fit-content;
-  }
-}
-@media (width < 760px) {
-  .info > img {
-    margin: 100px 50px 0 40px;
-  }
-}
-@media (width < 560px) {
-  .bottom-text {
-    padding: 0 5px 0 5px;
-  }
-  .info > img {
-    width: 120px;
-    height: 263px;
-  }
-  h4.normal {
-    font-size: 20px;
-  }
-  sup.new-iphone-text {
-    font-size: 16px;
-  }
-}
-@media (width < 495px) {
-  .info > img {
-    margin: 30% 24px 0 20px;
-  }
-}
-@media (width < 330px) {
-  .info-text {
-    margin-bottom: 20%;
-  }
+  color: $text-color;
+  font-weight: 500;
+  font-size: clamp(1.5rem, 1.0714rem + 2.1429vw, 3rem);
 }

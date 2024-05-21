@@ -1,20 +1,28 @@
 @import "../../../variables.scss";
 
 .comp-header {
-  padding: 0 120px 0 120px;
-  width: 1440px;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
-.apple-logo {
-  margin: -8px 0 0 15px;
+.header__links {
+  display: grid;
+  grid-template-columns: 1fr 180px;
+  height: 94px;
 }
 
-.header-part {
+.header__searh {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 94px;
+  height: 100px;
+}
+
+.header__devices {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 80px;
 }
 
 .tablet-header {
@@ -24,32 +32,27 @@
 .links {
   display: flex;
   align-items: center;
-  gap: 21px;
+  gap: 28px;
 }
 
 .links > a {
-  color: black;
   font-weight: 400;
   line-height: 21.48px;
   font-size: 18px;
 }
 
-// .links > a:not(:last-child){
-//   margin-right: 23px;
-// }
-
 .promotion {
   display: flex;
   align-items: center;
   border-radius: 8px;
-  padding: 3px;
-  background: rgb(253, 239, 191);
+  padding: 2px 8px;
+  background: $fire-bg;
 }
 
 .telephone {
   display: flex;
-  justify-content: right;
   flex-direction: column;
+  justify-content: center;
 }
 
 .tel-number__number {
@@ -60,7 +63,7 @@
 
 .tel-number {
   display: flex;
-  margin: 13px -18px 0 0px;
+  margin-top: 10px;
 }
 
 .tel-icon {
@@ -84,13 +87,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  color: white;
   width: 25%;
-  // padding: 16px 13px 16px 13px;
   padding: 12px;
   border-radius: 16px;
-  background: rgb(0, 113, 228);
-  color: rgb(255, 255, 255);
+  background: $bg-color;
+  color: $button-title;
   font-size: 20px;
   font-weight: 400;
   line-height: 24px;
@@ -108,10 +109,10 @@ input[type="search"] {
   font-weight: 400;
   line-height: 24px;
   letter-spacing: 0;
-  color: rgb(183, 183, 183);
+  color: $accent-list;
   outline: none;
   border: none;
-  border: 1px solid rgb(183, 183, 183);
+  border: 1px solid $accent-list;
   border-radius: 8px;
   margin-left: 40px;
 }
@@ -130,25 +131,29 @@ input[type="search"] {
   justify-content: space-around;
   align-items: center;
   border-radius: 16px;
-  background: $buy-bg;
+  background-color: $buy-bg;
   border: none;
   padding: 0px 16px 0px 16px;
   width: 230px;
   height: 56px;
-  font-size: 20px;
-  font-weight: 400;
-  line-height: 24px;
-  letter-spacing: 0;
-  color: rgb(255, 255, 255);
+
+  p {
+    color: $button-title;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0;
+  }
 }
 
 .card {
   display: flex;
   align-items: center;
+  cursor: pointer;
 }
 
 .card:hover > p {
-  color: rgb(0, 113, 228);
+  color: $hover-color;
 }
 
 .card:hover > img {
@@ -168,87 +173,108 @@ input[type="search"] {
   border-radius: 0 0 24px 24px;
 }
 
-// @media (width < 1560px) {
-//   .comp-header {
-//     display: none;
-//   }
-//   .tablet-header {
-//     display: flex;
-//     justify-content: space-between;
-//     align-items: center;
-//     border-radius: 0 0 24px 24px;
-//   }
-//   input[type="search"] {
-//     background-image: url("../../../assets/header/search-icon-black.svg");
-//     border: none;
-//     margin: 0;
-//   }
-//   .header-open {
-//     display: flex;
-//     flex-direction: column;
-//     padding: 10px 140px 10px 140px;
-//     border-radius: 0px 0px 24px 24px;
-//     background-color: white;
-//     position: absolute;
-//     width: 100%;
-//   }
-//   p.a {
-//     margin-bottom: 10px;
-//   }
-//   .open-links {
-//     display: flex;
-//     flex-direction: column;
-//   }
-//   .promotion {
-//     margin-right: 24px;
-//   }
-//   .links {
-//     margin: 5px 0 15px 0;
-//   }
-//   .links > a {
-//     margin-left: 0;
-//   }
-//   .header-part {
-//     height: fit-content;
-//   }
-//   .open-header-link {
-//     margin-left: 10px;
-//   }
-// }
+@media screen and (max-width: 1025px) {
+  .comp-header {
+    display: none;
+  }
 
-// @media (width < 1280px) {
-//   .tablet-header,
-//   .header-open {
-//     padding: 0 20px 0 20px;
-//   }
-// }
+  .tablet-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 0 0 24px 24px;
+  }
 
-// @media (width < 890px) {
-//   .tel-number {
-//     display: none;
-//   }
-//   .tel-icon {
-//     display: flex;
-//   }
-// }
+  input[type="search"] {
+    background-image: url("../../../assets/header/search-icon-black.svg");
+    border: none;
+    margin: 0;
+  }
 
-// @media (width < 525px) {
-//   .header-open {
-//     height: 380px;
-//   }
-//   .links {
-//     display: flex;
-//     flex-direction: column;
-//     align-items: flex-start;
-//     margin: 0;
-//   }
-//   p.a {
-//     margin: 8px 0 16px 0;
-//   }
-//   .links > a {
-//     margin: 8px 0 8px 0;
-//   }
-//   .whatsapp {
-//     margin-left: 0;
-//   }
-// }
+  .header-open {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 140px 10px 140px;
+    border-radius: 0px 0px 24px 24px;
+    background-color: white;
+    position: absolute;
+    width: 100%;
+  }
+
+  .tel-number__number {
+    font-size: 16px;
+  }
+
+  .telephone {
+    width: 155px;
+  } 
+
+  p.a {
+    margin-bottom: 10px;
+  }
+
+  .open-links {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .links {
+    margin: 5px 0 15px 0;
+  }
+
+  .links > a {
+    margin-left: 0;
+  }
+
+  .header-part {
+    height: fit-content;
+  }
+
+ 
+
+  .open-header-link {
+    margin-left: 10px;
+  }
+}
+
+@media screen and (max-width: 1025px) {
+  .tablet-header,
+  .header-open {
+    padding: 0 20px 0 20px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+
+  .tel-icon {
+    display: flex;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .header-open {
+    height: 90%
+  }
+  .telephone {
+    display: none;
+  }
+  .links {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+  }
+
+  p.a {
+    margin: 8px 0 16px 0;
+  }
+
+  .links > a {
+    margin: 8px 0 8px 0;
+  }
+
+  .whatsapp {
+    margin-left: 0;
+  }
+  
+}
