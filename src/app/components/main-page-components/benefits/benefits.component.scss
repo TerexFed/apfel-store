@@ -1,14 +1,19 @@
-.benefits {
+@import '../../../../variables.scss';
+
+h1 .benefits {
   display: flex;
   flex-direction: column;
   text-align: center;
-  padding: 0 140px 0 140px;
+  max-width: 1200px;
+  margin: 40px auto;
 }
+
 .ben-cards {
   display: flex;
   justify-content: space-between;
   margin-top: 20px;
 }
+
 .ben-card {
   display: flex;
   flex-direction: column;
@@ -20,64 +25,63 @@
   padding: 34px 8px 34px 8px;
   margin: 0 15px 0 15px;
 }
-.ben-card > img {
+
+.ben-card>img {
   width: 160px;
   height: 160px;
 }
+
 .ben-card-text {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 212px;
 }
-.ben-card-text > sup {
+
+.ben-card-text>sup {
   margin: 10px 0 24px 0;
 }
+
 .pink {
-  background: linear-gradient(
-    180deg,
-    rgb(254, 148, 166),
-    rgb(242, 242, 242) 65.849%
-  );
+  background: linear-gradient(180deg,
+      rgb(254, 148, 166),
+      rgb(242, 242, 242) 65.849%);
   margin: 0;
 }
+
 .purple {
-  background: linear-gradient(
-    180deg,
-    rgb(230, 133, 255),
-    rgb(242, 242, 242) 65.849%
-  );
+  background: linear-gradient(180deg,
+      rgb(230, 133, 255),
+      rgb(242, 242, 242) 65.849%);
   margin: 0;
 }
+
 .blue {
-  background: linear-gradient(
-    180deg,
-    rgb(125, 233, 255),
-    rgb(242, 242, 242) 65.849%
-  );
+  background: linear-gradient(180deg,
+      rgb(125, 233, 255),
+      rgb(242, 242, 242) 65.849%);
   margin: 0;
 }
+
 .yellow {
-  background: linear-gradient(
-    180deg,
-    rgb(255, 230, 133),
-    rgb(247, 247, 247) 65.849%
-  );
+  background: linear-gradient(180deg,
+      rgb(255, 230, 133),
+      rgb(247, 247, 247) 65.849%);
   margin: 0;
 }
+
 .green {
-  background: linear-gradient(
-      180deg,
+  background: linear-gradient(180deg,
       rgb(173, 255, 193),
-      rgb(242, 242, 242) 65.849%
-    ),
+      rgb(242, 242, 242) 65.849%),
     rgb(242, 242, 242);
   margin: 0;
 }
+
 .button-invert {
   background-color: transparent;
-  color: rgb(0, 113, 228);
-  border: 1px solid rgb(0, 113, 228);
+  color: $bg-color;
+  border: 1px solid $bg-color;
   font-size: 18px;
   font-weight: 500;
   line-height: 21px;
@@ -85,35 +89,41 @@
   margin-top: 10px;
   width: 100%;
 }
+
 .sup-bottom {
   display: none;
 }
 
-@media (width < 1560px) {
+@media screen and (max-width: 1025px) {
   .benefits {
     padding: 0 20px 0 20px;
   }
+
   .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 60%;
   }
+
   .ben-cards {
     display: flex;
     flex-direction: column;
   }
-  .ben-card > img {
+
+  .ben-card>img {
     align-self: flex-start;
     width: 64px;
     height: 64px;
   }
+
   .ben-card {
     display: flex;
     flex-direction: row;
     margin-bottom: 8px;
     width: 100%;
   }
+
   .pink,
   .blue,
   .yellow,
@@ -121,48 +131,58 @@
   .purple {
     background: rgb(249, 249, 249);
   }
+
   .ben-card {
     text-align: left;
   }
+
   .ben-card-text {
     align-items: self-start;
     width: 30vw;
   }
+
   .button-invert {
     width: 20vw;
     margin-right: 70px;
   }
 }
 
-@media (width < 750px) {
+@media screen and (max-width: 576px) {
   .ben-card {
     justify-content: center;
     align-items: center;
     width: 100%;
     align-self: center;
   }
+
   .ben-card {
     display: flex;
     flex-direction: column;
     align-items: start;
   }
+
   .container {
     width: 100%;
     justify-content: flex-start;
   }
+
   .ben-card-text {
     width: 100%;
   }
-  .container > img {
+
+  .container>img {
     width: 32px;
     height: 32px;
   }
-  .ben-card-text > sup {
+
+  .ben-card-text>sup {
     display: none;
   }
+
   .button-invert {
     display: none;
   }
+
   .sup-bottom {
     display: flex;
   }
