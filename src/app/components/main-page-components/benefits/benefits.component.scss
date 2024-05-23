@@ -1,3 +1,5 @@
+@import '../../../../variables.scss';h1
+
 .benefits {
   display: flex;
   flex-direction: column;
@@ -77,8 +79,8 @@
 }
 .button-invert {
   background-color: transparent;
-  color: rgb(0, 113, 228);
-  border: 1px solid rgb(0, 113, 228);
+  color: $bg-color;
+  border: 1px solid $bg-color;
   font-size: 18px;
   font-weight: 500;
   line-height: 21px;

@@ -36,6 +36,22 @@
       align-self: center;
     }
 
+    @media screen and (max-width: 1025px) {
+      .arrow {
+        margin: 36px;
+      }
+    }
+
+    @media screen and (max-width: 576px) {
+      .arrow {
+        margin: 23px;
+      }
+
+      .scroll-goods {
+        height: 320px;
+      }
+    }
+
     h2 {
       display: flex;
       align-items: baseline;
@@ -63,16 +79,7 @@
       }
     }
 
-   
-
     @media screen and (max-width: 1025px) {
-      .ellips {
-        border: 7.5px solid $logo-title-color;
-        width: 68.16px;
-        height: 30.47px;
-        border-radius: 200px;
-      }
-
       .text {
         flex-direction: column-reverse;
         align-items: center;
@@ -95,7 +102,6 @@
       .big-iphone {
         width: 260px;
         height: 307px;
-        margin-left: 30px;
         margin-top: 5%;
       }
 
@@ -104,10 +110,9 @@
       }
 
       .ellips {
-        border: 5px solid rgb(30, 50, 64);
-        border-radius: 210px;
-        width: 42px;
-        height: 19px;
+        border: 9px solid $logo-title-color;
+        width: 90px;
+        height: 40px;
       }
 
       h4 {
@@ -115,11 +120,17 @@
       }
 
       h3 {
-        font-size: 30px;
+        font-size: 48px;
       }
     }
 
     @media screen and (max-width: 576px) {
+      .ellips {
+        border: 5px solid $logo-title-color;
+        width: 42px;
+        height: 20px;
+      }
+
       .text-info {
         margin-left: 0;
       }

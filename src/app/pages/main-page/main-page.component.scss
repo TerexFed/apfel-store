@@ -9,4 +9,9 @@
   color: $text-color;
   font-weight: 500;
   font-size: clamp(1.5rem, 1.0714rem + 2.1429vw, 3rem);
+  margin-top: 24px;
+
+  @media screen and (max-width: 576px) {
+    margin-top: 16px;
+  }
 }

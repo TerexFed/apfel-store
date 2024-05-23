@@ -5,11 +5,6 @@
   margin: 0 auto;
 }
 
-.bottom-text {
-  background-color: white;
-  padding: 0 25% 0 25%;
-}
-
 h4.normal {
   background-color: white;
   font-size: 32px;
@@ -23,6 +18,7 @@ p.text {
   font-weight: 400;
   line-height: 19.09px;
   text-align: left;
+  margin-top: 16px;
   color: $accent-text-color;
 }
 
@@ -53,7 +49,6 @@ p.text {
   flex-direction: column;
   justify-content: space-between;
   align-items: start;
-  // height: 190px;
 }
 
 .info-text > h6 {
@@ -61,8 +56,22 @@ p.text {
 }
 
 @media screen and (max-width: 1025px) {
+
+  .info {
+    height: 217px;
+
+    h5 {
+      font-size: 32px;
+    }
+    h6 {
+      font-size: 16px;
+    }
+  }
+
   .info > img {
-    margin: 100px 50px 0 40px;
+    margin: 70px 72px 0 40px;
+    width: 110px;
+    height: 276px;
   }
 
   .new-models__text {
@@ -89,7 +98,7 @@ p.text {
     height: 153px;
   }
   .info {
-    height: 151px;
+    height: 170px;
   }
   .info-text {
 

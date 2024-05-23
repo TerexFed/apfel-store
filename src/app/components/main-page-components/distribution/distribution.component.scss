@@ -1,7 +1,7 @@
 @import "../../../../variables.scss";
 
 .bg {
-  background-color: #f9f9f9;
+  background-color: $bg-distribution;
 }
 
 .distribution {
@@ -11,29 +11,30 @@
   margin: 0 auto;
   max-width: 1200px;
   height: 481px;
-  @media (max-width: 1560px) {
+
+  @media screen and (max-width: 1025px) {
     padding: 40px;
+    background-color: $bg-distribution-mobile
   }
 
-  @media (max-width: 576px) {
-    background-color: white;
+  @media screen and (max-width: 576px) {
+    background-color: $bg-distribution-mobile;
   }
 
-  @media (max-width: 576px) {
+  @media screen and (max-width: 576px) {
     padding: 0 20px 0 20px;
     justify-content: center;
   }
 
-  @media (max-width: 576px) {
+  @media screen and (max-width: 576px) {
     padding: 40px 5px;
   }
 }
 .text {
-
-  @media (max-width: 1025px) {
+  @media screen and (max-width: 1025px) {
     margin-left: 30px;
   }
-  @media (max-width: 576px) {
+  @media screen and (max-width: 576px) {
     margin: 0 20px 0 20px;
   }
 }
@@ -41,7 +42,7 @@
 .tablet-form {
   display: none;
 
-  @media (max-width: 1025px) {
+  @media screen and (max-width: 1025px) {
     display: flex;
     flex-direction: column;
   }
@@ -52,16 +53,16 @@
   height: auto;
   margin-right: 88px;
 
-  @media (max-width: 1025px) {
+  @media screen and (max-width: 1025px) {
     width: 306px;
-    margin-right: 0;
+    margin: 0 0 110px 0;
   }
 
-  @media (max-width: 576px) {
+  @media screen and (max-width: 576px) {
     margin-right: 32px;
   }
 
-  @media (max-width: 576px) {
+  @media screen and (max-width: 576px) {
     display: none;
   }
 }
@@ -80,7 +81,7 @@
   padding: 30px;
   margin-top: 25px;
 
-  @media (max-width: 1025px) {
+  @media screen and (max-width: 1025px) {
     display: none;
   }
 }
@@ -93,7 +94,7 @@
 .form-info {
   display: flex;
 
-  @media (max-width: 576px) {
+  @media screen and (max-width: 576px) {
     flex-direction: column;
   }
 }
@@ -138,11 +139,11 @@ button.gray {
   margin-top: 25px;
   border-radius: 8px;
 
-  @media (max-width: 1025px) {
+  @media screen and (max-width: 1025px) {
     width: 64%;
     margin-bottom: 16px;
   }
-  @media (max-width: 576px) {
+  @media screen and (max-width: 576px) {
     width: 100%;
     margin-bottom: 8px;
   }
@@ -160,7 +161,7 @@ button.gray {
   color: $button-title;
 }
 
-@media (max-width: 576px) {
+@media screen and (max-width: 576px) {
   h4.normal {
     font-size: 20px;
   }

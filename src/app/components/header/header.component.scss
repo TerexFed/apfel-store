@@ -32,7 +32,8 @@
 .links {
   display: flex;
   align-items: center;
-  gap: 28px;
+  gap: 25px;
+  justify-content: center;
 }
 
 .links > a {
@@ -188,6 +189,8 @@ input[type="search"] {
   input[type="search"] {
     background-image: url("../../../assets/header/search-icon-black.svg");
     border: none;
+    width: 50vh;
+    font-size: 16px;
     margin: 0;
   }
 
@@ -207,7 +210,7 @@ input[type="search"] {
 
   .telephone {
     width: 155px;
-  } 
+  }
 
   p.a {
     margin-bottom: 10px;
@@ -220,6 +223,7 @@ input[type="search"] {
 
   .links {
     margin: 5px 0 15px 0;
+    justify-content: flex-start;
   }
 
   .links > a {
@@ -230,34 +234,34 @@ input[type="search"] {
     height: fit-content;
   }
 
- 
-
   .open-header-link {
     margin-left: 10px;
   }
-}
 
-@media screen and (max-width: 1025px) {
   .tablet-header,
   .header-open {
     padding: 0 20px 0 20px;
   }
 }
 
-@media screen and (max-width: 576px) {
-
-  .tel-icon {
-    display: flex;
+@media screen and (min-width: 1025px) and (max-width: 1190px) {
+  .links {
+    gap: 16px;
   }
 }
 
 @media screen and (max-width: 576px) {
   .header-open {
-    height: 90%
+    height: 90%;
   }
   .telephone {
     display: none;
   }
+
+  .tel-icon {
+    display: flex;
+  }
+
   .links {
     display: flex;
     flex-direction: column;
@@ -276,5 +280,4 @@ input[type="search"] {
   .whatsapp {
     margin-left: 0;
   }
-  
 }

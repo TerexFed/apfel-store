@@ -1,11 +1,19 @@
 <header class="comp-header">
   <div class="header__links">
     <div class="links">
-      <img class="apple-logo" src="../../../assets/header/apple.svg" alt="логотип apple store" routerLink="/" />
+      <img
+        class="apple-logo"
+        src="../../../assets/header/apple.svg"
+        alt="логотип apple store"
+        routerLink="/"
+      />
       <a routerLink="/all-catalog">Весь каталог</a>
       <a class="promotion" routerLink="/">
-          <img src="../../../assets/header/fire-emoji.svg" alt="эмодзи огня акций" />
-          Акции
+        <img
+          src="../../../assets/header/fire-emoji.svg"
+          alt="эмодзи огня акций"
+        />
+        Акции
       </a>
       <a routerLink="/warranty">Гарантия</a>
       <a routerLink="/refund">Политика возврата</a>
@@ -16,24 +24,25 @@
     </div>
     <div class="telephone">
       <div class="tel-number">
-        <img src="../../../assets/header/telephone.svg" alt="telephone" />
-        <p href="tel:+78125619662" class="tel-number__number">+7 812 561 96 62</p>
+        <img src="../../../assets/header/telephone.svg" alt="телефон" />
+        <p href="tel:+78125619662" class="tel-number__number">
+          +7 812 561 96 62
+        </p>
       </div>
       <span class="tel-number__text">Вам перезвонить?</span>
     </div>
   </div>
   <div class="header__searh">
     <div class="catalog">
-      <img src="../../../assets/header/catalog-dots.svg" alt="dots" />
+      <img src="../../../assets/header/catalog-dots.svg" alt="три точки" />
       Каталог товаров
     </div>
     <input type="search" placeholder="Поиск по каталогу товаров" />
     <div class="functions">
-      <img src="../../../assets/header/heart.svg" alt="heart" />
-      <img src="../../../assets/header/compare.svg" alt="compare" />
+      <img src="../../../assets/header/heart.svg" alt="Любимые" />
     </div>
     <button class="button">
-      <img src="../../../assets/header/basket.svg" alt="">
+      <img src="../../../assets/header/basket.svg" alt="Корзина" />
       <p>в корзине</p>
       <!-- T0DO: поменять параграф на менюящийся обьект с цифрой  -->
       <p>1</p>
@@ -42,23 +51,23 @@
   <div class="header__devices">
     <!-- TODO: надо поменять на ссылки с категориями -->
     <div class="card">
-      <img src="../../../assets/header/iphone.svg" alt="iphone" />
+      <img src="../../../assets/header/iphone.svg" alt="iPhone" />
       <p>iPhone</p>
     </div>
     <div class="card">
-      <img src="../../../assets/header/ipad.svg" alt="ipad" />
+      <img src="../../../assets/header/ipad.svg" alt="iPad" />
       <p>iPad</p>
     </div>
     <div class="card">
-      <img src="../../../assets/header/macbook_imac.svg" alt="macbookandimac" />
+      <img src="../../../assets/header/macbook_imac.svg" alt="Macbook and iMac" />
       <p>Macbook и iMac</p>
     </div>
     <div class="card">
-      <img src="../../../assets/header/applewatch.svg" alt="watch" />
+      <img src="../../../assets/header/applewatch.svg" alt="Часы" />
       <p>Watch</p>
     </div>
     <div class="card">
-      <img src="../../../assets/header/airpods.svg" alt="gadgets" />
+      <img src="../../../assets/header/airpods.svg" alt="Гаджеты" />
       <p>Гаджеты</p>
     </div>
     <div class="card">
@@ -97,9 +106,6 @@
 </header>
 @if (isHeaderOpen) {
 <div class="header-open">
-  <!-- <div class="header-part">
-    <p class="a">Ваш город <span>Москва</span></p>
-  </div> -->
   <div class="header-part">
     <div class="open-links">
       <div class="links">
