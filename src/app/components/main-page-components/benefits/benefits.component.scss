@@ -8,6 +8,10 @@ h1 .benefits {
   margin: 40px auto;
 }
 
+h4.normal {
+  text-align: center;
+}
+
 .ben-cards {
   display: flex;
   justify-content: space-between;
@@ -103,7 +107,7 @@ h1 .benefits {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 60%;
+    max-width: 60%;
   }
 
   .ben-cards {
