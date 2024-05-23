@@ -25,6 +25,7 @@ import { BasketComponent as ModalBasketComponent } from './modals/basket/basket.
 import { CallBackComponent as ModalCallbackComponent } from './modals/call-back/call-back.component';
 import { ApplicationSendComponent } from './modals/application-send/application-send.component';
 import { PriceLowerComponent } from './modals/price-lower/price-lower.component';
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -54,6 +55,7 @@ import { PriceLowerComponent } from './modals/price-lower/price-lower.component'
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule
   ],
   providers: [
     provideClientHydration()

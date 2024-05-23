@@ -27,7 +27,8 @@
       <img src="../../../assets/header/catalog-dots.svg" alt="dots" />
       Каталог товаров
     </div>
-    <input type="search" placeholder="Поиск по каталогу товаров" />
+    <input (focus)="changeIsSearchResult(true)" (blur)="changeIsSearchResult(false)" type="search"
+      [(ngModel)]="searchResultText" placeholder="Поиск по каталогу товаров" />
     <div class="functions">
       <img src="../../../assets/header/heart.svg" alt="heart" />
       <img src="../../../assets/header/compare.svg" alt="compare" />
@@ -36,6 +37,23 @@
       В корзине
     </button>
   </div>
+
+
+  @if (searchResultText && isSearchResult) {
+  <div class="search-results">
+    @for (searchResult of getSearchResult(); track searchResult.id) {
+    <div class="search-result">
+      <img class="image" [src]="searchResult.image" alt="search result image">
+      <div class="info">
+        <p class="name">{{searchResult.name}}</p>
+        <p class="price">{{searchResult.price | customCurrency}}</p>
+      </div>
+      <p class="link">Подробнее</p>
+    </div>
+    }
+  </div>
+  }
+
 
   <div class="header-part">
     <div class="card">
@@ -59,40 +77,23 @@
       <p>Гаджеты</p>
     </div>
     <div class="card">
-      <img
-        src="../../../assets/header/iphoneaccessories.svg"
-        alt="accessories"
-      />
+      <img src="../../../assets/header/iphoneaccessories.svg" alt="accessories" />
       <p>Аксессуары</p>
     </div>
     <img src="../../../assets/header/banneriphone.svg" alt="banneriphone" />
   </div>
+
 </header>
 
 <header class="tablet-header">
   <img src="../../../assets/header/apple.svg" alt="apple" routerLink="/" />
   <input type="search" placeholder="Поиск по каталогу товаров" />
   <div class="tel-number">
-    <img
-      src="../../../assets/header/telephone.svg"
-      alt="telephone"
-      width="15px"
-      height="20px"
-    />
+    <img src="../../../assets/header/telephone.svg" alt="telephone" width="15px" height="20px" />
     <p>+7 812 561 96 62</p>
   </div>
-  <img
-    class="tel-icon"
-    src="../../../assets/header/telephone.svg"
-    alt="telephone"
-    width="15px"
-    height="20px"
-  />
-  <img
-    src="../../../assets/header/bx_menu.svg"
-    alt="bx-menu"
-    (click)="openHeader()"
-  />
+  <img class="tel-icon" src="../../../assets/header/telephone.svg" alt="telephone" width="15px" height="20px" />
+  <img src="../../../assets/header/bx_menu.svg" alt="bx-menu" (click)="openHeader()" />
 </header>
 @if (isHeaderOpen) {
 <div class="header-open">
@@ -116,27 +117,11 @@
         <a routerLink="/review">Отзывы</a>
         <a routerLink="/contacts">Контакты</a>
         <div class="links-icons">
-          <img
-            src="../../../assets/footer/whatsapp.svg"
-            alt="whatsapp"
-            width="32px"
-            height="32px"
-            class="open-header-link whatsapp"
-          />
-          <img
-            src="../../../assets/footer/telegram.svg"
-            alt="telegram"
-            width="32px"
-            height="32px"
-            class="open-header-link"
-          />
-          <img
-            src="../../../assets/footer/vk.svg"
-            alt=""
-            width="32px"
-            height="32px"
-            class="open-header-link"
-          />
+          <img src="../../../assets/footer/whatsapp.svg" alt="whatsapp" width="32px" height="32px"
+            class="open-header-link whatsapp" />
+          <img src="../../../assets/footer/telegram.svg" alt="telegram" width="32px" height="32px"
+            class="open-header-link" />
+          <img src="../../../assets/footer/vk.svg" alt="" width="32px" height="32px" class="open-header-link" />
         </div>
       </div>
     </div>
