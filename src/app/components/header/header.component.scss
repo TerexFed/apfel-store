@@ -57,13 +57,13 @@ span {
   text-align: right;
 }
 
-.catalog {
+.catalog-button {
   display: flex;
   justify-content: center;
   align-items: center;
   color: white;
   width: 235px;
-  padding: 13px 16px 13px 16px;
+  padding: 13px 16px;
   border-radius: 16px;
   background: rgb(0, 113, 228);
 
@@ -73,6 +73,11 @@ span {
   font-weight: 400;
   line-height: 24px;
   letter-spacing: 0%;
+
+  &.catalog-button-open {
+    border-radius: 16px 16px 0 0;
+    background-color: #9747FF;
+  }
 }
 
 input[type="search"] {

@@ -4,7 +4,7 @@ import { ModalWindowService } from '../../services/modal-window.service';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss', './search-result.component.scss']
+  styleUrls: ['./header.component.scss', './search-result.component.scss', './catalog.component.scss']
 })
 export class HeaderComponent {
   constructor(public modalService: ModalWindowService) { }
@@ -19,6 +19,387 @@ export class HeaderComponent {
   searchResultText = ''
 
   isSearchResult = false
+
+  isCatalogOpen: boolean = false
+
+  catalogCategoryId: null | number = null
+
+  catalogs = [
+    {
+      id: 1,
+      title: 'Смартфоны',
+      link: 'to-somewhere',
+      products: [
+        {
+          img: '/assets/gadget-item/iphone.jpg',
+          title: 'iPhone 14 Pro Max',
+          price: 32445,
+        },
+        {
+          img: '/assets/gadget-item/iphone.jpg',
+          title: 'iPhone 14 Pro Maxskskdkdkdkdkdkdsfkjfjfjfjfjfjfjfjf',
+          price: 32445,
+        },
+        {
+          img: '/assets/gadget-item/iphone.jpg',
+          title: 'iPhone 14 Pro Max',
+          price: 32445,
+        },
+        {
+          img: '/assets/gadget-item/iphone.jpg',
+          title: 'iPhone 14 Pro Max',
+          price: 32445,
+        },
+        {
+          img: '/assets/gadget-item/iphone.jpg',
+          title: 'iPhone 14 Pro Max',
+          price: 32445,
+        },
+        {
+          img: '/assets/gadget-item/iphone.jpg',
+          title: 'iPhone 14 Pro Max',
+          price: 32445,
+        },
+        {
+          img: '/assets/gadget-item/iphone.jpg',
+          title: 'iPhone 14 Pro Max',
+          price: 32445,
+        },
+        {
+          img: '/assets/gadget-item/iphone.jpg',
+          title: 'iPhone 14 Pro Max',
+          price: 32445,
+        },
+        {
+          img: '/assets/gadget-item/iphone.jpg',
+          title: 'iPhone 14 Pro Maxskskdkdkdkdkdkdsfkjfjfjfjfjfjfjfjf',
+          price: 32445,
+        },
+        {
+          img: '/assets/gadget-item/iphone.jpg',
+          title: 'iPhone 14 Pro Max',
+          price: 32445,
+        },
+        {
+          img: '/assets/gadget-item/iphone.jpg',
+          title: 'iPhone 14 Pro Max',
+          price: 32445,
+        },
+        {
+          img: '/assets/gadget-item/iphone.jpg',
+          title: 'iPhone 14 Pro Max',
+          price: 32445,
+        },
+        {
+          img: '/assets/gadget-item/iphone.jpg',
+          title: 'iPhone 14 Pro Max',
+          price: 32445,
+        },
+        {
+          img: '/assets/gadget-item/iphone.jpg',
+          title: 'iPhone 14 Pro Max',
+          price: 32445,
+        },
+        {
+          img: '/assets/gadget-item/iphone.jpg',
+          title: 'iPhone 14 Pro Max',
+          price: 32445,
+        },
+        {
+          img: '/assets/gadget-item/iphone.jpg',
+          title: 'iPhone 14 Pro Maxskskdkdkdkdkdkdsfkjfjfjfjfjfjfjfjf',
+          price: 32445,
+        },
+        {
+          img: '/assets/gadget-item/iphone.jpg',
+          title: 'iPhone 14 Pro Max',
+          price: 32445,
+        },
+        {
+          img: '/assets/gadget-item/iphone.jpg',
+          title: 'iPhone 14 Pro Max',
+          price: 32445,
+        },
+        {
+          img: '/assets/gadget-item/iphone.jpg',
+          title: 'iPhone 14 Pro Max',
+          price: 32445,
+        },
+        {
+          img: '/assets/gadget-item/iphone.jpg',
+          title: 'iPhone 14 Pro Max',
+          price: 32445,
+        },
+        {
+          img: '/assets/gadget-item/iphone.jpg',
+          title: 'iPhone 14 Pro Max',
+          price: 32445,
+        },
+        {
+          img: '/assets/gadget-item/iphone.jpg',
+          title: 'iPhone 14 Pro Max',
+          price: 32445,
+        },
+        {
+          img: '/assets/gadget-item/iphone.jpg',
+          title: 'iPhone 14 Pro Maxskskdkdkdkdkdkdsfkjfjfjfjfjfjfjfjf',
+          price: 32445,
+        },
+        {
+          img: '/assets/gadget-item/iphone.jpg',
+          title: 'iPhone 14 Pro Max',
+          price: 32445,
+        },
+        {
+          img: '/assets/gadget-item/iphone.jpg',
+          title: 'iPhone 14 Pro Max',
+          price: 32445,
+        },
+        {
+          img: '/assets/gadget-item/iphone.jpg',
+          title: 'iPhone 14 Pro Max',
+          price: 32445,
+        },
+        {
+          img: '/assets/gadget-item/iphone.jpg',
+          title: 'iPhone 14 Pro Max',
+          price: 32445,
+        },
+        {
+          img: '/assets/gadget-item/iphone.jpg',
+          title: 'iPhone 14 Pro Max',
+          price: 32445,
+        },
+      ]
+    },
+    {
+      id: 2,
+      title: 'Планшеты',
+      link: 'to-somewhere',
+      products: [
+        {
+          img: '/assets/gadget-item/iphone.jpg',
+          title: 'iPhone 25 Pro Max',
+          price: 32445,
+        },
+        {
+          img: '/assets/gadget-item/iphone.jpg',
+          title: 'iPhone 25 Pro Max',
+          price: 32445,
+        },
+        {
+          img: '/assets/gadget-item/iphone.jpg',
+          title: 'iPhone 25 Pro Max',
+          price: 32445,
+        },
+        {
+          img: '/assets/gadget-item/iphone.jpg',
+          title: 'iPhone 25 Pro Max',
+          price: 32445,
+        },
+        {
+          img: '/assets/gadget-item/iphone.jpg',
+          title: 'iPhone 25 Pro Max',
+          price: 32445,
+        },
+        {
+          img: '/assets/gadget-item/iphone.jpg',
+          title: 'iPhone 25 Pro Max',
+          price: 32445,
+        },
+        {
+          img: '/assets/gadget-item/iphone.jpg',
+          title: 'iPhone 25 Pro Max',
+          price: 32445,
+        },
+      ]
+    },
+    {
+      id: 3,
+      title: 'Наушники',
+      link: 'to-somewhere',
+      products: [
+        {
+          img: '/assets/gadget-item/iphone.jpg',
+          title: 'iPhone 36 Pro Max',
+          price: 32445,
+        },
+        {
+          img: '/assets/gadget-item/iphone.jpg',
+          title: 'iPhone 36 Pro Max',
+          price: 32445,
+        },
+        {
+          img: '/assets/gadget-item/iphone.jpg',
+          title: 'iPhone 36 Pro Max',
+          price: 32445,
+        },
+        {
+          img: '/assets/gadget-item/iphone.jpg',
+          title: 'iPhone 36 Pro Max',
+          price: 32445,
+        },
+        {
+          img: '/assets/gadget-item/iphone.jpg',
+          title: 'iPhone 36 Pro Max',
+          price: 32445,
+        },
+        {
+          img: '/assets/gadget-item/iphone.jpg',
+          title: 'iPhone 36 Pro Max',
+          price: 32445,
+        },
+        {
+          img: '/assets/gadget-item/iphone.jpg',
+          title: 'iPhone 36 Pro Max',
+          price: 32445,
+        },
+      ]
+    },
+    {
+      id: 3,
+      title: 'Наушники',
+      link: 'to-somewhere',
+      products: [
+        {
+          img: '/assets/gadget-item/iphone.jpg',
+          title: 'iPhone 36 Pro Max',
+          price: 32445,
+        },
+        {
+          img: '/assets/gadget-item/iphone.jpg',
+          title: 'iPhone 36 Pro Max',
+          price: 32445,
+        },
+        {
+          img: '/assets/gadget-item/iphone.jpg',
+          title: 'iPhone 36 Pro Max',
+          price: 32445,
+        },
+        {
+          img: '/assets/gadget-item/iphone.jpg',
+          title: 'iPhone 36 Pro Max',
+          price: 32445,
+        },
+        {
+          img: '/assets/gadget-item/iphone.jpg',
+          title: 'iPhone 36 Pro Max',
+          price: 32445,
+        },
+        {
+          img: '/assets/gadget-item/iphone.jpg',
+          title: 'iPhone 36 Pro Max',
+          price: 32445,
+        },
+        {
+          img: '/assets/gadget-item/iphone.jpg',
+          title: 'iPhone 36 Pro Max',
+          price: 32445,
+        },
+      ]
+    },
+    {
+      id: 3,
+      title: 'Наушники',
+      link: 'to-somewhere',
+      products: [
+        {
+          img: '/assets/gadget-item/iphone.jpg',
+          title: 'iPhone 36 Pro Max',
+          price: 32445,
+        },
+        {
+          img: '/assets/gadget-item/iphone.jpg',
+          title: 'iPhone 36 Pro Max',
+          price: 32445,
+        },
+        {
+          img: '/assets/gadget-item/iphone.jpg',
+          title: 'iPhone 36 Pro Max',
+          price: 32445,
+        },
+        {
+          img: '/assets/gadget-item/iphone.jpg',
+          title: 'iPhone 36 Pro Max',
+          price: 32445,
+        },
+        {
+          img: '/assets/gadget-item/iphone.jpg',
+          title: 'iPhone 36 Pro Max',
+          price: 32445,
+        },
+        {
+          img: '/assets/gadget-item/iphone.jpg',
+          title: 'iPhone 36 Pro Max',
+          price: 32445,
+        },
+        {
+          img: '/assets/gadget-item/iphone.jpg',
+          title: 'iPhone 36 Pro Max',
+          price: 32445,
+        },
+      ]
+    },
+    {
+      id: 3,
+      title: 'Наушники',
+      link: 'to-somewhere',
+      products: [
+        {
+          img: '/assets/gadget-item/iphone.jpg',
+          title: 'iPhone 36 Pro Max',
+          price: 32445,
+        },
+        {
+          img: '/assets/gadget-item/iphone.jpg',
+          title: 'iPhone 36 Pro Max',
+          price: 32445,
+        },
+        {
+          img: '/assets/gadget-item/iphone.jpg',
+          title: 'iPhone 36 Pro Max',
+          price: 32445,
+        },
+        {
+          img: '/assets/gadget-item/iphone.jpg',
+          title: 'iPhone 36 Pro Max',
+          price: 32445,
+        },
+        {
+          img: '/assets/gadget-item/iphone.jpg',
+          title: 'iPhone 36 Pro Max',
+          price: 32445,
+        },
+        {
+          img: '/assets/gadget-item/iphone.jpg',
+          title: 'iPhone 36 Pro Max',
+          price: 32445,
+        },
+        {
+          img: '/assets/gadget-item/iphone.jpg',
+          title: 'iPhone 36 Pro Max',
+          price: 32445,
+        },
+      ]
+    },
+  ]
+
+  changeCatalogCategoryId(newVal: null | number) {
+    this.catalogCategoryId = newVal
+  }
+
+  changeIsCatalogOpen() {
+    this.isCatalogOpen = !this.isCatalogOpen
+    this.changeCatalogCategoryId(null)
+  }
+
+  getCatalogItemsById() {
+    return this.catalogs.find(catalog => catalog.id === this.catalogCategoryId)?.products.slice(0, 12)
+  }
+
+  // getCatalogsTitles() {
+  //   return this.catalogs.map(catalog => catalog.title)
+  // }
 
   changeIsSearchResult(newState: boolean) {
     this.isSearchResult = newState

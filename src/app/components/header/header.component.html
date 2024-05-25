@@ -22,8 +22,8 @@
       <span (click)="openModal(modalTemplate2)">Вам перезвонить?</span>
     </div>
   </div>
-  <div class="header-part">
-    <div class="catalog">
+  <div (click)="changeIsCatalogOpen()" class="header-part">
+    <div [class]="'catalog-button ' + (!!isCatalogOpen ? 'catalog-button-open' : '')">
       <img src="../../../assets/header/catalog-dots.svg" alt="dots" />
       Каталог товаров
     </div>
@@ -38,6 +38,31 @@
     </button>
   </div>
 
+  @if(isCatalogOpen){
+  <div (mouseleave)="changeCatalogCategoryId(null)" class="catalog">
+    <div class="catalog__titles">
+      @for (catalog of catalogs; track $index) {
+      <p (mouseenter)="changeCatalogCategoryId(catalog.id)" class="catalog__titles__title">{{catalog.title}}</p>
+      }
+    </div>
+    @if (catalogCategoryId) {
+    <div class="catalog__list">
+      <div class="catalog__list__items">
+        @for (catalogItem of getCatalogItemsById(); track $index) {
+        <a routerLink="/">
+          <div class="catalog__list__items__item">
+            <img class="catalog__list__items__item__image" [src]="catalogItem.img" alt="item image">
+            <p class="catalog__list__items__item__title">{{catalogItem.title}}</p>
+            <p class="catalog__list__items__item__price">{{catalogItem.price | customCurrency}}</p>
+          </div>
+        </a>
+        }
+      </div>
+      <a routerLink="/" class="catalog__link">Смотреть все товары</a>
+    </div>
+    }
+  </div>
+  }
 
   @if (searchResultText && isSearchResult) {
   <div class="search-results">
