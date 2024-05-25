@@ -3,7 +3,7 @@
 }
 
 .catalog {
-    max-width: calc(100vw - 280px);
+    max-width: 897px;
     width: fit-content;
     position: absolute;
     z-index: 5;
@@ -76,6 +76,7 @@
 
 
 .catalog__list__items__item__image {
+    border-radius: 7px;
     width: 48px;
     height: 48px;
     grid-row-start: 1;
