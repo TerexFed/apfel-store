@@ -1,4 +1,4 @@
-.admission{
+.one-click{
     display: flex;
 }
 .big_iphone{
@@ -20,4 +20,21 @@ input[type="text"] {
     outline: none;
     padding-left: 24px;
     margin: 24px 0 16px 0;
+}
+.crossed {
+    text-decoration: line-through;
+}
+button {
+    width: 246px;
+}
+.checkout {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+.callandwrite {
+    display: flex;
+}
+.callandwrite > img {
+    margin: 0 4px 0 4px;
 }

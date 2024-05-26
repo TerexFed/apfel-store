@@ -1,0 +1,38 @@
+.top {
+    display: flex;
+}
+.actions {
+    display: flex;
+    align-items: center;
+}
+.actions > button {
+    width: 215px;
+    height: 56px;
+}
+.invert {
+    margin-left: 8px;
+}
+.big_iphone {
+    width: 150px;
+    height: 160px;
+    margin-right: 24px;
+}
+.help {
+    margin-top: 24px;
+}
+.help__order {
+    display: flex;
+    align-items: center;
+}
+.help__order > p {
+    margin-left: 8px;
+}
+.callback {
+    margin-left: 40px;
+}
+.callandwrite {
+    display: flex;
+}
+.callandwrite > img {
+    margin: 0 4px 0 4px;
+}

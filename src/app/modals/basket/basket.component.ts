@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'modal-basket',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrl: './basket.component.scss'
 })
 export class BasketComponent {
-
+  constructor(public router: Router) {}
 }

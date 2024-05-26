@@ -29,6 +29,9 @@ import { ModalWindowComponent } from './UI/modal-window/modal-window.component';
 import { BenefitsComponent } from './components/main-page-components/benefits/benefits.component';
 import { DistributionComponent } from './components/main-page-components/distribution/distribution.component';
 import { NewModelsComponent } from './components/main-page-components/new-models/new-models.component';
+import { OneClickComponent } from './modals/one-click/one-click.component';
+import { BasketSuccessComponent } from './modals/basket-success/basket-success.component';
+import { BasketAddComponent } from './modals/basket-add/basket-add.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -56,7 +59,10 @@ import { NewModelsComponent } from './components/main-page-components/new-models
     PriceLowerComponent,
     AdmissionComponent,
     ModalWindowComponent,
-    NewModelsComponent
+    NewModelsComponent,
+    OneClickComponent,
+    BasketSuccessComponent,
+    BasketAddComponent
   ],
   imports: [
     BrowserModule,

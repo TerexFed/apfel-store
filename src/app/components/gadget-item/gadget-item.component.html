@@ -46,6 +46,7 @@
   </div>
   <button
     [class]="'add-to-cart ' + (gadget.isInCart ? 'in-cart' : 'not-in-cart')"
+    (click)="openModalBasketAdd()"
   >
     <img
       class="gadget-is-in-cart image-size-24"
@@ -80,14 +81,14 @@
   </div>
   }
   <div class="last-section">
-    <p (click)="openDialogOneClick()">Хочу дешевле</p>
-    <p>Купить в 1 клик</p>
+    <p (click)="openModalPriceLower()">Хочу дешевле</p>
+    <p (click)="openModalOneClick()">Купить в 1 клик</p>
   </div>
   } @else {
   <div class="preorder">
     <p><span class="isAvailable unavailable"></span>Ожидается поступление</p>
     <p>Мы можем сообщить вам, когда товар появится в наличии</p>
-    <p (click)="openDialogAdmission()">
+    <p (click)="openModalAdmission()">
       Сообщить о поступлении
     </p>
   </div>

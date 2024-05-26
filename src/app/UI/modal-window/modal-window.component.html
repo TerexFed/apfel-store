@@ -1,5 +1,4 @@
-<mat-dialog-content>
-  <div class="modal-window">
+<mat-dialog-content class="modal-window">
     <mat-dialog-actions class="actions">
       <img
         src="../../../assets/modal/cross.svg"
@@ -17,13 +16,24 @@
       @case ('Basket') {
       <modal-basket></modal-basket>
       } 
-      @case ('OneClick') {
+      @case ('PriceLower') {
         <modal-price-lower></modal-price-lower>
       }
       @case ('ApplicationSend') {
         <modal-application-send></modal-application-send>
       } 
+      @case ('CallBack') {
+        <modal-callback></modal-callback>
+      }
+      @case ('OneClick') {
+        <modal-one-click [title]="data.title" [price]="data.price" [discountPrice]="data.discountPrice" ></modal-one-click>
+      }
+      @case ('BasketSuccess') {
+        <modal-basket-success></modal-basket-success>
+      }
+      @case ('BasketAdd') {
+        <modal-basket-add [title]="data.title"></modal-basket-add>
+      }
     }
     </div>
-  </div>
 </mat-dialog-content>

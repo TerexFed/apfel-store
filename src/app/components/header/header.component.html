@@ -21,7 +21,7 @@
           +7 812 561 96 62
         </p>
       </div>
-      <span class="tel-number__text">Вам перезвонить?</span>
+      <span class="tel-number__text" (click)="openModalCallback()">Вам перезвонить?</span>
     </div>
   </div>
   <div class="header__searh">
@@ -33,7 +33,7 @@
     <div class="functions">
       <img src="../../../assets/header/heart.svg" alt="Любимые" />
     </div>
-    <button class="button">
+    <button class="button" (click)="openModalBasket()">
       <img src="../../../assets/header/basket.svg" alt="Корзина" />
       <p>в корзине</p>
       <!-- T0DO: поменять параграф на менюящийся обьект с цифрой  -->

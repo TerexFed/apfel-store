@@ -3,12 +3,12 @@
     flex-direction: column;
     background-color: #ffffff;
     border-radius: 16px;
-    padding: 30px;
-    width: 553px;
+    width: fit-content;
 }
 .modal-content {
     display: flex;
     flex-direction: column;
+    padding: 10px;
 }
 .actions{
     display: flex;

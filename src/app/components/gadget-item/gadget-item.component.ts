@@ -28,12 +28,20 @@ export class GadgetItemComponent implements OnInit {
     this.windowWidth = event.target.innerWidth;
   }
 
-  openDialogAdmission() {
-    window.scrollTo(0,0)
+  openModalAdmission() {
+    window.scrollTo(0, 0)
     this.dialog.open(ModalWindowComponent, { data: { type: 'Admission', title: this.gadget.name } })
   }
-  openDialogOneClick() {
-    window.scrollTo(0,0)
-    this.dialog.open(ModalWindowComponent, { data: { type: 'OneClick' } })
+  openModalPriceLower() {
+    window.scrollTo(0, 0)
+    this.dialog.open(ModalWindowComponent, { data: { type: 'PriceLower' } })
+  }
+  openModalOneClick() {
+    window.scrollTo(0, 0)
+    this.dialog.open(ModalWindowComponent, { data: { type: 'OneClick', title: this.gadget.name, price: this.gadget.price, discountPrice: this.gadget.discountPrice } })
+  }
+  openModalBasketAdd() {
+    window.scrollTo(0, 0)
+    this.dialog.open(ModalWindowComponent, { data: { type: 'BasketAdd', title: this.gadget.name } })
   }
 }

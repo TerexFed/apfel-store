@@ -4,7 +4,7 @@
     align-items: center;
     text-align: center;
 }
-sup{
+sup {
     width: 357px;
     margin: 8px 0 16px 0;
 }
@@ -24,7 +24,11 @@ input[type="text"] {
 }
 .two-inputs {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    width: 100%;
+}
+.two-inputs > input {
+    width: 100%;
 }
 input.top-input {
     width: 100%;

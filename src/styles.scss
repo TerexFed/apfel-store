@@ -196,6 +196,19 @@ button {
   cursor: pointer;
 }
 
+button.invert {
+  background-color: transparent;
+  color: $bg-color;
+  border: 1px solid $bg-color;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 21px;
+  letter-spacing: 0%;
+  padding: 16px 30px 16px 30px;
+  width: 100%;
+}
+
+
 @media screen and (max-width: 1025px) {
   h2 {
     font-size: 60px;

@@ -37,21 +37,21 @@
   <div class="column call">
     <div class="order-tablet">
       <div class="order-tablet-tel">
-      <h3 class="form-text black">+7 812 704 86 97</h3>
-      <p class="small">
-        Бесплатная консультация<br />
-        С 10:00 до 21:00, без выходных
-      </p>
-    </div>
+        <h3 class="form-text black">+7 812 704 86 97</h3>
+        <p class="small">
+          Бесплатная консультация<br />
+          С 10:00 до 21:00, без выходных
+        </p>
+      </div>
       <div class="order-number-tablet">
-        <p class="order">Заказать звонок</p>
+        <p class="order" (click)="openModalCallBack()">Заказать звонок</p>
         <address class="normal">Москва, ул Барклая 8</address>
         <address class="normal">Москва, ул Барклая 8</address>
       </div>
     </div>
 
     <div class="order-call">
-      <p class="order">Заказать звонок</p>
+      <p class="order" (click)="openModalCallBack()">Заказать звонок</p>
       <div class="order-icons">
         <img
           src="../../../assets/footer/whatsapp.svg"

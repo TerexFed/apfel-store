@@ -15,7 +15,13 @@ export class HeaderComponent {
     this.isHeaderOpen = !this.isHeaderOpen
   }
 
-  openDialog() {
+  openModalBasket() {
+    window.scrollTo(0, 0)
     this.dialog.open(ModalWindowComponent, { data: { type: 'Basket'} })
+  }
+
+  openModalCallback() {
+    window.scrollTo(0, 0)
+    this.dialog.open(ModalWindowComponent, { data: { type: 'CallBack'} })
   }
 }
