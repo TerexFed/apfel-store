@@ -123,6 +123,9 @@ h6 {
     font-weight: 400;
     line-height: 29px;
   }
+  &.normal{
+    color: $text-color;
+  }
 
   @media screen and (max-width: 375px) {
     &.gray {
@@ -142,6 +145,11 @@ a {
     color: $hover-color;
     text-decoration: underline;
     transition: 0.25s;
+  }
+  &.filled{
+    color: $hover-color;
+    text-decoration: underline;
+    font-size: 24px;
   }
 }
 

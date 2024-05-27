@@ -1,1 +1,40 @@
-<p>contact-page works!</p>
+<div class="contact-page">
+  <div class="main__block">
+    <h3 class="not-found-text">Контакты</h3>
+    <div class="block">
+      <h6 class="ben-card-h6">Можно позвонить</h6>
+      <h4 class="blue">+7 (812) 704-86-97</h4>
+      <sup>на связи с 10:00 до 22:00</sup>
+    </div>
+    <div class="block">
+      <h6 class="ben-card-h6">Можем позвонить мы</h6>
+      <a (click)="openModalCallback()" class="filled">заказать звонок</a>
+    </div>
+
+    <div class="block">
+      <h6 class="ben-card-h6">Можно написать</h6>
+      <div class="block__links">
+        <div class="links">
+          <img src="../../../assets/footer/whatsapp.svg" alt="whatsapp" />
+          <img src="../../../assets/footer/telegram.svg" alt="telegram" />
+          <img src="../../../assets/footer/vk.svg" alt="vk" />
+        </div>
+        <h6 class="normal">info&#64;AppleShops.ru</h6>
+      </div>
+    </div>
+  </div>
+  <div class="can-ride__block">
+    <div class="can-ride__block-text">
+      <h6 class="ben-card-h6">Можно приехать</h6>
+      <sup
+        >Москва, ул Барклая 8<br />
+        Москва, ул Барклая 8</sup
+      >
+    </div>
+    <iframe
+      src="https://yandex.ru/map-widget/v1/?um=constructor%3A601c289958fff29ef57c3e8f11e4f41f19c35b1541722d0e83ee7a10c7a17cec&amp;source=constructor"
+      frameborder="0"
+      class="map"
+    ></iframe>
+  </div>
+</div>
