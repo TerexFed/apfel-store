@@ -1,4 +1,4 @@
-@use '@angular/material' as mat;
+@use "@angular/material" as mat;
 @import "./variables.scss";
 
 @include mat.core();
@@ -6,15 +6,19 @@
 $apfel-store-angular-primary: mat.define-palette(mat.$indigo-palette);
 $apfel-store-angular-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
 
-
 $apfel-store-angular-warn: mat.define-palette(mat.$red-palette);
 
-$apfel-store-angular-theme: mat.define-light-theme((color: (primary: $apfel-store-angular-primary,
-        accent: $apfel-store-angular-accent,
-        warn: $apfel-store-angular-warn,
-      ),
-      typography: mat.define-typography-config(),
-      density: 0));
+$apfel-store-angular-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $apfel-store-angular-primary,
+      accent: $apfel-store-angular-accent,
+      warn: $apfel-store-angular-warn
+    ),
+    typography: mat.define-typography-config(),
+    density: 0
+  )
+);
 
 @include mat.all-component-themes($apfel-store-angular-theme);
 
@@ -29,7 +33,6 @@ $gray-text-color: rgb(88, 86, 86);
   box-sizing: border-box;
   font-family: "SF Pro Display", sans-serif;
 }
-
 
 h2 {
   font-size: 88px;
@@ -58,6 +61,11 @@ h3 {
     font-size: 40px;
     line-height: 48px;
   }
+  &.number {
+    color: rgb(0, 113, 228);
+    font-weight: 700;
+    line-height: 48px;
+  }
 
   &.normal {
     color: $text-color;
@@ -80,8 +88,10 @@ h4 {
   &.normal {
     color: $text-color;
     font-weight: 700;
-    font-size: 32px;
-    line-height: 38px;
+  }
+  &.blue {
+    color: rgb(0, 113, 228);
+    font-weight: 700;
   }
 }
 
@@ -208,7 +218,6 @@ button.invert {
   width: 100%;
 }
 
-
 @media screen and (max-width: 1025px) {
   h2 {
     font-size: 60px;
@@ -219,15 +228,15 @@ button.invert {
   }
 
   .info-text {
-    >h5 {
+    > h5 {
       font-size: 32px;
     }
 
-    >h6 {
+    > h6 {
       font-size: 16px;
     }
 
-    >button {
+    > button {
       font-size: 16px;
     }
   }
