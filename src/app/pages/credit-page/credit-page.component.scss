@@ -38,10 +38,10 @@
 .top__block-text {
     align-self: center;
     @media (max-width: 825px) {
-        >h4{
+        > h4 {
             font-size: 24px;
         }
-        >h6{
+        > h6 {
             font-size: 16px;
         }
     }
@@ -113,7 +113,7 @@
     @media (max-width: 1023px) {
         flex-direction: column;
         align-items: flex-start;
-        >h6{
+        > h6 {
             font-size: 20px;
         }
     }
@@ -150,6 +150,9 @@
     flex-direction: column;
     align-items: center;
     margin-top: 88px;
+    @media (max-width: 638px) {
+        align-items: flex-start;
+    }
 }
 .four-steps {
     display: flex;
@@ -157,6 +160,11 @@
     @media (max-width: 1023px) {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
+    }
+    @media (max-width: 638px) {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
     }
 }
 .four-steps::before {
@@ -182,6 +190,12 @@
     text-align: center;
     margin: 25px 8px 0 8px;
     z-index: 2;
+
+    @media (max-width: 638px) {
+        flex-direction: row;
+        justify-content: center;
+        text-align: left;
+    }
 }
 .step-number {
     border-radius: 16px;
@@ -190,6 +204,9 @@
     height: fit-content;
     padding: 8px 20px 8px 20px;
     margin-bottom: 15px;
+    @media (max-width: 638px) {
+        margin: 0 8px 0 0;
+    }
 }
 
 .get-credit__block {
@@ -199,18 +216,24 @@
         flex-direction: column;
     }
 }
-.requirement {
-    position: relative;
-    margin: 20px 0 20px 40px;
+
+.get-credit__block-requirements {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 }
-.requirement::before {
-    position: absolute;
-    content: "";
-    bottom: -3px;
+.requirement{
+    margin: 10px 0 10px 40px;
+    position: relative;
+}
+.requirement::before{
+    content: '';
     left: -40px;
-    background-image: url(../../../assets/credit-page/list-style.svg);
+    top: -3px;
+    position: absolute;
     width: 32px;
     height: 32px;
+    background-image: url('../../../assets/credit-page/list-style.svg');
 }
 .get-credit__block-buy-now {
     display: flex;
