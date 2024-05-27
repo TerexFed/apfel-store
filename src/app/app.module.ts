@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { MainPageComponent } from './pages/main-page/main-page.component';
-import { ScrollGoodsComponent } from './components/scroll-goods/scroll-goods.component';
+import { ScrollGoodsComponent } from './components/main-page-components/scroll-goods/scroll-goods.component';
 import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { WarrantyPageComponent } from './pages/warranty-page/warranty-page.component';
@@ -16,8 +17,6 @@ import { ReviewPageComponent } from './pages/review-page/review-page.component';
 import { ContactPageComponent } from './pages/contact-page/contact-page.component';
 import { FavouritesPageComponent } from './pages/favourites-page/favourites-page.component';
 import { AllCatalogPageComponent } from './pages/all-catalog-page/all-catalog-page.component';
-import { BenefitsComponent } from './components/benefits/benefits.component';
-import { DistributionComponent } from './components/distribution/distribution.component';
 import { GadgetItemComponent } from './components/gadget-item/gadget-item.component';
 import { CustomCurrencyPipe } from './pipes/custom-currency/custom-currency.component';
 import { GadgetListComponent } from './components/gadget-list/gadget-list.component';
@@ -26,6 +25,11 @@ import { CallBackComponent as ModalCallbackComponent } from './modals/call-back/
 import { ApplicationSendComponent } from './modals/application-send/application-send.component';
 import { PriceLowerComponent } from './modals/price-lower/price-lower.component';
 import { FormsModule } from '@angular/forms';
+import { AdmissionComponent } from './modals/admission/admission.component';
+import { ModalWindowComponent } from './UI/modal-window/modal-window.component';
+import { BenefitsComponent } from './components/main-page-components/benefits/benefits.component';
+import { DistributionComponent } from './components/main-page-components/distribution/distribution.component';
+import { NewModelsComponent } from './components/main-page-components/new-models/new-models.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,11 +55,15 @@ import { FormsModule } from '@angular/forms';
     ModalCallbackComponent,
     ApplicationSendComponent,
     PriceLowerComponent,
+    AdmissionComponent,
+    ModalWindowComponent,
+    NewModelsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    MatDialogModule
   ],
   providers: [
     provideClientHydration()

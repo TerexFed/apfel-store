@@ -3,13 +3,16 @@
 }
 
 .catalog {
-    max-width: 897px;
+    // max-width: 897px;
+    width: 100%;
     width: fit-content;
     position: absolute;
+    margin-top: -100px;
     z-index: 5;
+    background-color: white;
     display: flex;
     flex-direction: row;
-    background-color: white;
+    // background-color: white;
     border-radius: 0 0 16px 16px;
     padding: 24px;
     gap: 24px;
@@ -24,6 +27,7 @@
 }
 
 .catalog__titles {
+    width: 25%;
     display: flex;
     flex-direction: column;
     gap: 8px;

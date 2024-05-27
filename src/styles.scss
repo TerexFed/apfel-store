@@ -1,3 +1,23 @@
+@use '@angular/material' as mat;
+@import "./variables.scss";
+
+@include mat.core();
+
+$apfel-store-angular-primary: mat.define-palette(mat.$indigo-palette);
+$apfel-store-angular-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+
+
+$apfel-store-angular-warn: mat.define-palette(mat.$red-palette);
+
+$apfel-store-angular-theme: mat.define-light-theme((color: (primary: $apfel-store-angular-primary,
+        accent: $apfel-store-angular-accent,
+        warn: $apfel-store-angular-warn,
+      ),
+      typography: mat.define-typography-config(),
+      density: 0));
+
+@include mat.all-component-themes($apfel-store-angular-theme);
+
 $black-color: #100e0e;
 $primary-color: #0071e4;
 $alter-text-color: rgb(30, 50, 64);
@@ -7,30 +27,23 @@ $gray-text-color: rgb(88, 86, 86);
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
-
-body {
   font-family: "SF Pro Display", sans-serif;
 }
 
-header {
-  padding: 0 140px 0 140px;
-}
 
 h2 {
-  color: $alter-text-color;
   font-size: 88px;
   font-weight: 700;
   line-height: 105px;
-  letter-spacing: 0%;
+  letter-spacing: 0;
 }
 
 h3 {
-  color: $alter-text-color;
+  color: $accent-text-color;
   font-size: 48px;
   font-weight: 400;
   line-height: 57px;
-  letter-spacing: 0%;
+  letter-spacing: 0;
 
   &.form-text {
     color: white;
@@ -40,16 +53,17 @@ h3 {
   }
 
   &.not-found-text {
-    color: $black-color;
+    color: $text-color;
     font-weight: 700;
     font-size: 40px;
     line-height: 48px;
   }
 
   &.normal {
-    color: $black-color;
+    color: $text-color;
   }
-  @media (max-width: 620px) {
+
+  @media screen and (max-width: 375px) {
     &.normal {
       font-size: 32px;
     }
@@ -57,14 +71,14 @@ h3 {
 }
 
 h4 {
-  color: $alter-text-color;
+  color: $accent-text-color;
   font-size: 32px;
   font-weight: 400;
   line-height: 38px;
-  letter-spacing: 0%;
+  letter-spacing: 0;
 
   &.normal {
-    color: $black-color;
+    color: $text-color;
     font-weight: 700;
     font-size: 32px;
     line-height: 38px;
@@ -72,34 +86,35 @@ h4 {
 }
 
 h5 {
-  color: white;
+  color: $title-color;
   font-size: 56px;
   font-weight: 700;
   line-height: 67px;
-  letter-spacing: 0%;
+  letter-spacing: 0;
 }
 
 h6 {
-  color: white;
+  color: $title-color;
   font-size: 24px;
   font-weight: 500;
   line-height: 29px;
-  letter-spacing: 0%;
+  letter-spacing: 0;
 
   &.ben-card-h6 {
-    color: $black-color;
+    color: $text-color;
     font-weight: 700;
     font-size: 24px;
     line-height: 29px;
   }
 
   &.gray {
-    color: $gray-text-color;
+    color: $accent-text-color;
     font-size: 24px;
     font-weight: 400;
     line-height: 29px;
   }
-  @media (max-width: 620px) {
+
+  @media screen and (max-width: 375px) {
     &.gray {
       font-size: 16px;
     }
@@ -107,80 +122,81 @@ h6 {
 }
 
 a {
-  color: $black-color;
+  color: $text-color;
   text-decoration: none;
   font-size: 18px;
   font-weight: 400;
   line-height: 21px;
 
   &:hover {
-    color: $primary-color;
+    color: $hover-color;
     text-decoration: underline;
     transition: 0.25s;
   }
 }
 
 p {
-  color: $black-color;
+  color: $text-color;
   font-size: 20px;
   font-weight: 400;
   line-height: 24px;
-  letter-spacing: 0%;
+  letter-spacing: 0;
 
   &.gray {
-    color: $gray-text-color;
+    color: $accent-text-color;
   }
 
   &.a {
-    color: $black-color;
+    color: $text-color;
     font-size: 18px;
     font-weight: 400;
     line-height: 21px;
   }
 
   &.order {
-    color: rgb(0, 113, 228);
+    color: $bg-color;
   }
 }
 
 sup {
-  color: $gray-text-color;
+  color: $accent-text-color;
   font-size: 16px;
   font-weight: 400;
   line-height: 19px;
-  letter-spacing: 0%;
+  letter-spacing: 0;
 
   &.normal {
-    color: rgb(16, 14, 14);
+    color: $text-color;
   }
 
   &.gray {
-    color: rgb(135, 135, 135);
+    color: $accent-text-color;
   }
 }
 
 li {
   list-style-type: none;
-  color: $black-color;
+  color: $text-color;
   font-size: 16px;
   font-weight: 400;
   line-height: 19px;
-  letter-spacing: 0%;
+  letter-spacing: 0;
 }
 
 button {
   border-radius: 8px;
   border: none;
-  background: rgb(0, 113, 228);
-  color: white;
+  background: $bg-color;
+  color: $button-title;
   font-size: 16px;
   font-weight: 500;
   line-height: 19px;
-  letter-spacing: 0%;
+  letter-spacing: 0;
   padding: 16px 30px 16px 30px;
+  cursor: pointer;
 }
 
-@media (max-width: 1245px) {
+@media screen and (max-width: 1025px) {
   h2 {
     font-size: 60px;
   }
@@ -190,15 +206,15 @@ button {
   }
 
   .info-text {
-    > h5 {
+    >h5 {
       font-size: 32px;
     }
 
-    > h6 {
+    >h6 {
       font-size: 16px;
     }
 
-    > button {
+    >button {
       font-size: 16px;
     }
   }
@@ -206,4 +222,14 @@ button {
 
 .modal-open {
   overflow: hidden;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
 }

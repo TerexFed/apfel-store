@@ -1,11 +1,15 @@
-import { Component, TemplateRef } from '@angular/core';
-import { ModalWindowService } from '../../services/modal-window.service';
+import { Component } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
-  selector: 'application-send',
+  selector: 'modal-application-send',
   templateUrl: './application-send.component.html',
   styleUrl: './application-send.component.scss'
 })
 export class ApplicationSendComponent {
-  constructor(public modalService: ModalWindowService) { }
+  constructor(public dialog: MatDialog) { }
+
+  closeAll(){
+    this.dialog.closeAll();
+  }
 }

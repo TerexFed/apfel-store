@@ -1,16 +1,29 @@
-
-<div class="blur">
+<mat-dialog-content>
   <div class="modal-window">
-    <img
-      src="../../../assets/modal/cross.svg"
-      alt="cross"
-      width="16px"
-      height="16px"
-      (click)="close()"
-    />
+    <mat-dialog-actions class="actions">
+      <img
+        src="../../../assets/modal/cross.svg"
+        alt="cross"
+        width="16px"
+        height="16px"
+        [mat-dialog-close]="true"
+      />
+    </mat-dialog-actions>
     <div class="modal-content">
-      <ng-content></ng-content>
+    @switch (data.type) { 
+      @case ('Admission') {
+      <modal-admission [title]="data.title"></modal-admission>
+      } 
+      @case ('Basket') {
+      <modal-basket></modal-basket>
+      } 
+      @case ('OneClick') {
+        <modal-price-lower></modal-price-lower>
+      }
+      @case ('ApplicationSend') {
+        <modal-application-send></modal-application-send>
+      } 
+    }
     </div>
   </div>
-</div>
-
+</mat-dialog-content>

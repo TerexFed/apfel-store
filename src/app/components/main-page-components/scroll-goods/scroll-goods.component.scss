@@ -1,0 +1,146 @@
+@import "../../../../variables.scss";
+
+.background {
+  background-color: $bg-scroll;
+
+  .scroll-goods {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    overflow: hidden;
+    margin: 0 auto;
+    max-width: 1200px;
+    height: 480px;
+
+    .text {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .text-info {
+        margin-left: 50px;
+        color: $logo-title-color;
+
+        .title__info {
+          font-size: clamp(2.3125rem, 1.0982rem + 6.0714vw, 6.5625rem);
+        }
+      }
+
+      .price__title {
+        color: $logo-title-color;
+      }
+    }
+
+    .right-arrow,
+    .left-arrow {
+      align-self: center;
+    }
+
+    @media screen and (max-width: 1025px) {
+      .arrow {
+        margin: 36px;
+      }
+    }
+
+    @media screen and (max-width: 576px) {
+      .arrow {
+        margin: 23px;
+      }
+
+      .scroll-goods {
+        height: 320px;
+      }
+    }
+
+    h2 {
+      display: flex;
+      align-items: baseline;
+      height: fit-content;
+    }
+
+    .ellips {
+      border: 11px solid $logo-title-color;
+      border-radius: 500px;
+      width: 100px;
+      height: 45px;
+    }
+
+    .big-iphone {
+      margin-top: 10%;
+    }
+
+    .price {
+      display: flex;
+      align-items: flex-end;
+      margin: 35px 0 22px 0;
+
+      > h4 {
+        padding: 0 16px 3px 0;
+      }
+    }
+
+    @media screen and (max-width: 1025px) {
+      .text {
+        flex-direction: column-reverse;
+        align-items: center;
+
+        .text-info {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          margin-left: 0;
+          > button {
+            margin-top: 20px;
+          }
+        }
+      }
+
+      .price {
+        margin: 0;
+      }
+
+      .big-iphone {
+        width: 260px;
+        height: 307px;
+        margin-top: 5%;
+      }
+
+      h2 {
+        font-size: 40px;
+      }
+
+      .ellips {
+        border: 9px solid $logo-title-color;
+        width: 90px;
+        height: 40px;
+      }
+
+      h4 {
+        font-size: 20px;
+      }
+
+      h3 {
+        font-size: 48px;
+      }
+    }
+
+    @media screen and (max-width: 576px) {
+      .ellips {
+        border: 5px solid $logo-title-color;
+        width: 42px;
+        height: 20px;
+      }
+
+      .text-info {
+        margin-left: 0;
+      }
+
+      .big-iphone {
+        margin-top: 25%;
+        width: 203px;
+        height: 277px;
+        margin-left: 0px;
+      }
+    }
+  }
+}

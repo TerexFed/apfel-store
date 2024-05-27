@@ -1,5 +1,6 @@
-import { Component, TemplateRef } from '@angular/core';
-import { ModalWindowService } from '../../services/modal-window.service';
+import { Component } from '@angular/core';
+import { ModalWindowComponent } from '../../UI/modal-window/modal-window.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-header',
@@ -7,15 +8,15 @@ import { ModalWindowService } from '../../services/modal-window.service';
   styleUrls: ['./header.component.scss', './search-result.component.scss', './catalog.component.scss']
 })
 export class HeaderComponent {
-  constructor(public modalService: ModalWindowService) { }
+  constructor(public dialog: MatDialog) { }
+
   public isHeaderOpen = false
   public openHeader() {
     this.isHeaderOpen = !this.isHeaderOpen
   }
-  public openModal(modalTemplate: TemplateRef<any>) {
-    this.modalService.open(modalTemplate)
+  openDialog() {
+    this.dialog.open(ModalWindowComponent, { data: { type: 'Basket' } })
   }
-
   searchResultText = ''
 
   isSearchResult = false
@@ -388,8 +389,8 @@ export class HeaderComponent {
     this.catalogCategoryId = newVal
   }
 
-  changeIsCatalogOpen() {
-    this.isCatalogOpen = !this.isCatalogOpen
+  changeIsCatalogOpen(newVal?: boolean) {
+    this.isCatalogOpen = newVal || !this.isCatalogOpen
     this.changeCatalogCategoryId(null)
   }
 

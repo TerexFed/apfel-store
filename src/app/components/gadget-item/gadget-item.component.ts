@@ -1,5 +1,8 @@
-import { Component, HostListener, Input, OnInit, TemplateRef } from '@angular/core';
-import { ModalWindowService } from '../../services/modal-window.service';
+import { Component, HostListener, Input, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { ModalWindowComponent } from '../../UI/modal-window/modal-window.component';
+import { AdmissionComponent } from '../../modals/admission/admission.component';
+
 
 @Component({
   selector: 'app-gadget-item',
@@ -7,7 +10,7 @@ import { ModalWindowService } from '../../services/modal-window.service';
   styleUrl: './gadget-item.component.scss'
 })
 export class GadgetItemComponent implements OnInit {
-  constructor(public modalService: ModalWindowService) { }
+  constructor(public dialog: MatDialog) { }
   @Input() gadget: any
 
   get5RatingArr() {
@@ -25,8 +28,12 @@ export class GadgetItemComponent implements OnInit {
     this.windowWidth = event.target.innerWidth;
   }
 
-
-  public openModal(modalTemplate: TemplateRef<any>) {
-    this.modalService.open(modalTemplate)
+  openDialogAdmission() {
+    window.scrollTo(0,0)
+    this.dialog.open(ModalWindowComponent, { data: { type: 'Admission', title: this.gadget.name } })
+  }
+  openDialogOneClick() {
+    window.scrollTo(0,0)
+    this.dialog.open(ModalWindowComponent, { data: { type: 'OneClick' } })
   }
 }

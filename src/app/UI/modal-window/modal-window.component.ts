@@ -1,4 +1,5 @@
-import { Component, ElementRef, EventEmitter, Output } from '@angular/core';
+import { Component, Inject } from '@angular/core';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
   selector: 'modal-window',
@@ -6,12 +7,5 @@ import { Component, ElementRef, EventEmitter, Output } from '@angular/core';
   styleUrl: './modal-window.component.scss'
 })
 export class ModalWindowComponent {
-  @Output() closeEvent = new EventEmitter();
-
-  constructor(private elementRef: ElementRef) { }
-
-  close(): void {
-    this.elementRef.nativeElement.remove();
-    this.closeEvent.emit();
-  }
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any) {}
 }

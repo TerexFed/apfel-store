@@ -1,15 +1,3 @@
-.blur {
-    position: absolute;
-    top: 10%;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    backdrop-filter: blur(2px);
-    background: rgba(255, 255, 255, 0.1);
-    z-index: 4;
-}
 .modal-window {
     display: flex;
     flex-direction: column;
@@ -17,12 +5,12 @@
     border-radius: 16px;
     padding: 30px;
     width: 553px;
-    z-index: 4;
-}
-.modal-window > img {
-    align-self: flex-end;
 }
 .modal-content {
     display: flex;
     flex-direction: column;
+}
+.actions{
+    display: flex;
+    justify-content: flex-end;
 }

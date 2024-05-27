@@ -1,4 +1,4 @@
-<header class="comp-header">
+<!-- <header class="comp-header">
   <div class="header-part">
     <img src="../../../assets/header/apple.svg" alt="apple" routerLink="/" />
     <div class="links">
@@ -19,7 +19,7 @@
         <img src="../../../assets/header/telephone.svg" alt="telephone" />
         <p>+7 812 561 96 62</p>
       </div>
-      <span (click)="openModal(modalTemplate2)">Вам перезвонить?</span>
+      <span>Вам перезвонить?</span>
     </div>
   </div>
   <div (click)="changeIsCatalogOpen()" class="header-part">
@@ -33,7 +33,7 @@
       <img src="../../../assets/header/heart.svg" alt="heart" />
       <img src="../../../assets/header/compare.svg" alt="compare" />
     </div>
-    <button (click)="openModal(modalTemplate)" class="bucket-button">
+    <button class="bucket-button">
       В корзине
     </button>
   </div>
@@ -125,6 +125,170 @@
   <div class="header-part">
     <p class="a">Ваш город <span>Москва</span></p>
   </div>
+  <div class="header-part">
+    <div class="open-links">
+      <div class="links">
+        <a href="">Весь каталог</a>
+        <div class="promotion">
+          <img src="../../../assets/header/fire-emoji.svg" alt="fire-emoji" />
+          Акции
+        </div>
+        <a routerLink="/warranty">Гарантия</a>
+        <a routerLink="/refund">Политика возврата</a>
+        <a routerLink="/credit">Кредит</a>
+      </div>
+      <div class="links">
+        <a routerLink="/delivery">Доставка и оплата</a>
+        <a routerLink="/review">Отзывы</a>
+        <a routerLink="/contacts">Контакты</a>
+        <div class="links-icons">
+          <img src="../../../assets/footer/whatsapp.svg" alt="whatsapp" width="32px" height="32px"
+            class="open-header-link whatsapp" />
+          <img src="../../../assets/footer/telegram.svg" alt="telegram" width="32px" height="32px"
+            class="open-header-link" />
+          <img src="../../../assets/footer/vk.svg" alt="" width="32px" height="32px" class="open-header-link" />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+}
+<ng-template #modalTemplate>
+  <modal-basket></modal-basket>
+</ng-template>
+
+<ng-template #modalTemplate2>
+  <modal-callback></modal-callback>
+</ng-template> -->
+
+<header class="comp-header">
+  <div class="header__links">
+    <div class="links">
+      <img class="apple-logo" src="../../../assets/header/apple.svg" alt="логотип apple store" routerLink="/" />
+      <a routerLink="/all-catalog">Весь каталог</a>
+      <a class="promotion" routerLink="/">
+        <img src="../../../assets/header/fire-emoji.svg" alt="эмодзи огня акций" />
+        Акции
+      </a>
+      <a routerLink="/warranty">Гарантия</a>
+      <a routerLink="/refund">Политика возврата</a>
+      <a routerLink="/credit">Кредит</a>
+      <a routerLink="/delivery">Доставка и оплата</a>
+      <a routerLink="/review">Отзывы</a>
+      <a routerLink="/contacts">Контакты</a>
+    </div>
+    <div class="telephone">
+      <div class="tel-number">
+        <img src="../../../assets/header/telephone.svg" alt="телефон" />
+        <p href="tel:+78125619662" class="tel-number__number">
+          +7 812 561 96 62
+        </p>
+      </div>
+      <span class="tel-number__text">Вам перезвонить?</span>
+    </div>
+  </div>
+  <div class="header__searh">
+    <div (click)="changeIsCatalogOpen()" [class]="'catalog-button ' + (!!isCatalogOpen ? 'catalog-button-open' : '')">
+      <img src="../../../assets/header/catalog-dots.svg" alt="три точки" />
+      Каталог товаров
+    </div>
+    <input type="search" placeholder="Поиск по каталогу товаров" />
+    <div class="functions">
+      <img src="../../../assets/header/heart.svg" alt="Любимые" />
+    </div>
+    <button class="button">
+      <img src="../../../assets/header/basket.svg" alt="Корзина" />
+      <p>в корзине</p>
+      <!-- T0DO: поменять параграф на менюящийся обьект с цифрой  -->
+      <p>1</p>
+    </button>
+  </div>
+  <div class="header__devices">
+    <!-- TODO: надо поменять на ссылки с категориями -->
+    <div class="card">
+      <img src="../../../assets/header/iphone.svg" alt="iPhone" />
+      <p>iPhone</p>
+    </div>
+    <div class="card">
+      <img src="../../../assets/header/ipad.svg" alt="iPad" />
+      <p>iPad</p>
+    </div>
+    <div class="card">
+      <img src="../../../assets/header/macbook_imac.svg" alt="Macbook and iMac" />
+      <p>Macbook и iMac</p>
+    </div>
+    <div class="card">
+      <img src="../../../assets/header/applewatch.svg" alt="Часы" />
+      <p>Watch</p>
+    </div>
+    <div class="card">
+      <img src="../../../assets/header/airpods.svg" alt="Гаджеты" />
+      <p>Гаджеты</p>
+    </div>
+    <div class="card">
+      <img src="../../../assets/header/iphoneaccessories.svg" alt="accessories" />
+      <p>Аксессуары</p>
+    </div>
+    <img src="../../../assets/header/banneriphone.svg" alt="banneriphone" />
+  </div>
+
+  @if(isCatalogOpen){
+  <div (mouseleave)="changeIsCatalogOpen(false)" class="catalog">
+    <div class="catalog__titles">
+      @for (catalog of catalogs; track $index) {
+      <p (mouseenter)="changeCatalogCategoryId(catalog.id)" class="catalog__titles__title">{{catalog.title}}</p>
+      }
+    </div>
+    @if (catalogCategoryId) {
+    <div class="catalog__list">
+      <div class="catalog__list__items">
+        @for (catalogItem of getCatalogItemsById(); track $index) {
+        <a routerLink="/">
+          <div class="catalog__list__items__item">
+            <img class="catalog__list__items__item__image" [src]="catalogItem.img" alt="item image">
+            <p class="catalog__list__items__item__title">{{catalogItem.title}}</p>
+            <p class="catalog__list__items__item__price">{{catalogItem.price | customCurrency}}</p>
+          </div>
+        </a>
+        }
+      </div>
+      <a routerLink="/" class="catalog__link">Смотреть все товары</a>
+    </div>
+    }
+  </div>
+  }
+
+  @if (searchResultText && isSearchResult) {
+  <div class="search-results">
+    @for (searchResult of getSearchResult(); track searchResult.id) {
+    <div class="search-result">
+      <img class="image" [src]="searchResult.image" alt="search result image">
+      <div class="info">
+        <p class="name">{{searchResult.name}}</p>
+        <p class="price">{{searchResult.price | customCurrency}}</p>
+      </div>
+      <p class="link">Подробнее</p>
+    </div>
+    }
+  </div>
+  }
+</header>
+
+<header class="tablet-header">
+  <img src="../../../assets/header/apple.svg" alt="apple" routerLink="/" />
+  <input type="search" placeholder="Поиск по каталогу товаров" />
+  <div class="telephone">
+    <div class="tel-number">
+      <img src="../../../assets/header/telephone.svg" alt="telephone" />
+      <p href="tel:+78125619662" class="tel-number__number">+7 812 561 96 62</p>
+    </div>
+    <!-- <span class="tel-number__text">Вам перезвонить?</span> -->
+  </div>
+  <img class="tel-icon" src="../../../assets/header/telephone.svg" alt="telephone" width="15px" height="20px" />
+  <img src="../../../assets/header/bx_menu.svg" alt="bx-menu" (click)="openHeader()" />
+</header>
+@if (isHeaderOpen) {
+<div class="header-open">
   <div class="header-part">
     <div class="open-links">
       <div class="links">
