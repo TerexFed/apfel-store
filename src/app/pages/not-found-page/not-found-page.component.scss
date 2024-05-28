@@ -1,3 +1,5 @@
+@import "../../../variables.scss";
+
 .not-found {
   display: flex;
   flex-direction: column;
@@ -9,19 +11,35 @@
     width: 280px;
   }
 
-  @media screen and (max-width: 1025px) {
+  .not-found__text {
+    color: $text-color;
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 47.73px;
+  }
+
+  .not-found__gray {
+    color: $accent-text-color;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 23.87px;
+  }
+
+  @media screen and (max-width: 1440px) {
     margin-top: 206px;
   }
 
-  @media screen and (max-width: 576px) {
+  @media screen and (max-width: 768px) {
     margin-top: 32px;
 
     .not-found__text {
       font-size: 32px;
+      line-height: 38.19px;
     }
+
     .not-found__gray {
       font-size: 16px;
-      width: 233px;
+      max-width: 233px;
       text-align: center;
     }
 
@@ -29,6 +47,4 @@
       width: 256px;
     }
   }
-
-
 }

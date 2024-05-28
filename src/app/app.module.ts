@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
 import { MatDialogModule } from '@angular/material/dialog';
+import {CdkAccordionModule} from '@angular/cdk/accordion'; 
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -61,7 +62,8 @@ import { NewModelsComponent } from './components/main-page-components/new-models
   imports: [
     BrowserModule,
     AppRoutingModule,
-    MatDialogModule
+    MatDialogModule,
+    CdkAccordionModule,
   ],
   providers: [
     provideClientHydration()

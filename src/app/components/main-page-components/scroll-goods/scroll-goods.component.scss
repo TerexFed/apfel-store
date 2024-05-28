@@ -36,13 +36,13 @@
       align-self: center;
     }
 
-    @media screen and (max-width: 1025px) {
+    @media screen and (max-width: 1440px) {
       .arrow {
         margin: 36px;
       }
     }
 
-    @media screen and (max-width: 576px) {
+    @media screen and (max-width: 768px) {
       .arrow {
         margin: 23px;
       }
@@ -79,7 +79,7 @@
       }
     }
 
-    @media screen and (max-width: 1025px) {
+    @media screen and (max-width: 1440px) {
       .text {
         flex-direction: column-reverse;
         align-items: center;
@@ -124,7 +124,7 @@
       }
     }
 
-    @media screen and (max-width: 576px) {
+    @media screen and (max-width: 768px) {
       .ellips {
         border: 5px solid $logo-title-color;
         width: 42px;

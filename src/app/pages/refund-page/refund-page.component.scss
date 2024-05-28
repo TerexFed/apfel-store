@@ -1,0 +1,89 @@
+@import "../../../variables.scss";
+
+.refund {
+  max-width: 1200px;
+  margin: 0 auto 40px auto;
+
+  @media screen and (max-width: 768px) {
+    margin: 0 auto 16px auto;
+  }
+
+  .refund__group {
+    max-width: 792px;
+
+    @media screen and (max-width: 1200px) {
+      padding: 0 24px 0 24px;
+    }
+
+    @media screen and (max-width: 768px) {
+      padding: 0 16px 0 16px;
+    }
+
+    .refund__group__title {
+      color: $text-color;
+      font-size: 40px;
+      font-weight: 500;
+      line-height: 47.73px;
+      margin: 19px 0 24px 0;
+
+      @media screen and (max-width: 1200px) {
+        font-size: 32px;
+        font-weight: 500;
+        line-height: 38.19px;
+        margin: 40px 0 16px 0;
+      }
+
+      @media screen and (max-width: 768px) {
+        font-size: 24px;
+        font-weight: 500;
+        line-height: 28.64px;
+        margin: 16px 0 16px 0;
+      }
+    }
+
+    .refund__group__notification {
+      color: $bg-color;
+    }
+
+    h2 {
+      font-size: 24px;
+      font-weight: 500;
+      line-height: 28.64px;
+
+      @media screen and (max-width: 1200px) {
+        font-size: 20px;
+        font-weight: 500;
+        line-height: 23.87px;
+      }
+
+      @media screen and (max-width: 768px) {
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 19.09px;
+      }
+    }
+
+    .refund__group__card {
+      margin-top: 32px;
+
+      @media screen and (max-width: 1200px) {
+        margin-top: 24px;
+      }
+
+      @media screen and (max-width: 768px) {
+        margin-top: 16px;
+      }
+
+      .refund__group__card__text {
+        color: $accent-text-color;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 19.09px;
+      }
+
+      .refund__group__card__text {
+        margin-top: 16px;
+      }
+    }
+  }
+}

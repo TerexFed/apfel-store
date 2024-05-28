@@ -18,10 +18,7 @@ $apfel-store-angular-theme: mat.define-light-theme((color: (primary: $apfel-stor
 
 @include mat.all-component-themes($apfel-store-angular-theme);
 
-$black-color: #100e0e;
-$primary-color: #0071e4;
-$alter-text-color: rgb(30, 50, 64);
-$gray-text-color: rgb(88, 86, 86);
+
 
 * {
   margin: 0;
@@ -39,7 +36,6 @@ h2 {
 }
 
 h3 {
-  color: $accent-text-color;
   font-size: 48px;
   font-weight: 400;
   line-height: 57px;
@@ -196,7 +192,7 @@ button {
   cursor: pointer;
 }
 
-@media screen and (max-width: 1025px) {
+@media screen and (max-width: 1440px) {
   h2 {
     font-size: 60px;
   }

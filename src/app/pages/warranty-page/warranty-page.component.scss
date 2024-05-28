@@ -1,0 +1,151 @@
+@import "../../../variables.scss";
+
+.warranty {
+  @media screen and (max-width: 1440px) {
+    margin: 0 24px 0 24px;
+  }
+
+  .warranty__list {
+    background-color: $bg-distribution;
+  }
+
+  .warranty__accordion {
+    display: block;
+    margin: 0 auto;
+    max-width: 1200px;
+  }
+
+  .warranty__accordion-item {
+    display: block;
+    background-color: $bg-accrodion;
+  }
+
+  .warranty__accordion-item-header {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .warranty__accordion-item-description {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 23.87px;
+    color: $text-color;
+
+    &__img {
+      width: 22.4px;
+      height: 12.8px;
+      // transition: transform 0.3s ease;
+    }
+
+    // &__img:hover {
+    //   transform: rotate(180deg);
+    // }
+  }
+
+  .warranty__accordion-item-header,
+  .warranty__accordion-item-body {
+    padding: 24px 112px 24px 40px;
+
+    
+
+    @media screen and (max-width: 1440px) {
+      p {
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 19.09px;
+      }
+    }
+
+    @media screen and (max-width: 768px) {
+      p {
+        font-family: SF Pro Display;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 19.09px;
+      }
+    }
+
+    li {
+      list-style-type: disc;
+      padding: 0;
+      margin-left: 15px;
+    }
+  }
+
+  .warranty__accordion-item-header:hover {
+    cursor: pointer;
+    background-color: #eee;
+    border-radius: 16px;
+  }
+
+  .warranty__accordion-item {
+    border-radius: 16px;
+  }
+
+  .warranty__cards {
+    max-width: 1200px;
+    margin: 0 auto;
+
+    .warranty__cards__title {
+      font-size: 40px;
+      font-weight: 500;
+      line-height: 47.73px;
+
+      @media screen and (max-width: 1440px) {
+        font-size: 32px;
+        font-weight: 500;
+        line-height: 38.19px;
+      }
+
+      @media screen and (max-width: 768px) {
+        font-size: 24px;
+        font-weight: 500;
+        line-height: 28.64px;
+      }
+    }
+
+    .warranty__cards__subtitle {
+      font-size: 24px;
+      font-weight: 500;
+      line-height: 28.64px;
+      margin-bottom: 16px;
+
+      @media screen and (max-width: 1440px) {
+        font-size: 20px;
+        font-weight: 500;
+        line-height: 23.87px;
+
+        &:last-of-type {
+          margin-bottom: 40px;
+        }
+      }
+
+      @media screen and (max-width: 768px) {
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 19.09px;
+      }
+    }
+
+    .warranty__cards__text {
+      color: $accent-text-color;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 19.09px;
+      margin-bottom: 24px;
+
+      @media screen and (max-width: 1440px) {
+        margin-bottom: 16px;
+      }
+    }
+  }
+}
+
+
+// .warranty__accordion-item-description__img {
+//   transform: rotate(180deg);
+// }
