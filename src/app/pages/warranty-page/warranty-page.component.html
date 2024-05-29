@@ -53,10 +53,13 @@
           >
             {{ accordionItem.expanded ? "Открытый список" : "Закрытый список" }}
             <img
-              class="warranty__accordion-item-description__img"
+              [class]="'warranty__accordion-item-description__img ' + (accordionItem.expanded && 'opened')"
               src="../../../assets/warranty-page/arrow.svg"
+              
               alt="arrow"
+
             />
+            <!-- [aria-open]="!!accordionItem.expanded ? 'true' : 'false' " -->
           </span>
         </div>
         <div

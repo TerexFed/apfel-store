@@ -4,9 +4,10 @@
   @media screen and (max-width: 1440px) {
     margin: 0 24px 0 24px;
   }
-
   .warranty__list {
     background-color: $bg-distribution;
+    margin-top: 40px;
+    padding: 20px;
   }
 
   .warranty__accordion {
@@ -38,12 +39,12 @@
     &__img {
       width: 22.4px;
       height: 12.8px;
-      // transition: transform 0.3s ease;
+      transition: 0.2s ease;
+      
+      &.opened {
+        transform: rotate(180deg) ; 
+      }
     }
-
-    // &__img:hover {
-    //   transform: rotate(180deg);
-    // }
   }
 
   .warranty__accordion-item-header,
