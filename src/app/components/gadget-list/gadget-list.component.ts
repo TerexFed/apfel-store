@@ -1,88 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { GadgetService } from '../../services/gadget.service';
 
 @Component({
   selector: 'app-gadget-list',
   templateUrl: './gadget-list.component.html',
   styleUrl: './gadget-list.component.scss'
 })
-export class GadgetListComponent {
-  gadgets: any = [{
-    rating: 2,
-    reviews: 14,
-    isFavorite: false,
-    name: 'Apple iPhone XS Max 256 ГБ золотой',
-    isAvailable: true,
-    guarantee: 1,
-    price: 1238,
-    discountPrice: 300,
-    isInCart: false,
-  }, {
-    rating: 4.3,
-    reviews: 14,
-    isFavorite: true,
-    name: 'Apple iPhone XS Max 256 ГБ золотой',
-    isAvailable: true,
-    guarantee: 1,
-    price: 1238,
-    discountPrice: 3068686868686860,
-    isInCart: false,
-  }, {
-    rating: 4.3,
-    reviews: 14,
-    isFavorite: false,
-    name: 'Apple iPhone XS Max 256 ГБ золотой',
-    isAvailable: false,
-    guarantee: 1,
-    price: 1238110109101010101010,
-    discountPrice: 300,
-    isInCart: false,
-  }, {
-    rating: 4.3,
-    reviews: 14,
-    isFavorite: false,
-    name: 'Apple iPhone XS Max 256 ГБ золотой',
-    isAvailable: true,
-    guarantee: 1,
-    price: 1238,
-    discountPrice: 300,
-    isInCart: true,
-  }, {
-    rating: 6,
-    reviews: 14,
-    isFavorite: false,
-    name: 'App',
-    isAvailable: true,
-    guarantee: 1,
-    price: 1238,
-    discountPrice: 300,
-    isInCart: true,
-  }, {
-    rating: 4.3,
-    reviews: 14,
-    isFavorite: false,
-    name: 'Apple iPhone XS Max 256 ГБ золотой',
-    isAvailable: true,
-    guarantee: 1,
-    price: 1238,
-    isInCart: false,
-  }, {
-    rating: 0,
-    reviews: 0,
-    isFavorite: false,
-    name: 'Apple iPhone XS Max 256 ГБ золотой',
-    isAvailable: true,
-    guarantee: 190,
-    price: 1238,
-    discountPrice: 300,
-    isInCart: false,
-  }, {
-    rating: 4.3,
-    reviews: 14,
-    isFavorite: true,
-    name: 'Apple iPhone XS Max 256 ГБ золотой',
-    isAvailable: false,
-    guarantee: 1,
-    price: 1238,
-    isInCart: true,
-  }]
+export class GadgetListComponent implements OnInit {
+  constructor (public gadgetService: GadgetService) {}
+
+  ngOnInit(): void {
+    this.gadgetService.getAllGadgets()
+  }
 }

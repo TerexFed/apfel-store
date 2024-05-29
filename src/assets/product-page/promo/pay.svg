@@ -1,0 +1,19 @@
+<svg width="48.000000" height="48.000000" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<desc>
+			Created with Pixso.
+	</desc>
+	<defs>
+		<clipPath id="clip974_18985">
+			<rect id="heroicons-outline:cash" width="42.000000" height="42.000000" transform="translate(3.000000 3.000000)" fill="white" fill-opacity="0"/>
+		</clipPath>
+		<clipPath id="clip974_18984">
+			<rect id="img" width="48.000000" height="48.000000" fill="white" fill-opacity="0"/>
+		</clipPath>
+	</defs>
+	<g clip-path="url(#clip974_18984)">
+		<rect id="heroicons-outline:cash" width="42.000000" height="42.000000" transform="translate(3.000000 3.000000)" fill="#FFFFFF" fill-opacity="0"/>
+		<g clip-path="url(#clip974_18985)">
+			<path id="Vector" d="M32.75 18.75L32.75 15.25C32.75 14.32 32.38 13.43 31.72 12.77C31.06 12.11 30.17 11.75 29.25 11.75L11.75 11.75C10.82 11.75 9.93 12.11 9.27 12.77C8.61 13.43 8.25 14.32 8.25 15.25L8.25 25.75C8.25 26.67 8.61 27.56 9.27 28.22C9.93 28.88 10.82 29.25 11.75 29.25L15.25 29.25M36.25 36.25C37.17 36.25 38.06 35.88 38.72 35.22C39.38 34.56 39.75 33.67 39.75 32.75L39.75 22.25C39.75 21.32 39.38 20.43 38.72 19.77C38.06 19.11 37.17 18.75 36.25 18.75L18.75 18.75C17.82 18.75 16.93 19.11 16.27 19.77C15.61 20.43 15.25 21.32 15.25 22.25L15.25 32.75C15.25 33.67 15.61 34.56 16.27 35.22C16.93 35.88 17.82 36.25 18.75 36.25L36.25 36.25ZM29.97 29.97C29.31 30.63 28.42 31 27.5 31C26.57 31 25.68 30.63 25.02 29.97C24.36 29.31 24 28.42 24 27.5C24 26.57 24.36 25.68 25.02 25.02C25.68 24.36 26.57 24 27.5 24C28.42 24 29.31 24.36 29.97 25.02C30.63 25.68 31 26.57 31 27.5C31 28.42 30.63 29.31 29.97 29.97Z" stroke="#0071E4" stroke-opacity="1.000000" stroke-width="2.752500" stroke-linejoin="round" stroke-linecap="round"/>
+		</g>
+	</g>
+</svg>

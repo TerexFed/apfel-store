@@ -1,39 +1,38 @@
 <mat-dialog-content class="modal-window">
-    <mat-dialog-actions class="actions">
-      <img
-        src="../../../assets/modal/cross.svg"
-        alt="cross"
-        width="16px"
-        height="16px"
-        [mat-dialog-close]="true"
-      />
-    </mat-dialog-actions>
-    <div class="modal-content">
-    @switch (data.type) { 
-      @case ('Admission') {
-      <modal-admission [title]="data.title"></modal-admission>
-      } 
-      @case ('Basket') {
-      <modal-basket></modal-basket>
-      } 
-      @case ('PriceLower') {
-        <modal-price-lower></modal-price-lower>
-      }
-      @case ('ApplicationSend') {
-        <modal-application-send></modal-application-send>
-      } 
-      @case ('CallBack') {
-        <modal-callback></modal-callback>
-      }
-      @case ('OneClick') {
-        <modal-one-click [title]="data.title" [price]="data.price" [discountPrice]="data.discountPrice" ></modal-one-click>
-      }
-      @case ('BasketSuccess') {
-        <modal-basket-success></modal-basket-success>
-      }
-      @case ('BasketAdd') {
-        <modal-basket-add [title]="data.title"></modal-basket-add>
-      }
-    }
-    </div>
+  <mat-dialog-actions class="actions">
+    <img
+      src="../../../assets/modal/cross.svg"
+      alt="cross"
+      width="16px"
+      height="16px"
+      [mat-dialog-close]="true"
+    />
+  </mat-dialog-actions>
+  <div class="modal-content">
+    @switch (data.type) { @case ('Admission') {
+    <modal-admission [title]="data.title"></modal-admission>
+    } @case ('Basket') {
+    <modal-basket></modal-basket>
+    } @case ('PriceLower') {
+    <modal-price-lower></modal-price-lower>
+    } @case ('ApplicationSend') {
+    <modal-application-send></modal-application-send>
+    } @case ('CallBack') {
+    <modal-callback></modal-callback>
+    } @case ('OneClick') {
+    <modal-one-click
+      [title]="data.title"
+      [price]="data.price"
+      [discountPrice]="data.discountPrice"
+      [image]="data.image"
+    ></modal-one-click>
+    } @case ('BasketSuccess') {
+    <modal-basket-success></modal-basket-success>
+    } @case ('BasketAdd') {
+    <modal-basket-add
+      [title]="data.title"
+      [image]="data.image"
+    ></modal-basket-add>
+    } }
+  </div>
 </mat-dialog-content>

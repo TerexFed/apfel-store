@@ -1,11 +1,15 @@
 <div class="one-click">
-  <img class="big_iphone" src="../../../assets/main-page/big_iphone.svg" alt="big_iphone" />
+  <img
+    class="big_iphone"
+    [src]="image"
+    alt="big_iphone"
+  />
   <div class="content-callback">
     <div class="content">
       <sup>Купить в 1 клик</sup>
       <h4 class="normal">{{ title }}</h4>
-      <sup class="crossed">{{ price | customCurrency }}</sup>
-      <h4 class="normal">{{ discountPrice | customCurrency }}</h4>
+      <sup class="crossed">{{ discountPrice | customCurrency }}</sup>
+      <h4 class="normal">{{ price | customCurrency }}</h4>
       <div class="checkout">
         <input type="text" placeholder="+7" />
         <button>оформить заказ</button>
