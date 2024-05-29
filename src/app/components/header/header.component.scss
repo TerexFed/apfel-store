@@ -1,254 +1,7 @@
-// .header-part {
-//   position: relative;
-// }
-
-// .header-part {
-//   display: flex;
-//   align-items: center;
-//   justify-content: space-between;
-//   height: 100px;
-// }
-
-// .tablet-header {
-//   display: none;
-// }
-
-// .links {
-//   display: flex;
-//   align-items: center;
-// }
-
-// .links>a {
-//   margin: 0 24px 0 24px;
-// }
-
-// .promotion {
-//   display: flex;
-//   align-items: center;
-//   border-radius: 8px;
-//   padding: 3px;
-//   background: rgb(253, 239, 191);
-// }
-
-// .telephone {
-//   display: flex;
-//   flex-direction: column;
-//   justify-content: right;
-// }
-
-// .tel-number {
-//   display: flex;
-// }
-
-// .tel-icon {
-//   display: none;
-// }
-
-// .tel-number>p {
-//   padding-left: 5px;
-// }
-
-// span {
-//   color: rgb(0, 113, 228);
-//   font-size: 16px;
-//   font-weight: 400;
-//   line-height: 19px;
-//   letter-spacing: 0%;
-//   text-align: right;
-// }
-
-// .catalog-button {
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   color: white;
-//   width: 235px;
-//   padding: 13px 16px;
-//   border-radius: 16px;
-//   background: rgb(0, 113, 228);
-
-//   color: rgb(255, 255, 255);
-//   font-family: SF Pro Display;
-//   font-size: 20px;
-//   font-weight: 400;
-//   line-height: 24px;
-//   letter-spacing: 0%;
-
-//   &.catalog-button-open {
-//     border-radius: 16px 16px 0 0;
-//     background-color: #9747FF;
-//   }
-// }
-
-// input[type="search"] {
-//   background-image: url("../../../assets/header/search-icon.svg");
-//   background-repeat: no-repeat;
-//   background-position: 20px;
-//   width: 45vw;
-//   padding: 16px 56px 16px 56px;
-//   font-size: 20px;
-//   font-weight: 400;
-//   line-height: 24px;
-//   letter-spacing: 0%;
-//   color: rgb(183, 183, 183);
-//   outline: none;
-//   border: none;
-//   border: 1px solid rgb(183, 183, 183);
-//   border-radius: 8px;
-//   margin-left: 40px;
-// }
-
-// .functions {
-//   display: flex;
-//   justify-content: center;
-// }
-
-// .functions>img {
-//   margin: 24px;
-// }
-
-// .bucket-button {
-//   border-radius: 16px;
-//   background: rgb(82, 209, 22);
-//   border: none;
-//   padding: 0px 16px 0px 16px;
-//   width: 215px;
-//   height: 56px;
-//   font-size: 20px;
-//   font-weight: 400;
-//   line-height: 24px;
-//   letter-spacing: 0%;
-//   color: rgb(255, 255, 255);
-// }
-
-// .card {
-//   display: flex;
-//   align-items: center;
-// }
-
-// .card:hover>p {
-//   color: rgb(0, 113, 228);
-// }
-
-// .card:hover>img {
-//   filter: invert(41%) sepia(86%) saturate(5961%) hue-rotate(214deg) brightness(97%) contrast(98%);
-// }
-
-// .card>p {
-//   padding-left: 8px;
-// }
-
-// .header-open {
-//   display: none;
-// }
-
-// .headers {
-//   border-radius: 0 0 24px 24px;
-// }
-
-// @media (width < 1560px) {
-//   .comp-header {
-//     display: none;
-//   }
-
-//   .tablet-header {
-//     display: flex;
-//     justify-content: space-between;
-//     align-items: center;
-//     border-radius: 0 0 24px 24px;
-//   }
-
-//   input[type="search"] {
-//     background-image: url("../../../assets/header/search-icon-black.svg");
-//     border: none;
-//     margin: 0;
-//   }
-
-//   .header-open {
-//     display: flex;
-//     flex-direction: column;
-//     padding: 10px 140px 10px 140px;
-//     border-radius: 0px 0px 24px 24px;
-//     background-color: white;
-//     position: absolute;
-//     width: 100%;
-//   }
-
-//   p.a {
-//     margin-bottom: 10px;
-//   }
-
-//   .open-links {
-//     display: flex;
-//     flex-direction: column;
-//   }
-
-//   .promotion {
-//     margin-right: 24px;
-//   }
-
-//   .links {
-//     margin: 5px 0 15px 0;
-//   }
-
-//   .links>a {
-//     margin-left: 0;
-//   }
-
-//   .header-part {
-//     height: fit-content;
-//   }
-
-//   .open-header-link {
-//     margin-left: 10px;
-//   }
-// }
-
-// @media (width < 1280px) {
-
-//   .tablet-header,
-//   .header-open {
-//     padding: 0 20px 0 20px;
-//   }
-// }
-
-// @media (width < 890px) {
-//   .tel-number {
-//     display: none;
-//   }
-
-//   .tel-icon {
-//     display: flex;
-//   }
-// }
-
-// @media (width < 525px) {
-//   .header-open {
-//     height: 380px;
-//   }
-
-//   .links {
-//     display: flex;
-//     flex-direction: column;
-//     align-items: flex-start;
-//     margin: 0;
-//   }
-
-//   p.a {
-//     margin: 8px 0 16px 0;
-//   }
-
-//   .links>a {
-//     margin: 8px 0 8px 0;
-//   }
-
-//   .whatsapp {
-//     margin-left: 0;
-//   }
-// }
-
-
-
+.header-button {
+  width: 215px !important;
+  min-width: 215px;
+}
 
 @import "../../../variables.scss";
 
@@ -268,6 +21,7 @@
   align-items: center;
   justify-content: space-between;
   height: 100px;
+  gap: 10px;
 }
 
 .header__devices {
@@ -361,7 +115,7 @@ input[type="search"] {
   background-image: url("../../../assets/header/search-icon.svg");
   background-repeat: no-repeat;
   background-position: 20px;
-  width: 45vw;
+  width: 100%;
   padding: 16px 56px 16px 56px;
   font-size: 20px;
   font-weight: 400;
@@ -372,7 +126,7 @@ input[type="search"] {
   border: none;
   border: 1px solid $accent-list;
   border-radius: 8px;
-  margin-left: 40px;
+  margin-left: 15px;
 }
 
 .functions {
@@ -437,17 +191,35 @@ input[type="search"] {
 
   .tablet-header {
     display: flex;
-    justify-content: space-between;
+    flex-direction: row;
     align-items: center;
-    border-radius: 0 0 24px 24px;
+    padding: 4px 24px;
+    gap: 32px;
+
+    &>img:first-of-type {
+      width: 32px;
+      height: 32px;
+    }
+  }
+
+  .search-input {
+    width: 252px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
   }
 
   input[type="search"] {
-    background-image: url("../../../assets/header/search-icon-black.svg");
+    // background-image: url("../../../assets/header/search-icon-black.svg");
+    color: $text-color;
+    background-image: none;
     border: none;
-    width: 50vh;
+    width: 100%;
+    max-width: 210px;
     font-size: 16px;
     margin: 0;
+    padding: 0;
   }
 
   .header-open {
@@ -466,6 +238,7 @@ input[type="search"] {
 
   .telephone {
     width: 155px;
+    margin-left: auto;
   }
 
   p.a {
@@ -494,7 +267,6 @@ input[type="search"] {
     margin-left: 10px;
   }
 
-  .tablet-header,
   .header-open {
     padding: 0 20px 0 20px;
   }

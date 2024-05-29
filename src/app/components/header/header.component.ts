@@ -385,6 +385,10 @@ export class HeaderComponent {
     },
   ]
 
+  removeSearchResultText() {
+    this.searchResultText = ''
+  }
+
   changeCatalogCategoryId(newVal: null | number) {
     this.catalogCategoryId = newVal
   }

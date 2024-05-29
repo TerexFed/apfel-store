@@ -4,8 +4,7 @@
 
 .catalog {
     // max-width: 897px;
-    width: 100%;
-    width: fit-content;
+    width: 215px;
     position: absolute;
     margin-top: -100px;
     z-index: 5;
@@ -24,17 +23,21 @@
     a {
         text-decoration: none;
     }
+
+
 }
 
 .catalog__titles {
-    width: 25%;
+    width: 100%;
+    max-width: 167px;
     display: flex;
     flex-direction: column;
     gap: 8px;
 }
 
 .catalog__titles__title {
-    min-width: 183px;
+    // min-width: 183px;
+    width: 100%;
     border-radius: 8px;
     padding: 8px;
     background-color: #F9F9F9;

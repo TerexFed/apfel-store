@@ -1,13 +1,31 @@
 .search-results {
     display: flex;
     flex-direction: column;
-    width: 45vw;
-    margin-left: 16.3vw;
+    width: calc(1200px - 215px * 2 - 10px * 3 - 15px - 64px);
+    margin-left: 240px;
     position: absolute;
-    background-color: rgb(255, 255, 255);
+    margin-top: -101px;
+    background-color: white;
     z-index: 2;
     box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
     border-radius: 16px;
+
+    @media screen and (max-width: 1200px) {
+        width: calc(100vw - 215px * 2 - 10px * 3 - 15px - 64px);
+    }
+
+    @media screen and (max-width: 1025px) {
+        width: 90%;
+        margin: 0 auto;
+        left: 5%;
+        top: 40px;
+        border-radius: 0 0 16px 16px;
+    }
+
+    @media screen and (max-width: 576px) {
+        width: 100%;
+        left: 0;
+    }
 
     p {
         color: #100E0E;
@@ -18,17 +36,36 @@
         flex-direction: row;
         align-items: center;
         border-bottom: 1px solid #B7B7B7;
-        padding: 15px 40px;
+        padding: 16px 40px;
         gap: 25px;
 
         &:last-of-type {
             border-bottom: none;
         }
 
+        @media screen and (max-width: 1025px) {
+            gap: 16px;
+            padding: 16px 32px;
+        }
+
+        @media screen and (max-width: 576px) {
+            padding: 21px 16px;
+        }
+
         .image {
             width: 64px;
             height: 64px;
             border-radius: 4px;
+
+            @media screen and (max-width: 1025px) {
+                width: 48px;
+                height: 48px;
+            }
+
+            @media screen and (max-width: 576px) {
+                width: 32px;
+                height: 32px;
+            }
         }
 
         .info {
@@ -40,12 +77,32 @@
                 font-size: 20px;
                 line-height: 24px;
                 font-weight: 400;
+
+                @media screen and (max-width: 1025px) {
+                    font-size: 16px;
+                    line-height: 19px;
+                }
+
+                @media screen and (max-width: 576px) {
+                    font-size: 14px;
+                    line-height: 16px;
+                }
             }
 
             .price {
                 font-weight: 500;
                 font-size: 24px;
                 line-height: 29px;
+
+                @media screen and (max-width: 1025px) {
+                    font-size: 20px;
+                    line-height: 24px;
+                }
+
+                @media screen and (max-width: 576px) {
+                    font-size: 16px;
+                    line-height: 19px;
+                }
             }
         }
 
@@ -58,6 +115,11 @@
 
             &:hover {
                 cursor: pointer;
+            }
+
+            @media screen and (max-width: 1025px) {
+                font-size: 16px;
+                line-height: 19px;
             }
         }
     }
