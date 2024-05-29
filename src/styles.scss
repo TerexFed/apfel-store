@@ -92,6 +92,9 @@ h4 {
     color: $text-color;
     font-weight: 700;
   }
+  &.white{
+    color: $title-color;
+  }
   &.blue {
     color: rgb(0, 113, 228);
     font-weight: 700;
@@ -188,6 +191,9 @@ p {
     font-weight: 700;
     line-height: 26px;
     letter-spacing: 0%;
+  }
+  &.bold{
+    font-weight: 700;
   }
 }
 
