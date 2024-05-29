@@ -22,10 +22,7 @@ $apfel-store-angular-theme: mat.define-light-theme(
 
 @include mat.all-component-themes($apfel-store-angular-theme);
 
-$black-color: #100e0e;
-$primary-color: #0071e4;
-$alter-text-color: rgb(30, 50, 64);
-$gray-text-color: rgb(88, 86, 86);
+
 
 * {
   margin: 0;
@@ -42,7 +39,6 @@ h2 {
 }
 
 h3 {
-  color: $accent-text-color;
   font-size: 48px;
   font-weight: 400;
   line-height: 57px;
@@ -226,7 +222,19 @@ button.invert {
   width: 100%;
 }
 
-@media screen and (max-width: 1025px) {
+button.invert {
+  background-color: transparent;
+  color: $bg-color;
+  border: 1px solid $bg-color;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 21px;
+  letter-spacing: 0%;
+  padding: 16px 30px 16px 30px;
+  width: 100%;
+}
+
+@media screen and (max-width: 1440px) {
   h2 {
     font-size: 60px;
   }

@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrl: './warranty-page.component.scss'
 })
 export class WarrantyPageComponent {
-
+  expandedIndex = 0;
 }

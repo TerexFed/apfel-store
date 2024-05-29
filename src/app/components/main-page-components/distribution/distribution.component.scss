@@ -2,6 +2,16 @@
 
 .bg {
   background-color: $bg-distribution;
+
+
+  @media screen and (max-width: 1440px) {
+    padding: 40px;
+    background-color: $bg-distribution-mobile
+  }
+
+  @media screen and (max-width: 768px) {
+    background-color: $bg-distribution-mobile;
+  }
 }
 
 .distribution {
@@ -12,31 +22,22 @@
   max-width: 1200px;
   height: 481px;
 
-  @media screen and (max-width: 1025px) {
-    padding: 40px;
-    background-color: $bg-distribution-mobile
-  }
-
-  @media screen and (max-width: 576px) {
-    background-color: $bg-distribution-mobile;
-  }
-
-  @media screen and (max-width: 576px) {
+  @media screen and (max-width: 768px) {
     padding: 0 20px 0 20px;
     justify-content: center;
   }
 
-  @media screen and (max-width: 576px) {
+  @media screen and (max-width: 768px) {
     padding: 40px 5px;
   }
 }
 
 .text {
-  @media screen and (max-width: 1025px) {
+  @media screen and (max-width: 1440px) {
     margin-left: 30px;
   }
 
-  @media screen and (max-width: 576px) {
+  @media screen and (max-width: 768px) {
     margin: 0 20px 0 20px;
   }
 }
@@ -44,7 +45,7 @@
 .tablet-form {
   display: none;
 
-  @media screen and (max-width: 1025px) {
+  @media screen and (max-width: 1440px) {
     display: flex;
     flex-direction: column;
   }
@@ -55,16 +56,16 @@
   height: auto;
   margin-right: 88px;
 
-  @media screen and (max-width: 1025px) {
+  @media screen and (max-width: 1440px) {
     width: 306px;
     margin: 0 0 110px 0;
   }
 
-  @media screen and (max-width: 576px) {
+  @media screen and (max-width: 768px) {
     margin-right: 32px;
   }
 
-  @media screen and (max-width: 576px) {
+  @media screen and (max-width: 768px) {
     display: none;
   }
 }
@@ -81,7 +82,7 @@
   padding: 30px;
   margin-top: 25px;
 
-  @media screen and (max-width: 1025px) {
+  @media screen and (max-width: 1440px) {
     display: none;
   }
 }
@@ -94,7 +95,7 @@
 .form-info {
   display: flex;
 
-  @media screen and (max-width: 576px) {
+  @media screen and (max-width: 768px) {
     flex-direction: column;
   }
 }
@@ -123,7 +124,7 @@ button.gray {
   letter-spacing: 0%;
   margin-left: 15px;
 
-  @media screen and (max-width: 576px) {
+  @media screen and (max-width: 768px) {
     margin: 8px 0 24px 0;
   }
 }
@@ -137,12 +138,12 @@ button.gray {
   margin-top: 25px;
   border-radius: 8px;
 
-  @media screen and (max-width: 1025px) {
+  @media screen and (max-width: 1440px) {
     width: 64%;
     margin-bottom: 16px;
   }
 
-  @media screen and (max-width: 576px) {
+  @media screen and (max-width: 768px) {
     width: 100%;
     margin-bottom: 8px;
   }
@@ -160,7 +161,7 @@ button.gray {
   color: $button-title;
 }
 
-@media screen and (max-width: 576px) {
+@media screen and (max-width: 768px) {
   h4.normal {
     font-size: 20px;
   }

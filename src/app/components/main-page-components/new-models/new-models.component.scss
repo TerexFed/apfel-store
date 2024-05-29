@@ -55,7 +55,7 @@ p.text {
   margin: 16px 0 16px 0;
 }
 
-@media screen and (max-width: 1025px) {
+@media screen and (max-width: 1440px) {
 
   .info {
     height: 217px;
@@ -79,7 +79,7 @@ p.text {
   }
 }
 
-@media screen and (max-width: 576px) {
+@media screen and (max-width: 768px) {
   h4.normal {
     padding: 15px;
     font-size: 24px;
@@ -91,7 +91,7 @@ p.text {
   }
 }
 
-@media (max-width: 576px) {
+@media (max-width: 768px) {
   .info > img {
     margin: 3% 24px 0 16px;
     width: 65px;
