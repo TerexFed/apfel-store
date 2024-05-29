@@ -12,7 +12,7 @@
       />
       }
     </div>
-    <p class="reviews-count">({{ gadget.reviews }})</p>
+    <p class="reviews-count">({{ gadget.count_review }})</p>
     <img
       class="self-end"
       [src]="
@@ -24,24 +24,25 @@
     />
     <img src="/assets/gadget-item/compare.svg" alt="" />
   </div>
-  <p class="name">{{ gadget.name }}</p>
+  <p class="name">{{gadget.name}}</p>
   <img
     class="gadget-image"
-    src="/assets/gadget-item/iphone.jpg"
+    [src]="'http://localhost:1452/'+gadget.images[0]"
     alt="gadget-image"
+    (click)="openGadget(gadget.id)"
   />
-  @if (gadget.isAvailable) {
+  @if (gadget.is_available) {
   <div class="second-section">
     <p><span class="isAvailable available"></span>Есть в наличии</p>
-    <p>Гарантия {{ gadget.guarantee }} год</p>
+    <p>Гарантия {{ gadget.guarantee === 12 ? '1' : gadget.guarantee }} год</p>
   </div>
   @if (windowWidth > 900) {
   <div class="prices-section">
-    <p [class]="gadget.discountPrice ? 'old-price' : 'price'">
+    <p [class]="gadget.discount_price ? 'old-price' : 'price'">
       {{ gadget.price | customCurrency }}
     </p>
-    @if(gadget.discountPrice){
-    <p class="price">{{ gadget.discountPrice | customCurrency }}</p>
+    @if(gadget.discount_price){
+    <p class="price">{{ gadget.discount_price | customCurrency }}</p>
     }
   </div>
   <button
@@ -61,7 +62,7 @@
   </button>
   } @else {
   <div class="prices-section">
-    @if (gadget.discountPrice) {
+    @if (gadget.discount_price) {
     <p class="old-price">{{ gadget.price | customCurrency }}</p>
     }
     <button
@@ -76,7 +77,7 @@
         "
         alt="cart"
       />
-      <span>{{ gadget.discountPrice || gadget.price | customCurrency }}</span>
+      <span>{{ gadget.discount_price || gadget.price | customCurrency }}</span>
     </button>
   </div>
   }
@@ -88,10 +89,7 @@
   <div class="preorder">
     <p><span class="isAvailable unavailable"></span>Ожидается поступление</p>
     <p>Мы можем сообщить вам, когда товар появится в наличии</p>
-    <p (click)="openModalAdmission()">
-      Сообщить о поступлении
-    </p>
+    <p (click)="openModalAdmission()">Сообщить о поступлении</p>
   </div>
   }
 </div>
-

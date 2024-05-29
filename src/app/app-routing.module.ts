@@ -10,6 +10,7 @@ import { DeliveryPageComponent } from './pages/delivery-page/delivery-page.compo
 import { ReviewPageComponent } from './pages/review-page/review-page.component';
 import { ContactPageComponent } from './pages/contact-page/contact-page.component';
 import { FavouritesPageComponent } from './pages/favourites-page/favourites-page.component';
+import { GadgetPageComponent } from './pages/gadget-page/gadget-page.component';
 
 const routes: Routes = [
   {
@@ -19,6 +20,10 @@ const routes: Routes = [
   {
     path: 'all-catalog',
     component: AllCatalogPageComponent
+  },
+  {
+    path: 'gadget/:id',
+    component: GadgetPageComponent
   },
   {
     path: 'warranty',
@@ -51,7 +56,7 @@ const routes: Routes = [
   {
     path: '**',
     component: NotFoundPageComponent
-  }
+  },
 ];
 
 @NgModule({

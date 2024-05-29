@@ -32,6 +32,7 @@ import { NewModelsComponent } from './components/main-page-components/new-models
 import { OneClickComponent } from './modals/one-click/one-click.component';
 import { BasketSuccessComponent } from './modals/basket-success/basket-success.component';
 import { BasketAddComponent } from './modals/basket-add/basket-add.component';
+import { GadgetPageComponent } from './pages/gadget-page/gadget-page.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -62,7 +63,8 @@ import { BasketAddComponent } from './modals/basket-add/basket-add.component';
     NewModelsComponent,
     OneClickComponent,
     BasketSuccessComponent,
-    BasketAddComponent
+    BasketAddComponent,
+    GadgetPageComponent
   ],
   imports: [
     BrowserModule,

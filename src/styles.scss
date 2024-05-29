@@ -70,6 +70,13 @@ h3 {
   &.normal {
     color: $text-color;
   }
+  &.gadget-title {
+    color: $text-color;
+    font-size: 40px;
+    font-weight: 900;
+    line-height: 48px;
+    letter-spacing: 0%;
+  }
 
   @media screen and (max-width: 375px) {
     &.normal {
@@ -116,6 +123,10 @@ h6 {
     font-size: 24px;
     line-height: 29px;
   }
+  &.product-ear{
+    color: $text-color;
+    font-weight: 400;
+  }
 
   &.gray {
     color: $accent-text-color;
@@ -123,7 +134,7 @@ h6 {
     font-weight: 400;
     line-height: 29px;
   }
-  &.normal{
+  &.normal {
     color: $text-color;
   }
 
@@ -146,7 +157,7 @@ a {
     text-decoration: underline;
     transition: 0.25s;
   }
-  &.filled{
+  &.filled {
     color: $hover-color;
     text-decoration: underline;
     font-size: 24px;
@@ -174,6 +185,14 @@ p {
   &.order {
     color: $bg-color;
   }
+
+  &.card-white {
+    color: $title-color;
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 26px;
+    letter-spacing: 0%;
+  }
 }
 
 sup {
@@ -183,12 +202,35 @@ sup {
   line-height: 19px;
   letter-spacing: 0;
 
+  &.card-white {
+    color: $title-color;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 17px;
+    letter-spacing: 0%;
+  }
+
   &.normal {
     color: $text-color;
   }
 
   &.gray {
     color: $accent-text-color;
+  }
+  &.blue {
+    color: $hover-color;
+    font-weight: 500;
+  }
+  &.product-promo {
+    color: $text-color;
+    font-weight: 700;
+    line-height: 19px;
+    letter-spacing: 0%;
+  }
+  &.product-promo-small {
+    color: $alter-text-color;
+    font-size: 14px;
+    font-weight: 400;
   }
 }
 

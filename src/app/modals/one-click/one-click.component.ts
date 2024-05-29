@@ -7,6 +7,7 @@ import { Component, Input } from '@angular/core';
 })
 export class OneClickComponent {
   @Input() title: string = ''
+  @Input() image: string = ''
   @Input() price: string = ''
   @Input() discountPrice: string = ''
 }

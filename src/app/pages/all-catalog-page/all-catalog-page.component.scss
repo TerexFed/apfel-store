@@ -1,0 +1,26 @@
+.all-products {
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-top: 32px;
+}
+.cards{
+    display: flex;
+    gap: 24px;
+    margin-bottom: 30px;
+}
+.card {
+    display: flex;
+    align-items: center;
+    width: 50%;
+    height: 112px;
+    padding: 25px;
+    border-radius: 16px;
+    background: linear-gradient(131.02deg, rgb(137, 229, 255) 0%, rgb(112, 159, 250) 99.599%);
+}
+img{
+    margin-right: 22px;
+}
+.card__text{
+    display: flex;
+    flex-direction: column;
+}

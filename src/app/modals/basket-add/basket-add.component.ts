@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 
 @Component({
@@ -6,10 +6,14 @@ import { MatDialog } from '@angular/material/dialog';
   templateUrl: './basket-add.component.html',
   styleUrl: './basket-add.component.scss'
 })
-export class BasketAddComponent {
+export class BasketAddComponent implements OnInit {
   constructor(public dialog: MatDialog) { }
   @Input() title: string = ''
+  @Input() image: string = ''
 
+  ngOnInit(): void {
+    console.log(this.image)
+  }
   public closeModal(){
     this.dialog.ngOnDestroy()
   }
