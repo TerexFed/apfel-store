@@ -221,10 +221,18 @@
     }
 }
 .gadget-delivery__block-text {
+    display: flex;
+    flex-direction: column;
     width: 615px;
     align-self: center;
+    gap: 30px;
+    >button{
+        width: fit-content;
+        padding: 20px 100px 20px 100px;
+    }
     @media (max-width: 769px) {
         width: 100%;
+        gap: 15px;
         > button {
             width: 100%;
         }
