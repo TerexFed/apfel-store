@@ -7,6 +7,9 @@
 sup {
     width: 357px;
     margin: 8px 0 16px 0;
+    @media (max-width: 769px) {
+        padding: 0 50px 0 50px;
+    }
 }
 input[type="text"] {
     border: 1px solid rgb(219, 219, 219);
