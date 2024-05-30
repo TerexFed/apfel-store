@@ -67,6 +67,7 @@
     }
     <button
       [class]="'add-to-cart ' + (gadget.isInCart ? 'in-cart' : 'not-in-cart')"
+      (click)="openModalBasketAdd()"
     >
       <img
         class="gadget-is-in-cart"

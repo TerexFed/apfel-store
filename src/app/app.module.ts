@@ -34,6 +34,8 @@ import { OneClickComponent } from './modals/one-click/one-click.component';
 import { BasketSuccessComponent } from './modals/basket-success/basket-success.component';
 import { BasketAddComponent } from './modals/basket-add/basket-add.component';
 import { GadgetPageComponent } from './pages/gadget-page/gadget-page.component';
+import { CreditComponent } from './modals/credit/credit.component';
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -65,13 +67,15 @@ import { GadgetPageComponent } from './pages/gadget-page/gadget-page.component';
     OneClickComponent,
     BasketSuccessComponent,
     BasketAddComponent,
-    GadgetPageComponent
+    GadgetPageComponent,
+    CreditComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     MatDialogModule,
     CdkAccordionModule,
+    FormsModule
   ],
   providers: [
     provideClientHydration()

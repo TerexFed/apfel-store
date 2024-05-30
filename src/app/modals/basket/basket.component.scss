@@ -9,4 +9,7 @@
     >button{
         margin-top: 10px;
     }
+    @media (max-width: 769px) {
+        text-align: center;
+    }
 }

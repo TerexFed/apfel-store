@@ -1,10 +1,30 @@
 .top {
     display: flex;
 }
+.top__content{
+    @media (max-width: 769px) {
+        >h4{
+            font-size: 18px;
+        }
+    }
+}
 .actions {
     display: flex;
     align-items: center;
     margin-top: 24px;
+    @media (max-width: 769px) {
+        display: none;
+        
+    }
+}
+.actions-mobile{
+    display: none;
+    @media (max-width: 769px) {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        margin: 15px 0 15px 0;
+    }
 }
 .actions > button {
     width: 215px;
@@ -12,11 +32,18 @@
 }
 .invert {
     margin-left: 8px;
+    @media (max-width: 769px) {
+        margin: 0;
+    }
 }
 .big_iphone {
     width: 150px;
     height: 160px;
     margin-right: 24px;
+    @media (max-width: 769px) {
+        width: 50px;
+        height: 54px;
+    }
 }
 .help {
     margin-top: 24px;
@@ -33,7 +60,10 @@
 }
 .callandwrite {
     display: flex;
-}
-.callandwrite > img {
-    margin: 0 4px 0 4px;
+    gap: 8px;
+    @media (max-width: 769px) {
+        >h6{
+            font-size: 16px;
+        }
+    }
 }

@@ -1,14 +1,24 @@
 <div class="one-click">
-  <img
-    class="big_iphone"
-    [src]="image"
-    alt="big_iphone"
-  />
+  <img class="big_iphone" [src]="image" alt="big_iphone" />
   <div class="content-callback">
     <div class="content">
       <sup>Купить в 1 клик</sup>
+      <div class="mobile">
+        <img class="big_iphone-mobile" [src]="image" alt="big_iphone" />
+        <div>
+          <p class="a">{{ title }}</p>
+          <div class="prices">
+            @if (discountPrice) {
+            <sup class="crossed">{{ discountPrice | customCurrency }}</sup>
+            }
+            <sup class="normal">{{ price | customCurrency }}</sup>
+          </div>
+        </div>
+      </div>
       <h4 class="normal">{{ title }}</h4>
+      @if (discountPrice) {
       <sup class="crossed">{{ discountPrice | customCurrency }}</sup>
+      }
       <h4 class="normal">{{ price | customCurrency }}</h4>
       <div class="checkout">
         <input type="text" placeholder="+7" />

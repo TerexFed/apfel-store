@@ -1,18 +1,20 @@
 <div class="basket-add">
   <div class="top">
-    <img
-      class="big_iphone"
-      [src]="image"
-      alt="big_iphone"
-    />
+    <img class="big_iphone" [src]="image" alt="big_iphone" />
     <div class="top__content">
       <sup>Добавлен в корзину</sup>
       <h4 class="normal">{{ title }}</h4>
       <div class="actions">
         <button>оформить заказ</button>
-        <button class="invert" (click)="closeModal()">продолжить покупки</button>
+        <button class="invert" (click)="closeModal()">
+          продолжить покупки
+        </button>
       </div>
     </div>
+  </div>
+  <div class="actions-mobile">
+    <button>оформить заказ</button>
+    <button class="invert" (click)="closeModal()">продолжить покупки</button>
   </div>
   <div class="help">
     <div class="help__order">

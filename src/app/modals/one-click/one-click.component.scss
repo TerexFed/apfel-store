@@ -5,6 +5,17 @@
     width: 150px;
     height: 160px;
     margin-right: 24px;
+    @media (max-width: 769px) {
+        display: none;
+    }
+}
+.big_iphone-mobile{
+    display: none;
+    width: 50px;
+    height: 54px;
+    @media (max-width: 769px) {
+        display: flex;
+    }
 }
 input[type="text"] {
     border: 1px solid rgb(219, 219, 219);
@@ -21,6 +32,22 @@ input[type="text"] {
     padding-left: 24px;
     margin: 24px 0 16px 0;
 }
+.content{
+    @media (max-width: 769px) {
+        >h4{
+            display: none;
+        }
+    }
+}
+.prices{
+    margin-top: 10px;
+}
+.mobile{
+    display: none;
+    @media (max-width: 769px) {
+        display: flex;
+    }
+}
 .crossed {
     text-decoration: line-through;
 }
@@ -34,7 +61,14 @@ button {
 }
 .callandwrite {
     display: flex;
+    gap: 8px;
+    
+    @media (max-width: 769px) {
+        >h6{
+            font-size: 16px;
+        }
+    }
 }
-.callandwrite > img {
-    margin: 0 4px 0 4px;
+.callback{
+    margin-top: 16px;
 }

@@ -33,6 +33,13 @@
       [title]="data.title"
       [image]="data.image"
     ></modal-basket-add>
+    } @case ('Credit') {
+    <modal-credit
+      [title]="data.title"
+      [price]="data.price"
+      [discountPrice]="data.discountPrice"
+      [image]="data.image"
+    ></modal-credit>
     } }
   </div>
 </mat-dialog-content>

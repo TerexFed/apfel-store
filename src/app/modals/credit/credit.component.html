@@ -1,0 +1,195 @@
+<div class="credit">
+  <img class="big_iphone" [src]="image" alt="big_iphone" />
+  <div class="main__content">
+    <div class="dekstop">
+      <sup>купить в кредит</sup>
+      <h4 class="normal">{{ title }}</h4>
+
+      @if (discountPrice) {
+      <sup class="crossed">{{ discountPrice | customCurrency }}</sup>
+      }
+      <h4 class="normal">{{ price | customCurrency }}</h4>
+    </div>
+    <div class="top-mobile">
+      <img class="big_iphone-tablet" [src]="image" alt="big_iphone" />
+      <div class="top-mobile-content">
+        <div class="top-mobile-text">
+          <sup>купить в кредит<br /></sup>
+          <sup class="product-promo">{{ title }}</sup>
+        </div>
+        <div class="prices">
+          @if (discountPrice) {
+          <sup class="crossed">{{ discountPrice | customCurrency }}</sup>
+          }
+          <sup class="product-promo">{{ price | customCurrency }}</sup>
+        </div>
+      </div>
+    </div>
+
+    <div class="block">
+      <label>Выберите банк</label>
+      <select>
+        <option disabled selected>Любой</option>
+        <option value="Тинькофф">Тинькофф</option>
+        <option value="Сбербанк">Сбербанк</option>
+        <option value="Райфайзен">Райфайзен</option>
+      </select>
+    </div>
+
+    <div class="block">
+      <label>Срок кредита - {{ creditLength }}</label>
+      <input
+        [(ngModel)]="creditLength"
+        (ngModelChange)="setMonthPayment()"
+        type="range"
+        list="inputRangeValues"
+        min="2"
+        max="36"
+      />
+      <div class="range-values">
+        <div class="range-values-start">
+          <span value="2">2</span>
+          <span value="6">6</span>
+        </div>
+        <div class="range-values-middle">
+          <span value="12">12</span>
+          <span value="18">18</span>
+          <span value="24">24</span>
+        </div>
+        <span value="36">36</span>
+      </div>
+      <datalist id="inputRangeValues">
+        <option value="2">2</option>
+        <option value="6">6</option>
+        <option value="12">12</option>
+        <option value="18">18</option>
+        <option value="24">24</option>
+        <option value="36">36</option>
+      </datalist>
+    </div>
+
+    <div class="block">
+      <label>Приблизительный ежемесячный платеж</label>
+      <h4 class="blue">{{ monthPayment | customCurrency }}</h4>
+    </div>
+
+    <div class="block">
+      <label>Есть задолженность по кредитам?</label>
+      <div class="variants">
+        <div class="variant">
+          <input [(ngModel)]="creditOwe" type="radio" value="Да" />
+          <sup class="normal">Да</sup>
+        </div>
+        <div class="variant">
+          <input [(ngModel)]="creditOwe" type="radio" value="Нет" />
+          <sup class="normal">Нет</sup>
+        </div>
+      </div>
+    </div>
+
+    <div class="block">
+      <label>Ваш возраст?</label>
+      <input [(ngModel)]="age" type="number" />
+    </div>
+
+    <div class="block">
+      <label>Напишите свой номер и мы позвоним Вам в течение 5 минут</label>
+      <input [(ngModel)]="telephone" type="tel" placeholder="+ 7" />
+      <button>отправить заявку</button>
+    </div>
+
+    <div class="block">
+      <sup>Либо позвоните или напишите нам самостоятельно</sup>
+      <div class="callandwrite">
+        <h6 class="ben-card-h6">+7 812 561 96 62</h6>
+        <img src="../../../assets/footer/whatsapp.svg" alt="whatsapp" />
+        <img src="../../../assets/footer/telegram.svg" alt="telegram" />
+        <img src="../../../assets/footer/vk.svg" alt="vk" />
+      </div>
+    </div>
+  </div>
+
+  <div class="mobile">
+    <div class="block-mobile">
+      <label>Выберите банк</label>
+      <select>
+        <option disabled selected>Любой</option>
+        <option value="Тинькофф">Тинькофф</option>
+        <option value="Сбербанк">Сбербанк</option>
+        <option value="Райфайзен">Райфайзен</option>
+      </select>
+    </div>
+
+    <div class="block-mobile">
+      <label>Срок кредита - {{ creditLength }}</label>
+      <input
+        [(ngModel)]="creditLength"
+        (ngModelChange)="setMonthPayment()"
+        type="range"
+        list="inputRangeValues"
+        min="2"
+        max="36"
+      />
+      <div class="range-values">
+        <div class="range-values-start">
+          <span value="2">2</span>
+          <span value="6">6</span>
+        </div>
+        <div class="range-values-middle">
+          <span value="12">12</span>
+          <span value="18">18</span>
+          <span value="24">24</span>
+        </div>
+        <span value="36">36</span>
+      </div>
+      <datalist id="inputRangeValues">
+        <option value="2">2</option>
+        <option value="6">6</option>
+        <option value="12">12</option>
+        <option value="18">18</option>
+        <option value="24">24</option>
+        <option value="36">36</option>
+      </datalist>
+    </div>
+
+    <div class="block-mobile">
+      <label>Приблизительный ежемесячный платеж</label>
+      <h4 class="blue">{{ monthPayment | customCurrency }}</h4>
+    </div>
+
+    <div class="block-mobile">
+      <label>Есть задолженность по кредитам?</label>
+      <div class="variants">
+        <div class="variant">
+          <input [(ngModel)]="creditOwe" type="radio" value="Да" />
+          <sup class="normal">Да</sup>
+        </div>
+        <div class="variant">
+          <input [(ngModel)]="creditOwe" type="radio" value="Нет" />
+          <sup class="normal">Нет</sup>
+        </div>
+      </div>
+    </div>
+
+    <div class="block-mobile">
+      <label>Ваш возраст?</label>
+      <input [(ngModel)]="age" type="number" />
+    </div>
+
+    <div class="block-mobile">
+      <label>Напишите свой номер и мы позвоним Вам в течение 5 минут</label>
+      <input [(ngModel)]="telephone" type="tel" placeholder="+ 7" />
+      <button>отправить заявку</button>
+    </div>
+
+    <div class="block-mobile">
+      <sup>Либо позвоните или напишите нам самостоятельно</sup>
+      <div class="callandwrite">
+        <h6 class="ben-card-h6">+7 812 561 96 62</h6>
+        <img src="../../../assets/footer/whatsapp.svg" alt="whatsapp" />
+        <img src="../../../assets/footer/telegram.svg" alt="telegram" />
+        <img src="../../../assets/footer/vk.svg" alt="vk" />
+      </div>
+    </div>
+  </div>
+</div>

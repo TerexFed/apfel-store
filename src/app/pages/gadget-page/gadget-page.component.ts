@@ -31,4 +31,8 @@ export class GadgetPageComponent implements OnInit {
     window.scrollTo(0, 0)
     this.dialog.open(ModalWindowComponent, { data: { type: 'BasketAdd', title: this.gadgetService.gadget.name, image: 'http://localhost:1452/' + this.gadgetService.gadget.images[0] } })
   }
+  openModalCredit() {
+    window.scrollTo(0, 0)
+    this.dialog.open(ModalWindowComponent, { data: { type: 'Credit', title: this.gadgetService.gadget.name, image: 'http://localhost:1452/' + this.gadgetService.gadget.images[0], price: this.gadgetService.gadget.price, discountPrice: this.gadgetService.gadget.discount_price} })
+  }
 }

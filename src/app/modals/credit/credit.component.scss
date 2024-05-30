@@ -1,0 +1,142 @@
+@import "../../../variables.scss";
+
+.credit {
+    display: flex;
+    @media (max-width: 769px) {
+        flex-direction: column;
+    }
+}
+.big_iphone {
+    width: 150px;
+    height: 160px;
+    margin-right: 24px;
+    @media (max-width: 769px) {
+        display: none;
+    }
+}
+.big_iphone-tablet{
+    width: 56px;
+    height: 60px;
+}
+.dekstop{
+    @media (max-width: 769px) {
+        display: none;
+    }
+}
+.top-mobile{
+    display: none;
+    @media (max-width: 769px) {
+        display: flex;
+    }
+}
+.top-mobile-content{
+    margin-left: 10px;
+}
+.top-mobile-text{
+    display: flex;
+    flex-direction: column;
+}
+.block {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 32px 0 32px 0;
+    gap: 8px;
+    @media (max-width: 769px) {
+        display: none;
+    }
+}
+.block-mobile{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 32px 0 32px 0;
+    gap: 8px;
+}
+.mobile{
+    display: none;
+    @media (max-width: 769px) {
+        display: flex;
+        flex-direction: column;
+    }
+}
+select {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: -1px;
+    letter-spacing: 0%;
+    border-radius: 8px;
+    padding: 5px;
+    width: 280px;
+    background: $bg-gadget-gray;
+    @media (max-width: 769px) {
+        width: 100%;
+    }
+}
+.range-values {
+    display: flex;
+    justify-content: space-between;
+}
+.range-values-start {
+    margin-left: 5px;
+    display: flex;
+    width: 13.5%;
+    justify-content: space-between;
+}
+.range-values-middle {
+    display: flex;
+    width: 38%;
+    margin-right: 15%;
+    justify-content: space-between;
+}
+.variants {
+    display: flex;
+    gap: 25px;
+    margin-top: 20px;
+}
+.variant {
+    display: flex;
+    gap: 10px;
+}
+.callandwrite {
+    display: flex;
+    gap: 10px;
+    >h6{
+        margin-right: 4px;
+    }
+    @media (max-width: 769px) {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+input[type="range"] {
+    @media (max-width: 769px) {
+        width: 100%;
+    }
+}
+input[type="number"] {
+    width: 58px;
+    height: 51px;
+    font-size: 25px;
+    padding-left: 5px;
+    border: 1px solid rgb(219, 219, 219);
+    border-radius: 8px;
+}
+input[type="tel"] {
+    border: 1px solid rgb(219, 219, 219);
+    border-radius: 8px;
+    background: rgb(255, 255, 255);
+    width: 246px;
+    height: 56px;
+    color: rgb(135, 135, 135);
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 29px;
+    letter-spacing: 0%;
+    outline: none;
+    padding-left: 24px;
+}
+button {
+    width: 246px;
+}
