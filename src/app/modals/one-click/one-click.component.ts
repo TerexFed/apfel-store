@@ -6,8 +6,8 @@ import { Component, Input } from '@angular/core';
   styleUrl: './one-click.component.scss'
 })
 export class OneClickComponent {
-  @Input() title: string = ''
-  @Input() image: string = ''
-  @Input() price: string = ''
-  @Input() discountPrice: string = ''
+  @Input() title: string 
+  @Input() image: string 
+  @Input() price: string 
+  @Input() discountPrice: string 
 }

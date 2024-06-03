@@ -1,6 +1,76 @@
+@if (basketService.basket.length === 0) {
 <div class="empty-basket">
-  <img src="../../../assets/modal/basket/blue_box.svg" alt="blue-box">
+  <img src="../../../assets/modal/basket/blue_box.svg" alt="blue-box" />
   <h4 class="normal">В корзине пока ничего нет</h4>
   <sup>Но вы можете легко это исправить</sup>
   <button [mat-dialog-close]="true">начать покупки</button>
 </div>
+} @else if (basketService.basket.length >= 1) {
+<div class="basket">
+  <h4 class="normal">Оформление заказа</h4>
+  <div class="basket__content">
+    <div class="basket__list">
+      @for (basketItem of basketService.basket; track $index) {
+      <div class="basket__list-item">
+        <img
+          class="phone"
+          [src]="basketItem.image"
+          alt="basket__list-item-image"
+        />
+        <div class="basket__list-item-content">
+          <sup class="normal">{{ basketItem.title }}</sup>
+          <div class="prices__count">
+            <div class="prices">
+              @if (basketItem.discountPrice) {
+              <sup class="crossed">{{
+                basketItem.discountPrice | customCurrency
+              }}</sup>
+              }
+              <sup class="product-promo">{{
+                basketItem.price | customCurrency
+              }}</sup>
+            </div>
+            <div class="basket-item-count">
+              <button
+                (click)="basketService.decreaseCount(basketItem.id)"
+                class="basket-item-count-button"
+              >
+                -
+              </button>
+              <sup class="blue">{{ basketItem.count }}</sup>
+              <button
+                (click)="basketService.addCount(basketItem.id)"
+                class="basket-item-count-button"
+              >
+                +
+              </button>
+            </div>
+          </div>
+        </div>
+        <img
+          (click)="basketService.deleteBasketItem(basketItem.id)"
+          class="cross"
+          src="../../../assets/modal/cross.svg"
+          alt="cross"
+        />
+      </div>
+      }
+    </div>
+    <div class="basket__info">
+      <div class="basket__info-top">
+        <div class="basket__info-top-item">
+          <p>Доставка</p>
+          <p>{{ 0 | customCurrency }}</p>
+        </div>
+        <div class="basket__info-top-item">
+          <p>Сумма заказа</p>
+          <p>{{ basketService.totalPrice | customCurrency }}</p>
+        </div>
+        <div class="basket__info-top-item">
+          <p>Итого</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+}

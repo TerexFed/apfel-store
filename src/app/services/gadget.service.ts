@@ -11,6 +11,7 @@ export class GadgetService {
     fetch('http://localhost:1452/api/products')
       .then(res => res.json())
       .then(data => this.gadgets = data)
+      .then(() => this.gadgets.map(el => el.isInCart = false))
   }
 
   public getGadgetByID(id: string) {

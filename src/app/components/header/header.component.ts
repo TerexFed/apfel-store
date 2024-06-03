@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ModalWindowComponent } from '../../UI/modal-window/modal-window.component';
 import { MatDialog } from '@angular/material/dialog';
+import { BasketService } from '../../services/basket.service';
 
 @Component({
   selector: 'app-header',
@@ -8,16 +9,21 @@ import { MatDialog } from '@angular/material/dialog';
   styleUrls: ['./header.component.scss', './search-result.component.scss', './catalog.component.scss']
 })
 export class HeaderComponent {
-  constructor(public dialog: MatDialog) { }
+  constructor(public dialog: MatDialog, public basketService: BasketService) { }
 
   public isHeaderOpen = false
   public openHeader() {
     this.isHeaderOpen = !this.isHeaderOpen
   }
 
+  openModalCallback() {
+    window.scrollTo(0, 0)
+    this.dialog.open(ModalWindowComponent, { data: { type: 'CallBack' } })
+  }
+  public count: number = this.basketService.basket.map(el => el.count)[0]
   openModalBasket() {
     window.scrollTo(0, 0)
-    this.dialog.open(ModalWindowComponent, { data: { type: 'Basket'} })
+    this.dialog.open(ModalWindowComponent, { data: { type: 'Basket' } })
   }
   searchResultText = ''
 

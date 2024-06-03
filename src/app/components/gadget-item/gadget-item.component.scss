@@ -198,6 +198,7 @@
 
     &.in-cart {
         background-color: #52D116;
+        pointer-events:none;
     }
 
     &.not-in-cart {

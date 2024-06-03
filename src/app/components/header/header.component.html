@@ -1,10 +1,18 @@
 <header class="comp-header">
   <div class="header__links">
     <div class="links">
-      <img class="apple-logo" src="../../../assets/header/apple.svg" alt="логотип apple store" routerLink="/" />
+      <img
+        class="apple-logo"
+        src="../../../assets/header/apple.svg"
+        alt="логотип apple store"
+        routerLink="/"
+      />
       <a routerLink="/all-catalog">Весь каталог</a>
       <a class="promotion" routerLink="/">
-        <img src="../../../assets/header/fire-emoji.svg" alt="эмодзи огня акций" />
+        <img
+          src="../../../assets/header/fire-emoji.svg"
+          alt="эмодзи огня акций"
+        />
         Акции
       </a>
       <a routerLink="/warranty">Гарантия</a>
@@ -21,17 +29,29 @@
           +7 812 561 96 62
         </p>
       </div>
-      <span class="tel-number__text" (click)="openModalCallback()">Вам перезвонить?</span>
+      <span class="tel-number__text" (click)="openModalCallback()"
+        >Вам перезвонить?</span
+      >
     </div>
   </div>
   <div class="header__searh">
-    <button (click)="changeIsCatalogOpen()"
-      [class]="'header-button catalog-button ' + (!!isCatalogOpen ? 'catalog-button-open' : '')">
+    <button
+      (click)="changeIsCatalogOpen()"
+      [class]="
+        'header-button catalog-button ' +
+        (!!isCatalogOpen ? 'catalog-button-open' : '')
+      "
+    >
       <img src="../../../assets/header/catalog-dots.svg" alt="три точки" />
       Каталог товаров
     </button>
-    <input [(ngModel)]="searchResultText" (focus)="changeIsSearchResult(true)" (blur)="changeIsSearchResult(false)"
-      type="search" placeholder="Поиск по каталогу товаров" />
+    <input
+      [(ngModel)]="searchResultText"
+      (focus)="changeIsSearchResult(true)"
+      (blur)="changeIsSearchResult(false)"
+      type="search"
+      placeholder="Поиск по каталогу товаров"
+    />
     <div class="functions">
       <img src="../../../assets/header/heart.svg" alt="Любимые" />
     </div>
@@ -39,7 +59,7 @@
       <img src="../../../assets/header/basket.svg" alt="Корзина" />
       <p>в корзине</p>
       <!-- T0DO: поменять параграф на менюящийся обьект с цифрой  -->
-      <p>1</p>
+      <p class="basket-length">{{ basketService.basketLengthHeader }}</p>
     </button>
   </div>
   <div class="header__devices">
@@ -53,7 +73,10 @@
       <p>iPad</p>
     </div>
     <div class="card">
-      <img src="../../../assets/header/macbook_imac.svg" alt="Macbook and iMac" />
+      <img
+        src="../../../assets/header/macbook_imac.svg"
+        alt="Macbook and iMac"
+      />
       <p>Macbook и iMac</p>
     </div>
     <div class="card">
@@ -65,7 +88,10 @@
       <p>Гаджеты</p>
     </div>
     <div class="card">
-      <img src="../../../assets/header/iphoneaccessories.svg" alt="accessories" />
+      <img
+        src="../../../assets/header/iphoneaccessories.svg"
+        alt="accessories"
+      />
       <p>Аксессуары</p>
     </div>
     <img src="../../../assets/header/banneriphone.svg" alt="banneriphone" />
@@ -75,7 +101,12 @@
   <div (mouseleave)="changeIsCatalogOpen(false)" class="catalog">
     <div class="catalog__titles">
       @for (catalog of catalogs; track $index) {
-      <p (mouseenter)="changeCatalogCategoryId(catalog.id)" class="catalog__titles__title">{{catalog.title}}</p>
+      <p
+        (mouseenter)="changeCatalogCategoryId(catalog.id)"
+        class="catalog__titles__title"
+      >
+        {{ catalog.title }}
+      </p>
       }
     </div>
     @if (catalogCategoryId) {
@@ -84,9 +115,17 @@
         @for (catalogItem of getCatalogItemsById(); track $index) {
         <a routerLink="/">
           <div class="catalog__list__items__item">
-            <img class="catalog__list__items__item__image" [src]="catalogItem.img" alt="item image">
-            <p class="catalog__list__items__item__title">{{catalogItem.title}}</p>
-            <p class="catalog__list__items__item__price">{{catalogItem.price | customCurrency}}</p>
+            <img
+              class="catalog__list__items__item__image"
+              [src]="catalogItem.img"
+              alt="item image"
+            />
+            <p class="catalog__list__items__item__title">
+              {{ catalogItem.title }}
+            </p>
+            <p class="catalog__list__items__item__price">
+              {{ catalogItem.price | customCurrency }}
+            </p>
           </div>
         </a>
         }
@@ -95,16 +134,14 @@
     </div>
     }
   </div>
-  }
-
-  @if (searchResultText && isSearchResult) {
+  } @if (searchResultText && isSearchResult) {
   <div class="search-results">
     @for (searchResult of getSearchResult(); track searchResult.id) {
     <div class="search-result">
-      <img class="image" [src]="searchResult.image" alt="search result image">
+      <img class="image" [src]="searchResult.image" alt="search result image" />
       <div class="info">
-        <p class="name">{{searchResult.name}}</p>
-        <p class="price">{{searchResult.price | customCurrency}}</p>
+        <p class="name">{{ searchResult.name }}</p>
+        <p class="price">{{ searchResult.price | customCurrency }}</p>
       </div>
       <p class="link">Подробнее</p>
     </div>
@@ -116,11 +153,27 @@
 <header class="tablet-header">
   <img src="../../../assets/header/apple.svg" alt="apple" routerLink="/" />
   <label class="search-input" for="">
-    <img [src]="'/assets/header/search-icon' + (searchResultText ? '-blue' : '') + '.svg'" alt="">
-    <input [(ngModel)]="searchResultText" (focus)="changeIsSearchResult(true)" (blur)="changeIsSearchResult(false)"
-      type="search" placeholder="Поиск по каталогу товаров" />
+    <img
+      [src]="
+        '/assets/header/search-icon' +
+        (searchResultText ? '-blue' : '') +
+        '.svg'
+      "
+      alt=""
+    />
+    <input
+      [(ngModel)]="searchResultText"
+      (focus)="changeIsSearchResult(true)"
+      (blur)="changeIsSearchResult(false)"
+      type="search"
+      placeholder="Поиск по каталогу товаров"
+    />
     @if (searchResultText) {
-    <img (click)="removeSearchResultText()" src="/assets/header/close.svg" alt="">
+    <img
+      (click)="removeSearchResultText()"
+      src="/assets/header/close.svg"
+      alt=""
+    />
     }
   </label>
   <div class="telephone">
@@ -130,17 +183,28 @@
     </div>
     <!-- <span class="tel-number__text">Вам перезвонить?</span> -->
   </div>
-  <img class="tel-icon" src="../../../assets/header/telephone.svg" alt="telephone" width="15px" height="20px" />
-  <img [src]="'../../../assets/header/' + (isHeaderOpen ? 'close' : 'bx_menu') + '.svg'" alt="bx-menu"
-    (click)="openHeader()" />
+  <img
+    class="tel-icon"
+    src="../../../assets/header/telephone.svg"
+    alt="telephone"
+    width="15px"
+    height="20px"
+  />
+  <img
+    [src]="
+      '../../../assets/header/' + (isHeaderOpen ? 'close' : 'bx_menu') + '.svg'
+    "
+    alt="bx-menu"
+    (click)="openHeader()"
+  />
   @if (searchResultText && isSearchResult) {
   <div class="search-results">
     @for (searchResult of getSearchResult(); track searchResult.id) {
     <div class="search-result">
-      <img class="image" [src]="searchResult.image" alt="search result image">
+      <img class="image" [src]="searchResult.image" alt="search result image" />
       <div class="info">
-        <p class="name">{{searchResult.name}}</p>
-        <p class="price">{{searchResult.price | customCurrency}}</p>
+        <p class="name">{{ searchResult.name }}</p>
+        <p class="price">{{ searchResult.price | customCurrency }}</p>
       </div>
       <p class="link">Подробнее</p>
     </div>
@@ -167,21 +231,30 @@
         <a routerLink="/review">Отзывы</a>
         <a routerLink="/contacts">Контакты</a>
         <div class="links-icons">
-          <img src="../../../assets/footer/whatsapp.svg" alt="whatsapp" width="32px" height="32px"
-            class="open-header-link whatsapp" />
-          <img src="../../../assets/footer/telegram.svg" alt="telegram" width="32px" height="32px"
-            class="open-header-link" />
-          <img src="../../../assets/footer/vk.svg" alt="" width="32px" height="32px" class="open-header-link" />
+          <img
+            src="../../../assets/footer/whatsapp.svg"
+            alt="whatsapp"
+            width="32px"
+            height="32px"
+            class="open-header-link whatsapp"
+          />
+          <img
+            src="../../../assets/footer/telegram.svg"
+            alt="telegram"
+            width="32px"
+            height="32px"
+            class="open-header-link"
+          />
+          <img
+            src="../../../assets/footer/vk.svg"
+            alt=""
+            width="32px"
+            height="32px"
+            class="open-header-link"
+          />
         </div>
       </div>
     </div>
   </div>
 </div>
 }
-<ng-template #modalTemplate>
-  <modal-basket></modal-basket>
-</ng-template>
-
-<ng-template #modalTemplate2>
-  <modal-callback></modal-callback>
-</ng-template>

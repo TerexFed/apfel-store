@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { ModalWindowComponent } from '../../UI/modal-window/modal-window.component';
 import { GadgetService } from '../../services/gadget.service';
 import { Router } from '@angular/router';
+import { BasketService } from '../../services/basket.service';
 
 
 @Component({
@@ -11,7 +12,7 @@ import { Router } from '@angular/router';
   styleUrl: './gadget-item.component.scss'
 })
 export class GadgetItemComponent implements OnInit {
-  constructor(public dialog: MatDialog, public router: Router) { }
+  constructor(public dialog: MatDialog, public router: Router, private basketService: BasketService) { }
   @Input() gadget: any
 
   public get5RatingArr() {
@@ -20,7 +21,7 @@ export class GadgetItemComponent implements OnInit {
 
   public openGadget(id: string) {
     this.router.navigate([`gadget/${id}`])
-    window.scroll(0,0)
+    window.scroll(0, 0)
   }
 
   windowWidth: number = 1440
@@ -48,6 +49,8 @@ export class GadgetItemComponent implements OnInit {
   }
   openModalBasketAdd() {
     window.scrollTo(0, 0)
+    this.gadget.isInCart = true
+    this.basketService.addToBasket({ id: this.gadget.id, title: this.gadget.name, image: 'http://localhost:1452/' + this.gadget.images[0], price: this.gadget.price, discountPrice: this.gadget.discount_price, count: 1, isInCart: true })
     this.dialog.open(ModalWindowComponent, { data: { type: 'BasketAdd', title: this.gadget.name, image: 'http://localhost:1452/' + this.gadget.images[0] } })
   }
 }

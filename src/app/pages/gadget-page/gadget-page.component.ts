@@ -14,7 +14,7 @@ export class GadgetPageComponent implements OnInit {
   public currentPic: string = ''
 
   ngOnInit(): void {
-    if (this.route.snapshot.params.id <= 86) {
+    if (this.route.snapshot.params.id <= this.gadgetService.gadgets.length) {
       this.gadgetService.getGadgetByID(this.route.snapshot.params.id)
 
     }

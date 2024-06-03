@@ -5,6 +5,17 @@
 
 @import "../../../variables.scss";
 
+.basket-length {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 32px;
+  border-radius: 32px;
+  box-shadow: inset 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  background: rgb(70, 198, 9);
+}
+
 .comp-header {
   max-width: 1200px;
   margin: 0 auto;
@@ -170,8 +181,7 @@ input[type="search"] {
 }
 
 .card:hover > img {
-  filter: invert(41%) sepia(86%) saturate(5961%) hue-rotate(214deg)
-    brightness(97%) contrast(98%);
+  filter: invert(41%) sepia(86%) saturate(5961%) hue-rotate(214deg) brightness(97%) contrast(98%);
 }
 
 .card > p {
@@ -194,11 +204,12 @@ input[type="search"] {
   .tablet-header {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
     align-items: center;
     padding: 4px 24px;
     gap: 32px;
 
-    &>img:first-of-type {
+    & > img:first-of-type {
       width: 32px;
       height: 32px;
     }
