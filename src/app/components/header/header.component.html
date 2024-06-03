@@ -25,15 +25,17 @@
     </div>
   </div>
   <div class="header__searh">
-    <div class="catalog">
+    <button (click)="changeIsCatalogOpen()"
+      [class]="'header-button catalog-button ' + (!!isCatalogOpen ? 'catalog-button-open' : '')">
       <img src="../../../assets/header/catalog-dots.svg" alt="три точки" />
       Каталог товаров
-    </div>
-    <input type="search" placeholder="Поиск по каталогу товаров" />
+    </button>
+    <input [(ngModel)]="searchResultText" (focus)="changeIsSearchResult(true)" (blur)="changeIsSearchResult(false)"
+      type="search" placeholder="Поиск по каталогу товаров" />
     <div class="functions">
       <img src="../../../assets/header/heart.svg" alt="Любимые" />
     </div>
-    <button class="button" (click)="openModalBasket()">
+    <button class="header-button button" (click)="openModalBasket()">
       <img src="../../../assets/header/basket.svg" alt="Корзина" />
       <p>в корзине</p>
       <!-- T0DO: поменять параграф на менюящийся обьект с цифрой  -->
@@ -68,11 +70,59 @@
     </div>
     <img src="../../../assets/header/banneriphone.svg" alt="banneriphone" />
   </div>
+
+  @if(isCatalogOpen){
+  <div (mouseleave)="changeIsCatalogOpen(false)" class="catalog">
+    <div class="catalog__titles">
+      @for (catalog of catalogs; track $index) {
+      <p (mouseenter)="changeCatalogCategoryId(catalog.id)" class="catalog__titles__title">{{catalog.title}}</p>
+      }
+    </div>
+    @if (catalogCategoryId) {
+    <div class="catalog__list">
+      <div class="catalog__list__items">
+        @for (catalogItem of getCatalogItemsById(); track $index) {
+        <a routerLink="/">
+          <div class="catalog__list__items__item">
+            <img class="catalog__list__items__item__image" [src]="catalogItem.img" alt="item image">
+            <p class="catalog__list__items__item__title">{{catalogItem.title}}</p>
+            <p class="catalog__list__items__item__price">{{catalogItem.price | customCurrency}}</p>
+          </div>
+        </a>
+        }
+      </div>
+      <a routerLink="/" class="catalog__link">Смотреть все товары</a>
+    </div>
+    }
+  </div>
+  }
+
+  @if (searchResultText && isSearchResult) {
+  <div class="search-results">
+    @for (searchResult of getSearchResult(); track searchResult.id) {
+    <div class="search-result">
+      <img class="image" [src]="searchResult.image" alt="search result image">
+      <div class="info">
+        <p class="name">{{searchResult.name}}</p>
+        <p class="price">{{searchResult.price | customCurrency}}</p>
+      </div>
+      <p class="link">Подробнее</p>
+    </div>
+    }
+  </div>
+  }
 </header>
 
 <header class="tablet-header">
   <img src="../../../assets/header/apple.svg" alt="apple" routerLink="/" />
-  <input type="search" placeholder="Поиск по каталогу товаров" />
+  <label class="search-input" for="">
+    <img [src]="'/assets/header/search-icon' + (searchResultText ? '-blue' : '') + '.svg'" alt="">
+    <input [(ngModel)]="searchResultText" (focus)="changeIsSearchResult(true)" (blur)="changeIsSearchResult(false)"
+      type="search" placeholder="Поиск по каталогу товаров" />
+    @if (searchResultText) {
+    <img (click)="removeSearchResultText()" src="/assets/header/close.svg" alt="">
+    }
+  </label>
   <div class="telephone">
     <div class="tel-number">
       <img src="../../../assets/header/telephone.svg" alt="telephone" />
@@ -81,7 +131,22 @@
     <!-- <span class="tel-number__text">Вам перезвонить?</span> -->
   </div>
   <img class="tel-icon" src="../../../assets/header/telephone.svg" alt="telephone" width="15px" height="20px" />
-  <img src="../../../assets/header/bx_menu.svg" alt="bx-menu" (click)="openHeader()" />
+  <img [src]="'../../../assets/header/' + (isHeaderOpen ? 'close' : 'bx_menu') + '.svg'" alt="bx-menu"
+    (click)="openHeader()" />
+  @if (searchResultText && isSearchResult) {
+  <div class="search-results">
+    @for (searchResult of getSearchResult(); track searchResult.id) {
+    <div class="search-result">
+      <img class="image" [src]="searchResult.image" alt="search result image">
+      <div class="info">
+        <p class="name">{{searchResult.name}}</p>
+        <p class="price">{{searchResult.price | customCurrency}}</p>
+      </div>
+      <p class="link">Подробнее</p>
+    </div>
+    }
+  </div>
+  }
 </header>
 @if (isHeaderOpen) {
 <div class="header-open">

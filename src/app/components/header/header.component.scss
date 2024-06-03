@@ -1,3 +1,8 @@
+.header-button {
+  width: 215px !important;
+  min-width: 215px;
+}
+
 @import "../../../variables.scss";
 
 .comp-header {
@@ -16,6 +21,7 @@
   align-items: center;
   justify-content: space-between;
   height: 100px;
+  gap: 10px;
 }
 
 .header__devices {
@@ -84,7 +90,7 @@
   cursor: pointer;
 }
 
-.catalog {
+.catalog-button {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -98,13 +104,19 @@
   line-height: 24px;
   letter-spacing: 0;
   text-align: left;
+  user-select: none;
+
+  &.catalog-button-open {
+    border-radius: 16px 16px 0 0;
+    background-color: $bg-indigo;
+  }
 }
 
 input[type="search"] {
   background-image: url("../../../assets/header/search-icon.svg");
   background-repeat: no-repeat;
   background-position: 20px;
-  width: 45vw;
+  width: 100%;
   padding: 16px 56px 16px 56px;
   font-size: 20px;
   font-weight: 400;
@@ -115,7 +127,7 @@ input[type="search"] {
   border: none;
   border: 1px solid $accent-list;
   border-radius: 8px;
-  margin-left: 40px;
+  margin-left: 15px;
 }
 
 .functions {
@@ -181,17 +193,35 @@ input[type="search"] {
 
   .tablet-header {
     display: flex;
-    justify-content: space-between;
+    flex-direction: row;
     align-items: center;
-    border-radius: 0 0 24px 24px;
+    padding: 4px 24px;
+    gap: 32px;
+
+    &>img:first-of-type {
+      width: 32px;
+      height: 32px;
+    }
+  }
+
+  .search-input {
+    width: 252px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
   }
 
   input[type="search"] {
-    background-image: url("../../../assets/header/search-icon-black.svg");
+    // background-image: url("../../../assets/header/search-icon-black.svg");
+    color: $text-color;
+    background-image: none;
     border: none;
-    width: 50vh;
+    width: 100%;
+    max-width: 210px;
     font-size: 16px;
     margin: 0;
+    padding: 0;
   }
 
   .header-open {
@@ -210,6 +240,7 @@ input[type="search"] {
 
   .telephone {
     width: 155px;
+    margin-left: auto;
   }
 
   p.a {
@@ -238,7 +269,6 @@ input[type="search"] {
     margin-left: 10px;
   }
 
-  .tablet-header,
   .header-open {
     padding: 0 20px 0 20px;
     z-index: 2;

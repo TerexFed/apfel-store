@@ -25,6 +25,7 @@ import { BasketComponent as ModalBasketComponent } from './modals/basket/basket.
 import { CallBackComponent as ModalCallbackComponent } from './modals/call-back/call-back.component';
 import { ApplicationSendComponent } from './modals/application-send/application-send.component';
 import { PriceLowerComponent } from './modals/price-lower/price-lower.component';
+import { FormsModule } from '@angular/forms';
 import { AdmissionComponent } from './modals/admission/admission.component';
 import { ModalWindowComponent } from './UI/modal-window/modal-window.component';
 import { BenefitsComponent } from './components/main-page-components/benefits/benefits.component';

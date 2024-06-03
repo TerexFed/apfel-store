@@ -1,0 +1,118 @@
+.comp-header {
+    position: relative;
+}
+
+.catalog {
+    // max-width: 897px;
+    width: 215px;
+    position: absolute;
+    margin-top: -100px;
+    z-index: 5;
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    // background-color: white;
+    border-radius: 0 0 16px 16px;
+    padding: 24px;
+    gap: 24px;
+
+    &:has(.catalog__list) {
+        width: 100%;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+
+}
+
+.catalog__titles {
+    width: 100%;
+    max-width: 167px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.catalog__titles__title {
+    // min-width: 183px;
+    width: 100%;
+    border-radius: 8px;
+    padding: 8px;
+    background-color: #F9F9F9;
+    color: #100E0E;
+    transition: all .15s ease-in-out;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 24px;
+
+    &:hover {
+        background-color: #F0E4FF;
+        color: #0071E4;
+    }
+}
+
+.catalog__list {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.catalog__list__items {
+    // height: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: min-content;
+    gap: 8px;
+    align-items: start;
+}
+
+.catalog__list__items__item {
+    padding: 8px;
+    border-radius: 8px;
+    background-color: #F9F9F9;
+    display: grid;
+    grid-template-columns: min-content 1fr;
+    grid-template-rows: repeat(2, auto);
+    gap: 6px;
+    position: relative;
+    box-sizing: border-box;
+}
+
+
+.catalog__list__items__item__image {
+    border-radius: 7px;
+    width: 48px;
+    height: 48px;
+    grid-row-start: 1;
+    grid-row-end: 3;
+    grid-column-start: 1;
+    grid-column-end: 2;
+}
+
+.catalog__list__items__item__title {
+    color: #100E0E;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+}
+
+.catalog__list__items__item__price {
+    color: #282626;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16.5px;
+}
+
+.catalog__link {
+    color: #0071E4;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+}
