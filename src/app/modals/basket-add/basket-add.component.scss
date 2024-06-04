@@ -12,14 +12,14 @@
     display: flex;
     align-items: center;
     margin-top: 24px;
-    @media (max-width: 769px) {
+    @media (max-width: 830px) {
         display: none;
         
     }
 }
 .actions-mobile{
     display: none;
-    @media (max-width: 769px) {
+    @media (max-width: 830px) {
         display: flex;
         flex-direction: column;
         gap: 8px;
@@ -27,12 +27,12 @@
     }
 }
 .actions > button {
-    width: 215px;
+    width: 220px;
     height: 56px;
 }
 .invert {
     margin-left: 8px;
-    @media (max-width: 769px) {
+    @media (max-width: 830px) {
         margin: 0;
     }
 }
@@ -40,7 +40,7 @@
     width: 150px;
     height: 160px;
     margin-right: 24px;
-    @media (max-width: 769px) {
+    @media (max-width: 830px) {
         width: 50px;
         height: 54px;
     }
@@ -61,7 +61,7 @@
 .callandwrite {
     display: flex;
     gap: 8px;
-    @media (max-width: 769px) {
+    @media (max-width: 830px) {
         >h6{
             font-size: 16px;
         }

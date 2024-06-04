@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { StorageService } from './storage.service';
 import { GadgetService } from './gadget.service';
 
-type BasketItem = {
+export type BasketItem = {
   id: number;
   title: string;
   image: string;
@@ -19,49 +19,52 @@ type BasketItem = {
 export class BasketService {
   constructor(private storageService: StorageService, private gadgetService: GadgetService) { }
 
-  public basket: Array<BasketItem> = [] || this.storageService.getData('basket')
+  public basket: Array<BasketItem> = this.storageService.getData('basket') || [];
 
-  public basketLengthHeader: number = 0
+  public get basketLengthHeader(): number {
+    return this.basket.reduce((acc, item) => acc + item.count, 0);
+  }
 
-  public totalPrice: number = 0
+  public get totalPrice(): number {
+    return this.basket.reduce((acc, item) => acc + item.price * item.count, 0);
+  }
 
   public addToBasket(gadget: BasketItem) {
-    if (this.basket.filter(el => el.id === gadget.id)[0] !== undefined) {
-      this.basket.filter(el => el.id === gadget.id)[0].count++
-      this.storageService.changeData('basket', JSON.stringify(this.basket))
-      this.basketLengthHeader++
-      this.totalPrice += gadget.price
+    const existingItem = this.basket.find(el => el.id === gadget.id);
+    if (existingItem) {
+      existingItem.count++;
+    } else {
+      this.basket.push(gadget);
     }
-    else {
-      this.basket.push(gadget)
-      this.storageService.changeData('basket', JSON.stringify(this.basket))
-      this.basketLengthHeader++
-      this.totalPrice += gadget.price
-    }
-
+    this.storageService.changeData('basket', JSON.stringify(this.basket));
   }
 
   public deleteBasketItem(id: number) {
-    this.gadgetService.gadgets.filter(el => el.id === id)[0].isInCart = false
-    this.basket = this.basket.filter(el => el.id !== id)
-  }
-
-  public addCount(id: number) {
-    this.basket.filter(el => el.id === id)[0].count++
-    this.totalPrice += this.basket.filter(el => el.id === id)[0].price
-    this.basketLengthHeader++
-  }
-  public decreaseCount(id: number) {
-    this.basket.filter(el => el.id === id)[0].count--
-    this.basketLengthHeader--
-    this.totalPrice -= this.basket.filter(el => el.id === id)[0].price
-    if (this.basket.filter(el => el.id === id)[0].count === 0) {
-      this.deleteBasketItem(id)
+    const itemToRemove = this.basket.find(el => el.id === id);
+    if (itemToRemove) {
+      this.basket = this.basket.filter(el => el.id !== id);
+      this.gadgetService.gadgets.find(el => el.id === id).isInCart = false;
+      this.storageService.changeData('basket', JSON.stringify(this.basket));
     }
   }
 
-  public getCount(id: number) {
-    console.log(this.basket.filter(el => el.id === id)[0].count)
-    return this.basket.filter(el => el.id === id)[0].count
+  public addCount(id: number) {
+    const itemToUpdate = this.basket.find(el => el.id === id);
+    if (itemToUpdate) {
+      itemToUpdate.count++;
+      this.storageService.changeData('basket', JSON.stringify(this.basket));
+    }
+  }
+
+  public decreaseCount(id: number) {
+    const itemToUpdate = this.basket.find(el => el.id === id);
+    if (itemToUpdate) {
+      itemToUpdate.count--;
+      if (itemToUpdate.count < 1) {
+        this.deleteBasketItem(id);
+      } else {
+        this.storageService.changeData('basket', JSON.stringify(this.basket));
+      }
+    }
   }
 }

@@ -54,7 +54,7 @@
         </div>
         <div class="basket__info-top-item">
           <p>Итого</p>
-          <p>{{ basketService.totalPrice | customCurrency }}</p>
+          <p>{{ basketService.totalPrice| customCurrency }}</p>
         </div>
       </div>
       <form (submit)="openModalBusketSuccess()">
@@ -70,11 +70,11 @@
           <label>Выберите способ оплаты</label>
           <div class="delivery__types">
             <div class="delivery__type">
-              <input [(ngModel)]="deliveryType" type="radio" value="Доставка" />
+              <input [(ngModel)]="deliveryType" name="Доставка" type="radio" value="Доставка" />
               <p>Доставка</p>
             </div>
             <div class="delivery__type">
-              <input [(ngModel)]="deliveryType" type="radio" value="Самовывоз" />
+              <input [(ngModel)]="deliveryType" name="Самовывоз" type="radio" value="Самовывоз" />
               <p>Самовывоз</p>
             </div>
           </div>
