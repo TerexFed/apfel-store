@@ -1,0 +1,49 @@
+.watched-gadgets {
+    display: flex;
+    max-width: 1200px;
+    overflow-x: scroll;
+    margin: 0 auto;
+    margin-bottom: 40px;
+    gap: 15px;
+
+    @media (max-width: 1201px) {
+        margin: 0 24px 0 24px;
+    }
+}
+
+.watched-gadgets-modal {
+    display: flex;
+    margin-top: 15px;
+    gap: 15px;
+
+    @media (max-width: 769px) {
+        max-width: 60vw;
+        overflow-x: scroll;
+    }
+
+    .watched-gadgets-modal-gadget {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        border-radius: 8px;
+        gap: 5px;
+        padding: 10px;
+        box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.05);
+        background: rgb(255, 255, 255);
+
+        img {
+            width: 56px;
+            height: 56px;
+        }
+
+        sup {
+            width: 78px;
+        }
+
+        @media (max-width: 769px) {
+
+            flex-direction: row;
+        }
+    }
+}

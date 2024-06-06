@@ -1,11 +1,50 @@
-.admission{
+.tablet__pc {
     display: flex;
+
+    @media (max-width: 769px) {
+        display: none;
+    }
 }
-.big_iphone{
+
+.mobile {
+    display: none;
+
+    @media (max-width: 769px) {
+        display: flex;
+        flex-direction: column;
+
+        sup {
+            margin-bottom: 10px;
+        }
+
+        .image__text-mobile {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            p{
+                font-weight: 700;
+            }
+        }
+
+        input {
+            width: 100%;
+        }
+
+    }
+}
+
+.big_iphone {
     width: 150px;
     height: 160px;
     margin-right: 24px;
+
+    @media (max-width: 769px) {
+        width: 50px;
+        height: 50px;
+    }
 }
+
 input[type="text"] {
     border: 1px solid rgb(219, 219, 219);
     border-radius: 8px;

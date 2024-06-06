@@ -1,0 +1,17 @@
+@if (type === 'Gadget') {
+<div class="watched-gadgets">
+    @for (gadget of watchedGadgetsService.watchedGadgets; track $index) {
+    <app-gadget-item [gadget]="gadget"></app-gadget-item>
+    }
+</div>
+}
+@if (type === 'EmptyBasket') {
+<div class="watched-gadgets-modal">
+    @for (gadget of watchedGadgetsService.watchedGadgets; track $index) {
+    <div class="watched-gadgets-modal-gadget">
+        <img [src]="'http://localhost:1452/'+ gadget.images[0]" alt="gadget-image" />
+        <sup class="product-promo-small">{{gadget.name}}</sup>
+    </div>
+    }
+</div>
+}

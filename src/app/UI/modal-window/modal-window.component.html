@@ -10,7 +10,7 @@
   </mat-dialog-actions>
   <div class="modal-content">
     @switch (data.type) { @case ('Admission') {
-    <modal-admission [title]="data.title"></modal-admission>
+    <modal-admission [title]="data.title" [image]="data.image"></modal-admission>
     } @case ('Basket') {
     <modal-basket></modal-basket>
     } @case ('PriceLower') {

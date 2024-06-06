@@ -36,6 +36,7 @@ import { BasketAddComponent } from './modals/basket-add/basket-add.component';
 import { GadgetPageComponent } from './pages/gadget-page/gadget-page.component';
 import { CreditComponent } from './modals/credit/credit.component';
 import { FormsModule } from '@angular/forms';
+import { WatchedGadgetsComponent } from './components/watched-gadgets/watched-gadgets.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -68,7 +69,8 @@ import { FormsModule } from '@angular/forms';
     BasketSuccessComponent,
     BasketAddComponent,
     GadgetPageComponent,
-    CreditComponent
+    CreditComponent,
+    WatchedGadgetsComponent
   ],
   imports: [
     BrowserModule,

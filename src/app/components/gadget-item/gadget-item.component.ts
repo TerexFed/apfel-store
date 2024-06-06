@@ -4,6 +4,7 @@ import { ModalWindowComponent } from '../../UI/modal-window/modal-window.compone
 import { GadgetService } from '../../services/gadget.service';
 import { Router } from '@angular/router';
 import { BasketService } from '../../services/basket.service';
+import { WatchedGadgetsService } from '../../services/watched-gadgets.service';
 
 
 @Component({
@@ -12,7 +13,7 @@ import { BasketService } from '../../services/basket.service';
   styleUrl: './gadget-item.component.scss'
 })
 export class GadgetItemComponent implements OnInit {
-  constructor(public dialog: MatDialog, public router: Router, private basketService: BasketService) { }
+  constructor(public dialog: MatDialog, public router: Router, private basketService: BasketService, private watchedGadgetsService: WatchedGadgetsService) { }
   @Input() gadget: any
 
   public get5RatingArr() {
@@ -20,6 +21,7 @@ export class GadgetItemComponent implements OnInit {
   }
 
   public openGadget(id: string) {
+    this.watchedGadgetsService.watch(this.gadget)
     this.router.navigate([`gadget/${id}`])
     window.scroll(0, 0)
   }
@@ -37,7 +39,7 @@ export class GadgetItemComponent implements OnInit {
 
   openModalAdmission() {
     window.scrollTo(0, 0)
-    this.dialog.open(ModalWindowComponent, { data: { type: 'Admission', title: this.gadget.name } })
+    this.dialog.open(ModalWindowComponent, { data: { type: 'Admission', title: this.gadget.name, image: 'http://localhost:1452/' + this.gadget.images[0] } })
   }
   openModalPriceLower() {
     window.scrollTo(0, 0)

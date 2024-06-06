@@ -1,11 +1,22 @@
 <div class="admission">
-  <img class="big_iphone" src="../../../assets/main-page/big_iphone.svg" alt="big_iphone">
-  <div>
+  <div class="tablet__pc">
+    <img class="big_iphone" [src]="image" alt="big_iphone">
     <div>
-      <sup>Сообщить о поступленнии</sup>
-      <h4 class="normal">{{ title }}</h4>
-      <input type="text" placeholder="+7" />
+      <div>
+        <sup>Сообщить о поступленнии</sup>
+        <h4 class="normal">{{ title }}</h4>
+        <input type="text" placeholder="+7" />
+      </div>
+      <button (click)="openApplicaitonSend()">сообщить о поступлении</button>
     </div>
-    <button>сообщить о поступлении</button>
+  </div>
+  <div class="mobile">
+    <sup>Сообщить о поступленнии</sup>
+    <div class="image__text-mobile">
+      <img class="big_iphone" [src]="image" alt="big_iphone">
+      <p class="a">{{ title }}</p>
+    </div>
+    <input type="text" placeholder="+7" />
+    <button (click)="openApplicaitonSend()">сообщить о поступлении</button>
   </div>
 </div>
