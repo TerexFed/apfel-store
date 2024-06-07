@@ -28,7 +28,7 @@
     class="gadget-image"
     [src]="'http://localhost:1452/'+gadget.images[0]"
     alt="gadget-image"
-    (click)="openGadget(gadget.id)"
+    (click)="gadget.is_available && openGadget(gadget.id)"
   />
   @if (gadget.is_available) {
   <div class="second-section">
