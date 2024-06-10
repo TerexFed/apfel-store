@@ -26,6 +26,14 @@ export class CreditComponent implements OnInit {
 
   public monthPayment: number = 0
 
+  formatLabel(value: number): string {
+    if (value >= 1000) {
+      return Math.round(value / 1000) + 'k';
+    }
+
+    return `${value}`;
+  }
+
   private telephoneValidator(): AsyncValidatorFn {
     return (control: AbstractControl): Promise<{ [key: string]: any } | null> => {
       const pattern = /^(\+7|7|8)?[\s\-]?\(?[489][0-9]{2}\)?[\s\-]?[0-9]{3}[\s\-]?[0-9]{2}[\s\-]?[0-9]{2}$/;
@@ -38,9 +46,10 @@ export class CreditComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.monthPayment = +this.price / 2
     this.creditForm = this.formBuilder.group({
       bank: ['Тинькофф', Validators.required],
-      creditLength: ['', Validators.required],
+      creditLength: ['2', Validators.required],
       creditOwe: ['Нет', Validators.required],
       age: ['', [Validators.required, Validators.min(18), Validators.max(69)]],
       telephone: ['', Validators.required, this.telephoneValidator()]

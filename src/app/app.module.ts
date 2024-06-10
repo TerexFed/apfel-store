@@ -39,6 +39,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { WatchedGadgetsComponent } from './components/watched-gadgets/watched-gadgets.component';
 import { TradeInComponent } from './modals/trade-in/trade-in.component';
 import { NightApplicationSendComponent } from './modals/night-application-send/night-application-send.component';
+import {MatSliderModule} from '@angular/material/slider';
 @NgModule({
   declarations: [
     AppComponent,
@@ -81,6 +82,7 @@ import { NightApplicationSendComponent } from './modals/night-application-send/n
     AppRoutingModule,
     MatDialogModule,
     CdkAccordionModule,
+    MatSliderModule,
     FormsModule,
     ReactiveFormsModule
   ],

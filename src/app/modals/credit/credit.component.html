@@ -37,9 +37,10 @@
       </div>
 
       <div class="block">
-        <label>Срок кредита - {{ creditForm.controls['creditLength'].value }} месяц(ев)</label>
-        <input formControlName="creditLength" (change)="setMonthPayment()" type="range" list="inputRangeValues" min="2"
-          max="36" />
+        <label class="label-slider">Срок кредита</label>
+        <mat-slider list="inputRangeValues" min="2" max="36" discrete [displayWith]="formatLabel">
+          <input formControlName="creditLength" (change)="setMonthPayment()" matSliderThumb>
+        </mat-slider>
         <div class="range-values">
           <div class="range-values-start">
             <span value="2">2</span>
@@ -116,9 +117,10 @@
       </div>
 
       <div class="block-mobile">
-        <label>Срок кредита - {{ creditForm.controls['creditLength'].value }} месяц(ев)</label>
-        <input formControlName="creditLength"  type="range" list="inputRangeValues"
-          min="2" max="36" />
+        <label class="label-slider">Срок кредита</label>
+        <mat-slider list="inputRangeValues" min="2" max="36" discrete [displayWith]="formatLabel">
+          <input formControlName="creditLength" (change)="setMonthPayment()" matSliderThumb>
+        </mat-slider>
         <div class="range-values">
           <div class="range-values-start">
             <span value="2">2</span>
