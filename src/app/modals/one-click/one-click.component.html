@@ -20,10 +20,12 @@
       <sup class="crossed">{{ discountPrice | customCurrency }}</sup>
       }
       <h4 class="normal">{{ price | customCurrency }}</h4>
-      <div class="checkout">
-        <input type="text" placeholder="+7" />
-        <button>оформить заказ</button>
-      </div>
+      <form [formGroup]="priceLowerForm" (ngSubmit)="onSubmit()">
+        <div class="checkout">
+          <input formControlName="telephone" type="text" placeholder="+7" />
+          <button>оформить заказ</button>
+        </div>
+      </form>
     </div>
     <div class="callback">
       <sup>Либо позвоните или напишите нам</sup>

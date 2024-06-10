@@ -3,15 +3,22 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
+
+    @media (max-width: 769px) {
+        >h4{
+            font-size: 20px;
+        }
+    }
 }
 sup {
     width: 357px;
     margin: 8px 0 16px 0;
     @media (max-width: 769px) {
-        padding: 0 50px 0 50px;
+        width: 250px;
+        font-size: 14px;
     }
 }
-input[type="text"] {
+input[type="text"], input[type="number"], input[type="tel"] {
     border: 1px solid rgb(219, 219, 219);
     border-radius: 8px;
     background: rgb(255, 255, 255);
@@ -29,17 +36,20 @@ input[type="text"] {
     display: flex;
     justify-content: space-between;
     width: 100%;
+    margin-top: 8px;
+    gap: 8px;
+    @media (max-width: 769px) {
+        flex-direction: column;
+    }
 }
 .two-inputs > input {
     width: 100%;
 }
 input.top-input {
     width: 100%;
-    margin: 0 0 8px 0;
 }
 input[placeholder="+7"] {
     font-size: 24px;
-    margin: 0 0 0 4px;
 }
 button {
     margin-top: 16px;

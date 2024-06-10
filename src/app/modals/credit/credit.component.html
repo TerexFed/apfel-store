@@ -26,77 +26,72 @@
       </div>
     </div>
 
-    <div class="block">
-      <label>Выберите банк</label>
-      <select>
-        <option disabled selected>Любой</option>
-        <option value="Тинькофф">Тинькофф</option>
-        <option value="Сбербанк">Сбербанк</option>
-        <option value="Райфайзен">Райфайзен</option>
-      </select>
-    </div>
-
-    <div class="block">
-      <label>Срок кредита - {{ creditLength }}</label>
-      <input
-        [(ngModel)]="creditLength"
-        (ngModelChange)="setMonthPayment()"
-        type="range"
-        list="inputRangeValues"
-        min="2"
-        max="36"
-      />
-      <div class="range-values">
-        <div class="range-values-start">
-          <span value="2">2</span>
-          <span value="6">6</span>
-        </div>
-        <div class="range-values-middle">
-          <span value="12">12</span>
-          <span value="18">18</span>
-          <span value="24">24</span>
-        </div>
-        <span value="36">36</span>
+    <form [formGroup]="creditForm" (ngSubmit)="onSubmit()">
+      <div class="block">
+        <label>Выберите банк</label>
+        <select formControlName="bank">
+          <option value="Тинькофф">Тинькофф</option>
+          <option value="Сбербанк">Сбербанк</option>
+          <option value="Райфайзен">Райфайзен</option>
+        </select>
       </div>
-      <datalist id="inputRangeValues">
-        <option value="2">2</option>
-        <option value="6">6</option>
-        <option value="12">12</option>
-        <option value="18">18</option>
-        <option value="24">24</option>
-        <option value="36">36</option>
-      </datalist>
-    </div>
 
-    <div class="block">
-      <label>Приблизительный ежемесячный платеж</label>
-      <h4 class="blue">{{ monthPayment | customCurrency }}</h4>
-    </div>
-
-    <div class="block">
-      <label>Есть задолженность по кредитам?</label>
-      <div class="variants">
-        <div class="variant">
-          <input [(ngModel)]="creditOwe" type="radio" value="Да" />
-          <sup class="normal">Да</sup>
+      <div class="block">
+        <label>Срок кредита - {{ creditForm.controls['creditLength'].value }} месяц(ев)</label>
+        <input formControlName="creditLength" (change)="setMonthPayment()" type="range" list="inputRangeValues" min="2"
+          max="36" />
+        <div class="range-values">
+          <div class="range-values-start">
+            <span value="2">2</span>
+            <span value="6">6</span>
+          </div>
+          <div class="range-values-middle">
+            <span value="12">12</span>
+            <span value="18">18</span>
+            <span value="24">24</span>
+          </div>
+          <span value="36">36</span>
         </div>
-        <div class="variant">
-          <input [(ngModel)]="creditOwe" type="radio" value="Нет" />
-          <sup class="normal">Нет</sup>
+        <datalist id="inputRangeValues">
+          <option value="2">2</option>
+          <option value="6">6</option>
+          <option value="12">12</option>
+          <option value="18">18</option>
+          <option value="24">24</option>
+          <option value="36">36</option>
+        </datalist>
+      </div>
+
+      <div class="block">
+        <label>Приблизительный ежемесячный платеж</label>
+        <h4 class="blue">{{ monthPayment | customCurrency }}</h4>
+      </div>
+
+      <div class="block">
+        <label>Есть задолженность по кредитам?</label>
+        <div class="variants">
+          <div class="variant">
+            <input formControlName="creditOwe" type="radio" value="Да" />
+            <sup class="normal">Да</sup>
+          </div>
+          <div class="variant">
+            <input formControlName="creditOwe" type="radio" value="Нет" />
+            <sup class="normal">Нет</sup>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="block">
-      <label>Ваш возраст?</label>
-      <input [(ngModel)]="age" type="number" />
-    </div>
+      <div class="block">
+        <label>Ваш возраст?</label>
+        <input formControlName="age" type="number" />
+      </div>
 
-    <div class="block">
-      <label>Напишите свой номер и мы позвоним Вам в течение 5 минут</label>
-      <input [(ngModel)]="telephone" type="tel" placeholder="+ 7" />
-      <button>отправить заявку</button>
-    </div>
+      <div class="block">
+        <label>Напишите свой номер и мы позвоним Вам в течение 5 минут</label>
+        <input formControlName="telephone" type="tel" placeholder="+ 7" />
+        <button>отправить заявку</button>
+      </div>
+    </form>
 
     <div class="block">
       <sup>Либо позвоните или напишите нам самостоятельно</sup>
@@ -110,78 +105,72 @@
   </div>
 
   <div class="mobile">
-    <div class="block-mobile">
-      <label>Выберите банк</label>
-      <select>
-        <option disabled selected>Любой</option>
-        <option value="Тинькофф">Тинькофф</option>
-        <option value="Сбербанк">Сбербанк</option>
-        <option value="Райфайзен">Райфайзен</option>
-      </select>
-    </div>
-
-    <div class="block-mobile">
-      <label>Срок кредита - {{ creditLength }} месяц(ев)</label>
-      <input
-        [(ngModel)]="creditLength"
-        (ngModelChange)="setMonthPayment()"
-        type="range"
-        list="inputRangeValues"
-        min="2"
-        max="36"
-      />
-      <div class="range-values">
-        <div class="range-values-start">
-          <span value="2">2</span>
-          <span value="6">6</span>
-        </div>
-        <div class="range-values-middle">
-          <span value="12">12</span>
-          <span value="18">18</span>
-          <span value="24">24</span>
-        </div>
-        <span value="36">36</span>
+    <form [formGroup]="creditForm" (ngSubmit)="onSubmit()">
+      <div class="block-mobile">
+        <label>Выберите банк</label>
+        <select formControlName="bank">
+          <option value="Тинькофф">Тинькофф</option>
+          <option value="Сбербанк">Сбербанк</option>
+          <option value="Райфайзен">Райфайзен</option>
+        </select>
       </div>
-      <datalist id="inputRangeValues">
-        <option value="2">2</option>
-        <option value="6">6</option>
-        <option value="12">12</option>
-        <option value="18">18</option>
-        <option value="24">24</option>
-        <option value="36">36</option>
-      </datalist>
-    </div>
 
-    <div class="block-mobile">
-      <label>Приблизительный ежемесячный платеж</label>
-      <h4 class="blue">{{ monthPayment | customCurrency }}</h4>
-    </div>
-
-    <div class="block-mobile">
-      <label>Есть задолженность по кредитам?</label>
-      <div class="variants">
-        <div class="variant">
-          <input [(ngModel)]="creditOwe" type="radio" value="Да" />
-          <sup class="normal">Да</sup>
+      <div class="block-mobile">
+        <label>Срок кредита - {{ creditForm.controls['creditLength'].value }} месяц(ев)</label>
+        <input formControlName="creditLength"  type="range" list="inputRangeValues"
+          min="2" max="36" />
+        <div class="range-values">
+          <div class="range-values-start">
+            <span value="2">2</span>
+            <span value="6">6</span>
+          </div>
+          <div class="range-values-middle">
+            <span value="12">12</span>
+            <span value="18">18</span>
+            <span value="24">24</span>
+          </div>
+          <span value="36">36</span>
         </div>
-        <div class="variant">
-          <input [(ngModel)]="creditOwe" type="radio" value="Нет" />
-          <sup class="normal">Нет</sup>
+        <datalist id="inputRangeValues">
+          <option value="2">2</option>
+          <option value="6">6</option>
+          <option value="12">12</option>
+          <option value="18">18</option>
+          <option value="24">24</option>
+          <option value="36">36</option>
+        </datalist>
+      </div>
+
+      <div class="block-mobile">
+        <label>Приблизительный ежемесячный платеж</label>
+        <h4 class="blue">{{ monthPayment | customCurrency }}</h4>
+      </div>
+
+      <div class="block-mobile">
+        <label>Есть задолженность по кредитам?</label>
+        <div class="variants">
+          <div class="variant">
+            <input formControlName="creditOwe" type="radio" value="Да" />
+            <sup class="normal">Да</sup>
+          </div>
+          <div class="variant">
+            <input formControlName="creditOwe" type="radio" value="Нет" />
+            <sup class="normal">Нет</sup>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="block-mobile">
-      <label>Ваш возраст?</label>
-      <input [(ngModel)]="age" type="number" />
-    </div>
+      <div class="block-mobile">
+        <label>Ваш возраст?</label>
+        <input formControlName="age" type="number" />
+      </div>
 
-    <div class="block-mobile">
-      <label>Напишите свой номер и мы позвоним Вам в течение 5 минут</label>
-      <input [(ngModel)]="telephone" type="tel" placeholder="+ 7" />
-      <button>отправить заявку</button>
-    </div>
-
+      <div class="block-mobile">
+        <label>Напишите свой номер и мы позвоним Вам в течение 5 минут</label>
+        <input formControlName="telephone" type="tel" placeholder="+ 7" />
+        <button>отправить заявку</button>
+      </div>
+    </form>
     <div class="block-mobile">
       <sup>Либо позвоните или напишите нам самостоятельно</sup>
       <div class="callandwrite">

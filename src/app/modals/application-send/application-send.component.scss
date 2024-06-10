@@ -3,10 +3,27 @@
     flex-direction: column;
     align-items: center;
 
-    > sup {
+    >sup {
         margin: 8px 0 24px 0;
     }
-    > button {
+
+    >button {
         width: 246px;
     }
+
+    @media (max-width: 769px) {
+        text-align: center;
+
+        >h4 {
+            font-size: 20px;
+        }
+
+        >button {
+            width: 190px;
+        }
+    }
+}
+
+.application-send-night {
+    background-color: red;
 }

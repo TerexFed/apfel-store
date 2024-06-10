@@ -1,16 +1,17 @@
-import { Component, Input } from '@angular/core';
-import { ModalWindowComponent } from '../../UI/modal-window/modal-window.component';
-import { MatDialog } from '@angular/material/dialog';
+import { Component, OnInit } from '@angular/core';
 import { AbstractControl, AsyncValidatorFn, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
+import { ModalWindowComponent } from '../../UI/modal-window/modal-window.component';
 
 @Component({
-  selector: 'modal-admission',
-  templateUrl: './admission.component.html',
-  styleUrl: './admission.component.scss'
+  selector: 'modal-trade-in',
+  templateUrl: './trade-in.component.html',
+  styleUrl: './trade-in.component.scss'
 })
-export class AdmissionComponent {
-  public admissionForm: FormGroup = new FormGroup({
-    telephone: new FormControl('')
+export class TradeInComponent implements OnInit {
+  public tradeInForm: FormGroup = new FormGroup({
+    device: new FormControl(''),
+    telephone: new FormControl(''),
   })
 
   constructor(public dialog: MatDialog, private formBuilder: FormBuilder) { }
@@ -26,18 +27,16 @@ export class AdmissionComponent {
     };
   }
 
-  @Input() title: string = ''
-  @Input() image: string = ''
 
   ngOnInit(): void {
-    this.admissionForm = this.formBuilder.group({
+    this.tradeInForm = this.formBuilder.group({
+      device: ['', Validators.required],
       telephone: ['', Validators.required, this.telephoneValidator()]
     })
   }
 
-
   public onSubmit() {
-    if (this.admissionForm.valid) {
+    if (this.tradeInForm.valid) {
       this.dialog.ngOnDestroy()
       this.dialog.open(ModalWindowComponent, { data: { type: 'ApplicationSend' } })
     }

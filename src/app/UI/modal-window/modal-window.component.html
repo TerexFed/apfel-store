@@ -1,12 +1,17 @@
+@if (isAfter9PM && data.type === 'ApplicationSend') {
+<mat-dialog-content class="nigth-modal-window">
+  <mat-dialog-actions class="actions">
+    <img src="../../../assets/modal/white-cross.svg" alt="cross" width="16px" height="16px" [mat-dialog-close]="true" />
+  </mat-dialog-actions>
+  <div class="modal-content">
+    <modal-night-application-send></modal-night-application-send>
+  </div>
+</mat-dialog-content>
+}
+@else {
 <mat-dialog-content class="modal-window">
   <mat-dialog-actions class="actions">
-    <img
-      src="../../../assets/modal/cross.svg"
-      alt="cross"
-      width="16px"
-      height="16px"
-      [mat-dialog-close]="true"
-    />
+    <img src="../../../assets/modal/cross.svg" alt="cross" width="16px" height="16px" [mat-dialog-close]="true" />
   </mat-dialog-actions>
   <div class="modal-content">
     @switch (data.type) { @case ('Admission') {
@@ -20,26 +25,20 @@
     } @case ('CallBack') {
     <modal-callback></modal-callback>
     } @case ('OneClick') {
-    <modal-one-click
-      [title]="data.title"
-      [price]="data.price"
-      [discountPrice]="data.discountPrice"
-      [image]="data.image"
-    ></modal-one-click>
+    <modal-one-click [title]="data.title" [price]="data.price" [discountPrice]="data.discountPrice"
+      [image]="data.image"></modal-one-click>
     } @case ('BasketSuccess') {
     <modal-basket-success></modal-basket-success>
     } @case ('BasketAdd') {
-    <modal-basket-add
-      [title]="data.title"
-      [image]="data.image"
-    ></modal-basket-add>
+    <modal-basket-add [title]="data.title" [image]="data.image"></modal-basket-add>
     } @case ('Credit') {
-    <modal-credit
-      [title]="data.title"
-      [price]="data.price"
-      [discountPrice]="data.discountPrice"
-      [image]="data.image"
-    ></modal-credit>
-    } }
+    <modal-credit [title]="data.title" [price]="data.price" [discountPrice]="data.discountPrice"
+      [image]="data.image"></modal-credit>
+    }
+    @case ('Trade-In') {
+    <modal-trade-in></modal-trade-in>
+    }
+    }
   </div>
 </mat-dialog-content>
+}

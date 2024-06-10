@@ -20,11 +20,19 @@ export class HeaderComponent {
     window.scrollTo(0, 0)
     this.dialog.open(ModalWindowComponent, { data: { type: 'CallBack' } })
   }
+
+  openModalTradeIn() {
+    window.scroll(0, 0)
+    this.dialog.open(ModalWindowComponent, { data: { type: 'Trade-In' } })
+  }
+
   public count: number = this.basketService.basket.map(el => el.count)[0]
-  openModalBasket() {
+
+  public openModalBasket() {
     window.scrollTo(0, 0)
     this.dialog.open(ModalWindowComponent, { data: { type: 'Basket' } })
   }
+
   searchResultText = ''
 
   isSearchResult = false

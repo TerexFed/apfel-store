@@ -1,6 +1,10 @@
 <div class="callback">
-  <h4 class="normal">Закажите обратный звонок</h4>
-  <sup>Менеджер позвонит вам через 3 минуты</sup>
-  <input type="text" placeholder="+ 7" />
-  <button (click)="openApplicaitonSend()">заказать звонок</button>
+  <div class="text">
+    <h4 class="normal">Закажите обратный звонок</h4>
+    <sup>Менеджер позвонит вам через 3 минуты</sup>
+  </div>
+  <form [formGroup]="callbackForm" (ngSubmit)="onSubmit()">
+    <input formControlName="telephone" type="text" placeholder="+ 7" />
+    <button>заказать звонок</button>
+  </form>
 </div>

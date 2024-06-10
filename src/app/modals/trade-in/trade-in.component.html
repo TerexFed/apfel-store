@@ -1,0 +1,12 @@
+<div class="trade-in">
+    <h4 class="normal">Обменяйте старое устройство по Trade-In</h4>
+    <form [formGroup]="tradeInForm" (ngSubmit)="onSubmit()">
+        <div class="inputs">
+            <input formControlName="device" type="text" placeholder="какое устройство вы хотите сдать?">
+            <div class="input__button">
+                <input formControlName="telephone" type="tel" placeholder="+7" />
+                <button>обменять устройство</button>
+            </div>
+        </div>
+    </form>
+</div>

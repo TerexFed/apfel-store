@@ -48,7 +48,7 @@
     <div class="basket__info">
       <div class="basket__info-top">
         <div class="basket__info-top-item">
-          <p>{{ deliveryType }}</p>
+          <p>{{ basketForm.controls['deliveryType'].value }}</p>
           <p>{{ 0 | customCurrency }}</p>
         </div>
         <div class="basket__info-top-item">
@@ -60,10 +60,10 @@
           <p>{{ basketService.totalPrice| customCurrency }}</p>
         </div>
       </div>
-      <form (submit)="openModalBusketSuccess()">
+      <form [formGroup]="basketForm" (submit)="openModalBusketSuccess()">
         <div class="basket__info-block">
           <label>Выберите способ оплаты</label>
-          <select>
+          <select formControlName="payType">
             <option>Наличными</option>
             <option>Картой</option>
           </select>
@@ -73,39 +73,38 @@
           <label>Выберите способ оплаты</label>
           <div class="delivery__types">
             <div class="delivery__type">
-              <input [(ngModel)]="deliveryType" name="Доставка" type="radio" value="Доставка" />
+              <input formControlName="deliveryType" type="radio" value="Доставка" />
               <p>Доставка</p>
             </div>
             <div class="delivery__type">
-              <input [(ngModel)]="deliveryType" name="Самовывоз" type="radio" value="Самовывоз" />
+              <input formControlName="deliveryType" type="radio" value="Самовывоз" />
               <p>Самовывоз</p>
             </div>
           </div>
         </div>
 
         <div class="basket__info-block">
-          @if (deliveryType === 'Доставка') {
-          <label>Выберите способ доставки</label>
-          <input type="text" placeholder="Город">
-          <input type="text" placeholder="Адрес доставки">
-          }
-          @if (deliveryType === 'Самовывоз') {
-          <label>Пункт самовывоза</label>
-          <select>
+          <label *ngIf="basketForm.controls['deliveryType'].value === 'Доставка'">Город</label>
+          <input *ngIf="basketForm.controls['deliveryType'].value === 'Доставка'" formControlName="city" type="text"
+            placeholder="Город">
+          <label *ngIf="basketForm.controls['deliveryType'].value === 'Доставка'">Адрес доставки</label>
+          <input *ngIf="basketForm.controls['deliveryType'].value === 'Доставка'" formControlName="address" type="text"
+            placeholder="Адрес доставки">
+          <label *ngIf="basketForm.controls['deliveryType'].value === 'Самовывоз'">Пункт самовывоза</label>
+          <select *ngIf="basketForm.controls['deliveryType'].value === 'Самовывоз'" formControlName="pickUp">
             <option value="Москва, ул Ленина, 117">Москва, ул Ленина, 117</option>
-            <option value="Москва,  ул Барклая 8">Москва, ул Барклая 8</option>
+            <option value="Москва, ул Барклая 8">Москва, ул Барклая 8</option>
           </select>
-          }
         </div>
 
         <div class="basket__info-block">
           <label>Введите телефон</label>
-          <input type="tel" placeholder="+7 900 123 45 67">
+          <input formControlName="telephone" type="tel" placeholder="+7 900 123 45 67">
         </div>
 
         <div class="basket__info-block">
           <label>Введите email</label>
-          <input type="email" placeholder="необязательно">
+          <input formControlName="email" type="email" placeholder="необязательно">
         </div>
 
         <div class="basket__info-block last">

@@ -73,9 +73,16 @@
       display: flex;
       align-items: flex-end;
       margin: 35px 0 22px 0;
-
+      @media (max-width: 769px) {
+        align-items: center;
+      }
       > h4 {
         padding: 0 16px 3px 0;
+      }
+      >h3{
+        @media (max-width: 769px) {
+          font-size: 32px;
+        }
       }
     }
 

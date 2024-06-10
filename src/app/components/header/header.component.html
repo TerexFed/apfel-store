@@ -58,7 +58,6 @@
     <button class="header-button button" (click)="openModalBasket()">
       <img src="../../../assets/header/basket.svg" alt="Корзина" />
       <p>в корзине</p>
-      <!-- T0DO: поменять параграф на менюящийся обьект с цифрой  -->
       <p class="basket-length">{{ basketService.basketLengthHeader }}</p>
     </button>
   </div>
@@ -94,7 +93,7 @@
       />
       <p>Аксессуары</p>
     </div>
-    <img src="../../../assets/header/banneriphone.svg" alt="banneriphone" />
+    <img (click)="openModalTradeIn()" src="../../../assets/header/banner_iphone.svg" alt="banneriphone" />
   </div>
 
   @if(isCatalogOpen){

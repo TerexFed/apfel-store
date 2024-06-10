@@ -35,8 +35,10 @@ import { BasketSuccessComponent } from './modals/basket-success/basket-success.c
 import { BasketAddComponent } from './modals/basket-add/basket-add.component';
 import { GadgetPageComponent } from './pages/gadget-page/gadget-page.component';
 import { CreditComponent } from './modals/credit/credit.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { WatchedGadgetsComponent } from './components/watched-gadgets/watched-gadgets.component';
+import { TradeInComponent } from './modals/trade-in/trade-in.component';
+import { NightApplicationSendComponent } from './modals/night-application-send/night-application-send.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -70,14 +72,17 @@ import { WatchedGadgetsComponent } from './components/watched-gadgets/watched-ga
     BasketAddComponent,
     GadgetPageComponent,
     CreditComponent,
-    WatchedGadgetsComponent
+    WatchedGadgetsComponent,
+    TradeInComponent,
+    NightApplicationSendComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     MatDialogModule,
     CdkAccordionModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     provideClientHydration(),
