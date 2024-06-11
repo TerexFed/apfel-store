@@ -12,8 +12,16 @@ import { BottomSheetService } from './services/bottom-sheet.service';
 export class AppComponent {
   constructor(private bottomSheet: MatBottomSheet, public bottomSheetService: BottomSheetService) { }
 
+  closeBottomSheet(): void {
+    this.bottomSheet.dismiss();
+    this.bottomSheetService.closeBottomSheet();
+  }
+
   openBottomSheet(type: string): void {
-    this.bottomSheet.open(BottomSheetComponent, { data: { type: type } });
+    this.bottomSheet.open(BottomSheetComponent, { data: { type: type, close: this.closeBottomSheet.bind(this) }, backdropClass: 'backdropBack' })
+      .afterDismissed().subscribe(() => {
+        this.bottomSheetService.closeBottomSheet()
+      });
     if (type === 'basket') {
       this.bottomSheetService.openBasket();
     } else if (type === 'catalog') {
@@ -21,8 +29,5 @@ export class AppComponent {
     }
   }
 
-  closeBottomSheet(): void {
-    this.bottomSheet.dismiss();
-    this.bottomSheetService.closeBottomSheet();
-  }
+
 }
