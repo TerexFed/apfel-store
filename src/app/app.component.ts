@@ -20,7 +20,12 @@ export class AppComponent {
   openBottomSheet(type: string): void {
     this.bottomSheet.open(BottomSheetComponent, { data: { type: type, close: this.closeBottomSheet.bind(this) }, backdropClass: 'backdropBack' })
       .afterDismissed().subscribe(() => {
-        this.bottomSheetService.closeBottomSheet()
+        if (type === 'basket') {
+          this.bottomSheetService.closeBasket()
+        }
+        else if (type === 'catalog') {
+          this.bottomSheetService.closeCatalog()
+        }
       });
     if (type === 'basket') {
       this.bottomSheetService.openBasket();
