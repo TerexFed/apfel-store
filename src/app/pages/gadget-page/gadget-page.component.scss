@@ -1,5 +1,18 @@
 @import "../../../variables.scss";
 
+.gadget-page{
+    max-width: 1200px;
+    margin: 0 auto;
+
+    @media (max-width: 1201px) {
+        flex-direction: column;
+        margin: 0 24px 20px 24px;
+    }
+    
+    .back__button{
+        margin-top: 50px;
+    }
+}
 .gadget__info {
     display: flex;
     justify-content: space-between;

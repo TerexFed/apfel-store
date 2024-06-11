@@ -4,6 +4,7 @@ import { GadgetService } from '../../services/gadget.service';
 import { ModalWindowComponent } from '../../UI/modal-window/modal-window.component';
 import { MatDialog } from '@angular/material/dialog';
 import { BasketService } from '../../services/basket.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-gadget-page',
@@ -11,7 +12,7 @@ import { BasketService } from '../../services/basket.service';
   styleUrl: './gadget-page.component.scss'
 })
 export class GadgetPageComponent implements OnInit {
-  constructor(private route: ActivatedRoute, private router: Router, public gadgetService: GadgetService, private basketService: BasketService, public dialog: MatDialog) { }
+  constructor(private route: ActivatedRoute, private router: Router, public gadgetService: GadgetService, private basketService: BasketService, public dialog: MatDialog, private location:Location) { }
   public currentPic: string = ''
 
   ngOnInit(): void {
@@ -22,6 +23,10 @@ export class GadgetPageComponent implements OnInit {
     else {
       this.router.navigate(['/'])
     }
+  }
+
+  public back(){
+    this.location.back()
   }
 
   openModalOneClick() {
