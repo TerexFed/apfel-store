@@ -330,16 +330,10 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
-.backdropBack {
-  background-color: transparent;
-  backdrop-filter: blur(0px);
-  overflow-y: hidden;
-}
 
 .mat-bottom-sheet-container-large,
 .mat-bottom-sheet-container-medium {
   min-width: 100vw !important;
-
 }
 
 .mat-bottom-sheet-container {
@@ -352,4 +346,8 @@ body {
   @media (max-width: 577px) {
     margin-bottom: 61px !important;
   }
+}
+
+.cdk-overlay-dark-backdrop {
+  background: transparent !important;
 }

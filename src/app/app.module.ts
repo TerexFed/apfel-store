@@ -95,7 +95,7 @@ import { provideAnimations } from '@angular/platform-browser/animations';
   ],
   providers: [
     provideClientHydration(),
-    provideAnimations()
+    provideAnimations(),
   ],
   bootstrap: [AppComponent]
 })

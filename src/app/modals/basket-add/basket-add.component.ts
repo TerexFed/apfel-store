@@ -3,18 +3,26 @@ import { MatDialog } from '@angular/material/dialog';
 import { ModalWindowComponent } from '../../UI/modal-window/modal-window.component';
 import { MatBottomSheet } from '@angular/material/bottom-sheet';
 import { BottomSheetComponent } from '../../UI/bottom-sheet/bottom-sheet.component';
+import { BottomSheetService } from '../../services/bottom-sheet.service';
 
 @Component({
   selector: 'modal-basket-add',
   templateUrl: './basket-add.component.html',
-  styleUrl: './basket-add.component.scss'
+  styleUrl: './basket-add.component.scss',
 })
 export class BasketAddComponent implements OnInit {
-  constructor(public dialog: MatDialog, private bottomSheet: MatBottomSheet) { }
+  constructor(public dialog: MatDialog, private bottomSheet: MatBottomSheet, private bottomSheetService: BottomSheetService) { }
   @Input() title: string = ''
   @Input() image: string = ''
 
   windowWidth: number = 1440
+
+  public isCatalogOpen: boolean = false
+  public isBasketOpen: boolean = false
+
+  public closeBottomSheet() {
+    this.bottomSheet.dismiss();
+  }
 
   ngOnInit(): void {
     this.windowWidth = globalThis.innerWidth;
@@ -37,7 +45,8 @@ export class BasketAddComponent implements OnInit {
   public openBasket() {
     if (this.windowWidth <= 1440) {
       this.dialog.ngOnDestroy()
-      this.bottomSheet.open(BottomSheetComponent, { data: { type: 'basket' }, backdropClass: 'backdropBack' });
+      this.bottomSheetService.openBasket()
+      this.bottomSheet.open(BottomSheetComponent, { data: { type: 'basket', close: this.closeBottomSheet.bind(this) } })
     }
     else {
       this.openBasketModal()

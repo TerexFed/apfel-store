@@ -5,6 +5,7 @@ import { BasketService } from '../../services/basket.service';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { ModalWindowComponent } from '../modal-window/modal-window.component';
+import { BottomSheetService } from '../../services/bottom-sheet.service';
 
 @Component({
   selector: 'app-bottom-sheet',
@@ -22,10 +23,11 @@ export class BottomSheetComponent implements OnInit {
     telephone: new FormControl(''),
     email: new FormControl(''),
   })
-  constructor(@Inject(MAT_BOTTOM_SHEET_DATA) public data: any, public router: Router, public basketService: BasketService, public dialog: MatDialog, private formBuilder: FormBuilder) { }
+  constructor(@Inject(MAT_BOTTOM_SHEET_DATA) public data: any, private bottomSheetRef: MatBottomSheetRef, public router: Router, public basketService: BasketService, public dialog: MatDialog, private formBuilder: FormBuilder, private bottomSheetService: BottomSheetService) { }
 
-  public closeBottomSheet() {
-    this.data.close(this.data.type)
+  closeBottomSheet() {
+    this.bottomSheetRef.dismiss();
+    this.bottomSheetService.closeBottomSheet();
   }
 
   private telephoneValidator(): AsyncValidatorFn {

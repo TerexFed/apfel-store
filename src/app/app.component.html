@@ -2,15 +2,17 @@
 <router-outlet></router-outlet>
 <app-footer></app-footer>
 <div class="tab-bar">
-  <div [class]="isCatalogOpen ? 'tab-bar-item open' : 'tab-bar-item closed'"
-    (click)="!isCatalogOpen ? openBottomSheet('catalog') : closeBottomSheet('catalog')">
-    <img [src]="!isCatalogOpen ? '../../../assets/tab-bar/catalog.svg' : '../../../assets/tab-bar/blue-cross.svg'"
+  <div [class]="bottomSheetService.isCatalogOpen ? 'tab-bar-item open' : 'tab-bar-item closed'"
+    (click)="!bottomSheetService.isCatalogOpen ? openBottomSheet('catalog') : closeBottomSheet()">
+    <img
+      [src]="!bottomSheetService.isCatalogOpen ? '../../../assets/tab-bar/catalog.svg' : '../../../assets/tab-bar/blue-cross.svg'"
       alt="catalog_icon" />
     <p>Каталог</p>
   </div>
-  <div [class]="isBasketOpen ? 'tab-bar-item open' : 'tab-bar-item closed'"
-    (click)="!isBasketOpen ? openBottomSheet('basket') : closeBottomSheet('basket')">
-    <img [src]="!isBasketOpen ? '../../../assets/tab-bar/blue-basket.svg' : '../../../assets/tab-bar/blue-cross.svg'"
+  <div [class]="bottomSheetService.isBasketOpen ? 'tab-bar-item open' : 'tab-bar-item closed'"
+    (click)="!bottomSheetService.isBasketOpen ? openBottomSheet('basket') : closeBottomSheet()">
+    <img
+      [src]="!bottomSheetService.isBasketOpen ? '../../../assets/tab-bar/blue-basket.svg' : '../../../assets/tab-bar/blue-cross.svg'"
       alt="basket_icon" />
     <p>Корзина</p>
   </div>
