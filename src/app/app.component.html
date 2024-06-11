@@ -2,12 +2,16 @@
 <router-outlet></router-outlet>
 <app-footer></app-footer>
 <div class="tab-bar">
-  <div class="tab-bar-item">
-    <img src="../../../assets/footer/catalog_icon.svg" alt="catalog_icon" />
+  <div [class]="isCatalogOpen ? 'tab-bar-item open' : 'tab-bar-item closed'"
+    (click)="!isCatalogOpen ? openBottomSheet('catalog') : closeBottomSheet('catalog')">
+    <img [src]="!isCatalogOpen ? '../../../assets/tab-bar/catalog.svg' : '../../../assets/tab-bar/blue-cross.svg'"
+      alt="catalog_icon" />
     <p>Каталог</p>
   </div>
-  <div class="tab-bar-item">
-    <img src="../../../assets/footer/basket_icon.svg" alt="basket_icon" />
+  <div [class]="isBasketOpen ? 'tab-bar-item open' : 'tab-bar-item closed'"
+    (click)="!isBasketOpen ? openBottomSheet('basket') : closeBottomSheet('basket')">
+    <img [src]="!isBasketOpen ? '../../../assets/tab-bar/blue-basket.svg' : '../../../assets/tab-bar/blue-cross.svg'"
+      alt="basket_icon" />
     <p>Корзина</p>
   </div>
   <div class="tab-bar-item">

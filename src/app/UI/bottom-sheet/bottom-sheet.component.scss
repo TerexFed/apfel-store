@@ -1,0 +1,239 @@
+mat-nav-list {
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+.close-cross {
+    align-self: flex-end;
+}
+
+.catalog-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.catalog-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    border-bottom: 1px solid rgb(231, 231, 231);
+    padding: 12px 0 12px 0;
+}
+
+.empty-basket {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @media (max-width: 769px) {
+        text-align: center;
+    }
+
+    >h4 {
+        margin: 24px 0 10px 0;
+
+        @media (max-width: 769px) {
+            font-size: 20px;
+        }
+    }
+
+    >button {
+        margin-top: 10px;
+    }
+
+    .watched-gadgets {
+        margin-top: 40px;
+    }
+}
+
+.basket {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+}
+
+.basket__content {
+    display: flex;
+    gap: 30px;
+
+    @media (max-width: 769px) {
+        flex-direction: column;
+    }
+}
+
+.basket__list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 370px;
+    height: 400px;
+    overflow-y: scroll;
+
+    @media (max-width: 769px) {
+        overflow: hidden;
+        height: auto;
+    }
+}
+
+.basket__list-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    width: 340px;
+    height: 100px;
+    border-radius: 16px;
+    box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.05);
+    background: rgb(255, 255, 255);
+
+    .phone {
+        width: 64px;
+        height: 64px;
+    }
+}
+
+.basket__list-item-content {
+    margin-left: 10px;
+}
+
+.prices__count {
+    display: flex;
+    gap: 10px;
+}
+
+.prices {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+    width: fit-content;
+}
+
+.crossed {
+    text-decoration: line-through;
+}
+
+.basket-item-count {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    padding: 5px;
+    gap: 10px;
+    border-radius: 8px;
+    background: rgb(250, 250, 250);
+
+    >sup {
+        border-radius: 8px;
+        background: rgb(255, 255, 255);
+        padding: 3px 5px 3px 5px;
+    }
+}
+
+.basket-item-count-button {
+    width: fit-content;
+    height: fit-content;
+    padding: 0;
+    background: none;
+    color: rgb(135, 135, 135);
+}
+
+.basket__info {
+    display: flex;
+    flex-direction: column;
+    width: 370px;
+    height: 400px;
+    padding-right: 20px;
+    overflow-y: scroll;
+    gap: 25px;
+}
+
+.basket__info-top {
+    gap: 10px;
+}
+
+.basket__info-top-item {
+    display: flex;
+    justify-content: space-between;
+}
+
+.cross {
+    width: 16px;
+    height: 16px;
+    align-self: flex-start;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.basket__info-block {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+
+    select {
+        width: 200px;
+        height: 40px;
+        border-radius: 8px;
+        background: rgb(249, 249, 249);
+        font-size: 16px;
+        font-weight: 400;
+        line-height: -1px;
+        letter-spacing: 0%;
+    }
+
+    .delivery__types {
+        display: flex;
+        gap: 20px;
+    }
+
+    .delivery__type {
+        display: flex;
+        gap: 10px;
+    }
+
+    input[type='text'],
+    input[type='tel'],
+    input[type='email'] {
+        border: 1px solid rgb(219, 219, 219);
+        border-radius: 8px;
+        background: rgb(255, 255, 255);
+        width: 280px;
+        height: 50px;
+        color: rgb(135, 135, 135);
+        font-size: 16px;
+        font-weight: 400;
+        line-height: -1px;
+        letter-spacing: 0%;
+        outline: none;
+        padding-left: 16px;
+        margin: 5px 0 5px 0;
+    }
+
+    .callback {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .callandwrite {
+        gap: 10px;
+    }
+
+    .callandwrite-icons {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+    }
+}
+
+.last {
+    margin-top: 15px;
+}

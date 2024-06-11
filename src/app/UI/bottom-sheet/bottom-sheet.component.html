@@ -1,0 +1,163 @@
+<mat-nav-list>
+    <img class="close-cross" (click)="closeBottomSheet()" src="../../../assets/tab-bar/blue-cross-small.svg" alt="blue-cross">
+    @switch (data.type) {
+    @case ('catalog') {
+    <div class="catalog-list">
+        <div class="catalog-item">
+            <img src="../../../assets/header/iphone.svg" />
+            <p>Iphone</p>
+        </div>
+        <div class="catalog-item">
+            <img src="../../../assets/header/ipad.svg" />
+            <p>Ipad</p>
+        </div>
+        <div class="catalog-item">
+            <img src="../../../assets/header/macbook_imac.svg" />
+            <p>MacBook и IMac</p>
+        </div>
+        <div class="catalog-item">
+            <img src="../../../assets/header/applewatch.svg" />
+            <p>Watch</p>
+        </div>
+        <div class="catalog-item">
+            <img width="40px" height="40px" src="../../../assets/header/airpods.svg" />
+            <p>Гаджеты</p>
+        </div>
+    </div>
+    }
+    @case ('basket') {
+    @if (basketService.basket.length === 0) {
+    <div class="empty-basket">
+        <img src="../../../assets/modal/basket/blue_box.svg" alt="blue-box" />
+        <h4 class="normal">В корзине пока ничего нет</h4>
+        <sup>Но вы можете легко это исправить</sup>
+        <button (click)="data.close()">начать покупки</button>
+
+        <p class="watched-gadgets">Кстати, вы это смотрели</p>
+        <watched-gadgets type="EmptyBasket"></watched-gadgets>
+    </div>
+    } @else if (basketService.basket.length >= 1) {
+    <div class="basket">
+        <h4 class="normal">Оформление заказа</h4>
+        <div class="basket__content">
+            <div class="basket__list">
+                @for (basketItem of basketService.basket; track $index) {
+                <div class="basket__list-item">
+                    <img class="phone" [src]="basketItem.image" alt="basket__list-item-image" />
+                    <div class="basket__list-item-content">
+                        <sup class="normal">{{ basketItem.title }}</sup>
+                        <div class="prices__count">
+                            <div class="prices">
+                                @if (basketItem.discountPrice) {
+                                <sup class="crossed">{{
+                                    basketItem.discountPrice | customCurrency
+                                    }}</sup>
+                                }
+                                <sup class="product-promo">{{
+                                    basketItem.price | customCurrency
+                                    }}</sup>
+                            </div>
+                            <div class="basket-item-count">
+                                <button (click)="basketService.decreaseCount(basketItem.id)"
+                                    class="basket-item-count-button">
+                                    -
+                                </button>
+                                <sup class="blue">{{ basketItem.count }}</sup>
+                                <button (click)="basketService.addCount(basketItem.id)"
+                                    class="basket-item-count-button">
+                                    +
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <img (click)="basketService.deleteBasketItem(basketItem.id)" class="cross"
+                        src="../../../assets/modal/cross.svg" alt="cross" />
+                </div>
+                }
+            </div>
+            <div class="basket__info">
+                <div class="basket__info-top">
+                    <div class="basket__info-top-item">
+                        <p>{{ basketForm.controls['deliveryType'].value }}</p>
+                        <p>{{ 0 | customCurrency }}</p>
+                    </div>
+                    <div class="basket__info-top-item">
+                        <p>Сумма заказа</p>
+                        <p>{{ basketService.totalPrice | customCurrency }}</p>
+                    </div>
+                    <div class="basket__info-top-item">
+                        <p>Итого</p>
+                        <p>{{ basketService.totalPrice| customCurrency }}</p>
+                    </div>
+                </div>
+                <form [formGroup]="basketForm" (submit)="openModalBusketSuccess()">
+                    <div class="basket__info-block">
+                        <label>Выберите способ оплаты</label>
+                        <select formControlName="payType">
+                            <option>Наличными</option>
+                            <option>Картой</option>
+                        </select>
+                    </div>
+
+                    <div class="basket__info-block">
+                        <label>Выберите способ оплаты</label>
+                        <div class="delivery__types">
+                            <div class="delivery__type">
+                                <input formControlName="deliveryType" type="radio" value="Доставка" />
+                                <p>Доставка</p>
+                            </div>
+                            <div class="delivery__type">
+                                <input formControlName="deliveryType" type="radio" value="Самовывоз" />
+                                <p>Самовывоз</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="basket__info-block">
+                        <label *ngIf="basketForm.controls['deliveryType'].value === 'Доставка'">Город</label>
+                        <input *ngIf="basketForm.controls['deliveryType'].value === 'Доставка'" formControlName="city"
+                            type="text" placeholder="Город">
+                        <label *ngIf="basketForm.controls['deliveryType'].value === 'Доставка'">Адрес доставки</label>
+                        <input *ngIf="basketForm.controls['deliveryType'].value === 'Доставка'"
+                            formControlName="address" type="text" placeholder="Адрес доставки">
+                        <label *ngIf="basketForm.controls['deliveryType'].value === 'Самовывоз'">Пункт
+                            самовывоза</label>
+                        <select *ngIf="basketForm.controls['deliveryType'].value === 'Самовывоз'"
+                            formControlName="pickUp">
+                            <option value="Москва, ул Ленина, 117">Москва, ул Ленина, 117</option>
+                            <option value="Москва, ул Барклая 8">Москва, ул Барклая 8</option>
+                        </select>
+                    </div>
+
+                    <div class="basket__info-block">
+                        <label>Введите телефон</label>
+                        <input formControlName="telephone" type="tel" placeholder="+7 900 123 45 67">
+                    </div>
+
+                    <div class="basket__info-block">
+                        <label>Введите email</label>
+                        <input formControlName="email" type="email" placeholder="необязательно">
+                    </div>
+
+                    <div class="basket__info-block last">
+                        <button type="submit">оформить заказ</button>
+                        <div class="callback">
+                            <sup>Либо позвоните или напишите нам</sup>
+                            <div class="callandwrite">
+                                <h6 class="ben-card-h6">+7 812 561 96 62</h6>
+                                <div class="callandwrite-icons">
+                                    <img src="../../../assets/footer/whatsapp.svg" alt="whatsapp" />
+                                    <img src="../../../assets/footer/telegram.svg" alt="telegram" />
+                                    <img src="../../../assets/footer/vk.svg" alt="vk" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    }
+    }
+    }
+</mat-nav-list>

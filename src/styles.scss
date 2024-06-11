@@ -8,17 +8,11 @@ $apfel-store-angular-accent: mat.define-palette(mat.$blue-palette, A200, A100, A
 
 $apfel-store-angular-warn: mat.define-palette(mat.$red-palette);
 
-$apfel-store-angular-theme: mat.define-light-theme(
-  (
-    color: (
-      primary: $apfel-store-angular-primary,
-      accent: $apfel-store-angular-accent,
-      warn: $apfel-store-angular-warn
-    ),
-    typography: mat.define-typography-config(),
-    density: 0
-  )
-);
+$apfel-store-angular-theme: mat.define-light-theme((color: (primary: $apfel-store-angular-primary,
+        accent: $apfel-store-angular-accent,
+        warn: $apfel-store-angular-warn ),
+      typography: mat.define-typography-config(),
+      density: 0));
 
 
 @include mat.all-component-themes($apfel-store-angular-theme);
@@ -58,6 +52,7 @@ h3 {
     font-size: 40px;
     line-height: 48px;
   }
+
   &.number {
     color: rgb(0, 113, 228);
     font-weight: 700;
@@ -67,6 +62,7 @@ h3 {
   &.normal {
     color: $text-color;
   }
+
   &.gadget-title {
     color: $text-color;
     font-size: 40px;
@@ -93,9 +89,11 @@ h4 {
     color: $text-color;
     font-weight: 700;
   }
+
   &.white {
     color: $title-color;
   }
+
   &.blue {
     color: rgb(0, 113, 228);
     font-weight: 700;
@@ -123,6 +121,7 @@ h6 {
     font-size: 24px;
     line-height: 29px;
   }
+
   &.product-ear {
     color: $text-color;
     font-weight: 400;
@@ -134,6 +133,7 @@ h6 {
     font-weight: 400;
     line-height: 29px;
   }
+
   &.normal {
     color: $text-color;
   }
@@ -157,6 +157,7 @@ a {
     text-decoration: underline;
     transition: 0.25s;
   }
+
   &.filled {
     color: $hover-color;
     text-decoration: underline;
@@ -193,6 +194,7 @@ p {
     line-height: 26px;
     letter-spacing: 0%;
   }
+
   &.bold {
     font-weight: 700;
   }
@@ -220,16 +222,19 @@ sup {
   &.gray {
     color: $accent-text-color;
   }
+
   &.blue {
     color: $hover-color;
     font-weight: 500;
   }
+
   &.product-promo {
     color: $text-color;
     font-weight: 700;
     line-height: 19px;
     letter-spacing: 0%;
   }
+
   &.product-promo-small {
     color: $accent-text-color;
     font-size: 14px;
@@ -301,15 +306,15 @@ label {
   }
 
   .info-text {
-    > h5 {
+    >h5 {
       font-size: 32px;
     }
 
-    > h6 {
+    >h6 {
       font-size: 16px;
     }
 
-    > button {
+    >button {
       font-size: 16px;
     }
   }
@@ -323,4 +328,28 @@ body {
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.backdropBack {
+  background-color: transparent;
+  backdrop-filter: blur(0px);
+  overflow-y: hidden;
+}
+
+.mat-bottom-sheet-container-large,
+.mat-bottom-sheet-container-medium {
+  min-width: 100vw !important;
+
+}
+
+.mat-bottom-sheet-container {
+  border-radius: 16px 16px 0 0 !important;
+  width: 100% !important;
+  margin-bottom: 47px !important;
+  box-shadow: 0px -4px 4px 0px rgba(0, 0, 0, 0.05) !important;
+  overflow: hidden !important;
+
+  @media (max-width: 577px) {
+    margin-bottom: 61px !important;
+  }
 }

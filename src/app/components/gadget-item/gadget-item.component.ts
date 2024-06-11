@@ -5,6 +5,8 @@ import { GadgetService } from '../../services/gadget.service';
 import { Router } from '@angular/router';
 import { BasketService } from '../../services/basket.service';
 import { WatchedGadgetsService } from '../../services/watched-gadgets.service';
+import { MatBottomSheet } from '@angular/material/bottom-sheet';
+import { BottomSheetComponent } from '../../UI/bottom-sheet/bottom-sheet.component';
 
 
 @Component({
@@ -55,4 +57,5 @@ export class GadgetItemComponent implements OnInit {
     this.basketService.addToBasket({ id: this.gadget.id, title: this.gadget.name, image: 'http://localhost:1452/' + this.gadget.images[0], price: this.gadget.price, discountPrice: this.gadget.discount_price, count: 1, isInCart: true })
     this.dialog.open(ModalWindowComponent, { data: { type: 'BasketAdd', title: this.gadget.name, image: 'http://localhost:1452/' + this.gadget.images[0] } })
   }
+
 }

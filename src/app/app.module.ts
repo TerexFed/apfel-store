@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
 import { MatDialogModule } from '@angular/material/dialog';
-import {CdkAccordionModule} from '@angular/cdk/accordion'; 
+import { CdkAccordionModule } from '@angular/cdk/accordion';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -39,7 +39,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { WatchedGadgetsComponent } from './components/watched-gadgets/watched-gadgets.component';
 import { TradeInComponent } from './modals/trade-in/trade-in.component';
 import { NightApplicationSendComponent } from './modals/night-application-send/night-application-send.component';
-import {MatSliderModule} from '@angular/material/slider';
+import { MatSliderModule } from '@angular/material/slider';
+import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
+import { MatListModule } from '@angular/material/list';
+import { BottomSheetComponent } from './UI/bottom-sheet/bottom-sheet.component';
+import { provideAnimations } from '@angular/platform-browser/animations';
 @NgModule({
   declarations: [
     AppComponent,
@@ -75,7 +79,8 @@ import {MatSliderModule} from '@angular/material/slider';
     CreditComponent,
     WatchedGadgetsComponent,
     TradeInComponent,
-    NightApplicationSendComponent
+    NightApplicationSendComponent,
+    BottomSheetComponent,
   ],
   imports: [
     BrowserModule,
@@ -83,11 +88,14 @@ import {MatSliderModule} from '@angular/material/slider';
     MatDialogModule,
     CdkAccordionModule,
     MatSliderModule,
+    MatListModule,
+    MatBottomSheetModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   providers: [
     provideClientHydration(),
+    provideAnimations()
   ],
   bootstrap: [AppComponent]
 })
