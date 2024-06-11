@@ -46,9 +46,7 @@ export class BasketAddComponent implements OnInit {
     if (this.windowWidth <= 1440) {
       this.dialog.ngOnDestroy()
       this.bottomSheetService.openBasket()
-      this.bottomSheet.open(BottomSheetComponent, { data: { type: 'basket', close: this.closeBottomSheet.bind(this) } }).afterDismissed().subscribe(() => {
-        this.bottomSheetService.closeBottomSheet()
-      });
+      this.bottomSheet.open(BottomSheetComponent, { data: { type: 'basket', close: this.closeBottomSheet.bind(this) } })
     }
     else {
       this.openBasketModal()
