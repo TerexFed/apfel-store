@@ -1,8 +1,14 @@
 <scroll-goods></scroll-goods>
-<section class="product-list">
-  <h3 class="bottom-text">купить iPhone в Москве</h3>
+<h3 class="bottom-text">купить iPhone в Москве</h3>
+<section class="product-list-wrapper">
+  <p>Самое популярное</p>
+  <app-gadget-list [gadgetList]="popularProductList" />
 </section>
 
 <new-models></new-models>
+<div class="product-list-wrapper">
+  <p>Новинки</p>
+  <app-gadget-list [gadgetList]="newestProdcts" />
+</div>
 <benefits></benefits>
 <distribution></distribution>

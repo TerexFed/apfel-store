@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { GadgetService } from '../../services/gadget.service';
 
 @Component({
@@ -6,10 +6,8 @@ import { GadgetService } from '../../services/gadget.service';
   templateUrl: './gadget-list.component.html',
   styleUrl: './gadget-list.component.scss'
 })
-export class GadgetListComponent implements OnInit {
-  constructor (public gadgetService: GadgetService) {}
+export class GadgetListComponent {
+  constructor(public gadgetService: GadgetService) { }
 
-  ngOnInit(): void {
-    this.gadgetService.getAllGadgets()
-  }
+  @Input() gadgetList: any[]
 }

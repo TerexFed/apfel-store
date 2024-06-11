@@ -1,5 +1,7 @@
 <section class="gadget-list">
-    @for (gadget of gadgetService.gadgets; track $index) {
+    @for (gadget of gadgetList; track $index) {
     <app-gadget-item [gadget]="gadget"></app-gadget-item>
+    } @empty {
+    <p>🌀</p>
     }
 </section>
