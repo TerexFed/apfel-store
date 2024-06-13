@@ -37,6 +37,16 @@ input[type="text"] {
         >h4{
             display: none;
         }
+        sup.crossed{
+            display: none;
+        }
+        .prices{
+            display: flex;
+            gap: 10px;
+            >.crossed{
+                display: flex;
+            }
+        }
     }
 }
 .prices{
