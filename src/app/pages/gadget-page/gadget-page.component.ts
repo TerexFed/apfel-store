@@ -5,27 +5,36 @@ import { ModalWindowComponent } from '../../UI/modal-window/modal-window.compone
 import { MatDialog } from '@angular/material/dialog';
 import { BasketService } from '../../services/basket.service';
 import { Location } from '@angular/common';
+import { ProductService } from '../../services/product.service';
+import { Product } from '../../types/product';
 
 @Component({
   selector: 'app-gadget-page',
   templateUrl: './gadget-page.component.html',
   styleUrl: './gadget-page.component.scss'
 })
-export class GadgetPageComponent implements OnInit {
-  constructor(private route: ActivatedRoute, private router: Router, public gadgetService: GadgetService, private basketService: BasketService, public dialog: MatDialog, private location:Location) { }
+export class GadgetPageComponent {
+  product: Product
+
+  constructor(private route: ActivatedRoute, private router: Router, public gadgetService: GadgetService, private basketService: BasketService, public dialog: MatDialog, private location: Location, productService: ProductService) {
+    (async () => {
+      if (this.route.snapshot.params.id <= (await productService.getAllProducts()).length) {
+        // this.gadgetService.getGadgetByID(this.route.snapshot.params.id)
+        const res = await productService.getProductById(this.route.snapshot.params.id)
+        if (!res) {
+          this.router.navigate(['/'])
+          return;
+        }
+        this.product = res
+      }
+      else {
+        this.router.navigate(['/'])
+      }
+    })()
+  }
   public currentPic: string = ''
 
-  ngOnInit(): void {
-    if (this.route.snapshot.params.id <= this.gadgetService.gadgets.length) {
-      this.gadgetService.getGadgetByID(this.route.snapshot.params.id)
-
-    }
-    else {
-      this.router.navigate(['/'])
-    }
-  }
-
-  public back(){
+  public back() {
     this.location.back()
   }
 

@@ -1,5 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { GadgetService } from '../../services/gadget.service';
+import { Component, Input } from '@angular/core';
+import { Product } from '../../types/product';
 
 @Component({
   selector: 'app-gadget-list',
@@ -7,7 +7,9 @@ import { GadgetService } from '../../services/gadget.service';
   styleUrl: './gadget-list.component.scss'
 })
 export class GadgetListComponent {
-  constructor(public gadgetService: GadgetService) { }
+  @Input() gadgetList: Product[] | [{ errorMessage: string }]
 
-  @Input() gadgetList: any[]
+  isError(item: Product | { errorMessage: string }): item is { errorMessage: string } {
+    return 'errorMessage' in item;
+  }
 }

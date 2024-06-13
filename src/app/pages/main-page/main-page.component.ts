@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { FiltersService } from '../../services/filters.service';
+import { ProductService } from '../../services/product.service';
+import { Product } from '../../types/product';
 
 @Component({
   selector: 'app-main-page',
@@ -7,13 +8,13 @@ import { FiltersService } from '../../services/filters.service';
   styleUrl: './main-page.component.scss'
 })
 export class MainPageComponent {
-  popularProductList: any[] = []
-  newestProdcts: any[] = []
+  popularProductList: Product[] | [{ errorMessage: string }] = []
+  newestProdcts: Product[] | [{ errorMessage: string }] = []
 
-  constructor(fitersService: FiltersService) {
+  constructor(productService: ProductService) {
     (async () => {
-      this.popularProductList = await fitersService.getPopularProducts()
-      this.newestProdcts = await fitersService.getNewestProducts()
+      this.popularProductList = await productService.getPopularProducts()
+      this.newestProdcts = await productService.getNewestProducts()
     })()
   }
 }

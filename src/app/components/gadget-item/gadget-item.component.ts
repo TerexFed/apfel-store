@@ -1,13 +1,10 @@
 import { Component, HostListener, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ModalWindowComponent } from '../../UI/modal-window/modal-window.component';
-import { GadgetService } from '../../services/gadget.service';
 import { Router } from '@angular/router';
 import { BasketService } from '../../services/basket.service';
 import { WatchedGadgetsService } from '../../services/watched-gadgets.service';
-import { MatBottomSheet } from '@angular/material/bottom-sheet';
-import { BottomSheetComponent } from '../../UI/bottom-sheet/bottom-sheet.component';
-
+import { Product } from '../../types/product';
 
 @Component({
   selector: 'app-gadget-item',

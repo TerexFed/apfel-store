@@ -1,6 +1,5 @@
 import { Component, Input } from '@angular/core';
 import { WatchedGadgetsService } from '../../services/watched-gadgets.service';
-import { GadgetService } from '../../services/gadget.service';
 
 @Component({
   selector: 'watched-gadgets',
@@ -10,5 +9,5 @@ import { GadgetService } from '../../services/gadget.service';
 export class WatchedGadgetsComponent {
   constructor(public watchedGadgetsService: WatchedGadgetsService) { }
 
-  @Input() type:string
+  @Input() type: string
 }
