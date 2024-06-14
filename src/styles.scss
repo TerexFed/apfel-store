@@ -198,6 +198,10 @@ p {
   &.bold {
     font-weight: 700;
   }
+
+  &.crossed {
+    text-decoration: line-through;
+  }
 }
 
 sup {

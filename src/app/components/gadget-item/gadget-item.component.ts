@@ -22,9 +22,13 @@ export class GadgetItemComponent implements OnInit {
     return new Array(5).fill(true)
   }
 
-  public openGadget(id: string) {
+  public getName() {
+    return `${this.gadget.name} ${this.gadget.characteristics[1].value}  ${this.gadget.characteristics[1].unit_type} ${this.gadget.color}`
+  }
+
+  public openGadget() {
     this.watchedGadgetsService.watch(this.gadget)
-    this.router.navigate([`gadget/${id}`])
+    this.router.navigate([`gadget/${this.gadget.id}`])
     window.scroll(0, 0)
   }
 
@@ -41,7 +45,7 @@ export class GadgetItemComponent implements OnInit {
 
   openModalAdmission() {
     window.scrollTo(0, 0)
-    this.dialog.open(ModalWindowComponent, { data: { type: 'Admission', title: this.gadget.name, image: 'http://localhost:1452/' + this.gadget.images[0] } })
+    this.dialog.open(ModalWindowComponent, { data: { type: 'Admission', title: this.getName(), image: 'http://localhost:1452/' + this.gadget.images[0] } })
   }
   openModalPriceLower() {
     window.scrollTo(0, 0)
@@ -49,13 +53,13 @@ export class GadgetItemComponent implements OnInit {
   }
   openModalOneClick() {
     window.scrollTo(0, 0)
-    this.dialog.open(ModalWindowComponent, { data: { type: 'OneClick', title: this.gadget.name, image: 'http://localhost:1452/' + this.gadget.images[0], price: this.gadget.price, discountPrice: this.gadget.discount_price } })
+    this.dialog.open(ModalWindowComponent, { data: { type: 'OneClick', title: this.getName(), image: 'http://localhost:1452/' + this.gadget.images[0], price: this.gadget.price, discountPrice: this.gadget.discount_price } })
   }
   openModalBasketAdd() {
     window.scrollTo(0, 0)
     this.gadget.isInCart = true
-    this.basketService.addToBasket({ id: this.gadget.id, title: this.gadget.name, image: 'http://localhost:1452/' + this.gadget.images[0], price: this.gadget.price, discountPrice: this.gadget.discount_price, count: 1, isInCart: true })
-    this.dialog.open(ModalWindowComponent, { data: { type: 'BasketAdd', title: this.gadget.name, image: 'http://localhost:1452/' + this.gadget.images[0] } })
+    this.basketService.addToBasket({ id: this.gadget.id, title: this.getName(), image: 'http://localhost:1452/' + this.gadget.images[0], price: this.gadget.price, discountPrice: this.gadget.discount_price, count: 1, isInCart: true })
+    this.dialog.open(ModalWindowComponent, { data: { type: 'BasketAdd', title: this.getName(), image: 'http://localhost:1452/' + this.gadget.images[0] } })
   }
 
 }

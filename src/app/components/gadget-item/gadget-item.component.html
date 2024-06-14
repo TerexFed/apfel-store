@@ -2,34 +2,23 @@
   <div class="first-section">
     <div class="rating-stars">
       @for (_ of get5RatingArr(); track $index) {
-      <img
-        [src]="
+      <img [src]="
           '/assets/gadget-item/star-' +
           ($index + 1 <= gadget.rating ? 'active' : 'inactive') +
           '.svg'
-        "
-        alt="rating"
-      />
+        " alt="rating" />
       }
     </div>
     <p class="reviews-count">({{ gadget.count_review }})</p>
-    <img
-      class="self-end"
-      [src]="
+    <img class="self-end" [src]="
         '/assets/gadget-item/heart-' +
         (gadget.isFavorite ? 'active' : 'inactive') +
         '.svg'
-      "
-      alt=""
-    />
+      " alt="" />
   </div>
-  <p class="name">{{gadget.name}}</p>
-  <img
-    class="gadget-image"
-    [src]="'http://localhost:1452/'+gadget.images[0]"
-    alt="gadget-image"
-    (click)="gadget.is_available && openGadget(gadget.id)"
-  />
+  <p class="name">{{getName()}}</p>
+  <img class="gadget-image" [src]="'http://localhost:1452/'+gadget.images[0]" alt="gadget-image"
+    (click)="gadget.is_available && openGadget()" />
   @if (gadget.is_available) {
   <div class="second-section">
     <p><span class="isAvailable available"></span>Есть в наличии</p>
@@ -44,19 +33,12 @@
     <p class="price">{{ gadget.discount_price | customCurrency }}</p>
     }
   </div>
-  <button
-    [class]="'add-to-cart ' + (gadget.isInCart ? 'in-cart' : 'not-in-cart')"
-    (click)="openModalBasketAdd()"
-  >
-    <img
-      class="gadget-is-in-cart image-size-24"
-      [src]="
+  <button [class]="'add-to-cart ' + (gadget.isInCart ? 'in-cart' : 'not-in-cart')" (click)="openModalBasketAdd()">
+    <img class="gadget-is-in-cart image-size-24" [src]="
         '/assets/gadget-item/cart-' +
         (gadget.isInCart ? 'active' : 'inactive') +
         '.svg'
-      "
-      alt="cart"
-    />
+      " alt="cart" />
     {{ gadget.isInCart ? "в корзине" : "в корзину" }}
   </button>
   } @else {
@@ -64,19 +46,12 @@
     @if (gadget.discount_price) {
     <p class="old-price">{{ gadget.price | customCurrency }}</p>
     }
-    <button
-      [class]="'add-to-cart ' + (gadget.isInCart ? 'in-cart' : 'not-in-cart')"
-      (click)="openModalBasketAdd()"
-    >
-      <img
-        class="gadget-is-in-cart"
-        [src]="
+    <button [class]="'add-to-cart ' + (gadget.isInCart ? 'in-cart' : 'not-in-cart')" (click)="openModalBasketAdd()">
+      <img class="gadget-is-in-cart" [src]="
           '/assets/gadget-item/cart-' +
           (gadget.isInCart ? 'active' : 'inactive') +
           '.svg'
-        "
-        alt="cart"
-      />
+        " alt="cart" />
       <span>{{ gadget.discount_price || gadget.price | customCurrency }}</span>
     </button>
   </div>

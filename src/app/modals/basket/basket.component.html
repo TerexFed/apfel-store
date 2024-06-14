@@ -22,12 +22,17 @@
             <div class="prices">
               @if (basketItem.discountPrice) {
               <sup class="crossed">{{
+                basketItem.price | customCurrency
+                }}</sup>
+              <sup class="product-promo">{{
                 basketItem.discountPrice | customCurrency
                 }}</sup>
               }
+              @else if (basketItem.price) {
               <sup class="product-promo">{{
                 basketItem.price | customCurrency
                 }}</sup>
+              }
             </div>
             <div class="basket-item-count">
               <button (click)="basketService.decreaseCount(basketItem.id)" class="basket-item-count-button">

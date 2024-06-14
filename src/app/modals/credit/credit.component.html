@@ -6,9 +6,13 @@
       <h4 class="normal">{{ title }}</h4>
 
       @if (discountPrice) {
-      <sup class="crossed">{{ discountPrice | customCurrency }}</sup>
+      <sup class="crossed">{{ price | customCurrency }}</sup>
+      <h4 class="normal">{{ discountPrice | customCurrency }}</h4>
       }
+      @else if (price) {
       <h4 class="normal">{{ price | customCurrency }}</h4>
+      }
+
     </div>
     <div class="top-mobile">
       <img class="big_iphone-tablet" [src]="image" alt="big_iphone" />

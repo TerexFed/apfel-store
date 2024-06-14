@@ -79,6 +79,7 @@
     margin-top: 40px;
     @media (max-width: 1201px) {
         display: flex;
+        text-align: center;
     }
 }
 .info__block-characteristics {
@@ -200,6 +201,9 @@
 }
 .method {
     width: 350px;
+    @media (max-width: 1201px) {
+        width: auto;
+    }
 }
 .method-title {
     margin-bottom: 10px;
@@ -274,6 +278,16 @@
     }
     @media (max-width: 769px) {
         align-items: flex-start;
+        text-align: left;
+    }
+}
+.promo__card-text{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    @media (max-width: 769px) {
+        flex-direction: row;
     }
 }
 .buy__ears {
