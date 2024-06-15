@@ -1,8 +1,37 @@
 @import "../../../../variables.scss";
 
+
+@keyframes scrollRight {
+  from {
+    transform: translateX(0%);
+
+  }
+
+  to {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+
+}
+
+@keyframes scrollLeft {
+  from {
+    transform: translateX(0%);
+  }
+
+  to {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+}
+
+.disabled {
+  pointer-events: none;
+}
+
 .background {
 
-  transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+  transition: 0.7s ease;
 
   .scroll-goods {
     display: flex;
@@ -18,12 +47,22 @@
       justify-content: center;
       align-items: center;
 
+
+      &.animate-scroll-right {
+        animation: scrollRight 0.8s ease-in;
+      }
+
+      &.animate-scroll-left {
+        animation: scrollLeft 0.8s ease-in;
+      }
+
       .text-info {
         margin-left: 50px;
         color: $logo-title-color;
+        width: fit-content;
 
         .title__info {
-          font-size: clamp(2.3125rem, 1.0982rem + 6.0714vw, 6.5625rem);
+          font-size: 88px;
         }
       }
 
@@ -35,6 +74,7 @@
     .right-arrow,
     .left-arrow {
       align-self: center;
+      cursor: pointer;
     }
 
     @media screen and (max-width: 1440px) {
@@ -68,6 +108,9 @@
 
     .big-iphone {
       margin-top: 10%;
+      width: 450px;
+      height: 450px;
+      background: transparent;
     }
 
     .price {
@@ -100,6 +143,10 @@
           flex-direction: column;
           align-items: center;
           margin-left: 0;
+
+          .title__info {
+            font-size: clamp(2.3125rem, 1.0982rem + 6.0714vw, 6.5625rem);
+          }
 
           >button {
             margin-top: 20px;
@@ -145,10 +192,15 @@
 
       .text-info {
         margin-left: 0;
+        text-align: center;
+
+        >h2 {
+          line-height: 80px;
+        }
       }
 
       .big-iphone {
-        margin-top: 25%;
+        margin-top: 20%;
         width: 203px;
         height: 277px;
         margin-left: 0px;

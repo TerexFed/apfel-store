@@ -8,18 +8,28 @@ import { Component } from '@angular/core';
 export class ScrollGoodsComponent {
   public scrollGoods: Array<any> = [
     { id: 0, image: '../../../../assets/main-page/scroll-goods/big_iphone.svg', price: 137900 },
-    { id: 1, image: '../../../../assets/main-page/scroll-goods/ipad.svg', price: 137900, text: 'Ipad Pro 11' },
-    { id: 2, image: '../../../../assets/main-page/scroll-goods/macbook.svg', price: 137900, text: 'MackBook Pro' }
+    { id: 1, image: '../../../../assets/main-page/scroll-goods/ipad.svg', price: 81000, text: 'Ipad Pro 11' },
+    { id: 2, image: '../../../../assets/main-page/scroll-goods/macbook.svg', price: 129999, text: 'MackBook Pro' }
   ]
 
   public currentId: number = 0
 
+  public animateScrollRight: boolean = false;
+  public animateScrollLeft: boolean = false;
 
   public scrollRight() {
-    this.currentId = (this.currentId + 1) % this.scrollGoods.length;
+    this.animateScrollRight = true;
+    setTimeout(() => {
+      this.animateScrollRight = false;
+      this.currentId = (this.currentId + 1) % this.scrollGoods.length;
+    }, 800);
   }
 
   public scrollLeft() {
-    this.currentId = (this.currentId - 1 + this.scrollGoods.length) % this.scrollGoods.length;
+    this.animateScrollLeft = true;
+    setTimeout(() => {
+      this.animateScrollLeft = false;
+      this.currentId = (this.currentId - 1 + this.scrollGoods.length) % this.scrollGoods.length;
+    }, 800);
   }
 }
