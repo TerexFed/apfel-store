@@ -12,19 +12,27 @@ export class ProductPageFiltersService {
   public memoryCapacity: Array<any> = []
 
   public getOtherGadgets(data: any) {
-    // console.log(data)
-    // console.log(this.gadgetService.gadgets.filter((el) => el.name === data.name && el.color !== data.color && data.characteristics[1].value))
-    this.otherGadgets = this.gadgetService.gadgets.filter((el) => el.name === data.name && el.characteristics[1].value === data.characteristics[1].value && el.is_available === data.is_available)
+    this.otherGadgets = this.gadgetService.gadgets.filter((el) => el.name === data.name && el.characteristics[1].value === data.characteristics[1].value && el.is_available === true)
   };
   public getMemoryCapacity(data: any) {
-    this.memoryCapacity = this.gadgetService.gadgets.filter((el) => el.name === data.name && el.color === data.color).map(el => el.characteristics[1].value).sort(function (a, b) {
-      return a - b;
-    });
-
+    if (data.characteristics[5].characteristic === 'Циферблат') {
+      this.memoryCapacity = this.gadgetService.gadgets.filter((el) => el.name === data.name && el.color === data.color && el.is_available === true).map(el => el.characteristics[5].value).sort(function (a, b) {
+        return a - b;
+      });
+    }
+    else {
+      this.memoryCapacity = this.gadgetService.gadgets.filter((el) => el.name === data.name && el.color === data.color && el.is_available === true).map(el => el.characteristics[1].value).sort(function (a, b) {
+        return a - b;
+      });
+    }
   }
 
   public updateMemoryCapacity(data: any, memoryCapacity: string) {
-    this.otherGadgets = this.gadgetService.gadgets.filter((el) => el.name === data.name && el.characteristics[1].value === memoryCapacity && el.is_available === data.is_available)
+    this.otherGadgets = this.gadgetService.gadgets.filter((el) => el.name === data.name && el.characteristics[1].value === memoryCapacity && el.is_available === true)
+  }
+
+  public updateWatchSize(data: any, size: string) {
+    this.otherGadgets = this.gadgetService.gadgets.filter((el) => el.name === data.name && el.characteristics[5].value === size && el.is_available === true)
   }
 }
 

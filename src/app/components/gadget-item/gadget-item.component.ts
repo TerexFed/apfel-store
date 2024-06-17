@@ -1,12 +1,9 @@
 import { Component, HostListener, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ModalWindowComponent } from '../../UI/modal-window/modal-window.component';
-import { GadgetService } from '../../services/gadget.service';
 import { Router } from '@angular/router';
 import { BasketService } from '../../services/basket.service';
 import { WatchedGadgetsService } from '../../services/watched-gadgets.service';
-import { MatBottomSheet } from '@angular/material/bottom-sheet';
-import { BottomSheetComponent } from '../../UI/bottom-sheet/bottom-sheet.component';
 
 
 @Component({
@@ -23,7 +20,13 @@ export class GadgetItemComponent implements OnInit {
   }
 
   public getName() {
-    return `${this.gadget.name} ${this.gadget.characteristics[1].value}  ${this.gadget.characteristics[1].unit_type} ${this.gadget.color}`
+    if (this.gadget.category === 'Смартфоны' || this.gadget.category === 'Компьютеры' || this.gadget.category === 'Планшеты' || this.gadget.category === 'Часы') {
+      return `${this.gadget.name} ${this.gadget.characteristics[1].value}  ${this.gadget.characteristics[1].unit_type} ${this.gadget.color}`
+    }
+    else if (this.gadget.category === 'Гаджеты' || this.gadget.category === 'Аксессуары') {
+      return `${this.gadget.name} ${this.gadget.color === 'none' ? '' : this.gadget.color}`
+    }
+    return ''
   }
 
   public openGadget() {

@@ -4,7 +4,6 @@ import { GadgetService } from '../../services/gadget.service';
 import { ModalWindowComponent } from '../../UI/modal-window/modal-window.component';
 import { MatDialog } from '@angular/material/dialog';
 import { BasketService } from '../../services/basket.service';
-import { Location } from '@angular/common';
 import { ProductPageFiltersService } from '../../services/product-page-filters.service';
 
 @Component({
@@ -13,13 +12,13 @@ import { ProductPageFiltersService } from '../../services/product-page-filters.s
   styleUrl: './gadget-page.component.scss'
 })
 export class GadgetPageComponent implements OnInit {
-  constructor(public route: ActivatedRoute, private router: Router, public gadgetService: GadgetService, public productFilters: ProductPageFiltersService, private basketService: BasketService, public dialog: MatDialog, private location: Location) { }
+  constructor(public route: ActivatedRoute, private router: Router, public gadgetService: GadgetService, public productFilters: ProductPageFiltersService, private basketService: BasketService, public dialog: MatDialog) { }
 
   ngOnInit(): void {
     if (this.route.snapshot.params.id <= this.gadgetService.gadgets.length) {
       this.gadgetService.getGadgetByID(this.route.snapshot.params.id)
-      this.productFilters.getOtherGadgets(this.gadgetService.gadgets[this.route.snapshot.params.id - 1])
-      this.productFilters.getMemoryCapacity(this.gadgetService.gadgets[this.route.snapshot.params.id - 1])
+      this.productFilters.getOtherGadgets(this.gadgetService.gadgets[this.route.snapshot.params.id])
+      this.productFilters.getMemoryCapacity(this.gadgetService.gadgets[this.route.snapshot.params.id])
     }
     else {
       this.router.navigate(['/'])
@@ -32,12 +31,19 @@ export class GadgetPageComponent implements OnInit {
     this.gadgetService.getGadgetByID(`${id}`)
   }
 
-  public updateMemory(memoryCapacity: string) {
-    this.productFilters.updateMemoryCapacity(this.gadgetService.gadget, memoryCapacity)
+  public changeMemoryCapacity(memory: string) {
+    this.productFilters.updateMemoryCapacity(this.gadgetService.gadget, memory);
+    for (let i = 0; i < this.productFilters.otherGadgets.length; i++) {
+      if (this.productFilters.otherGadgets[i].color === this.gadgetService.gadget.color) {
+        this.navigateToOtherGadgets(this.productFilters.otherGadgets[i].id)
+      }
+    }
   }
 
   public back() {
     this.router.navigate(['/all-catalog'])
+    this.productFilters.otherGadgets = []
+    this.productFilters.memoryCapacity = []
   }
 
   openModalOneClick() {

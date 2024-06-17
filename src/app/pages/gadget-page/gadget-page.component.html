@@ -12,39 +12,39 @@
         + gadgetService.gadget?.characteristics[1].unit_type + ' ' + gadgetService.gadget?.color }}</h3>
       <div class="info__blocks">
 
-        <div class="info__block-characteristics">
+        <div class="info__block-information">
+          @if (gadgetService.gadget?.category === 'Смартфоны' || gadgetService.gadget?.category === 'Компьютеры' ||
+          gadgetService.gadget?.category === 'Планшеты') {
           <div class="other-phones">
             @for (otherGadgetItem of productFilters.otherGadgets; track $index) {
             <img
-              [className]="otherGadgetItem.color === gadgetService.gadget.color ? 'other-phones-item active-phone' : 'other-phones-item'"
+              [className]="otherGadgetItem?.id === gadgetService.gadget?.id  ? 'other-phones-item active-phone' : 'other-phones-item'"
               (click)="navigateToOtherGadgets(otherGadgetItem.id)"
               [src]="'http://localhost:1452/' + otherGadgetItem.images[0]" alt="other-gadget-image" />
             }
           </div>
-          @if (gadgetService.gadget.category === 'Смартфоны' || gadgetService.gadget.category === 'Компьютеры' ||
-          gadgetService.gadget.category === 'Планшеты') {
           <div class="memory-capacity">
             <p class="a">Объем памяти</p>
             <div class="memory-capacities-list">
-
               @for (memoryCapacityItem of productFilters.memoryCapacity; track $index) {
-              <div (click)="updateMemory(memoryCapacityItem)"
-                [className]="memoryCapacityItem === gadgetService.gadget.characteristics[1].value ? 'memory-capacities-item active-memory' : 'memory-capacities-item'">
+              <div (click)="changeMemoryCapacity(memoryCapacityItem)"
+                [className]="memoryCapacityItem === gadgetService.gadget?.characteristics[1].value ? 'memory-capacities-item active-memory' : 'memory-capacities-item'">
                 {{memoryCapacityItem}}GB</div>
               }
-
             </div>
           </div>
           }
-          <p class="a">Характеристики</p>
-          <div class="characteristics">
-            @for (characteristic of gadgetService.gadget?.characteristics; track
-            $index) {
-            <div class="characteristic">
-              <sup>{{ characteristic.characteristic }}</sup>
-              <sup class="normal">{{ characteristic.value }}</sup>
+          <div class="characteristics-block">
+            <p class="a">Характеристики</p>
+            <div class="characteristics">
+              @for (characteristic of gadgetService.gadget?.characteristics; track
+              $index) {
+              <div class="characteristic">
+                <sup>{{ characteristic.characteristic }}</sup>
+                <sup class="normal">{{ characteristic.value }}</sup>
+              </div>
+              }
             </div>
-            }
           </div>
         </div>
         <div class="info__block-buy">
