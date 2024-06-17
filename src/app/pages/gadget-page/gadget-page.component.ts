@@ -5,6 +5,7 @@ import { ModalWindowComponent } from '../../UI/modal-window/modal-window.compone
 import { MatDialog } from '@angular/material/dialog';
 import { BasketService } from '../../services/basket.service';
 import { Location } from '@angular/common';
+import { ProductPageFiltersService } from '../../services/product-page-filters.service';
 
 @Component({
   selector: 'app-gadget-page',
@@ -12,19 +13,31 @@ import { Location } from '@angular/common';
   styleUrl: './gadget-page.component.scss'
 })
 export class GadgetPageComponent implements OnInit {
-  constructor(private route: ActivatedRoute, private router: Router, public gadgetService: GadgetService, private basketService: BasketService, public dialog: MatDialog, private location: Location) { }
+  constructor(public route: ActivatedRoute, private router: Router, public gadgetService: GadgetService, public productFilters: ProductPageFiltersService, private basketService: BasketService, public dialog: MatDialog, private location: Location) { }
+
   ngOnInit(): void {
     if (this.route.snapshot.params.id <= this.gadgetService.gadgets.length) {
       this.gadgetService.getGadgetByID(this.route.snapshot.params.id)
-
+      this.productFilters.getOtherGadgets(this.gadgetService.gadgets[this.route.snapshot.params.id - 1])
+      this.productFilters.getMemoryCapacity(this.gadgetService.gadgets[this.route.snapshot.params.id - 1])
     }
     else {
       this.router.navigate(['/'])
     }
+
+  }
+
+  public navigateToOtherGadgets(id: number) {
+    this.router.navigate([`gadget/${id}`])
+    this.gadgetService.getGadgetByID(`${id}`)
+  }
+
+  public updateMemory(memoryCapacity: string) {
+    this.productFilters.updateMemoryCapacity(this.gadgetService.gadget, memoryCapacity)
   }
 
   public back() {
-    this.location.back()
+    this.router.navigate(['/all-catalog'])
   }
 
   openModalOneClick() {
