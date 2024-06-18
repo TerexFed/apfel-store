@@ -247,14 +247,15 @@
     }
 }
 
+.prices-section {
+    display: flex;
+    flex-direction: column;
+}
+
 .price__section {
     display: flex;
     flex-direction: row-reverse;
     gap: 24px;
-
-    @media (max-width: 769px) {
-        justify-content: center;
-    }
 }
 
 .available-text {
@@ -271,9 +272,13 @@
 
 .status {
     display: flex;
+    box-sizing: border-box;
+    width: fit-content;
     align-items: center;
     width: fit-content;
+    justify-self: flex-end;
     gap: 5px;
+    word-wrap: break-word;
 }
 
 .isAvailable {

@@ -76,7 +76,10 @@
             <p class="available-text">
               <span class="isAvailable available"></span>в наличии
             </p>
-
+            }
+            @else {
+            <p class="status"><span class="isAvailable unavailable"></span>Ожидается поступление</p>
+            }
             <div class="prices-section">
               @if(gadgetService.gadget?.discount_price){
               <p class="price crossed">
@@ -100,26 +103,29 @@
               </h4>
               }
             </div>
-            }
-            @else {
-            <p class="status"><span class="isAvailable unavailable"></span>Ожидается поступление</p>
-            <p class="text-unavailable" (click)="openModalAdmission()">Сообщить о поступлении</p>
-            }
+
           </div>
           @if (gadgetService.gadget?.is_available) {
           <button class="add-to-cart" (click)="openModalBasketAdd()">
             Добавить в корзину
           </button>
+          }
+          @else {
+          <button class="invert add-to-cart">
+            <p class="text-unavailable" (click)="openModalAdmission()">Сообщить о поступлении</p>
+          </button>
+
+          }
           <p class="a">Купить в 1 клик</p>
           <div class="white__box">
             <sup class="normal">+7 900 654 32 45</sup>
-            <button (click)="openModalOneClick()">Купить</button>
+            <button (click)="gadgetService.gadget?.is_available && openModalOneClick()">Купить</button>
           </div>
           <div class="credit">
             <img src="../../../assets/product-page/buy-block/credit.svg" alt="credit" />
             <sup class="blue" (click)="openModalCredit()">Купить в кредит</sup>
           </div>
-          }
+
           <div class="take">
             <img src="../../../assets/product-page/buy-block/bike.svg" alt="bike" />
             <div class="take__text">
