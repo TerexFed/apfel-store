@@ -1,20 +1,37 @@
 <div class="gadget-page">
   <button class="back__button" (click)="back()">Назад</button>
   <div class="gadget__info">
-    <h3 class="gadget-title tablet">{{ gadgetService.gadget?.name + ' ' + gadgetService.gadget?.characteristics[1].value
-      + ' ' + gadgetService.gadget?.characteristics[1].unit_type + ' ' + gadgetService.gadget?.color }}</h3>
+    <h3 class="gadget-title tablet">{{ gadgetService.gadget?.category === 'Смартфоны' || gadgetService.gadget?.category
+      ===
+      'Компьютеры' || gadgetService.gadget?.category === 'Планшеты' || gadgetService.gadget?.category === 'Часы'
+      ?
+      gadgetService.gadget?.name + ' '
+      +
+      gadgetService.gadget?.characteristics[1].value
+      + ' ' + gadgetService.gadget?.characteristics[1].unit_type + ' ' + gadgetService.gadget?.color
+      :
+      gadgetService.gadget?.category === 'Гаджеты' || gadgetService.gadget?.category === 'Аксессуары' ?
+      gadgetService.gadget?.name : ''
+      }}</h3>
     <div class="images__block">
       <img class="big-image" [src]="'http://localhost:1452/' + gadgetService.gadget?.images[0]" alt="image" />
     </div>
     <div class="info__block">
-      <h3 class="gadget-title">{{ gadgetService.gadget?.name + ' ' + gadgetService.gadget?.characteristics[1].value + '
-        '
-        + gadgetService.gadget?.characteristics[1].unit_type + ' ' + gadgetService.gadget?.color }}</h3>
+      <h3 class="gadget-title">{{ gadgetService.gadget?.category === 'Смартфоны' || gadgetService.gadget?.category
+        ===
+        'Компьютеры' || gadgetService.gadget?.category === 'Планшеты' || gadgetService.gadget?.category === 'Часы'
+        ?
+        gadgetService.gadget?.name + ' '
+        +
+        gadgetService.gadget?.characteristics[1].value
+        + ' ' + gadgetService.gadget?.characteristics[1].unit_type + ' ' + gadgetService.gadget?.color
+        :
+        gadgetService.gadget?.category === 'Гаджеты' || gadgetService.gadget?.category === 'Аксессуары' ?
+        gadgetService.gadget?.name : ''
+        }}</h3>
       <div class="info__blocks">
 
         <div class="info__block-information">
-          @if (gadgetService.gadget?.category === 'Смартфоны' || gadgetService.gadget?.category === 'Компьютеры' ||
-          gadgetService.gadget?.category === 'Планшеты') {
           <div class="other-phones">
             @for (otherGadgetItem of productFilters.otherGadgets; track $index) {
             <img
@@ -23,13 +40,19 @@
               [src]="'http://localhost:1452/' + otherGadgetItem.images[0]" alt="other-gadget-image" />
             }
           </div>
+          @if (gadgetService.gadget?.category === 'Смартфоны' || gadgetService.gadget?.category
+          === 'Компьютеры' || gadgetService.gadget?.category === 'Планшеты' || gadgetService.gadget?.category ===
+          'Часы') {
           <div class="memory-capacity">
             <p class="a">Объем памяти</p>
             <div class="memory-capacities-list">
               @for (memoryCapacityItem of productFilters.memoryCapacity; track $index) {
               <div (click)="changeMemoryCapacity(memoryCapacityItem)"
-                [className]="memoryCapacityItem === gadgetService.gadget?.characteristics[1].value ? 'memory-capacities-item active-memory' : 'memory-capacities-item'">
-                {{memoryCapacityItem}}GB</div>
+                [className]="memoryCapacityItem === gadgetService.gadget?.characteristics[1]?.value || memoryCapacityItem === gadgetService.gadget?.characteristics[5]?.value ? 'memory-capacities-item active-memory' : 'memory-capacities-item'">
+                {{memoryCapacityItem}}{{gadgetService.gadget?.category === 'Смартфоны' || gadgetService.gadget?.category
+                === 'Компьютеры' || gadgetService.gadget?.category === 'Планшеты' ?
+                'GB' :gadgetService.gadget?.category === 'Часы' ? 'mm' : ''}}
+              </div>
               }
             </div>
           </div>
@@ -53,7 +76,7 @@
             <p class="available-text">
               <span class="isAvailable available"></span>в наличии
             </p>
-            }
+
             <div class="prices-section">
               @if(gadgetService.gadget?.discount_price){
               <p class="price crossed">
@@ -77,7 +100,13 @@
               </h4>
               }
             </div>
+            }
+            @else {
+            <p class="status"><span class="isAvailable unavailable"></span>Ожидается поступление</p>
+            <p class="text-unavailable" (click)="openModalAdmission()">Сообщить о поступлении</p>
+            }
           </div>
+          @if (gadgetService.gadget?.is_available) {
           <button class="add-to-cart" (click)="openModalBasketAdd()">
             Добавить в корзину
           </button>
@@ -90,6 +119,7 @@
             <img src="../../../assets/product-page/buy-block/credit.svg" alt="credit" />
             <sup class="blue" (click)="openModalCredit()">Купить в кредит</sup>
           </div>
+          }
           <div class="take">
             <img src="../../../assets/product-page/buy-block/bike.svg" alt="bike" />
             <div class="take__text">
@@ -113,6 +143,19 @@
           </div>
         </div>
       </div>
+    </div>
+  </div>
+
+  <div class="characteristics-block-mobile">
+    <p class="a">Характеристики</p>
+    <div class="characteristics-mobile">
+      @for (characteristic of gadgetService.gadget?.characteristics; track
+      $index) {
+      <div class="characteristic-mobile">
+        <sup>{{ characteristic.characteristic }}</sup>
+        <sup class="normal">{{ characteristic.value }}</sup>
+      </div>
+      }
     </div>
   </div>
 

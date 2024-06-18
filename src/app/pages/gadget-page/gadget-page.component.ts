@@ -17,8 +17,8 @@ export class GadgetPageComponent implements OnInit {
   ngOnInit(): void {
     if (this.route.snapshot.params.id <= this.gadgetService.gadgets.length) {
       this.gadgetService.getGadgetByID(this.route.snapshot.params.id)
-      this.productFilters.getOtherGadgets(this.gadgetService.gadgets[this.route.snapshot.params.id])
-      this.productFilters.getMemoryCapacity(this.gadgetService.gadgets[this.route.snapshot.params.id])
+      this.productFilters.getMemoryCapacity(this.gadgetService.gadgets[this.route.snapshot.params.id - 1], this.gadgetService.gadgets[this.route.snapshot.params.id - 1].category)
+      this.productFilters.getOtherGadgets(this.gadgetService.gadgets[this.route.snapshot.params.id - 1], this.gadgetService.gadgets[this.route.snapshot.params.id - 1].category)
     }
     else {
       this.router.navigate(['/'])
@@ -32,7 +32,7 @@ export class GadgetPageComponent implements OnInit {
   }
 
   public changeMemoryCapacity(memory: string) {
-    this.productFilters.updateMemoryCapacity(this.gadgetService.gadget, memory);
+    this.productFilters.updateMemoryCapacity(this.gadgetService.gadget, this.gadgetService.gadget.category, memory);
     for (let i = 0; i < this.productFilters.otherGadgets.length; i++) {
       if (this.productFilters.otherGadgets[i].color === this.gadgetService.gadget.color) {
         this.navigateToOtherGadgets(this.productFilters.otherGadgets[i].id)
@@ -42,35 +42,82 @@ export class GadgetPageComponent implements OnInit {
 
   public back() {
     this.router.navigate(['/all-catalog'])
-    this.productFilters.otherGadgets = []
-    this.productFilters.memoryCapacity = []
+    this.productFilters.clearFilters()
   }
 
   openModalOneClick() {
     window.scrollTo(0, 0)
     this.dialog.open(ModalWindowComponent, {
       data: {
-        type: 'OneClick', title: this.gadgetService.gadget?.name + ' ' + this.gadgetService.gadget?.characteristics[1].value + ' '
-          + this.gadgetService.gadget?.characteristics[1].unit_type + ' ' + this.gadgetService.gadget?.color, image: 'http://localhost:1452/' + this.gadgetService.gadget.images[0], price: this.gadgetService.gadget.price, discountPrice: this.gadgetService.gadget.discount_price
+        type: 'OneClick', title: this.gadgetService.gadget?.category === 'Смартфоны' || this.gadgetService.gadget?.category
+          ===
+          'Компьютеры' || this.gadgetService.gadget?.category === 'Планшеты' || this.gadgetService.gadget?.category === 'Часы'
+          ?
+          this.gadgetService.gadget?.name + ' '
+          +
+          this.gadgetService.gadget?.characteristics[1].value
+          + ' ' + this.gadgetService.gadget?.characteristics[1].unit_type + ' ' + this.gadgetService.gadget?.color
+          :
+          this.gadgetService.gadget?.category === 'Гаджеты' || this.gadgetService.gadget?.category === 'Аксессуары' ?
+            this.gadgetService.gadget?.name : '', image: 'http://localhost:1452/' + this.gadgetService.gadget.images[0], price: this.gadgetService.gadget.price, discountPrice: this.gadgetService.gadget.discount_price
       }
     })
   }
+
   openModalBasketAdd() {
     window.scrollTo(0, 0)
     this.basketService.addToBasket({ id: this.gadgetService.gadget.id, title: this.gadgetService.gadget.name, image: 'http://localhost:1452/' + this.gadgetService.gadget.images[0], price: this.gadgetService.gadget.price, discountPrice: this.gadgetService.gadget.discount_price, count: 1, isInCart: true })
     this.dialog.open(ModalWindowComponent, {
       data: {
-        type: 'BasketAdd', title: this.gadgetService.gadget?.name + ' ' + this.gadgetService.gadget?.characteristics[1].value + ' '
-          + this.gadgetService.gadget?.characteristics[1].unit_type + ' ' + this.gadgetService.gadget?.color, image: 'http://localhost:1452/' + this.gadgetService.gadget.images[0]
+        type: 'BasketAdd', title: this.gadgetService.gadget?.category === 'Смартфоны' || this.gadgetService.gadget?.category
+          ===
+          'Компьютеры' || this.gadgetService.gadget?.category === 'Планшеты' || this.gadgetService.gadget?.category === 'Часы'
+          ?
+          this.gadgetService.gadget?.name + ' '
+          +
+          this.gadgetService.gadget?.characteristics[1].value
+          + ' ' + this.gadgetService.gadget?.characteristics[1].unit_type + ' ' + this.gadgetService.gadget?.color
+          :
+          this.gadgetService.gadget?.category === 'Гаджеты' || this.gadgetService.gadget?.category === 'Аксессуары' ?
+            this.gadgetService.gadget?.name : '', image: 'http://localhost:1452/' + this.gadgetService.gadget.images[0]
       }
     })
   }
+
   openModalCredit() {
     window.scrollTo(0, 0)
     this.dialog.open(ModalWindowComponent, {
       data: {
-        type: 'Credit', title: this.gadgetService.gadget?.name + ' ' + this.gadgetService.gadget?.characteristics[1].value + ' '
-          + this.gadgetService.gadget?.characteristics[1].unit_type + ' ' + this.gadgetService.gadget?.color, image: 'http://localhost:1452/' + this.gadgetService.gadget.images[0], price: this.gadgetService.gadget.price, discountPrice: this.gadgetService.gadget.discount_price
+        type: 'Credit', title: this.gadgetService.gadget?.category === 'Смартфоны' || this.gadgetService.gadget?.category
+          ===
+          'Компьютеры' || this.gadgetService.gadget?.category === 'Планшеты' || this.gadgetService.gadget?.category === 'Часы'
+          ?
+          this.gadgetService.gadget?.name + ' '
+          +
+          this.gadgetService.gadget?.characteristics[1].value
+          + ' ' + this.gadgetService.gadget?.characteristics[1].unit_type + ' ' + this.gadgetService.gadget?.color
+          :
+          this.gadgetService.gadget?.category === 'Гаджеты' || this.gadgetService.gadget?.category === 'Аксессуары' ?
+            this.gadgetService.gadget?.name : '', image: 'http://localhost:1452/' + this.gadgetService.gadget.images[0], price: this.gadgetService.gadget.price, discountPrice: this.gadgetService.gadget.discount_price
+      }
+    })
+  }
+
+  openModalAdmission() {
+    window.scrollTo(0, 0)
+    this.dialog.open(ModalWindowComponent, {
+      data: {
+        type: 'Admission', title: this.gadgetService.gadget?.category === 'Смартфоны' || this.gadgetService.gadget?.category
+          ===
+          'Компьютеры' || this.gadgetService.gadget?.category === 'Планшеты' || this.gadgetService.gadget?.category === 'Часы'
+          ?
+          this.gadgetService.gadget?.name + ' '
+          +
+          this.gadgetService.gadget?.characteristics[1].value
+          + ' ' + this.gadgetService.gadget?.characteristics[1].unit_type + ' ' + this.gadgetService.gadget?.color
+          :
+          this.gadgetService.gadget?.category === 'Гаджеты' || this.gadgetService.gadget?.category === 'Аксессуары' ?
+            this.gadgetService.gadget?.name : '', image: 'http://localhost:1452/' + this.gadgetService.gadget.images[0]
       }
     })
   }

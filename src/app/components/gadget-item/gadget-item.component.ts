@@ -4,6 +4,7 @@ import { ModalWindowComponent } from '../../UI/modal-window/modal-window.compone
 import { Router } from '@angular/router';
 import { BasketService } from '../../services/basket.service';
 import { WatchedGadgetsService } from '../../services/watched-gadgets.service';
+import { GadgetService } from '../../services/gadget.service';
 
 
 @Component({
@@ -12,7 +13,7 @@ import { WatchedGadgetsService } from '../../services/watched-gadgets.service';
   styleUrl: './gadget-item.component.scss'
 })
 export class GadgetItemComponent implements OnInit {
-  constructor(public dialog: MatDialog, public router: Router, private basketService: BasketService, private watchedGadgetsService: WatchedGadgetsService) { }
+  constructor(public dialog: MatDialog, public router: Router, private basketService: BasketService, private watchedGadgetsService: WatchedGadgetsService, private gadgetService: GadgetService) { }
   @Input() gadget: any
 
   public get5RatingArr() {

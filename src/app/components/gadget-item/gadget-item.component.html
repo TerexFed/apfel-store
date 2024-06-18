@@ -18,7 +18,7 @@
   </div>
   <p class="name">{{getName()}}</p>
   <img class="gadget-image" [src]="'http://localhost:1452/'+gadget.images[0]" alt="gadget-image"
-    (click)="gadget.is_available && openGadget()" />
+    (click)="openGadget()" />
   <p class="name-mobile">{{getName()}}</p>
   @if (gadget.is_available) {
   <div class="second-section">
