@@ -51,7 +51,7 @@ export class GadgetPageComponent implements OnInit {
       data: {
         type: 'OneClick', title: this.gadgetService.gadget?.category === 'Смартфоны' || this.gadgetService.gadget?.category
           ===
-          'Компьютеры' || this.gadgetService.gadget?.category === 'Планшеты' || this.gadgetService.gadget?.category === 'Часы'
+          'Компьютеры' || this.gadgetService.gadget?.category === 'Планшеты'
           ?
           this.gadgetService.gadget?.name + ' '
           +
@@ -59,7 +59,9 @@ export class GadgetPageComponent implements OnInit {
           + ' ' + this.gadgetService.gadget?.characteristics[1].unit_type + ' ' + this.gadgetService.gadget?.color
           :
           this.gadgetService.gadget?.category === 'Гаджеты' || this.gadgetService.gadget?.category === 'Аксессуары' ?
-            this.gadgetService.gadget?.name : '', image: 'http://localhost:1452/' + this.gadgetService.gadget.images[0], price: this.gadgetService.gadget.price, discountPrice: this.gadgetService.gadget.discount_price
+            this.gadgetService.gadget?.name : this.gadgetService.gadget?.category === 'Часы' ? this.gadgetService.gadget?.name + ' '
+              +
+              this.gadgetService.gadget?.color : '', image: 'http://localhost:1452/' + this.gadgetService.gadget.images[0], price: this.gadgetService.gadget.price, discountPrice: this.gadgetService.gadget.discount_price
       }
     })
   }
@@ -71,7 +73,7 @@ export class GadgetPageComponent implements OnInit {
       data: {
         type: 'BasketAdd', title: this.gadgetService.gadget?.category === 'Смартфоны' || this.gadgetService.gadget?.category
           ===
-          'Компьютеры' || this.gadgetService.gadget?.category === 'Планшеты' || this.gadgetService.gadget?.category === 'Часы'
+          'Компьютеры' || this.gadgetService.gadget?.category === 'Планшеты'
           ?
           this.gadgetService.gadget?.name + ' '
           +
@@ -79,7 +81,9 @@ export class GadgetPageComponent implements OnInit {
           + ' ' + this.gadgetService.gadget?.characteristics[1].unit_type + ' ' + this.gadgetService.gadget?.color
           :
           this.gadgetService.gadget?.category === 'Гаджеты' || this.gadgetService.gadget?.category === 'Аксессуары' ?
-            this.gadgetService.gadget?.name : '', image: 'http://localhost:1452/' + this.gadgetService.gadget.images[0]
+            this.gadgetService.gadget?.name : this.gadgetService.gadget?.category === 'Часы' ? this.gadgetService.gadget?.name + ' '
+              +
+              this.gadgetService.gadget?.color : '', image: 'http://localhost:1452/' + this.gadgetService.gadget.images[0]
       }
     })
   }
@@ -90,7 +94,7 @@ export class GadgetPageComponent implements OnInit {
       data: {
         type: 'Credit', title: this.gadgetService.gadget?.category === 'Смартфоны' || this.gadgetService.gadget?.category
           ===
-          'Компьютеры' || this.gadgetService.gadget?.category === 'Планшеты' || this.gadgetService.gadget?.category === 'Часы'
+          'Компьютеры' || this.gadgetService.gadget?.category === 'Планшеты'
           ?
           this.gadgetService.gadget?.name + ' '
           +
@@ -98,7 +102,9 @@ export class GadgetPageComponent implements OnInit {
           + ' ' + this.gadgetService.gadget?.characteristics[1].unit_type + ' ' + this.gadgetService.gadget?.color
           :
           this.gadgetService.gadget?.category === 'Гаджеты' || this.gadgetService.gadget?.category === 'Аксессуары' ?
-            this.gadgetService.gadget?.name : '', image: 'http://localhost:1452/' + this.gadgetService.gadget.images[0], price: this.gadgetService.gadget.price, discountPrice: this.gadgetService.gadget.discount_price
+            this.gadgetService.gadget?.name : this.gadgetService.gadget?.category === 'Часы' ? this.gadgetService.gadget?.name + ' '
+              +
+              this.gadgetService.gadget?.color : '', image: 'http://localhost:1452/' + this.gadgetService.gadget.images[0], price: this.gadgetService.gadget.price, discountPrice: this.gadgetService.gadget.discount_price
       }
     })
   }
@@ -109,7 +115,7 @@ export class GadgetPageComponent implements OnInit {
       data: {
         type: 'Admission', title: this.gadgetService.gadget?.category === 'Смартфоны' || this.gadgetService.gadget?.category
           ===
-          'Компьютеры' || this.gadgetService.gadget?.category === 'Планшеты' || this.gadgetService.gadget?.category === 'Часы'
+          'Компьютеры' || this.gadgetService.gadget?.category === 'Планшеты'
           ?
           this.gadgetService.gadget?.name + ' '
           +
@@ -117,7 +123,9 @@ export class GadgetPageComponent implements OnInit {
           + ' ' + this.gadgetService.gadget?.characteristics[1].unit_type + ' ' + this.gadgetService.gadget?.color
           :
           this.gadgetService.gadget?.category === 'Гаджеты' || this.gadgetService.gadget?.category === 'Аксессуары' ?
-            this.gadgetService.gadget?.name : '', image: 'http://localhost:1452/' + this.gadgetService.gadget.images[0]
+            this.gadgetService.gadget?.name : this.gadgetService.gadget?.category === 'Часы' ? this.gadgetService.gadget?.name + ' '
+              +
+              this.gadgetService.gadget?.color : '', image: 'http://localhost:1452/' + this.gadgetService.gadget.images[0]
       }
     })
   }

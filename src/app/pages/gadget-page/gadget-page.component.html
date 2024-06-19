@@ -11,7 +11,10 @@
       + ' ' + gadgetService.gadget?.characteristics[1].unit_type + ' ' + gadgetService.gadget?.color
       :
       gadgetService.gadget?.category === 'Гаджеты' || gadgetService.gadget?.category === 'Аксессуары' ?
-      gadgetService.gadget?.name : ''
+      gadgetService.gadget?.name : this.gadgetService.gadget?.category === 'Часы' ? gadgetService.gadget?.name + ' '
+      +
+      gadgetService.gadget?.color : ''
+
       }}</h3>
     <div class="images__block">
       <img class="big-image" [src]="'http://localhost:1452/' + gadgetService.gadget?.images[0]" alt="image" />
@@ -19,7 +22,7 @@
     <div class="info__block">
       <h3 class="gadget-title">{{ gadgetService.gadget?.category === 'Смартфоны' || gadgetService.gadget?.category
         ===
-        'Компьютеры' || gadgetService.gadget?.category === 'Планшеты' || gadgetService.gadget?.category === 'Часы'
+        'Компьютеры' || gadgetService.gadget?.category === 'Планшеты'
         ?
         gadgetService.gadget?.name + ' '
         +
@@ -27,7 +30,9 @@
         + ' ' + gadgetService.gadget?.characteristics[1].unit_type + ' ' + gadgetService.gadget?.color
         :
         gadgetService.gadget?.category === 'Гаджеты' || gadgetService.gadget?.category === 'Аксессуары' ?
-        gadgetService.gadget?.name : ''
+        gadgetService.gadget?.name : this.gadgetService.gadget?.category === 'Часы' ? gadgetService.gadget?.name + ' '
+        +
+        gadgetService.gadget?.color : ''
         }}</h3>
       <div class="info__blocks">
 

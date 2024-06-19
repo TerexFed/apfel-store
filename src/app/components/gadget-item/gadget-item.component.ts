@@ -21,8 +21,11 @@ export class GadgetItemComponent implements OnInit {
   }
 
   public getName() {
-    if (this.gadget.category === 'Смартфоны' || this.gadget.category === 'Компьютеры' || this.gadget.category === 'Планшеты' || this.gadget.category === 'Часы') {
+    if (this.gadget.category === 'Смартфоны' || this.gadget.category === 'Компьютеры' || this.gadget.category === 'Планшеты') {
       return `${this.gadget.name} ${this.gadget.characteristics[1].value}  ${this.gadget.characteristics[1].unit_type} ${this.gadget.color}`
+    }
+    else if (this.gadget.category === 'Часы') {
+      return `${this.gadget.name} ${this.gadget.color}`
     }
     else if (this.gadget.category === 'Гаджеты' || this.gadget.category === 'Аксессуары') {
       return `${this.gadget.name} ${this.gadget.color === 'none' ? '' : this.gadget.color}`

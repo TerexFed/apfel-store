@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class WarrantyPageComponent {
   expandedIndex = 0;
+
+  public scrollToTop() {
+    window.scroll(0, 0)
+  }
 }

@@ -81,7 +81,8 @@
     font-weight: 500;
     letter-spacing: 0%;
     color: #100e0e;
-    min-height: 58px;
+    height: 80px;
+    text-overflow: ellipsis;
 
     @media (max-width:769px) {
         display: none;
