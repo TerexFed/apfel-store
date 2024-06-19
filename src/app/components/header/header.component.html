@@ -99,7 +99,8 @@
         </a>
         }
       </div>
-      <a routerLink="/" class="catalog__link">Смотреть все товары</a>
+      <a [routerLink]="getCatalogLink()" (click)="changeIsCatalogOpen(false)" class="catalog__link">Смотреть все
+        товары</a>
     </div>
     }
   </div>
@@ -112,7 +113,8 @@
         <p class="name">{{ searchResult.name }}</p>
         <p class="price">{{ searchResult.price | customCurrency }}</p>
       </div>
-      <p class="link">Подробнее</p>
+      <a (click)="stopPropagationLink($event, searchResult.id)" [routerLink]="'/gadget/' + searchResult.id"
+        class="link">Подробнее</a>
     </div>
     }
   </div>
@@ -153,7 +155,8 @@
         <p class="name">{{ searchResult.name }}</p>
         <p class="price">{{ searchResult.price | customCurrency }}</p>
       </div>
-      <p class="link">Подробнее</p>
+      <a (click)="stopPropagationLink($event, searchResult.id)" [routerLink]="'/gadget/' + searchResult.id"
+        class="link">Подробнее</a>
     </div>
     }
   </div>

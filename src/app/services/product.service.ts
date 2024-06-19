@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Product } from '../types/product';
+import { Product, Subcategory } from '../types/product';
 
 @Injectable({
     providedIn: 'root'
@@ -24,7 +24,7 @@ export class ProductService {
         };
     }
 
-    private async getAllProductsAPI(link: string) {
+    private async getProductsAPI(link: string) {
         try {
             const res = await fetch(`http://localhost:1452/api/${link}`);
             return res.json()
@@ -34,65 +34,56 @@ export class ProductService {
         }
     }
 
-    private getAllProductsAPIMemoized = this.memoize(this.getAllProductsAPI)
+    private getProductsAPIMemoized = this.memoize(this.getProductsAPI)
 
     async getAllProducts(): Promise<Product[] | [{ errorMessage: string }]> {
-        const products = await this.getAllProductsAPIMemoized("products")
+        const products = await this.getProductsAPIMemoized("products")
         return products
     }
 
     async getProductById(id: string): Promise<Product | null> {
-        const products = await this.getAllProductsAPIMemoized("products")
-        if (products[0]?.errorMessage) return null
-        return products.find((product: Product) => product.id === +id)
+        const product = await this.getProductsAPIMemoized(`products/${id}`)
+        if (product[0]?.errorMessage || product?.message) return null
+        return product
     }
 
     async getPopularProducts(): Promise<Product[] | [{ errorMessage: string }]> {
-        const products = await this.getAllProductsAPIMemoized("products")
+        const products = await this.getProductsAPIMemoized("products")
         if (products[0]?.errorMessage) return products
         return products.sort((productA: Product, productB: Product) => productB.count_review - productA.count_review).slice(0, 12)
     }
 
     async getNewestProducts(): Promise<Product[] | [{ errorMessage: string }]> {
-        const products = await this.getAllProductsAPIMemoized("products")
+        const products = await this.getProductsAPIMemoized("products")
         // return products.sort((productA: Product, productB: Product) => new Date(productB.createdAt).getTime() - new Date(productA.createdAt).getTime()).slice(0, 8)
         if (products[0]?.errorMessage) return products
         return products.sort((productA: Product, productB: Product) => productB.id - productA.id).slice(0, 8)
     }
 
     async getSearchedProducts(search: string): Promise<Product[]> {
-        const products = await this.getAllProductsAPIMemoized("products")
+        const products = await this.getProductsAPIMemoized("products")
         if (products[0]?.errorMessage) return []
         return products.filter((product: Product) => "iphone".includes(search.toLocaleLowerCase()) ? product.name.toLocaleLowerCase().includes(search.toLocaleLowerCase()) && !product.name.toLocaleLowerCase().includes('чехол') : product.name.toLocaleLowerCase().includes(search.toLocaleLowerCase())).slice(0, 5)
     }
 
     async getAllCategories(): Promise<[string, Product[]][]> {
-        const products = await this.getAllProductsAPIMemoized("products")
+        const products = await this.getProductsAPIMemoized("products")
         if (products[0]?.errorMessage) return products
         return Object.entries(this.groupBy(products, (product: Product) => product.category)).map(category => [category[0], category[1].slice(0, 12)])
     }
+
+    async getSubcategoriesByCategoryId(categoryId: string): Promise<Subcategory[]> {
+        const subcategories = await this.getProductsAPIMemoized(`subcategory?category=${categoryId}`)
+        return subcategories
+    }
+
+    async getProductsByCategoryId(categoryId: string): Promise<Product[]> {
+        const products = await this.getProductsAPIMemoized(`category/${categoryId}`)
+        return products
+    }
+
+    async getProductsBySubcategoryId(subcategoryId: string): Promise<Product[]> {
+        const products = await this.getProductsAPIMemoized(`subcategory/${subcategoryId}`)
+        return products
+    }
 }
-
-
-// import { Injectable } from '@angular/core';
-
-// @Injectable({
-//   providedIn: 'root'
-// })
-// export class GadgetService {
-//   public gadgets: Array<any> = []
-//   public gadget: any
-
-//   public getAllGadgets() {
-//     fetch('http://localhost:1452/api/products')
-//       .then(res => res.json())
-//       .then(data => this.gadgets = data)
-//       .then(() => this.gadgets.map(el => el.isInCart = false))
-//   }
-
-//   public getGadgetByID(id: string) {
-//     fetch('http://localhost:1452/api/products/' + id)
-//       .then(res => res.json())
-//       .then(data => this.gadget = data)
-//   }
-// }

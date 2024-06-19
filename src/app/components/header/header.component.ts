@@ -4,6 +4,7 @@ import { ModalWindowComponent } from '../../UI/modal-window/modal-window.compone
 import { BasketService } from '../../services/basket.service';
 import { ProductService } from '../../services/product.service';
 import { Product } from '../../types/product';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -23,7 +24,8 @@ export class HeaderComponent implements OnInit {
   constructor(
     public dialog: MatDialog,
     public basketService: BasketService,
-    public productService: ProductService
+    public productService: ProductService,
+    private router: Router
   ) { }
 
   async ngOnInit(): Promise<void> {
@@ -80,8 +82,23 @@ export class HeaderComponent implements OnInit {
     this.changeCatalogCategoryId(null);
   }
 
+  getCatalogLink() {
+    if (this.catalogCategoryId === "Смартфоны") return `/category/2`
+    if (this.catalogCategoryId === "Компьютеры") return `/category/3`
+    if (this.catalogCategoryId === "Планшеты") return `/category/4`
+    if (this.catalogCategoryId === "Часы") return `/category/5`
+    if (this.catalogCategoryId === "Гаджеты") return `/category/6`
+    if (this.catalogCategoryId === "Аксессуары") return `/category/1`
+  }
+
+  stopPropagationLink(e: MouseEvent, id: number) {
+    // e.stopImmediatePropagation()
+    // console.log('stopPropagationLink');
+    // this.router.navigate([`gadget/${id}`])
+  }
+
   public changeIsSearchResult(newState: boolean): void {
-    this.isSearchResult = newState;
+    setTimeout(() => this.isSearchResult = newState, 0);
   }
 
   public async getSearchResult(): Promise<void> {

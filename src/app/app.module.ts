@@ -40,10 +40,13 @@ import { WatchedGadgetsComponent } from './components/watched-gadgets/watched-ga
 import { TradeInComponent } from './modals/trade-in/trade-in.component';
 import { NightApplicationSendComponent } from './modals/night-application-send/night-application-send.component';
 import { MatSliderModule } from '@angular/material/slider';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
 import { MatListModule } from '@angular/material/list';
 import { BottomSheetComponent } from './UI/bottom-sheet/bottom-sheet.component';
 import { provideAnimations } from '@angular/platform-browser/animations';
+import { CategoryPageComponent } from './pages/category-page/category-page.component';
+import { SubcategoryProductsComponent } from './components/subcategory-products/subcategory-products.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -81,6 +84,8 @@ import { provideAnimations } from '@angular/platform-browser/animations';
     TradeInComponent,
     NightApplicationSendComponent,
     BottomSheetComponent,
+    CategoryPageComponent,
+    SubcategoryProductsComponent,
   ],
   imports: [
     BrowserModule,
@@ -88,6 +93,7 @@ import { provideAnimations } from '@angular/platform-browser/animations';
     MatDialogModule,
     CdkAccordionModule,
     MatSliderModule,
+    MatCheckboxModule,
     MatListModule,
     MatBottomSheetModule,
     FormsModule,

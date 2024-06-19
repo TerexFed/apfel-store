@@ -1,4 +1,4 @@
-interface Characteristic {
+export interface Characteristic {
     characteristic: string;
     unit_type: string;
     value: string;
@@ -22,3 +22,18 @@ export interface Product {
     images: string[];
     characteristics: Characteristic[];
 }
+
+export interface Filter {
+    name: string;
+    values: {
+        value: string;
+        status: boolean;
+    }[];
+}
+
+export interface Subcategory {
+    id: number;
+    name: string;
+}
+
+export type productTypeId = 1 | 2 | 3 | 4 | 5
