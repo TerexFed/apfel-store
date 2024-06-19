@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { BasketService } from '../../services/basket.service';
 import { WatchedGadgetsService } from '../../services/watched-gadgets.service';
 import { GadgetService } from '../../services/gadget.service';
+import { ProductPageFiltersService } from '../../services/product-page-filters.service';
 
 
 @Component({
@@ -13,7 +14,7 @@ import { GadgetService } from '../../services/gadget.service';
   styleUrl: './gadget-item.component.scss'
 })
 export class GadgetItemComponent implements OnInit {
-  constructor(public dialog: MatDialog, public router: Router, private basketService: BasketService, private watchedGadgetsService: WatchedGadgetsService, private gadgetService: GadgetService) { }
+  constructor(public dialog: MatDialog, public router: Router, private productFilters: ProductPageFiltersService, private basketService: BasketService, private watchedGadgetsService: WatchedGadgetsService, private gadgetService: GadgetService) { }
   @Input() gadget: any
 
   public get5RatingArr() {
@@ -36,6 +37,9 @@ export class GadgetItemComponent implements OnInit {
   public openGadget() {
     this.watchedGadgetsService.watch(this.gadget)
     this.router.navigate([`gadget/${this.gadget.id}`])
+    this.gadgetService.getGadgetByID(this.gadget.id)
+    this.productFilters.getMemoryCapacity(this.gadgetService.gadgets[this.gadget.id], this.gadgetService.gadgets[this.gadget.id].category)
+    this.productFilters.getOtherGadgets(this.gadgetService.gadgets[this.gadget.id], this.gadgetService.gadgets[this.gadget.id].category)
     window.scroll(0, 0)
   }
 

@@ -44,7 +44,6 @@ export class ProductPageFiltersService {
       case 'Часы': this.memoryCapacity = [...new Set(this.gadgetService.gadgets.filter((el) => el.name === data.name && el.color === data.color).map(el => el.characteristics[5].value).sort(function (a, b) {
         return a - b;
       }))]
-        console.log(this.memoryCapacity)
         break
     }
 
