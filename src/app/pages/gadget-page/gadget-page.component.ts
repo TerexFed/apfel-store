@@ -17,18 +17,17 @@ import { Product } from '../../types/product';
 export class GadgetPageComponent {
   product: Product
 
-  constructor(private route: ActivatedRoute, private router: Router, public gadgetService: GadgetService, private basketService: BasketService, public dialog: MatDialog, private location: Location,public productService: ProductService, public productFilters: ProductPageFiltersService) {
+  constructor(private route: ActivatedRoute, private router: Router, public gadgetService: GadgetService, private basketService: BasketService, public dialog: MatDialog, private location: Location, public productService: ProductService, public productFilters: ProductPageFiltersService) {
     (async () => {
       if (this.route.snapshot.params.id <= (await productService.getAllProducts()).length) {
-        // this.gadgetService.getGadgetByID(this.route.snapshot.params.id)
-        this.productFilters.getMemoryCapacity(this.gadgetService.gadgets[this.route.snapshot.params.id - 1], this.gadgetService.gadgets[this.route.snapshot.params.id - 1].category)
-      this.productFilters.getOtherGadgets(this.gadgetService.gadgets[this.route.snapshot.params.id - 1], this.gadgetService.gadgets[this.route.snapshot.params.id - 1].category)
-        const res = await productService.getProductById(this.route.snapshot.params.id)
-        if (!res) {
+        const productContent = await productService.getProductById(this.route.snapshot.params.id)
+        if (!productContent) {
           this.router.navigate(['/'])
           return;
         }
-        this.product = res
+        this.product = productContent
+        this.productFilters.getMemoryCapacity(productContent, productContent.category)
+        this.productFilters.getOtherGadgets(productContent, productContent.category)
       }
       else {
         this.router.navigate(['/'])

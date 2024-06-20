@@ -41,9 +41,9 @@
           <div class="other-phones">
             @for (otherGadgetItem of productFilters.otherGadgets; track $index) {
             <img
-              [className]="otherGadgetItem?.id === gadgetService.gadget?.id  ? 'other-phones-item active-phone' : 'other-phones-item'"
+              [className]="otherGadgetItem?.id === product.id  ? 'other-phones-item active-phone' : 'other-phones-item'"
               (click)="navigateToOtherGadgets(otherGadgetItem.id)"
-              [src]="'https://angular-final-project-backend.onrender.com/' + otherGadgetItem.images[0]"
+              [src]="'https://angular-final-project-backend.onrender.com/' + product.images[0]"
               alt="other-gadget-image" />
             }
           </div>

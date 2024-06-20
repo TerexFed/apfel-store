@@ -26,7 +26,7 @@ export class ProductService {
 
     private async getProductsAPI(link: string) {
         try {
-            const res = await fetch(`http://localhost:1452/api/${link}`);
+            const res = await fetch(`https://angular-final-project-backend.onrender.com/api/${link}`);
             return res.json()
         } catch (e) {
             console.error('some error: ', e);

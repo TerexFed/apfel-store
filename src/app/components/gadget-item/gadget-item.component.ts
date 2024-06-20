@@ -40,8 +40,6 @@ export class GadgetItemComponent implements OnInit {
     this.watchedGadgetsService.watch(this.gadget)
     this.router.navigate([`gadget/${this.gadget.id}`])
     this.gadgetService.getGadgetByID(this.gadget.id)
-    this.productFilters.getMemoryCapacity(this.gadgetService.gadgets[this.gadget.id], this.gadgetService.gadgets[this.gadget.id].category)
-    this.productFilters.getOtherGadgets(this.gadgetService.gadgets[this.gadget.id], this.gadgetService.gadgets[this.gadget.id].category)
     window.scroll(0, 0)
   }
 
