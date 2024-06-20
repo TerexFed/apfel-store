@@ -1,84 +1,111 @@
-import { Component } from '@angular/core';
-import { ModalWindowComponent } from '../../UI/modal-window/modal-window.component';
+import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { ModalWindowComponent } from '../../UI/modal-window/modal-window.component';
 import { BasketService } from '../../services/basket.service';
-import { FiltersService } from '../../services/filters.service';
+import { ProductService } from '../../services/product.service';
 import { Product } from '../../types/product';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss', './search-result.component.scss', './catalog.component.scss']
 })
-export class HeaderComponent {
-  constructor(public dialog: MatDialog, public basketService: BasketService, public fitersService: FiltersService) {
-    (async () => {
-      this.catalogs = await fitersService.getAllCategories()
-    })()
+export class HeaderComponent implements OnInit {
+  public isHeaderOpen = false;
+  public count: number = 0;
+  public catalogs: [string, Product[]][] = [];
+  public isCatalogOpen: boolean = false;
+  public catalogCategoryId: null | string = null;
+  public searchResultText: string = '';
+  public isSearchResult: boolean = false;
+  public searchedResultList: Product[] = [];
+
+  constructor(
+    public dialog: MatDialog,
+    public basketService: BasketService,
+    public productService: ProductService,
+    private router: Router
+  ) { }
+
+  async ngOnInit(): Promise<void> {
+    const categories = await this.productService.getAllCategories();
+    this.catalogs = categories;
+    this.count = this.basketService.basket.length > 0 ? this.basketService.basket.map(el => el.count)[0] : 0;
   }
 
-  public isHeaderOpen = false
-  public openHeader() {
-    this.isHeaderOpen = !this.isHeaderOpen
+  private isError(categories: any): categories is [{ errorMessage: string }] {
+    return Array.isArray(categories) && categories.length > 0 && 'errorMessage' in categories[0];
   }
 
-  openModalCallback() {
-    window.scrollTo(0, 0)
-    this.dialog.open(ModalWindowComponent, { data: { type: 'CallBack' } })
+  public openHeader(): void {
+    this.isHeaderOpen = !this.isHeaderOpen;
   }
 
-  openModalTradeIn() {
-    window.scroll(0, 0)
-    this.dialog.open(ModalWindowComponent, { data: { type: 'Trade-In' } })
+  public openModalCallback(): void {
+    window.scrollTo(0, 0);
+    this.dialog.open(ModalWindowComponent, { data: { type: 'CallBack' } });
   }
 
-  public count: number = this.basketService.basket.map(el => el.count)[0]
-
-  public openModalBasket() {
-    window.scrollTo(0, 0)
-    this.dialog.open(ModalWindowComponent, { data: { type: 'Basket' } })
+  public openModalTradeIn(): void {
+    window.scrollTo(0, 0);
+    this.dialog.open(ModalWindowComponent, { data: { type: 'Trade-In' } });
   }
 
-  isCatalogOpen: boolean = false
-
-  catalogCategoryId: null | string = null
-
-  getCatalogNames() {
-    return this.catalogs.map(catalog => catalog[0])
+  public openModalBasket(): void {
+    window.scrollTo(0, 0);
+    this.dialog.open(ModalWindowComponent, { data: { type: 'Basket' } });
   }
 
-  getCatalogProducts(): Product[] {
-    const categoryProductsToFind = this.catalogs.find((catalog: [string, Product[]]) => catalog[0] === this.catalogCategoryId);
-    return categoryProductsToFind ? categoryProductsToFind[1] : []
+  public getCatalogNames(): string[] | undefined {
+    if (!this.isError(this.catalogs)) {
+      return this.catalogs.map(catalog => catalog[0]);
+    }
   }
 
-  catalogs: [string, Product[]][] = []
-
-  changeCatalogCategoryId(newVal: null | string) {
-    this.catalogCategoryId = newVal
+  public getCatalogProducts(): Product[] {
+    if (this.isError(this.catalogs)) {
+      return [];
+    }
+    const categoryProductsToFind = this.catalogs.find(
+      (catalog): catalog is [string, Product[]] => catalog[0] === this.catalogCategoryId
+    );
+    return categoryProductsToFind ? categoryProductsToFind[1] : [];
   }
 
-  changeIsCatalogOpen(newVal?: boolean) {
-    this.isCatalogOpen = newVal || !this.isCatalogOpen
-    this.changeCatalogCategoryId(null)
+  public changeCatalogCategoryId(newVal: null | string): void {
+    this.catalogCategoryId = newVal;
   }
 
-  searchResultText = ''
-
-  isSearchResult = false
-
-  searchedResultList: Product[] = []
-
-  changeIsSearchResult(newState: boolean) {
-    this.isSearchResult = newState
+  public changeIsCatalogOpen(newVal?: boolean): void {
+    this.isCatalogOpen = newVal !== undefined ? newVal : !this.isCatalogOpen;
+    this.changeCatalogCategoryId(null);
   }
 
-  async getSearchResult(): Promise<void> {
-    this.searchedResultList = await this.fitersService.getSearchedProducts(this.searchResultText)
+  getCatalogLink() {
+    if (this.catalogCategoryId === "Смартфоны") return `/category/2`
+    if (this.catalogCategoryId === "Компьютеры") return `/category/3`
+    if (this.catalogCategoryId === "Планшеты") return `/category/4`
+    if (this.catalogCategoryId === "Часы") return `/category/5`
+    if (this.catalogCategoryId === "Гаджеты") return `/category/6`
+    if (this.catalogCategoryId === "Аксессуары") return `/category/1`
   }
 
+  stopPropagationLink(e: MouseEvent, id: number) {
+    // e.stopImmediatePropagation()
+    // console.log('stopPropagationLink');
+    // this.router.navigate([`gadget/${id}`])
+  }
 
-  removeSearchResultText() {
-    this.searchResultText = ''
+  public changeIsSearchResult(newState: boolean): void {
+    setTimeout(() => this.isSearchResult = newState, 0);
+  }
+
+  public async getSearchResult(): Promise<void> {
+    this.searchedResultList = await this.productService.getSearchedProducts(this.searchResultText);
+  }
+
+  public removeSearchResultText(): void {
+    this.searchResultText = '';
   }
 }

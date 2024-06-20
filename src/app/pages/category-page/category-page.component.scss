@@ -1,0 +1,115 @@
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+@import "./../../../variables.scss";
+
+.new-models__text {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+h4.normal {
+    background-color: white;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 38px;
+    letter-spacing: 0;
+}
+
+p.text {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 19.09px;
+    text-align: left;
+    margin-top: 16px;
+    color: $accent-text-color;
+}
+
+.new-iphone-text {
+    background-color: white;
+    margin-bottom: 32px;
+}
+
+.bg {
+    background-color: black;
+}
+
+.info {
+    display: flex;
+    align-items: center;
+    max-width: 1200px;
+    overflow: hidden;
+    height: 360px;
+    margin: 0 auto;
+}
+
+.info>img {
+    margin: 270px 88px 0 0;
+}
+
+.info-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: start;
+}
+
+.info-text>h6 {
+    margin: 16px 0 16px 0;
+}
+
+
+.subcategories {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.chips {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 75%;
+}
+
+.chip {
+    width: fit-content;
+    text-wrap: nowrap;
+    padding: 8px;
+    border-radius: 8px;
+    background-color: $bg-warranty-page;
+    color: $accent-text-color;
+    text-decoration: none;
+
+    &:hover {
+        color: $text-color;
+    }
+
+    &.chosen-chip {
+        background-color: $bg-color;
+        color: $title-color;
+
+        &:hover {
+            color: $title-color;
+        }
+    }
+}
+
+.sorting {
+    width: 25%;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+
+.list {
+    width: 100%;
+}

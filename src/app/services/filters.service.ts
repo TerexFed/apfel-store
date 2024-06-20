@@ -1,61 +1,31 @@
 import { Injectable } from '@angular/core';
-import { Product } from '../types/product';
+import { Characteristic, Product, productTypeId } from '../types/product';
+import { ProductService } from './product.service';
 
 @Injectable({
     providedIn: 'root'
 })
 export class FiltersService {
-    groupBy<T>(iterable: Iterable<T>, fn: (item: T) => string | number) {
-        return [...iterable].reduce<Record<string, T[]>>((groups, el) => {
-            const key = fn(el)
-            const group = groups[key] ?? []
-            group.push(el)
-            return { ...groups, [key]: group }
-        }, {})
+    constructor(public productService: ProductService) { }
+
+    private generateFilterProcessor(products: Characteristic[][]) {
+        return { name: "Процессор", values: Object.keys(this.productService.groupBy(products.map((characteristics: Characteristic[]) => characteristics.find(characteristic => characteristic.characteristic === 'Процессор')), (characteristic) => characteristic!.value)).map(value => ({ value, status: false })) }
     }
 
-
-    memoize<T, U>(func: (arg: T) => Promise<U>): (arg: T) => Promise<U> {
-        const cache = new Map<T, U>()
-        return async function (arg: T): Promise<U> {
-            if (cache.has(arg)) return cache.get(arg) as U
-            const result = await func(arg)
-            cache.set(arg, result)
-            return result
-        };
+    private generateFilterDiagonal(products: Characteristic[][]) {
+        return { name: "Диагональ", values: Object.keys(this.productService.groupBy(products.map((characteristics: Characteristic[]) => characteristics.find(characteristic => characteristic.characteristic === 'Диагональ')), (characteristic) => characteristic!.value)).map(value => ({ value, status: false })) }
     }
 
-
-    private async getAllProducts(link: string) {
-        try {
-            const res = await fetch(`https://angular-final-project-backend.onrender.com/api/${link}`);
-            return res.json()
-        } catch (e) {
-            console.error('some error: ', e);
-            return [{ errorMessage: "Попытка получения списка продуктов не увенчалась успехом!" }]
-        }
+    private generateFilterMemory(products: Characteristic[][]) {
+        return { name: "Объем встроенной памяти", values: Object.keys(this.productService.groupBy(products.map((characteristics: Characteristic[]) => characteristics.find(characteristic => characteristic.characteristic === 'Объем встроенной памяти')), (characteristic) => characteristic!.value)).map(value => ({ value, status: false })) }
     }
 
-    private getAllProductsMemoized = this.memoize(this.getAllProducts)
-
-    async getPopularProducts() {
-        const products = await this.getAllProductsMemoized("products")
-        return products.sort((productA: any, productB: any) => productB.count_review - productA.count_review).slice(0, 12)
-    }
-
-    async getNewestProducts() {
-        const products = await this.getAllProductsMemoized("products")
-        // return products.sort((productA: any, productB: any) => new Date(productB.createdAt).getTime() - new Date(productA.createdAt).getTime()).slice(0, 8)
-        return products.sort((productA: any, productB: any) => productB.id - productA.id).slice(0, 8)
-    }
-
-    async getSearchedProducts(search: string) {
-        const products = await this.getAllProductsMemoized("products")
-        return products.filter((product: Product) => product.name.toLocaleLowerCase().includes(search.toLocaleLowerCase())).slice(0, 5)
-    }
-
-    async getAllCategories(): Promise<[string, Product[]][]> {
-        const products = await this.getAllProductsMemoized("products")
-        return Object.entries(this.groupBy(products, (product: Product) => product.category)).map(category => [category[0], category[1].slice(0, 12)])
+    public generateFilters(id: productTypeId, products: Product[]) {
+        const modifiedProducts = products.map(product => product.characteristics)
+        if (id === 2) return [this.generateFilterProcessor(modifiedProducts), this.generateFilterDiagonal(modifiedProducts), this.generateFilterMemory(modifiedProducts)]
+        if (id === 3) return [this.generateFilterProcessor(modifiedProducts), this.generateFilterMemory(modifiedProducts)]
+        if (id === 4) return [this.generateFilterDiagonal(modifiedProducts), this.generateFilterMemory(modifiedProducts)]
+        if (id === 5) return [this.generateFilterProcessor(modifiedProducts)]
+        return []
     }
 }

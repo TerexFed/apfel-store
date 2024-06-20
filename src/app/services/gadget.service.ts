@@ -2,11 +2,11 @@ import { Injectable } from '@angular/core';
 
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
 export class GadgetService {
-  public gadgets: Array<any> = []
-  public gadget: any
+    public gadgets: Array<any> = []
+    public gadget: any
 
   public getAllGadgets() {
     fetch('https://angular-final-project-backend.onrender.com/api/products')

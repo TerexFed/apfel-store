@@ -1,11 +1,13 @@
 <section class="gadget-list">
-    @if(!gadgetList.length){
+    @if(!gadgetList.length) {
     <p class="spinner">🌀</p>
-    } @else if (gadgetList[0].hasOwnProperty('errorMessage')) {
+    } @else {
+    @if (isError(gadgetList[0])) {
     <p class="error-message">{{gadgetList[0].errorMessage}}<span>❌</span></p>
     } @else {
     @for (gadget of gadgetList; track $index) {
-    <app-gadget-item [gadget]="gadget"></app-gadget-item>
+    <app-gadget-item [gadget]="gadget" />
+    }
     }
     }
 </section>

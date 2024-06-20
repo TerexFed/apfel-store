@@ -11,6 +11,8 @@ import { ReviewPageComponent } from './pages/review-page/review-page.component';
 import { ContactPageComponent } from './pages/contact-page/contact-page.component';
 import { FavouritesPageComponent } from './pages/favourites-page/favourites-page.component';
 import { GadgetPageComponent } from './pages/gadget-page/gadget-page.component';
+import { CategoryPageComponent } from './pages/category-page/category-page.component';
+import { SubcategoryProductsComponent } from './components/subcategory-products/subcategory-products.component';
 
 const routes: Routes = [
   {
@@ -52,6 +54,18 @@ const routes: Routes = [
   {
     path: 'favourites',
     component: FavouritesPageComponent
+  },
+  {
+    path: 'category/:id',
+    component: CategoryPageComponent
+  },
+  {
+    path: 'category/:id/:subId',
+    component: CategoryPageComponent
+  },
+  {
+    path: 'category',
+    redirectTo: '/'
   },
   {
     path: '**',

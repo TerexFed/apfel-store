@@ -4,27 +4,38 @@ import { GadgetService } from '../../services/gadget.service';
 import { ModalWindowComponent } from '../../UI/modal-window/modal-window.component';
 import { MatDialog } from '@angular/material/dialog';
 import { BasketService } from '../../services/basket.service';
+import { Location } from '@angular/common';
 import { ProductPageFiltersService } from '../../services/product-page-filters.service';
+import { ProductService } from '../../services/product.service';
+import { Product } from '../../types/product';
 
 @Component({
   selector: 'app-gadget-page',
   templateUrl: './gadget-page.component.html',
   styleUrl: './gadget-page.component.scss'
 })
-export class GadgetPageComponent implements OnInit {
-  constructor(public route: ActivatedRoute, private router: Router, public gadgetService: GadgetService, public productFilters: ProductPageFiltersService, private basketService: BasketService, public dialog: MatDialog) { }
+export class GadgetPageComponent {
+  product: Product
 
-  ngOnInit(): void {
-    if (this.route.snapshot.params.id <= this.gadgetService.gadgets.length) {
-      this.gadgetService.getGadgetByID(this.route.snapshot.params.id)
-      this.productFilters.getMemoryCapacity(this.gadgetService.gadgets[this.route.snapshot.params.id - 1], this.gadgetService.gadgets[this.route.snapshot.params.id - 1].category)
+  constructor(private route: ActivatedRoute, private router: Router, public gadgetService: GadgetService, private basketService: BasketService, public dialog: MatDialog, private location: Location,public productService: ProductService, public productFilters: ProductPageFiltersService) {
+    (async () => {
+      if (this.route.snapshot.params.id <= (await productService.getAllProducts()).length) {
+        // this.gadgetService.getGadgetByID(this.route.snapshot.params.id)
+        this.productFilters.getMemoryCapacity(this.gadgetService.gadgets[this.route.snapshot.params.id - 1], this.gadgetService.gadgets[this.route.snapshot.params.id - 1].category)
       this.productFilters.getOtherGadgets(this.gadgetService.gadgets[this.route.snapshot.params.id - 1], this.gadgetService.gadgets[this.route.snapshot.params.id - 1].category)
-    }
-    else {
-      this.router.navigate(['/'])
-    }
-
+        const res = await productService.getProductById(this.route.snapshot.params.id)
+        if (!res) {
+          this.router.navigate(['/'])
+          return;
+        }
+        this.product = res
+      }
+      else {
+        this.router.navigate(['/'])
+      }
+    })()
   }
+  public currentPic: string = ''
 
   public navigateToOtherGadgets(id: number) {
     this.router.navigate([`gadget/${id}`])

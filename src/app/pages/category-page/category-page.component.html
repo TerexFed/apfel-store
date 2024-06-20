@@ -1,0 +1,76 @@
+<section class="container">
+    <div class="subcategories">
+        <div class="chips">
+            @for (chip of chips; track chip.id) {
+            <a [routerLink]="'/category/' + categoryId + ((+subcategoryId === chip.id) ? '' : '/' + chip.id)"
+                [class]="'chip ' + (chosenChipId === chip.id ? 'chosen-chip' : '')">{{chip.name}}</a>
+            }
+        </div>
+        <div class="sorting">
+            <select [(ngModel)]="sorting" (ngModelChange)="newListOfProductsOnChange()" name="" id="">
+                <option value="">по умолчанию</option>
+                <option value="incr">по возрастанию</option>
+                <option value="descr">по убыванию</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="list-container">
+        <div class="filters">
+            <p class="title">Цена</p>
+            <mat-slider class="input-range" [min]="0" [max]="maxRangeValue">
+                <input [(ngModel)]="firstPrice" (ngModelChange)="priceOnChange()" matSliderStartThumb>
+                <input [(ngModel)]="secondPrice" (ngModelChange)="priceOnChange()" matSliderEndThumb>
+            </mat-slider>
+            <div class="inputs">
+                <input [max]="secondPrice" [(ngModel)]="firstPrice" (ngModelChange)="priceOnChange()" type="text">
+                <input [min]="firstPrice" [(ngModel)]="secondPrice" (ngModelChange)="priceOnChange()" type="text">
+            </div>
+            @for (filter of filters; track $index) {
+            <div (click)="changeFiltersAreOpen(filter.name)">
+                <p>{{filter.name}}</p>
+                <img src="/assets/filters/open-bar.svg" alt="+">
+            </div>
+            @if (filtersAreOpen.includes(filter.name)) {
+            <div>
+                @for (filterValue of filter.values; track $index) {
+                <mat-checkbox (click)="newListOfProductsOnChange()" [(ngModel)]="filterValue.status">{{
+                    filterValue.value
+                    }}</mat-checkbox>
+                }
+            </div>
+            }
+            }
+        </div>
+        <app-gadget-list class="list" [gadgetList]="products" />
+    </div>
+
+
+
+
+
+
+    <div class="new-models__text">
+        <h4 class="normal">Новые модели Айфонов по выгодным ценам</h4>
+        <p class="text">
+            Для тех, кто хочет приобрести новый телефон магазин Istoreapple.ru
+            предлагает:
+        </p>
+        <br />
+        <p class="new-iphone-text text">
+            Низкие цены на все виды устройств, недорогие аксессуары; <br />
+            Оригинальные подарки бренда; <br />
+            Новая линейка смартфонов и проверенные старые модели; <br />
+            Лаконичный дизайн, большой выбор цветов и оттенков; <br />
+            Все товары в каталоге есть в наличии и доступны для покупки в кредит и
+            рассрочку; <br />
+            Быстрая доставка по Санкт-Петербургу и области; <br />
+            Гарантия на все модели телефонов; <br />
+            Все способы оплаты! <br />
+            Товары, представленные на официальном сайте Istoreapple.ru,
+            сертифицированы. Мы занимаемся продажей айфонов с 2013 года. Вы всегда
+            можете прочитать отзывы о покупке наших клиентов, позвонить в магазин и
+            получить консультацию по любой модели Apple.
+        </p>
+    </div>
+</section>
