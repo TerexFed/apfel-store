@@ -1,5 +1,6 @@
 <div class="gadget-page">
   <button class="back__button" (click)="back()">Назад</button>
+  @if (product.id) {
   <div class="gadget__info">
     <h3 class="gadget-title tablet">{{ gadgetService.gadget?.category === 'Смартфоны' || gadgetService.gadget?.category
       ===
@@ -206,6 +207,7 @@
       </div>
     </div>
   </div>
+  }
 
   <div class="questions__back">
     <div class="questions">

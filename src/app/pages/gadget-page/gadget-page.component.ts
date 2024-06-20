@@ -8,6 +8,7 @@ import { Location } from '@angular/common';
 import { ProductPageFiltersService } from '../../services/product-page-filters.service';
 import { ProductService } from '../../services/product.service';
 import { Product } from '../../types/product';
+import { WatchedGadgetsService } from '../../services/watched-gadgets.service';
 
 @Component({
   selector: 'app-gadget-page',
@@ -17,7 +18,7 @@ import { Product } from '../../types/product';
 export class GadgetPageComponent {
   product: Product
 
-  constructor(private route: ActivatedRoute, private router: Router, public gadgetService: GadgetService, private basketService: BasketService, public dialog: MatDialog, private location: Location, public productService: ProductService, public productFilters: ProductPageFiltersService) {
+  constructor(private route: ActivatedRoute, private router: Router, public gadgetService: GadgetService, private basketService: BasketService, public dialog: MatDialog, private location: Location, public productService: ProductService, public productFilters: ProductPageFiltersService, private watchedGadgetsService: WatchedGadgetsService) {
     (async () => {
       if (this.route.snapshot.params.id <= (await productService.getAllProducts()).length) {
         const productContent = await productService.getProductById(this.route.snapshot.params.id)
@@ -28,6 +29,10 @@ export class GadgetPageComponent {
         this.product = productContent
         this.productFilters.getMemoryCapacity(productContent, productContent.category)
         this.productFilters.getOtherGadgets(productContent, productContent.category)
+
+        this.watchedGadgetsService.watch(productContent)
+        this.gadgetService.getGadgetByID(productContent.id.toString())
+
       }
       else {
         this.router.navigate(['/'])

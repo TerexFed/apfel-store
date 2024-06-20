@@ -13,26 +13,27 @@ export class ProductPageFiltersService {
   public otherGadgets: Array<any> = []
   public memoryCapacity: Array<any> = []
 
-  public getOtherGadgets(data: any, category: string) {
-    switch (category) {
-      case 'Смартфоны': this.otherGadgets = this.gadgetService.gadgets.filter((el) => el.name === data.name && el.characteristics[1].value === data.characteristics[1].value)
-        break
-      case 'Компьютеры': this.otherGadgets = this.gadgetService.gadgets.filter((el) => el.name === data.name && el.characteristics[1].value === data.characteristics[1].value)
-        break
-      case 'Планшеты': this.otherGadgets = this.gadgetService.gadgets.filter((el) => el.name === data.name && el.characteristics[1].value === data.characteristics[1].value)
-        break
-      case 'Часы': this.otherGadgets = this.gadgetService.gadgets.filter((el) => el.name === data.name && el.characteristics[5].value === data.characteristics[5].value)
-        break
-      case 'Гаджеты': this.otherGadgets = this.gadgetService.gadgets.filter((el) => el.name === data.name)
-        break
-      case 'Аксессуары': this.otherGadgets = this.gadgetService.gadgets.filter((el) => el.name === data.name)
+  public async getOtherGadgets(data: any, category: string) {
+    const allProducts = await this.productService.getAllProducts()
+    if (((products): products is Product[] => {
+      return !('errorMessage' in products[0]);
+    })(allProducts)) {
+      switch (category) {
+        case 'Смартфоны': this.otherGadgets = allProducts.filter((el) => el.name === data.name && el.characteristics[1].value === data.characteristics[1].value)
+          break
+        case 'Компьютеры': this.otherGadgets = allProducts.filter((el) => el.name === data.name && el.characteristics[1].value === data.characteristics[1].value)
+          break
+        case 'Планшеты': this.otherGadgets = allProducts.filter((el) => el.name === data.name && el.characteristics[1].value === data.characteristics[1].value)
+          break
+        case 'Часы': this.otherGadgets = allProducts.filter((el) => el.name === data.name && el.characteristics[5].value === data.characteristics[5].value)
+          break
+        case 'Гаджеты': this.otherGadgets = allProducts.filter((el) => el.name === data.name)
+          break
+        case 'Аксессуары': this.otherGadgets = allProducts.filter((el) => el.name === data.name)
+      }
     }
-
   };
   public async getMemoryCapacity(data: any, category: string): Promise<string[]> {
-    console.log(data);
-    console.log(category);
-
     const allProducts = await this.productService.getAllProducts();
 
     const isError = (item: Product | { errorMessage: string }): item is { errorMessage: string } => {
