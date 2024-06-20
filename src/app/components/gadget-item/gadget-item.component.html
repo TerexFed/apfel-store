@@ -20,20 +20,21 @@
         (gadget.isFavorite ? 'active' : 'inactive') +
         '.svg'
       "
-      alt=""
+      (click)="toggleFavourite()"
+      alt="favourite"
     />
   </div>
-  <p class="name">{{gadget.name}}</p>
+  <p class="name">{{ gadget.name }}</p>
   <img
     class="gadget-image"
-    [src]="'http://localhost:1452/'+gadget.images[0]"
+    [src]="'http://localhost:1452/' + gadget.images[0]"
     alt="gadget-image"
     (click)="gadget.is_available && openGadget(gadget.id)"
   />
   @if (gadget.is_available) {
   <div class="second-section">
     <p><span class="isAvailable available"></span>Есть в наличии</p>
-    <p>Гарантия {{ gadget.guarantee === 12 ? '1' : gadget.guarantee }} год</p>
+    <p>Гарантия {{ gadget.guarantee === 12 ? "1" : gadget.guarantee }} год</p>
   </div>
   @if (windowWidth > 900) {
   <div class="prices-section">

@@ -1,1 +1,32 @@
-<p>favourites-page works!</p>
+<div class="favourites">
+  @if (favourites.length > 0) {
+  <h2 class="favourites-title">Избранное</h2>
+  <div class="favourites-sort">
+    <h3>Сортировать</h3>
+    <!-- filter -->
+  </div>
+  <div class="gadget-list">
+    @for(gadget of favourites; track trackByGadgetId) {
+    <app-gadget-item [gadget]="gadget"></app-gadget-item>
+    }
+    <!-- <app-gadget-list [gadgetList]="favourites" /> -->
+  </div>
+  } @else {
+  <div class="favourites-empty">
+    <h2 class="favourites-title">В избранном пока ничего нет</h2>
+    <p>
+      Нажимайте на
+      <img
+        width="24"
+        height="24"
+        src="../../../assets/header/heart.svg"
+        alt="инокка избранного"
+      />
+      понравившемся товаре, чтобы вернуться к нему позже
+    </p>
+    <button routerLink="/all-catalog" class="favourites-button">
+      пойти выбирать
+    </button>
+  </div>
+  }
+</div>

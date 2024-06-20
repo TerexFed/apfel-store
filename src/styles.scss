@@ -4,20 +4,28 @@
 @include mat.core();
 
 $apfel-store-angular-primary: mat.define-palette(mat.$blue-palette);
-$apfel-store-angular-accent: mat.define-palette(mat.$blue-palette, A200, A100, A400);
+$apfel-store-angular-accent: mat.define-palette(
+  mat.$blue-palette,
+  A200,
+  A100,
+  A400
+);
 
 $apfel-store-angular-warn: mat.define-palette(mat.$red-palette);
 
-$apfel-store-angular-theme: mat.define-light-theme((color: (primary: $apfel-store-angular-primary,
-        accent: $apfel-store-angular-accent,
-        warn: $apfel-store-angular-warn ),
-      typography: mat.define-typography-config(),
-      density: 0));
-
+$apfel-store-angular-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $apfel-store-angular-primary,
+      accent: $apfel-store-angular-accent,
+      warn: $apfel-store-angular-warn,
+    ),
+    typography: mat.define-typography-config(),
+    density: 0,
+  )
+);
 
 @include mat.all-component-themes($apfel-store-angular-theme);
-
-
 
 * {
   margin: 0;
@@ -71,7 +79,7 @@ h3 {
     letter-spacing: 0%;
   }
 
-  @media screen and (max-width: 375px) {
+  @media screen and (max-width: 769px) {
     &.normal {
       font-size: 32px;
     }
@@ -138,7 +146,7 @@ h6 {
     color: $text-color;
   }
 
-  @media screen and (max-width: 375px) {
+  @media screen and (max-width: 769px) {
     &.gray {
       font-size: 16px;
     }
@@ -296,7 +304,7 @@ label {
   letter-spacing: 0%;
 }
 
-@media screen and (max-width: 1440px) {
+@media screen and (max-width: 1221px) {
   h2 {
     font-size: 60px;
   }
@@ -306,15 +314,15 @@ label {
   }
 
   .info-text {
-    >h5 {
+    > h5 {
       font-size: 32px;
     }
 
-    >h6 {
+    > h6 {
       font-size: 16px;
     }
 
-    >button {
+    > button {
       font-size: 16px;
     }
   }

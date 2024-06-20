@@ -4,7 +4,7 @@
   background-color: $bg-distribution;
 
 
-  @media screen and (max-width: 1440px) {
+  @media screen and (max-width: 1221px) {
     padding: 40px;
     background-color: $bg-distribution-mobile
   }
@@ -33,7 +33,7 @@
 }
 
 .text {
-  @media screen and (max-width: 1440px) {
+  @media screen and (max-width: 1221px) {
     margin-left: 30px;
   }
 
@@ -45,7 +45,7 @@
 .tablet-form {
   display: none;
 
-  @media screen and (max-width: 1440px) {
+  @media screen and (max-width: 1221px) {
     display: flex;
     flex-direction: column;
   }
@@ -56,7 +56,7 @@
   height: auto;
   margin-right: 88px;
 
-  @media screen and (max-width: 1440px) {
+  @media screen and (max-width: 1221px) {
     width: 306px;
     margin: 0 0 110px 0;
   }
@@ -82,7 +82,7 @@
   padding: 30px;
   margin-top: 25px;
 
-  @media screen and (max-width: 1440px) {
+  @media screen and (max-width: 1221px) {
     display: none;
   }
 }
@@ -138,7 +138,7 @@ button.gray {
   margin-top: 25px;
   border-radius: 8px;
 
-  @media screen and (max-width: 1440px) {
+  @media screen and (max-width: 1221px) {
     width: 64%;
     margin-bottom: 16px;
   }
