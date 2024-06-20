@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrl: './benefits.component.scss'
 })
 export class BenefitsComponent {
-
+  public scrollToTop() {
+    window.scroll(0, 0)
+  }
 }

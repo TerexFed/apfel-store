@@ -1,0 +1,21 @@
+.list-container {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+}
+
+.filters {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.inputs {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+
+    &>.input-range {
+        width: 100%;
+    }
+}

@@ -1,12 +1,13 @@
 .gadget-list {
-  background-color: white;
-  position: relative;
-  z-index: 2;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  gap: 24px;
-  justify-content: center;
+    background-color: white;
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 24px;
+    justify-content: center;
+    z-index: 1;
 
   @media screen and (max-width: 900px) {
     gap: 40px;
@@ -15,4 +16,51 @@
   @media screen and (max-width: 500px) {
     gap: 8px;
   }
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.spinner {
+    margin: 50px 0;
+    text-align: center;
+    font-size: 32px;
+    animation: spin 1s linear infinite;
+    font-size: xx-large;
+}
+
+
+@keyframes bounce {
+
+    0%,
+    100% {
+        transform: translateY(-25%);
+        animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+    }
+
+    50% {
+        transform: translateY(0);
+        animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+    }
+}
+
+.error-message {
+    font-size: x-large;
+    margin: 50px auto;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+
+    &>span {
+        display: block;
+        margin-top: 4px;
+        animation: bounce 1s infinite;
+    }
 }

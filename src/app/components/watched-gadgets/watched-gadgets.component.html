@@ -9,7 +9,7 @@
 <div class="watched-gadgets-modal">
     @for (gadget of watchedGadgetsService.watchedGadgets; track $index) {
     <div class="watched-gadgets-modal-gadget">
-        <img [src]="'http://localhost:1452/'+ gadget.images[0]" alt="gadget-image" />
+        <img [src]="'https://angular-final-project-backend.onrender.com/'+ gadget.images[0]" alt="gadget-image" />
         <sup class="product-promo-small">{{gadget.name}}</sup>
     </div>
     }

@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrl: './delivery-page.component.scss'
 })
 export class DeliveryPageComponent {
-
+  public scrollToTop() {
+    window.scroll(0, 0)
+  }
 }

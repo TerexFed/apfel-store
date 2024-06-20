@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrl: './credit-page.component.scss'
 })
 export class CreditPageComponent {
-
+  public scrollToTop() {
+    window.scroll(0, 0)
+  }
 }

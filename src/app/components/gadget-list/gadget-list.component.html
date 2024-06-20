@@ -1,5 +1,13 @@
 <section class="gadget-list">
-  @for (gadget of gadgetService.gadgets; track $index) {
-  <app-gadget-item [gadget]="gadget"></app-gadget-item>
-  }
+    @if(!gadgetList.length) {
+    <p class="spinner">🌀</p>
+    } @else {
+    @if (isError(gadgetList[0])) {
+    <p class="error-message">{{gadgetList[0].errorMessage}}<span>❌</span></p>
+    } @else {
+    @for (gadget of gadgetList; track $index) {
+    <app-gadget-item [gadget]="gadget" />
+    }
+    }
+    }
 </section>

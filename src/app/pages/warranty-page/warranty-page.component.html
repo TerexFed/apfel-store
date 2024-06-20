@@ -30,45 +30,24 @@
     <h2 class="warranty__cards__subtitle">
       Поднимайте себе настроение приятными покупками!
     </h2>
-    <button class="warranty__cards__button">перейти к покупкам</button>
+    <button class="warranty__cards__button" (click)="scrollToTop()" routerLink="/all-catalog">перейти к
+      покупкам</button>
   </div>
   <div class="warranty__list">
     <cdk-accordion class="warranty__accordion">
-      <cdk-accordion-item
-        #accordionItem="cdkAccordionItem"
-        class="warranty__accordion-item"
-        role="button"
-        tabindex="0"
-        [attr.id]="'accordion-header-'"
-        [attr.aria-expanded]="accordionItem.expanded"
-        [attr.aria-controls]="'accordion-body-'"
-      >
-        <div
-          class="warranty__accordion-item-header"
-          (click)="accordionItem.toggle()"
-        >
-          <span
-            class="warranty__accordion-item-description"
-            [class.expanded]="accordionItem.expanded"
-          >
+      <cdk-accordion-item #accordionItem="cdkAccordionItem" class="warranty__accordion-item" role="button" tabindex="0"
+        [attr.id]="'accordion-header-'" [attr.aria-expanded]="accordionItem.expanded"
+        [attr.aria-controls]="'accordion-body-'">
+        <div class="warranty__accordion-item-header" (click)="accordionItem.toggle()">
+          <span class="warranty__accordion-item-description" [class.expanded]="accordionItem.expanded">
             {{ accordionItem.expanded ? "Открытый список" : "Закрытый список" }}
-            <img
-              [class]="'warranty__accordion-item-description__img ' + (accordionItem.expanded && 'opened')"
-              src="../../../assets/warranty-page/arrow.svg"
-              
-              alt="arrow"
-
-            />
+            <img [class]="'warranty__accordion-item-description__img ' + (accordionItem.expanded && 'opened')"
+              src="../../../assets/warranty-page/arrow.svg" alt="arrow" />
             <!-- [aria-open]="!!accordionItem.expanded ? 'true' : 'false' " -->
           </span>
         </div>
-        <div
-          class="warranty__accordion-item-body"
-          role="region"
-          [style.display]="accordionItem.expanded ? '' : 'none'"
-          [attr.id]="'accordion-body-'"
-          [attr.aria-labelledby]="'accordion-header-'"
-        >
+        <div class="warranty__accordion-item-body" role="region" [style.display]="accordionItem.expanded ? '' : 'none'"
+          [attr.id]="'accordion-body-'" [attr.aria-labelledby]="'accordion-header-'">
           <p>
             1.1. Гарантия дает Покупателю право в течение гарантийного срока
             производить замену или обращаться за услугами бесплатного ремонта.

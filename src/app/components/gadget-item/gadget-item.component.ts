@@ -2,11 +2,13 @@ import { Component, HostListener, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ModalWindowComponent } from '../../UI/modal-window/modal-window.component';
 import { Router } from '@angular/router';
-import { MatBottomSheet } from '@angular/material/bottom-sheet';
-import { BottomSheetComponent } from '../../UI/bottom-sheet/bottom-sheet.component';
-import { GadgetService } from '../../services/gadget.service';
 import { BasketService } from '../../services/basket.service';
 import { WatchedGadgetsService } from '../../services/watched-gadgets.service';
+import { MatBottomSheet } from '@angular/material/bottom-sheet';
+import { BottomSheetComponent } from '../../UI/bottom-sheet/bottom-sheet.component';
+import { Product } from '../../types/product';
+import { GadgetService } from '../../services/gadget.service';
+import { ProductPageFiltersService } from '../../services/product-page-filters.service';
 import { FavouriteService } from '../../services/favourite.service';
 
 @Component({
@@ -15,23 +17,31 @@ import { FavouriteService } from '../../services/favourite.service';
   styleUrl: './gadget-item.component.scss',
 })
 export class GadgetItemComponent implements OnInit {
-  constructor(
-    public dialog: MatDialog,
-    public router: Router,
-    private basketService: BasketService,
-    private watchedGadgetsService: WatchedGadgetsService,
-    private favouriteService: FavouriteService
-  ) {}
-  @Input() gadget: any;
+  constructor(public dialog: MatDialog, public router: Router, private basketService: BasketService, private watchedGadgetsService: WatchedGadgetsService, private favouriteService: FavouriteService, private productFilters: ProductPageFiltersService, public gadgetService: GadgetService) { }
+  @Input() gadget: any
 
   public get5RatingArr() {
     return new Array(5).fill(true);
   }
 
-  public openGadget(id: string) {
-    this.watchedGadgetsService.watch(this.gadget);
-    this.router.navigate([`gadget/${id}`]);
-    window.scroll(0, 0);
+  public getName() {
+    if (this.gadget.category === 'Смартфоны' || this.gadget.category === 'Компьютеры' || this.gadget.category === 'Планшеты') {
+      return `${this.gadget.name} ${this.gadget.characteristics[1].value}  ${this.gadget.characteristics[1].unit_type} ${this.gadget.color}`
+    }
+    else if (this.gadget.category === 'Часы') {
+      return `${this.gadget.name} ${this.gadget.color}`
+    }
+    else if (this.gadget.category === 'Гаджеты' || this.gadget.category === 'Аксессуары') {
+      return `${this.gadget.name} ${this.gadget.color === 'none' ? '' : this.gadget.color}`
+    }
+    return ''
+  }
+
+  public openGadget() {
+    this.watchedGadgetsService.watch(this.gadget)
+    this.router.navigate([`gadget/${this.gadget.id}`])
+    this.gadgetService.getGadgetByID(this.gadget.id)
+    window.scroll(0, 0)
   }
 
   windowWidth: number = 1221;
@@ -47,14 +57,8 @@ export class GadgetItemComponent implements OnInit {
   }
 
   openModalAdmission() {
-    window.scrollTo(0, 0);
-    this.dialog.open(ModalWindowComponent, {
-      data: {
-        type: 'Admission',
-        title: this.gadget.name,
-        image: 'http://localhost:1452/' + this.gadget.images[0],
-      },
-    });
+    window.scrollTo(0, 0)
+    this.dialog.open(ModalWindowComponent, { data: { type: 'Admission', title: this.getName(), image: 'https://angular-final-project-backend.onrender.com/' + this.gadget.images[0] } })
   }
 
   openModalPriceLower() {
@@ -63,37 +67,15 @@ export class GadgetItemComponent implements OnInit {
   }
 
   openModalOneClick() {
-    window.scrollTo(0, 0);
-    this.dialog.open(ModalWindowComponent, {
-      data: {
-        type: 'OneClick',
-        title: this.gadget.name,
-        image: 'http://localhost:1452/' + this.gadget.images[0],
-        price: this.gadget.price,
-        discountPrice: this.gadget.discount_price,
-      },
-    });
+    window.scrollTo(0, 0)
+    this.dialog.open(ModalWindowComponent, { data: { type: 'OneClick', title: this.getName(), image: 'https://angular-final-project-backend.onrender.com/' + this.gadget.images[0], price: this.gadget.price, discountPrice: this.gadget.discount_price } })
   }
 
   openModalBasketAdd() {
-    window.scrollTo(0, 0);
-    this.gadget.isInCart = true;
-    this.basketService.addToBasket({
-      id: this.gadget.id,
-      title: this.gadget.name,
-      image: 'http://localhost:1452/' + this.gadget.images[0],
-      price: this.gadget.price,
-      discountPrice: this.gadget.discount_price,
-      count: 1,
-      isInCart: true,
-    });
-    this.dialog.open(ModalWindowComponent, {
-      data: {
-        type: 'BasketAdd',
-        title: this.gadget.name,
-        image: 'http://localhost:1452/' + this.gadget.images[0],
-      },
-    });
+    window.scrollTo(0, 0)
+    this.gadget.isInCart = true
+    this.basketService.addToBasket({ id: this.gadget.id, title: this.getName(), image: 'https://angular-final-project-backend.onrender.com/' + this.gadget.images[0], price: this.gadget.price, discountPrice: this.gadget.discount_price, count: 1, isInCart: true })
+    this.dialog.open(ModalWindowComponent, { data: { type: 'BasketAdd', title: this.getName(), image: 'https://angular-final-project-backend.onrender.com/' + this.gadget.images[0] } })
   }
 
   toggleFavourite() {

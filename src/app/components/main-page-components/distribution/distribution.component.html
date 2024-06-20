@@ -11,9 +11,9 @@
       <form class="main-form">
         <h3 class="form-text">Скидка 10%</h3>
         <p>на первую покупку за подписку</p>
-        <div class="form-info">
-          <input type="tel" inputmode="numeric" pattern="\+7\d{10}" placeholder="+ 7" />
-          <button class="gray">подписаться</button>
+        <div class="form-info" [formGroup]="distributionForm">
+          <input formControlName="tel" type="tel" placeholder="+ 7" />
+          <button class="gray" (click)="onSubmit()">подписаться</button>
         </div>
       </form>
       <form class="tablet-form">
@@ -21,9 +21,9 @@
           <p class="form-text">Скидка 10%</p>
           <sup>на первую покупку за подписку</sup>
         </div>
-        <div class="form-info">
-          <input type="tel" inputmode="numeric" pattern="\+7\d{10}" placeholder="+ 7" />
-          <button class="gray">подписаться</button>
+        <div class="form-info" [formGroup]="distributionForm">
+          <input formControlName="tel" type="tel" placeholder="+ 7" />
+          <button class="gray" (submit)="onSubmit()">подписаться</button>
         </div>
       </form>
     </div>

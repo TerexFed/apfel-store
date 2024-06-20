@@ -1,10 +1,6 @@
 <div class="credit-page">
   <div class="top__block">
-    <img
-      class="top__block-image"
-      src="../../../assets/credit-page/top-block-woman.svg"
-      alt="top-block-woman"
-    />
+    <img class="top__block-image" src="../../../assets/credit-page/top-block-woman.svg" alt="top-block-woman" />
     <div class="top__block-text">
       <h4 class="form-text">От 10 000 до 600 000₽</h4>
       <h6>в кредит, за 30 минут без похода в банк</h6>
@@ -38,16 +34,14 @@
         <img src="../../../assets/credit-page/person.svg" alt="person" />
         <div class="card-fill-text">
           <h6 class="ben-card-h6">
-            Заполните одну короткую анкету и получите ответ от более 10
-            банков-партнеров
+            Выберите из списка товаров понравившийся продукт и заполните анкету
           </h6>
-          <button>заполнить анкету</button>
+          <button (click)="scrollToTop()" routerLink="/all-catalog">Выбрать продукт</button>
         </div>
       </div>
       <div class="grid__block-big-card-white-container">
         <img src="../../../assets/credit-page/thumb_up.svg" alt="thumb_up" />
-        <sup class="normal"
-          >Предварительно с вами свяжется сотрудник нашего магазина и ответит на
+        <sup class="normal">Предварительно с вами свяжется сотрудник нашего магазина и ответит на
           все ваши вопросы связанными с покупкой в кредит
         </sup>
       </div>
@@ -97,14 +91,9 @@
       <div class="postpone">
         <h4 class="normal">Не откладывайте покупки на потом</h4>
         <sup>Купить желаемую технику в кредит на самых выгодных условиях</sup>
-        <button>заполнить анкету</button>
+        <button (click)="scrollToTop()" routerLink="/all-catalog">Выбрать продукт</button>
       </div>
-      <img
-        width="300px"
-        class="postpone-image"
-        src="../../../assets/credit-page/phone.png"
-        alt="phone"
-      />
+      <img width="300px" class="postpone-image" src="../../../assets/credit-page/phone.png" alt="phone" />
     </div>
   </div>
 </div>

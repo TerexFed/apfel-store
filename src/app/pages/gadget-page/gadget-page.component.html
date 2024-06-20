@@ -1,34 +1,80 @@
 <div class="gadget-page">
   <button class="back__button" (click)="back()">Назад</button>
   <div class="gadget__info">
-    <h3 class="gadget-title tablet">{{ gadgetService.gadget?.name }}</h3>
+    <h3 class="gadget-title tablet">{{ gadgetService.gadget?.category === 'Смартфоны' || gadgetService.gadget?.category
+      ===
+      'Компьютеры' || gadgetService.gadget?.category === 'Планшеты' || gadgetService.gadget?.category === 'Часы'
+      ?
+      gadgetService.gadget?.name + ' '
+      +
+      gadgetService.gadget?.characteristics[1].value
+      + ' ' + gadgetService.gadget?.characteristics[1].unit_type + ' ' + gadgetService.gadget?.color
+      :
+      gadgetService.gadget?.category === 'Гаджеты' || gadgetService.gadget?.category === 'Аксессуары' ?
+      gadgetService.gadget?.name : this.gadgetService.gadget?.category === 'Часы' ? gadgetService.gadget?.name + ' '
+      +
+      gadgetService.gadget?.color : ''
+
+      }}</h3>
     <div class="images__block">
-      <img class="big-image" [src]="
-          currentPic === ''
-            ? 'http://localhost:1452/' + gadgetService.gadget?.images[0]
-            : currentPic
-        " alt="image" />
-      <div class="all-images">
-        @for (image of gadgetService.gadget?.images; track $index) {
-        <img class="small-image" [src]="'http://localhost:1452/' + image" alt="image"
-          (click)="currentPic = 'http://localhost:1452/' + image" />
-        }
-      </div>
+      <img class="big-image"
+        [src]="'https://angular-final-project-backend.onrender.com/' + gadgetService.gadget?.images[0]" alt="image" />
     </div>
     <div class="info__block">
-      <h3 class="gadget-title">{{ gadgetService.gadget?.name }}</h3>
+      <h3 class="gadget-title">{{ gadgetService.gadget?.category === 'Смартфоны' || gadgetService.gadget?.category
+        ===
+        'Компьютеры' || gadgetService.gadget?.category === 'Планшеты'
+        ?
+        gadgetService.gadget?.name + ' '
+        +
+        gadgetService.gadget?.characteristics[1].value
+        + ' ' + gadgetService.gadget?.characteristics[1].unit_type + ' ' + gadgetService.gadget?.color
+        :
+        gadgetService.gadget?.category === 'Гаджеты' || gadgetService.gadget?.category === 'Аксессуары' ?
+        gadgetService.gadget?.name : this.gadgetService.gadget?.category === 'Часы' ? gadgetService.gadget?.name + ' '
+        +
+        gadgetService.gadget?.color : ''
+        }}</h3>
       <div class="info__blocks">
-        <div class="info__block-characteristics">
-          <p class="a">Характеристики</p>
-          <div class="characteristics">
-            @for (characteristic of gadgetService.gadget?.characteristics; track
-            $index) {
-            <div class="characteristic">
-              <sup>{{ characteristic.characteristic }}</sup>
 
-              <sup class="normal">{{ characteristic.value }}</sup>
-            </div>
+        <div class="info__block-information">
+          <div class="other-phones">
+            @for (otherGadgetItem of productFilters.otherGadgets; track $index) {
+            <img
+              [className]="otherGadgetItem?.id === product.id  ? 'other-phones-item active-phone' : 'other-phones-item'"
+              (click)="navigateToOtherGadgets(otherGadgetItem.id)"
+              [src]="'https://angular-final-project-backend.onrender.com/' + product.images[0]"
+              alt="other-gadget-image" />
             }
+          </div>
+          @if (gadgetService.gadget?.category === 'Смартфоны' || gadgetService.gadget?.category
+          === 'Компьютеры' || gadgetService.gadget?.category === 'Планшеты' || gadgetService.gadget?.category ===
+          'Часы') {
+          <div class="memory-capacity">
+            <p class="a">Объем памяти</p>
+            <div class="memory-capacities-list">
+              @for (memoryCapacityItem of productFilters.memoryCapacity; track $index) {
+              <div (click)="changeMemoryCapacity(memoryCapacityItem)"
+                [className]="memoryCapacityItem === gadgetService.gadget?.characteristics[1]?.value || memoryCapacityItem === gadgetService.gadget?.characteristics[5]?.value ? 'memory-capacities-item active-memory' : 'memory-capacities-item'">
+                {{memoryCapacityItem}}{{gadgetService.gadget?.category === 'Смартфоны' || gadgetService.gadget?.category
+                === 'Компьютеры' || gadgetService.gadget?.category === 'Планшеты' ?
+                'GB' :gadgetService.gadget?.category === 'Часы' ? 'mm' : ''}}
+              </div>
+              }
+            </div>
+          </div>
+          }
+          <div class="characteristics-block">
+            <p class="a">Характеристики</p>
+            <div class="characteristics">
+              @for (characteristic of gadgetService.gadget?.characteristics; track
+              $index) {
+              <div class="characteristic">
+                <sup>{{ characteristic.characteristic }}</sup>
+                <sup class="normal">{{ characteristic.value }}</sup>
+              </div>
+              }
+            </div>
           </div>
         </div>
         <div class="info__block-buy">
@@ -38,33 +84,55 @@
               <span class="isAvailable available"></span>в наличии
             </p>
             }
+            @else {
+            <p class="status"><span class="isAvailable unavailable"></span>Ожидается поступление</p>
+            }
             <div class="prices-section">
+              @if(gadgetService.gadget?.discount_price){
+              <p class="price crossed">
+                {{ gadgetService.gadget?.price | customCurrency }}
+              </p>
               <h4 [class]="
                   gadgetService.gadget?.discount_price
                     ? 'old-price normal'
                     : 'price normal'
                 ">
+                {{ gadgetService.gadget?.discount_price | customCurrency }}
+              </h4>
+              }
+              @else if (gadgetService.gadget?.price) {
+              <h4 [class]="
+                  gadgetService.gadget?.price
+                    ? 'old-price normal'
+                    : 'price normal'
+                ">
                 {{ gadgetService.gadget?.price | customCurrency }}
               </h4>
-              @if(gadgetService.gadget?.discount_price){
-              <p class="price">
-                {{ gadgetService.gadget?.discount_price | customCurrency }}
-              </p>
               }
             </div>
+
           </div>
+          @if (gadgetService.gadget?.is_available) {
           <button class="add-to-cart" (click)="openModalBasketAdd()">
             Добавить в корзину
           </button>
+          }
+          @else {
+          <button class="invert add-to-cart" (click)="openModalAdmission()">
+            Сообщить о поступлении
+          </button>
+
+          }
           <p class="a">Купить в 1 клик</p>
           <div class="white__box">
             <sup class="normal">+7 900 654 32 45</sup>
-            <button (click)="openModalOneClick()">Купить</button>
+            <button (click)="gadgetService.gadget?.is_available && openModalOneClick()">Купить</button>
           </div>
           <div class="credit">
             <img src="../../../assets/product-page/buy-block/credit.svg" alt="credit" />
             <sup class="blue" (click)="openModalCredit()">Купить в кредит</sup>
           </div>
+
           <div class="take">
             <img src="../../../assets/product-page/buy-block/bike.svg" alt="bike" />
             <div class="take__text">
@@ -88,6 +156,19 @@
           </div>
         </div>
       </div>
+    </div>
+  </div>
+
+  <div class="characteristics-block-mobile">
+    <p class="a">Характеристики</p>
+    <div class="characteristics-mobile">
+      @for (characteristic of gadgetService.gadget?.characteristics; track
+      $index) {
+      <div class="characteristic-mobile">
+        <sup>{{ characteristic.characteristic }}</sup>
+        <sup class="normal">{{ characteristic.value }}</sup>
+      </div>
+      }
     </div>
   </div>
 
@@ -156,27 +237,37 @@
 
   <div class="promo">
     <div class="promo__card">
-      <img src="../../../assets/product-page/promo/original.svg" alt="original" />
-      <sup class="product-promo">Только оригинальная продукция</sup>
+      <div class="promo__card-text">
+        <img src="../../../assets/product-page/promo/original.svg" alt="original" />
+        <sup class="product-promo">Только оригинальная продукция</sup>
+      </div>
     </div>
     <div class="promo__card">
-      <img src="../../../assets/product-page/promo/delivery.svg" alt="delivery" />
-      <sup class="product-promo">Доставка за 2 часа</sup>
+      <div class="promo__card-text">
+        <img src="../../../assets/product-page/promo/delivery.svg" alt="delivery" />
+        <sup class="product-promo">Доставка за 2 часа</sup>
+      </div>
       <sup class="product-promo-small">Быстро и бесплатно доставляем все заказы по Москве</sup>
     </div>
     <div class="promo__card">
-      <img src="../../../assets/product-page/promo/pay.svg" alt="pay" />
-      <sup class="product-promo">Удобная оплата</sup>
+      <div class="promo__card-text">
+        <img src="../../../assets/product-page/promo/pay.svg" alt="pay" />
+        <sup class="product-promo">Удобная оплата</sup>
+      </div>
       <sup class="product-promo-small">Все виды наличного и безналичного расчета</sup>
     </div>
     <div class="promo__card">
-      <img src="../../../assets/product-page/promo/mansion.svg" alt="mansion" />
-      <sup class="product-promo">Кредит</sup>
+      <div class="promo__card-text">
+        <img src="../../../assets/product-page/promo/mansion.svg" alt="mansion" />
+        <sup class="product-promo">Кредит</sup>
+      </div>
       <sup class="product-promo-small">Выгодные кредитные предложения от самых популярных банков</sup>
     </div>
     <div class="promo__card">
-      <img src="../../../assets/product-page/promo/shield.svg" alt="shield" />
-      <sup class="product-promo">Гарантия</sup>
+      <div class="promo__card-text">
+        <img src="../../../assets/product-page/promo/shield.svg" alt="shield" />
+        <sup class="product-promo">Гарантия</sup>
+      </div>
       <sup class="product-promo-small">Предоставляем целый год сервисного обслуживания</sup>
     </div>
   </div>
@@ -286,7 +377,8 @@
   </div>
 
   <div class="buy__gadget-tablet">
-    <img [src]="'http://localhost:1452/' + gadgetService.gadget?.images[0]" alt="gadget-image" />
+    <img [src]="'https://angular-final-project-backend.onrender.com/' + gadgetService.gadget?.images[0]"
+      alt="gadget-image" />
     <h3 class="not-found-text">{{ gadgetService.gadget?.name }}</h3>
     <h6 class="normal">Уже почти ваш</h6>
     <button>выбрать модель</button>

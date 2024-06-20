@@ -1,5 +1,6 @@
 <mat-nav-list>
-    <img class="close-cross" (click)="closeBottomSheet()" src="../../../assets/tab-bar/blue-cross-small.svg" alt="blue-cross">
+    <img class="close-cross" (click)="closeBottomSheet()" src="../../../assets/tab-bar/blue-cross-small.svg"
+        alt="blue-cross">
     @switch (data.type) {
     @case ('catalog') {
     <div class="catalog-list">
@@ -72,6 +73,41 @@
                     </div>
                     <img (click)="basketService.deleteBasketItem(basketItem.id)" class="cross"
                         src="../../../assets/modal/cross.svg" alt="cross" />
+                </div>
+
+                <div class="basket__list-item-mobile">
+                    <div class="basket__list-item-mobile-top">
+                        <img class="phone" [src]="basketItem.image" alt="basket__list-item-image" />
+                        <sup class="normal">{{ basketItem.title }}</sup>
+                        <img (click)="basketService.deleteBasketItem(basketItem.id)" class="cross"
+                            src="../../../assets/modal/cross.svg" alt="cross" />
+                    </div>
+                    <div class="basket__list-item-content">
+
+                        <div class="prices__count">
+                            <div class="prices">
+                                @if (basketItem.discountPrice) {
+                                <sup class="crossed">{{
+                                    basketItem.discountPrice | customCurrency
+                                    }}</sup>
+                                }
+                                <sup class="product-promo">{{
+                                    basketItem.price | customCurrency
+                                    }}</sup>
+                            </div>
+                            <div class="basket-item-count">
+                                <button (click)="basketService.decreaseCount(basketItem.id)"
+                                    class="basket-item-count-button">
+                                    -
+                                </button>
+                                <sup class="blue">{{ basketItem.count }}</sup>
+                                <button (click)="basketService.addCount(basketItem.id)"
+                                    class="basket-item-count-button">
+                                    +
+                                </button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 }
             </div>

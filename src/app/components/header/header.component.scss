@@ -41,7 +41,7 @@
   justify-content: space-between;
   height: 80px;
 
-  img{
+  img {
     cursor: pointer;
   }
 }
@@ -57,7 +57,7 @@
   justify-content: center;
 }
 
-.links > a {
+.links>a {
   font-weight: 400;
   line-height: 21.48px;
   font-size: 18px;
@@ -91,7 +91,7 @@
   display: none;
 }
 
-.tel-number > p {
+.tel-number>p {
   margin-left: 8px;
 }
 
@@ -151,7 +151,7 @@ input[type="search"] {
   cursor: pointer;
 }
 
-.functions > img {
+.functions>img {
   margin: 12px;
 }
 
@@ -181,15 +181,15 @@ input[type="search"] {
   cursor: pointer;
 }
 
-.card:hover > p {
+.card:hover>p {
   color: $hover-color;
 }
 
-.card:hover > img {
+.card:hover>img {
   filter: invert(41%) sepia(86%) saturate(5961%) hue-rotate(214deg) brightness(97%) contrast(98%);
 }
 
-.card > p {
+.card>p {
   padding-left: 8px;
 }
 
@@ -214,7 +214,7 @@ input[type="search"] {
     padding: 4px 24px;
     gap: 32px;
 
-    & > img:first-of-type {
+    &>img:first-of-type {
       width: 32px;
       height: 32px;
     }
@@ -245,6 +245,7 @@ input[type="search"] {
     flex-direction: column;
     padding: 10px 140px 10px 140px;
     border-radius: 0px 0px 24px 24px;
+    box-shadow: 1px 1px 1px rgb(174, 174, 174);
     background-color: white;
     position: absolute;
     width: 100%;
@@ -273,7 +274,7 @@ input[type="search"] {
     justify-content: flex-start;
   }
 
-  .links > a {
+  .links>a {
     margin-left: 0;
   }
 
@@ -293,7 +294,8 @@ input[type="search"] {
 
 @media screen and (max-width: 768px) {
   .header-open {
-    height: 90%;
+    height: fit-content;
+    z-index: 2;
   }
 
   .telephone {
@@ -315,7 +317,7 @@ input[type="search"] {
     margin: 8px 0 16px 0;
   }
 
-  .links > a {
+  .links>a {
     margin: 8px 0 8px 0;
   }
 

@@ -81,14 +81,38 @@
     font-weight: 500;
     letter-spacing: 0%;
     color: #100e0e;
+    height: 80px;
+    text-overflow: ellipsis;
+
+    @media (max-width:769px) {
+        display: none;
+    }
+}
+
+.name-mobile {
+    display: none;
+
+    @media (max-width:769px) {
+        display: flex;
+        text-align: center;
+        justify-content: center;
+        font-family: SF Pro Display;
+        font-weight: 500;
+        letter-spacing: 0%;
+        color: #100e0e;
+        min-height: 58px;
+    }
+
 }
 
 .gadget-image {
     width: 100%;
+    min-height: 288px;
 
     @media screen and (max-width: 900px) {
         width: 152px;
         margin: 0 auto;
+        min-height: auto;
     }
 }
 
@@ -198,7 +222,7 @@
 
     &.in-cart {
         background-color: #52D116;
-        pointer-events:none;
+        pointer-events: none;
     }
 
     &.not-in-cart {
