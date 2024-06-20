@@ -17,7 +17,8 @@
 
       }}</h3>
     <div class="images__block">
-      <img class="big-image" [src]="'http://localhost:1452/' + gadgetService.gadget?.images[0]" alt="image" />
+      <img class="big-image"
+        [src]="'https://angular-final-project-backend.onrender.com/' + gadgetService.gadget?.images[0]" alt="image" />
     </div>
     <div class="info__block">
       <h3 class="gadget-title">{{ gadgetService.gadget?.category === 'Смартфоны' || gadgetService.gadget?.category
@@ -42,7 +43,8 @@
             <img
               [className]="otherGadgetItem?.id === gadgetService.gadget?.id  ? 'other-phones-item active-phone' : 'other-phones-item'"
               (click)="navigateToOtherGadgets(otherGadgetItem.id)"
-              [src]="'http://localhost:1452/' + otherGadgetItem.images[0]" alt="other-gadget-image" />
+              [src]="'https://angular-final-project-backend.onrender.com/' + otherGadgetItem.images[0]"
+              alt="other-gadget-image" />
             }
           </div>
           @if (gadgetService.gadget?.category === 'Смартфоны' || gadgetService.gadget?.category
@@ -375,7 +377,8 @@
   </div>
 
   <div class="buy__gadget-tablet">
-    <img [src]="'http://localhost:1452/' + gadgetService.gadget?.images[0]" alt="gadget-image" />
+    <img [src]="'https://angular-final-project-backend.onrender.com/' + gadgetService.gadget?.images[0]"
+      alt="gadget-image" />
     <h3 class="not-found-text">{{ gadgetService.gadget?.name }}</h3>
     <h6 class="normal">Уже почти ваш</h6>
     <button>выбрать модель</button>

@@ -56,7 +56,7 @@ export class GadgetItemComponent implements OnInit {
 
   openModalAdmission() {
     window.scrollTo(0, 0)
-    this.dialog.open(ModalWindowComponent, { data: { type: 'Admission', title: this.getName(), image: 'http://localhost:1452/' + this.gadget.images[0] } })
+    this.dialog.open(ModalWindowComponent, { data: { type: 'Admission', title: this.getName(), image: 'https://angular-final-project-backend.onrender.com/' + this.gadget.images[0] } })
   }
   openModalPriceLower() {
     window.scrollTo(0, 0)
@@ -64,13 +64,13 @@ export class GadgetItemComponent implements OnInit {
   }
   openModalOneClick() {
     window.scrollTo(0, 0)
-    this.dialog.open(ModalWindowComponent, { data: { type: 'OneClick', title: this.getName(), image: 'http://localhost:1452/' + this.gadget.images[0], price: this.gadget.price, discountPrice: this.gadget.discount_price } })
+    this.dialog.open(ModalWindowComponent, { data: { type: 'OneClick', title: this.getName(), image: 'https://angular-final-project-backend.onrender.com/' + this.gadget.images[0], price: this.gadget.price, discountPrice: this.gadget.discount_price } })
   }
   openModalBasketAdd() {
     window.scrollTo(0, 0)
     this.gadget.isInCart = true
-    this.basketService.addToBasket({ id: this.gadget.id, title: this.getName(), image: 'http://localhost:1452/' + this.gadget.images[0], price: this.gadget.price, discountPrice: this.gadget.discount_price, count: 1, isInCart: true })
-    this.dialog.open(ModalWindowComponent, { data: { type: 'BasketAdd', title: this.getName(), image: 'http://localhost:1452/' + this.gadget.images[0] } })
+    this.basketService.addToBasket({ id: this.gadget.id, title: this.getName(), image: 'https://angular-final-project-backend.onrender.com/' + this.gadget.images[0], price: this.gadget.price, discountPrice: this.gadget.discount_price, count: 1, isInCart: true })
+    this.dialog.open(ModalWindowComponent, { data: { type: 'BasketAdd', title: this.getName(), image: 'https://angular-final-project-backend.onrender.com/' + this.gadget.images[0] } })
   }
 
 }

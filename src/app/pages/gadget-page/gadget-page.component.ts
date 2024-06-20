@@ -61,14 +61,14 @@ export class GadgetPageComponent implements OnInit {
           this.gadgetService.gadget?.category === 'Гаджеты' || this.gadgetService.gadget?.category === 'Аксессуары' ?
             this.gadgetService.gadget?.name : this.gadgetService.gadget?.category === 'Часы' ? this.gadgetService.gadget?.name + ' '
               +
-              this.gadgetService.gadget?.color : '', image: 'http://localhost:1452/' + this.gadgetService.gadget.images[0], price: this.gadgetService.gadget.price, discountPrice: this.gadgetService.gadget.discount_price
+              this.gadgetService.gadget?.color : '', image: 'https://angular-final-project-backend.onrender.com/' + this.gadgetService.gadget.images[0], price: this.gadgetService.gadget.price, discountPrice: this.gadgetService.gadget.discount_price
       }
     })
   }
 
   openModalBasketAdd() {
     window.scrollTo(0, 0)
-    this.basketService.addToBasket({ id: this.gadgetService.gadget.id, title: this.gadgetService.gadget.name, image: 'http://localhost:1452/' + this.gadgetService.gadget.images[0], price: this.gadgetService.gadget.price, discountPrice: this.gadgetService.gadget.discount_price, count: 1, isInCart: true })
+    this.basketService.addToBasket({ id: this.gadgetService.gadget.id, title: this.gadgetService.gadget.name, image: 'https://angular-final-project-backend.onrender.com/' + this.gadgetService.gadget.images[0], price: this.gadgetService.gadget.price, discountPrice: this.gadgetService.gadget.discount_price, count: 1, isInCart: true })
     this.dialog.open(ModalWindowComponent, {
       data: {
         type: 'BasketAdd', title: this.gadgetService.gadget?.category === 'Смартфоны' || this.gadgetService.gadget?.category
@@ -83,7 +83,7 @@ export class GadgetPageComponent implements OnInit {
           this.gadgetService.gadget?.category === 'Гаджеты' || this.gadgetService.gadget?.category === 'Аксессуары' ?
             this.gadgetService.gadget?.name : this.gadgetService.gadget?.category === 'Часы' ? this.gadgetService.gadget?.name + ' '
               +
-              this.gadgetService.gadget?.color : '', image: 'http://localhost:1452/' + this.gadgetService.gadget.images[0]
+              this.gadgetService.gadget?.color : '', image: 'https://angular-final-project-backend.onrender.com/' + this.gadgetService.gadget.images[0]
       }
     })
   }
@@ -104,7 +104,7 @@ export class GadgetPageComponent implements OnInit {
           this.gadgetService.gadget?.category === 'Гаджеты' || this.gadgetService.gadget?.category === 'Аксессуары' ?
             this.gadgetService.gadget?.name : this.gadgetService.gadget?.category === 'Часы' ? this.gadgetService.gadget?.name + ' '
               +
-              this.gadgetService.gadget?.color : '', image: 'http://localhost:1452/' + this.gadgetService.gadget.images[0], price: this.gadgetService.gadget.price, discountPrice: this.gadgetService.gadget.discount_price
+              this.gadgetService.gadget?.color : '', image: 'https://angular-final-project-backend.onrender.com/' + this.gadgetService.gadget.images[0], price: this.gadgetService.gadget.price, discountPrice: this.gadgetService.gadget.discount_price
       }
     })
   }
@@ -125,7 +125,7 @@ export class GadgetPageComponent implements OnInit {
           this.gadgetService.gadget?.category === 'Гаджеты' || this.gadgetService.gadget?.category === 'Аксессуары' ?
             this.gadgetService.gadget?.name : this.gadgetService.gadget?.category === 'Часы' ? this.gadgetService.gadget?.name + ' '
               +
-              this.gadgetService.gadget?.color : '', image: 'http://localhost:1452/' + this.gadgetService.gadget.images[0]
+              this.gadgetService.gadget?.color : '', image: 'https://angular-final-project-backend.onrender.com/' + this.gadgetService.gadget.images[0]
       }
     })
   }
