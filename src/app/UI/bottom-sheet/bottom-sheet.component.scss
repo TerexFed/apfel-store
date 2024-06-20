@@ -108,6 +108,8 @@ mat-nav-list {
 
     @media (max-width: 769px) {
         flex-direction: column;
+        align-items: center;
+        width: 100%;
     }
 }
 
@@ -120,8 +122,10 @@ mat-nav-list {
     overflow-y: scroll;
 
     @media (max-width: 769px) {
+        align-items: center;
         overflow: hidden;
         height: auto;
+        width: 100%;
     }
 }
 
@@ -140,11 +144,69 @@ mat-nav-list {
         width: 64px;
         height: 64px;
     }
+
+    @media (max-width: 769px) {
+        display: none;
+    }
 }
 
 .basket__list-item-content {
     margin-left: 10px;
+
+    >sup {
+        display: flex;
+        max-width: 180px;
+        height: 30px;
+        overflow-x: scroll;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
 }
+
+.basket__list-item-mobile {
+    display: none;
+
+    @media (max-width: 769px) {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: space-between;
+        padding: 10px;
+        width: 340px;
+        height: 120px;
+        border-radius: 16px;
+        box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.05);
+        background: rgb(255, 255, 255);
+
+        .phone {
+            width: 64px;
+            height: 64px;
+        }
+
+        .basket__list-item-mobile-top {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            gap: 5px;
+
+            >sup {
+                display: flex;
+                align-self: center;
+                width: 200px;
+                height: 30px;
+                overflow-x: scroll;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+            }
+        }
+
+        @media (max-width: 376px) {
+            width: 100%;
+        }
+    }
+}
+
+
 
 .prices__count {
     display: flex;
@@ -192,18 +254,27 @@ mat-nav-list {
     flex-direction: column;
     width: 370px;
     height: 400px;
-    padding-right: 20px;
+    padding-right: 10px;
     overflow-y: scroll;
     gap: 25px;
+
+    @media (max-width:769px) {
+        width: 100%;
+    }
 }
 
 .basket__info-top {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
     gap: 10px;
+    width: 100%;
 }
 
 .basket__info-top-item {
     display: flex;
     justify-content: space-between;
+    width: 100%;
 }
 
 .cross {

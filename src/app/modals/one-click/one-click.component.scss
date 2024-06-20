@@ -1,22 +1,27 @@
-.one-click{
+.one-click {
     display: flex;
 }
-.big_iphone{
+
+.big_iphone {
     width: 150px;
     height: 160px;
     margin-right: 24px;
+
     @media (max-width: 769px) {
         display: none;
     }
 }
-.big_iphone-mobile{
+
+.big_iphone-mobile {
     display: none;
     width: 50px;
     height: 54px;
+
     @media (max-width: 769px) {
         display: flex;
     }
 }
+
 input[type="text"] {
     border: 1px solid rgb(219, 219, 219);
     border-radius: 8px;
@@ -32,53 +37,86 @@ input[type="text"] {
     padding-left: 24px;
     margin: 24px 0 16px 0;
 }
-.content{
+
+.content {
     @media (max-width: 769px) {
-        >h4{
+        >h4 {
             display: none;
         }
-        sup.crossed{
+
+        sup.crossed {
             display: none;
         }
-        .prices{
+
+        .prices {
             display: flex;
             gap: 10px;
-            >.crossed{
+
+            >.crossed {
                 display: flex;
             }
         }
     }
 }
-.prices{
+
+.prices {
     margin-top: 10px;
 }
-.mobile{
+
+.mobile {
     display: none;
+
     @media (max-width: 769px) {
         display: flex;
+        gap: 10px;
+    }
+
+    .mobile-content {
+        @media (max-width: 426px) {
+            min-width: 180px;
+            max-width: 200px;
+        }
+
+        @media (max-width: 326px) {
+            min-width: 150px;
+            max-width: 160px;
+        }
     }
 }
+
 .crossed {
     text-decoration: line-through;
 }
+
 button {
     width: 246px;
 }
+
 .checkout {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+
+    @media (max-width: 426px) {
+        width: 100%;
+
+        >* {
+            width: 100%;
+        }
+    }
 }
+
 .callandwrite {
     display: flex;
     gap: 8px;
-    
+
     @media (max-width: 769px) {
-        >h6{
+        >h6 {
             font-size: 16px;
         }
     }
 }
-.callback{
+
+.callback {
     margin-top: 16px;
 }

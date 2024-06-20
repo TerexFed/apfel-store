@@ -26,7 +26,7 @@ export class BasketService {
   }
 
   public get totalPrice(): number {
-    return this.basket.reduce((acc, item) => acc + item.price * item.count, 0);
+    return this.basket.reduce((acc, item) => item.discountPrice ? acc + item.discountPrice * item.count : acc + item.price * item.count, 0);
   }
 
   public addToBasket(gadget: BasketItem) {
