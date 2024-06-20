@@ -87,7 +87,7 @@
         @for (catalogItem of getCatalogProducts(); track $index) {
         <a routerLink="/">
           <div class="catalog__list__items__item">
-            <img class="catalog__list__items__item__image" [src]="'http://localhost:1452/' + catalogItem.images[0]"
+            <img class="catalog__list__items__item__image" [src]="'https://angular-final-project-backend.onrender.com/' + catalogItem.images[0]"
               alt="item image" />
             <p class="catalog__list__items__item__title">
               {{ catalogItem.name }}
@@ -107,7 +107,7 @@
   <div class="search-results">
     @for (searchResult of searchedResultList; track searchResult.id) {
     <div class="search-result">
-      <img class="image" [src]="'http://localhost:1452/' + searchResult.images[0]" alt="search result image" />
+      <img class="image" [src]="'https://angular-final-project-backend.onrender.com/' + searchResult.images[0]" alt="search result image" />
       <div class="info">
         <p class="name">{{ searchResult.name }}</p>
         <p class="price">{{ searchResult.price | customCurrency }}</p>
@@ -148,7 +148,7 @@
   <div class="search-results">
     @for (searchResult of searchedResultList; track searchResult.id) {
     <div class="search-result">
-      <img class="image" [src]="'http://localhost:1452/' + searchResult.images[0]" alt="search result image" />
+      <img class="image" [src]="'https://angular-final-project-backend.onrender.com/' + searchResult.images[0]" alt="search result image" />
       <div class="info">
         <p class="name">{{ searchResult.name }}</p>
         <p class="price">{{ searchResult.price | customCurrency }}</p>
