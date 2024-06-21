@@ -42,14 +42,16 @@
             }
             }
         </div>
-        <app-gadget-list class="list" [gadgetList]="products" />
+        <app-gadget-list class="list" [gadgetList]="getPaginationProducts()" />
     </div>
-
-
-
-
-
-
+    <div>
+        <p (click)="page > 1 && changePage(page-1)">
+            < </p>
+                @for (pag of getPagination(); track $index) {
+                <p [class]="page === pag ? 'active-pag' : ''" (click)="pag !== '...' && changePage(+pag)">{{pag}}</p>
+                }
+                <p (click)="page < getPaginationLength() && changePage(page+1)">></p>
+    </div>
     <div class="new-models__text">
         <h4 class="normal">Новые модели Айфонов по выгодным ценам</h4>
         <p class="text">

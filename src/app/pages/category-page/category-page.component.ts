@@ -8,7 +8,7 @@ import { Subscription } from 'rxjs';
 @Component({
   selector: 'app-category-page',
   templateUrl: './category-page.component.html',
-  styleUrls: ['./category-page.component.scss', './filters-page.component.scss']
+  styleUrls: ['./category-page.component.scss', './filters-page.component.scss', './pagination.component.scss']
 })
 export class CategoryPageComponent implements OnInit, OnDestroy {
   products: Product[] = [];
@@ -29,6 +29,9 @@ export class CategoryPageComponent implements OnInit, OnDestroy {
   private routeSub: Subscription;
 
   private priceChangeTimeout: any;
+
+  page: number = 1
+  perPage: number = 6
 
   constructor(
     private route: ActivatedRoute,
@@ -137,5 +140,28 @@ export class CategoryPageComponent implements OnInit, OnDestroy {
     this.priceChangeTimeout = setTimeout(() => {
       this.newListOfProductsOnChange()
     }, 500);
+  }
+
+
+
+  getPaginationLength() {
+    return Math.ceil(this.products.length / this.perPage)
+  }
+
+  getPaginationProducts() {
+    return this.products.slice((this.page - 1) * this.perPage, (this.page - 1) * this.perPage + this.perPage)
+  }
+
+  getPagination() {
+    const length = this.getPaginationLength()
+    const page = this.page
+    if (length <= 5) return new Array(length).fill(true).map((_, ind) => ind + 1)
+    if (page <= 3) return [1, 2, 3, '...', length]
+    if (page >= length - 2) return [1, '...', length - 2, length - 1, length]
+    return [1, '...', page, '...', length]
+  }
+
+  changePage(newPage: number) {
+    this.page = newPage
   }
 }
