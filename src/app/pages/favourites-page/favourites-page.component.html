@@ -6,10 +6,7 @@
     <!-- filter -->
   </div>
   <div class="gadget-list">
-    @for(gadget of favourites; track trackByGadgetId) {
-    <app-gadget-item [gadget]="gadget"></app-gadget-item>
-    }
-    <!-- <app-gadget-list [gadgetList]="favourites" /> -->
+    <app-gadget-list [gadgetList]="favourites" />
   </div>
   } @else {
   <div class="favourites-empty">

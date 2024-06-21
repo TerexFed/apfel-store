@@ -17,11 +17,9 @@ export class FavouriteService {
     let favourites = this.getFavourites();
     if (!favourites.find((item: any) => item.id === gadget.id)) {
       favourites.push(gadget);
-      this.storageService.changeData(
-        this.storageKey,
-        JSON.stringify(favourites)
-      );
       gadget.isFavorite = true;
+      this.storageService.changeData(this.storageKey, JSON.stringify(favourites)
+      );
     }
   }
 
@@ -30,7 +28,9 @@ export class FavouriteService {
     favourites = favourites.filter((item: any) => item.id !== gadget.id);
     this.storageService.changeData(this.storageKey, JSON.stringify(favourites));
     gadget.isFavorite = false;
+    return favourites;
   }
+
 
   isFavourite(gadget: any) {
     let favourites = this.getFavourites();
