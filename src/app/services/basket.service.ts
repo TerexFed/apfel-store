@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { StorageService } from './storage.service';
 import { GadgetService } from './gadget.service';
+import { Product } from '../types/product';
+import { ProductService } from './product.service';
 
 export type BasketItem = {
   id: number;
@@ -17,7 +19,7 @@ export type BasketItem = {
 })
 
 export class BasketService {
-  constructor(private storageService: StorageService, private gadgetService: GadgetService) { }
+  constructor(private storageService: StorageService, private gadgetService: GadgetService, private productService: ProductService) { }
 
   public basket: Array<BasketItem> = this.storageService.getData('basket') || [];
 
@@ -39,11 +41,20 @@ export class BasketService {
     this.storageService.changeData('basket', JSON.stringify(this.basket));
   }
 
-  public deleteBasketItem(id: number) {
+  public async deleteBasketItem(id: number) {
+
+    const allProducts = await this.productService.getAllProducts();
     const itemToRemove = this.basket.find(el => el.id === id);
+
+    const isError = (item: Product | { errorMessage: string }): item is { errorMessage: string } => {
+      return 'errorMessage' in item;
+    };
+
+    const validProducts = allProducts.filter(product => !isError(product)) as Product[];
+
     if (itemToRemove) {
+      validProducts.find(el => el.id === id)!.isInCart = false
       this.basket = this.basket.filter(el => el.id !== id);
-      this.gadgetService.gadgets.find(el => el.id === id).isInCart = false;
       this.storageService.changeData('basket', JSON.stringify(this.basket));
     }
   }

@@ -21,6 +21,7 @@ export interface Product {
     name: string;
     images: string[];
     characteristics: Characteristic[];
+    isInCart: boolean;
 }
 
 export interface Filter {

@@ -27,9 +27,15 @@ export class BottomSheetComponent implements OnInit {
   constructor(@Inject(MAT_BOTTOM_SHEET_DATA) public data: any, private bottomSheetRef: MatBottomSheetRef, public router: Router, public basketService: BasketService, public dialog: MatDialog, private formBuilder: FormBuilder, private bottomSheetService: BottomSheetService, private elementRef: ElementRef) { }
 
 
+
   closeBottomSheet() {
     this.bottomSheetRef.dismiss();
     this.bottomSheetService.closeBottomSheet();
+  }
+
+  public navigateToCategory(id: number) {
+    this.router.navigate([`/category/${id}`])
+    this.closeBottomSheet()
   }
 
   private telephoneValidator(): AsyncValidatorFn {

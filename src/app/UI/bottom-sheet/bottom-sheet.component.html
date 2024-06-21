@@ -4,25 +4,29 @@
     @switch (data.type) {
     @case ('catalog') {
     <div class="catalog-list">
-        <div class="catalog-item">
+        <div class="catalog-item" (click)="navigateToCategory(2)">
             <img src="../../../assets/header/iphone.svg" />
             <p>Iphone</p>
         </div>
-        <div class="catalog-item">
+        <div class="catalog-item" (click)="navigateToCategory(4)">
             <img src="../../../assets/header/ipad.svg" />
             <p>Ipad</p>
         </div>
-        <div class="catalog-item">
+        <div class="catalog-item" (click)="navigateToCategory(3)">
             <img src="../../../assets/header/macbook_imac.svg" />
             <p>MacBook и IMac</p>
         </div>
-        <div class="catalog-item">
+        <div class="catalog-item" (click)="navigateToCategory(5)">
             <img src="../../../assets/header/applewatch.svg" />
             <p>Watch</p>
         </div>
-        <div class="catalog-item">
+        <div class="catalog-item" (click)="navigateToCategory(6)">
             <img width="40px" height="40px" src="../../../assets/header/airpods.svg" />
             <p>Гаджеты</p>
+        </div>
+        <div class="catalog-item" (click)="navigateToCategory(1)">
+            <img width="40px" height="40px" src="../../../assets/header/iphoneaccessories.svg" />
+            <p>Аксессуары</p>
         </div>
     </div>
     }

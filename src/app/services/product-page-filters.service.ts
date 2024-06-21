@@ -50,12 +50,16 @@ export class ProductPageFiltersService {
           .map(el => el.characteristics[1].value)
           .sort((a, b) => parseFloat(a) - parseFloat(b));
         break;
-        
+
       case 'Часы':
         this.memoryCapacity = [...new Set(validProducts
           .filter(el => el.name === data.name && el.color === data.color)
           .map(el => el.characteristics[5].value)
-          .sort((a, b) => a.localeCompare(b)))];
+          .sort((a, b) => parseFloat(a) - parseFloat(b)))];
+        break;
+      default:
+        console.error('Unknown category:', category);
+        this.memoryCapacity = [];
         break;
     }
 

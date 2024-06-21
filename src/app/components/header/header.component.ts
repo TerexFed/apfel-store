@@ -25,8 +25,12 @@ export class HeaderComponent implements OnInit {
     public dialog: MatDialog,
     public basketService: BasketService,
     public productService: ProductService,
-    private router: Router
+    public router: Router
   ) { }
+
+  public navigateToCategory(id: number) {
+    this.router.navigate([`/category/${id}`])
+  }
 
   async ngOnInit(): Promise<void> {
     const categories = await this.productService.getAllCategories();

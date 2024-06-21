@@ -48,6 +48,7 @@ export class GadgetPageComponent {
 
   public async changeMemoryCapacity(memory: string) {
     await this.productFilters.updateMemoryCapacity(this.product, this.product.category, memory);
+
     this.productFilters.otherGadgets.forEach(gadget => {
       if (gadget.color === this.product.color) {
         this.navigateToOtherGadgets(gadget.id);

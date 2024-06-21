@@ -64,6 +64,16 @@
 
 .basket__list-item-content {
     margin-left: 10px;
+
+    >sup {
+        display: flex;
+        align-self: center;
+        height: 30px;
+        width: 200px;
+        overflow-x: scroll;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
 }
 
 .prices__count {
@@ -76,6 +86,7 @@
     gap: 10px;
     margin-top: 10px;
     width: fit-content;
+    min-width: 160px;
 }
 
 .crossed {
