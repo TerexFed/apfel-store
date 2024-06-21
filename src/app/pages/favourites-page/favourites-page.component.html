@@ -2,8 +2,13 @@
   @if (favourites.length > 0) {
   <h2 class="favourites-title">Избранное</h2>
   <div class="favourites-sort">
-    <h3>Сортировать</h3>
+    <h3 class="favourites-sort-title">Сортировать</h3>
     <!-- filter -->
+    <select class="">
+      <option value="">По умолчанию</option>
+      <option value="price">По стоимости</option>
+      <option value="date">По дате добавления</option>
+    </select>
   </div>
   <div class="gadget-list">
     <app-gadget-list [gadgetList]="favourites" />

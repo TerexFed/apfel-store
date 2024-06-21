@@ -1,7 +1,7 @@
 @import "../../../variables.scss";
 
 .warranty {
-  @media screen and (max-width: 1221px) {
+  @media screen and (max-width: 1201px) {
     margin: 0 24px 0 24px;
   }
   .warranty__list {
@@ -51,7 +51,7 @@
   .warranty__accordion-item-body {
     padding: 24px 112px 24px 40px;
 
-    @media screen and (max-width: 1221px) {
+    @media screen and (max-width: 1201px) {
       p {
         font-size: 16px;
         font-weight: 400;
@@ -94,7 +94,7 @@
       font-weight: 500;
       line-height: 47.73px;
 
-      @media screen and (max-width: 1221px) {
+      @media screen and (max-width: 1201px) {
         font-size: 32px;
         font-weight: 500;
         line-height: 38.19px;
@@ -113,7 +113,7 @@
       line-height: 28.64px;
       margin-bottom: 16px;
 
-      @media screen and (max-width: 1221px) {
+      @media screen and (max-width: 1201px) {
         font-size: 20px;
         font-weight: 500;
         line-height: 23.87px;
@@ -137,7 +137,7 @@
       line-height: 19.09px;
       margin-bottom: 24px;
 
-      @media screen and (max-width: 1221px) {
+      @media screen and (max-width: 1201px) {
         margin-bottom: 16px;
       }
     }

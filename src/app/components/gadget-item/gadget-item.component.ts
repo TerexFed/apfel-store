@@ -44,7 +44,7 @@ export class GadgetItemComponent implements OnInit {
     window.scroll(0, 0)
   }
 
-  windowWidth: number = 1221;
+  windowWidth: number = 1201;
 
   ngOnInit(): void {
     this.windowWidth = globalThis.innerWidth;

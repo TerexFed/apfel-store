@@ -15,7 +15,7 @@ export class BasketAddComponent implements OnInit {
   @Input() title: string = ''
   @Input() image: string = ''
 
-  windowWidth: number = 1221
+  windowWidth: number = 1201
 
   public isCatalogOpen: boolean = false
   public isBasketOpen: boolean = false
@@ -43,7 +43,7 @@ export class BasketAddComponent implements OnInit {
   }
 
   public openBasket() {
-    if (this.windowWidth <= 1221) {
+    if (this.windowWidth <= 1201) {
       this.dialog.ngOnDestroy()
       this.bottomSheetService.openBasket()
       this.bottomSheet.open(BottomSheetComponent, { data: { type: 'basket', close: this.closeBottomSheet.bind(this) } })

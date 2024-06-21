@@ -5,6 +5,12 @@
   margin: 32px auto;
   display: flex;
 
+  @media screen and (max-width: 1201px) {
+    .review {
+      display: none;
+    }
+  }
+
   .review__head {
     display: flex;
     align-items: center;
@@ -24,7 +30,12 @@
     .review__comments-item {
       max-width: 400px;
       display: grid;
-      gap: 8px;
+      gap: 12px;
+
+      .review__comments-item-f {
+        display: flex;
+        gap: 10px;
+      }
 
       .review__comments-title {
         font-size: 24px;
@@ -43,6 +54,7 @@
 
       .review__comments-text {
         font-size: 16px;
+        margin-bottom: 24px;
       }
     }
   }
@@ -55,6 +67,8 @@
     justify-content: center;
     text-align: center;
     width: 394px;
+    height: 633px;
+    margin-top: 88px;
     margin-left: 406px;
 
     .review__recommends-head {
