@@ -46,13 +46,13 @@ export class GadgetPageComponent {
     this.gadgetService.getGadgetByID(`${id}`)
   }
 
-  public changeMemoryCapacity(memory: string) {
-    this.productFilters.updateMemoryCapacity(this.gadgetService.gadget, this.gadgetService.gadget.category, memory);
-    for (let i = 0; i < this.productFilters.otherGadgets.length; i++) {
-      if (this.productFilters.otherGadgets[i].color === this.gadgetService.gadget.color) {
-        this.navigateToOtherGadgets(this.productFilters.otherGadgets[i].id)
+  public async changeMemoryCapacity(memory: string) {
+    await this.productFilters.updateMemoryCapacity(this.product, this.product.category, memory);
+    this.productFilters.otherGadgets.forEach(gadget => {
+      if (gadget.color === this.product.color) {
+        this.navigateToOtherGadgets(gadget.id);
       }
-    }
+    });
   }
 
   public back() {
