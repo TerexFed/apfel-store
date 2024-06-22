@@ -57,7 +57,29 @@ export class GadgetPageComponent {
   }
 
   public back() {
-    this.router.navigate(['/all-catalog'])
+    let previousUrl: string = ''
+    switch (this.product?.category) {
+      case 'Смартфоны': previousUrl = '2';
+        break
+
+      case 'Планшеты': previousUrl = '4';
+        break
+
+      case 'Компьютеры': previousUrl = '3';
+        break
+
+      case 'Часы': previousUrl = '5';
+        break
+
+      case 'Гаджеты': previousUrl = '6';
+        break
+
+      case 'Аксессуары': previousUrl = '1';
+        break
+
+      default: previousUrl = ''
+    }
+    this.router.navigateByUrl(`category/${previousUrl}`);
     this.productFilters.clearFilters()
   }
 
