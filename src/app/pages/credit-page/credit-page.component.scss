@@ -3,17 +3,19 @@
     margin: 0 auto;
     margin-top: 20px;
 
-    @media (max-width: 1023px) {
+    @media (max-width: 1201px) {
         padding: 0 24px 0 24px;
     }
 }
+
 .top__block {
     display: flex;
     border-radius: 16px;
     justify-content: flex-start;
     background: linear-gradient(248.2deg, rgb(0, 113, 228) 0.295%, rgb(126, 190, 255) 99.705%);
     height: 190px;
-    @media (max-width: 638px) {
+
+    @media (max-width: 769px) {
         flex-direction: column-reverse;
         align-items: center;
         justify-content: flex-end;
@@ -22,31 +24,40 @@
         position: relative;
     }
 }
+
 .top__block-image {
     width: 302px;
     clip-path: inset(0 0 100px);
     height: fit-content;
     margin: 18px 80px 0 80px;
-    @media (max-width: 1023px) {
+
+    @media (max-width: 1201px) {
         margin: 18px 0 0 0;
     }
-    @media (max-width: 638px) {
+
+    @media (max-width: 769px) {
         position: absolute;
-        top: 50px;
+        top: 90px;
+        width: 202px;
+        clip-path: inset(0 0 50px);
     }
 }
+
 .top__block-text {
     align-self: center;
+
     @media (max-width: 825px) {
-        > h4 {
+        >h4 {
             font-size: 24px;
         }
-        > h6 {
+
+        >h6 {
             font-size: 16px;
         }
     }
 }
-.top__block-text > * {
+
+.top__block-text>* {
     color: white;
 }
 
@@ -57,16 +68,18 @@
     gap: 16px 40px;
     margin-top: 55px;
 
-    @media (max-width: 1023px) {
+    @media (max-width: 1201px) {
         grid-template-columns: repeat(3, 1fr);
         grid-template-rows: 190px 1fr;
         margin-top: 24px;
     }
-    @media (max-width: 638px) {
+
+    @media (max-width: 769px) {
         display: flex;
         flex-direction: column;
     }
 }
+
 .grid__block-small-card {
     border-radius: 16px;
     background: rgb(243, 248, 255);
@@ -75,67 +88,83 @@
     flex-direction: column;
     justify-content: center;
 }
+
 .accept {
     grid-area: 1/1/2/2;
-    @media (max-width: 1023px) {
+
+    @media (max-width: 1201px) {
         height: 180px;
     }
 }
+
 .fill {
     grid-area: 2/1/3/2;
-    @media (max-width: 1023px) {
+
+    @media (max-width: 1201px) {
         grid-area: 1 / 2 / 2 / 3;
         height: 180px;
     }
 }
+
 .pay {
     grid-area: 3/1/4/2;
-    @media (max-width: 1023px) {
+
+    @media (max-width: 1201px) {
         grid-area: 1 / 3 / 2 / 4;
         height: 180px;
     }
 }
+
 .grid__block-big-card {
     grid-area: 1 / 2 / 4 / 5;
     border-radius: 16px;
     background: rgb(243, 248, 255);
     padding: 25px;
 
-    @media (max-width: 1023px) {
+    @media (max-width: 1201px) {
         grid-area: 2 / 1 / 4 / 4;
         height: fit-content;
     }
 }
+
 .small-card__image-text {
     display: flex;
     gap: 10px;
     margin-bottom: 5px;
-    @media (max-width: 1023px) {
+
+    @media (max-width: 1201px) {
         flex-direction: column;
         align-items: flex-start;
-        > h6 {
+
+        >h6 {
             font-size: 20px;
         }
     }
 }
+
 .grid__block-big-card-fill {
     display: flex;
     align-items: flex-start;
-    @media (max-width: 638px) {
+
+    @media (max-width: 769px) {
         align-items: center;
         text-align: center;
         flex-direction: column;
     }
 }
+
 .card-fill-text {
     margin-left: 45px;
-    @media (max-width: 638px) {
+
+    @media (max-width: 769px) {
         margin-left: 0;
     }
 }
-.card-fill-text > button {
+
+.card-fill-text>button {
     margin-top: 5px;
 }
+
 .grid__block-big-card-white-container {
     display: flex;
     align-items: center;
@@ -150,23 +179,28 @@
     flex-direction: column;
     align-items: center;
     margin-top: 88px;
-    @media (max-width: 638px) {
+
+    @media (max-width: 769px) {
         align-items: flex-start;
     }
 }
+
 .four-steps {
     display: flex;
     position: relative;
-    @media (max-width: 1023px) {
+
+    @media (max-width: 1201px) {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
     }
-    @media (max-width: 638px) {
+
+    @media (max-width: 769px) {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
     }
 }
+
 .four-steps::before {
     position: absolute;
     content: "";
@@ -179,10 +213,12 @@
     @media (max-width: 1185px) {
         width: 72vw;
     }
-    @media (max-width: 1023px) {
+
+    @media (max-width: 1201px) {
         display: none;
     }
 }
+
 .step {
     display: flex;
     flex-direction: column;
@@ -191,12 +227,13 @@
     margin: 25px 8px 0 8px;
     z-index: 2;
 
-    @media (max-width: 638px) {
+    @media (max-width: 769px) {
         flex-direction: row;
         justify-content: center;
         text-align: left;
     }
 }
+
 .step-number {
     border-radius: 16px;
     background: rgb(243, 248, 255);
@@ -204,7 +241,8 @@
     height: fit-content;
     padding: 8px 20px 8px 20px;
     margin-bottom: 15px;
-    @media (max-width: 638px) {
+
+    @media (max-width: 769px) {
         margin: 0 8px 0 0;
     }
 }
@@ -212,7 +250,8 @@
 .get-credit__block {
     display: flex;
     margin-top: 88px;
-    @media (max-width: 1023px) {
+
+    @media (max-width: 1201px) {
         flex-direction: column;
     }
 }
@@ -222,11 +261,13 @@
     flex-direction: column;
     justify-content: flex-start;
 }
-.requirement{
+
+.requirement {
     margin: 10px 0 10px 40px;
     position: relative;
 }
-.requirement::before{
+
+.requirement::before {
     content: '';
     left: -40px;
     top: -3px;
@@ -235,28 +276,34 @@
     height: 32px;
     background-image: url('../../../assets/credit-page/list-style.svg');
 }
+
 .get-credit__block-buy-now {
     display: flex;
     align-items: flex-end;
     background: rgb(243, 248, 255);
-    @media (max-width: 638px) {
+
+    @media (max-width: 769px) {
         flex-direction: column;
         align-items: center;
         margin-bottom: 24px;
     }
 }
+
 .postpone {
     display: flex;
     flex-direction: column;
     padding: 32px;
-    @media (max-width: 638px) {
+
+    @media (max-width: 769px) {
         text-align: center;
         align-items: center;
     }
 }
-.postpone > * {
+
+.postpone>* {
     margin: 5px 0 5px 0;
 }
-.postpone > button {
+
+.postpone>button {
     width: fit-content;
 }

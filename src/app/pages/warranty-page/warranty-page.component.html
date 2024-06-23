@@ -40,7 +40,7 @@
         [attr.aria-controls]="'accordion-body-'">
         <div class="warranty__accordion-item-header" (click)="accordionItem.toggle()">
           <span class="warranty__accordion-item-description" [class.expanded]="accordionItem.expanded">
-            {{ accordionItem.expanded ? "Открытый список" : "Закрытый список" }}
+
             <img [class]="'warranty__accordion-item-description__img ' + (accordionItem.expanded && 'opened')"
               src="../../../assets/warranty-page/arrow.svg" alt="arrow" />
             <!-- [aria-open]="!!accordionItem.expanded ? 'true' : 'false' " -->
