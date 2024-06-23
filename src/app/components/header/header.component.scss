@@ -135,7 +135,7 @@
   }
 }
 
-input[type="search"] {
+.search {
   background-image: url("../../../assets/header/search-icon.svg");
   background-repeat: no-repeat;
   background-position: 20px;
@@ -236,7 +236,7 @@ input[type="search"] {
     gap: 8px;
   }
 
-  input[type="search"] {
+  .search {
     color: $text-color;
     background-image: none;
     border: none;

@@ -119,12 +119,6 @@ export class HeaderComponent implements OnInit {
     if (this.catalogCategoryId === "Аксессуары") return `/category/1`
   }
 
-  stopPropagationLink(e: MouseEvent, id: number) {
-    // e.stopImmediatePropagation()
-    // console.log('stopPropagationLink');
-    // this.router.navigate([`gadget/${id}`])
-  }
-
   public changeIsSearchResult(newState: boolean): void {
     setTimeout(() => this.isSearchResult = newState, 0);
   }

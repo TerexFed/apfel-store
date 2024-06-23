@@ -10,11 +10,11 @@
     box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
     border-radius: 16px;
 
-    @media screen and (max-width: 1200px) {
+    @media screen and (max-width: 1201px) {
         width: calc(100vw - 215px * 2 - 10px * 3 - 15px - 64px);
     }
 
-    @media screen and (max-width: 1025px) {
+    @media screen and (max-width: 1201px) {
         width: 90%;
         margin: 0 auto;
         left: 5%;

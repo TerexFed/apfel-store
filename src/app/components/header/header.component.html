@@ -4,7 +4,7 @@
       <img class="apple-logo" src="../../../assets/header/apple.svg" alt="логотип apple store" routerLink="/" />
       <a routerLink="/all-catalog">Весь каталог</a>
       <a class="promotion" (click)="navigateToDiscounts()">
-        <img  src="../../../assets/header/fire-emoji.svg" alt="эмодзи огня акций" />
+        <img src="../../../assets/header/fire-emoji.svg" alt="эмодзи огня акций" />
         Акции
       </a>
       <a routerLink="/warranty">Гарантия</a>
@@ -33,7 +33,7 @@
       Каталог товаров
     </button>
     <input [(ngModel)]="searchResultText" (ngModelChange)="getSearchResult()" (focus)="changeIsSearchResult(true)"
-      (blur)="changeIsSearchResult(false)" type="search" placeholder="Поиск по каталогу товаров" />
+      class="search" placeholder="Поиск по каталогу товаров" />
     <div class="functions">
       <img routerLink="/favourites" src="../../../assets/header/heart.svg" alt="Любимые" />
     </div>
@@ -111,10 +111,14 @@
         alt="search result image" />
       <div class="info">
         <p class="name">{{ searchResult.name }}</p>
-        <p class="price">{{ searchResult.price | customCurrency }}</p>
+        @if(searchResult.discount_price){
+        <p class="price">{{ (searchResult.discount_price) | customCurrency }}</p>
+        } @else {
+        <p class="price">{{ (searchResult.price) | customCurrency }}</p>
+        }
       </div>
-      <a (click)="stopPropagationLink($event, searchResult.id)" [routerLink]="'/gadget/' + searchResult.id"
-        class="link">Подробнее</a>
+      <a [routerLink]="'/gadget/' + searchResult.id"
+        (click)="openGadget(searchResult.id.toString());isSearchResult = false" class="link">Подробнее</a>
     </div>
     }
   </div>
@@ -130,7 +134,7 @@
         '.svg'
       " alt="" />
     <input [(ngModel)]="searchResultText" (ngModelChange)="getSearchResult()" (focus)="changeIsSearchResult(true)"
-      (blur)="changeIsSearchResult(false)" type="search" placeholder="Поиск по каталогу товаров" />
+      (blur)="changeIsSearchResult(false)" class="search" placeholder="Поиск по каталогу товаров" />
     @if (searchResultText) {
     <img (click)="removeSearchResultText()" src="/assets/header/close.svg" alt="" />
     }
@@ -154,10 +158,14 @@
         alt="search result image" />
       <div class="info">
         <p class="name">{{ searchResult.name }}</p>
-        <p class="price">{{ searchResult.price | customCurrency }}</p>
+        @if(searchResult.discount_price){
+        <p class="price">{{ (searchResult.discount_price) | customCurrency }}</p>
+        } @else {
+        <p class="price">{{ (searchResult.price) | customCurrency }}</p>
+        }
       </div>
-      <a (click)="stopPropagationLink($event, searchResult.id)" [routerLink]="'/gadget/' + searchResult.id"
-        class="link">Подробнее</a>
+      <a [routerLink]="'/gadget/' + searchResult.id"
+        (click)="openGadget(searchResult.id.toString());isSearchResult = false" class="link">Подробнее</a>
     </div>
     }
   </div>
