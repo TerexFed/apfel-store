@@ -38,6 +38,15 @@
     @case ('Trade-In') {
     <modal-trade-in></modal-trade-in>
     }
+    @case ('Filters') {
+    <modal-filters [products]="data.products" [firstPrice]="data.firstPrice" [secondPrice]="data.secondPrice"
+      [maxRangeValue]="data.maxRangeValue" [filters]="data.filters" [filtersAreOpen]="data.filtersAreOpen"
+      [sorting]="data.sorting" [filterProducts]="data.filterProducts" [productsOnChange]="data.productsOnChange"
+      [filtersOnChange]="data.filtersOnChange" [newListOfProductsOnChange]="data.newListOfProductsOnChange"
+      [changeFiltersAreOpen]="data.changeFiltersAreOpen" [priceOnChange]="data.priceOnChange"
+      [categoryId]="data.categoryId" [subcategoryId]="data.subcategoryId" [changeProducts]="data.changeProducts"
+      [changeSecondPrice]="data.changeSecondPrice" [changeFirstPrice]="data.changeFirstPrice" />
+    }
     }
   </div>
 </mat-dialog-content>

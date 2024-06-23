@@ -16,9 +16,10 @@ label {
     flex-direction: column;
     max-width: 276px;
     width: 100%;
-    background-color: $bg-warranty-page;
-    padding: 15px;
-    // gap: 10px;
+    gap: 5px;
+    max-height: 520px;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 .inputs {
@@ -86,12 +87,6 @@ label {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-
-    @media screen and (max-width: 769px) {
-        flex-direction: column;
-        gap: 10px;
-        align-items: flex-start;
-    }
 }
 
 .filters-button-mobile {

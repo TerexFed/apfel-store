@@ -1,0 +1,30 @@
+<div class="filters">
+    <p class="title">Цена</p>
+    <mat-slider class="input-range" [min]="0" [max]="maxRangeValue">
+        <input [(ngModel)]="firstPrice" (ngModelChange)="changeFirstPrice($event); priceOnChange()" matSliderStartThumb>
+        <input [(ngModel)]="secondPrice" (ngModelChange)="changeSecondPrice($event); priceOnChange()" matSliderEndThumb>
+    </mat-slider>
+    <div class="inputs">
+        <input class="priceInput" [max]="secondPrice" [(ngModel)]="firstPrice"
+            (ngModelChange)="changeFirstPrice($event); priceOnChange()" type="text">
+        <input class="priceInput" [min]="firstPrice" [(ngModel)]="secondPrice"
+            (ngModelChange)="changeSecondPrice($event); priceOnChange()" type="text">
+    </div>
+    @for (filter of filters; track $index) {
+    <div [class]="'filter-title ' + (filtersAreOpen.includes(filter.name) ? 'open' : '')"
+        (click)="changeFiltersAreOpen(filter.name)">
+        <p>{{filter.name}}</p>
+        <img src="/assets/filters/open-bar.svg" alt="+">
+    </div>
+    @if (filtersAreOpen.includes(filter.name)) {
+    <div class="filter-block">
+        @for (filterValue of filter.values; track $index) {
+        <mat-checkbox class="checkbox" (click)="newListOfProductsOnChange()" [(ngModel)]="filterValue.status"><span
+                class="checkbox">{{
+                filterValue.value
+                }}</span></mat-checkbox>
+        }
+    </div>
+    }
+    }
+</div>

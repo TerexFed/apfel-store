@@ -12,7 +12,6 @@ import { ContactPageComponent } from './pages/contact-page/contact-page.componen
 import { FavouritesPageComponent } from './pages/favourites-page/favourites-page.component';
 import { GadgetPageComponent } from './pages/gadget-page/gadget-page.component';
 import { CategoryPageComponent } from './pages/category-page/category-page.component';
-import { SubcategoryProductsComponent } from './components/subcategory-products/subcategory-products.component';
 
 const routes: Routes = [
   {

@@ -1,9 +1,11 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, HostListener } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProductService } from '../../services/product.service';
 import { Filter, Product, Subcategory, productTypeId } from '../../types/product';
 import { FiltersService } from '../../services/filters.service';
 import { Subscription } from 'rxjs';
+import { MatDialog } from '@angular/material/dialog';
+import { ModalWindowComponent } from '../../UI/modal-window/modal-window.component';
 
 @Component({
   selector: 'app-category-page',
@@ -30,6 +32,13 @@ export class CategoryPageComponent implements OnInit, OnDestroy {
 
   sortingValues: ["", "incr", "descr"] = ["", "incr", "descr"];
 
+  windowWidth: number = globalThis?.window?.innerWidth || 1300
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event: any) {
+    this.windowWidth = event.target.innerWidth;
+  }
+
   private routeSub: Subscription;
 
   private priceChangeTimeout: any;
@@ -41,7 +50,8 @@ export class CategoryPageComponent implements OnInit, OnDestroy {
     private route: ActivatedRoute,
     private router: Router,
     private productService: ProductService,
-    private filtersService: FiltersService
+    private filtersService: FiltersService,
+    public dialog: MatDialog
   ) { }
 
   filterProducts(products: Product[], filters: Filter[], firstPrice: number, secondPrice: number): Product[] {
@@ -80,9 +90,14 @@ export class CategoryPageComponent implements OnInit, OnDestroy {
 
   async newListOfProductsOnChange() {
     const products = await this.filtersOnChange()
-    if (this.sorting === "") this.products = products
-    if (this.sorting === "incr") this.products = products.filter(product => product.is_available).sort((productA, productB) => (productA.discount_price || productA.price) - (productB.discount_price || productB.price))
-    if (this.sorting === "descr") this.products = products.filter(product => product.is_available).sort((productA, productB) => (productB.discount_price || productB.price) - (productA.discount_price || productA.price))
+
+    if (this.sorting === "") this.changeProducts(products)
+    if (this.sorting === "incr") this.changeProducts(products.filter(product => product.is_available).sort((productA, productB) => (productA.discount_price || productA.price) - (productB.discount_price || productB.price)))
+    if (this.sorting === "descr") this.changeProducts(products.filter(product => product.is_available).sort((productA, productB) => (productB.discount_price || productB.price) - (productA.discount_price || productA.price)))
+  }
+
+  changeProducts(products: Product[]) {
+    this.products = products
   }
 
   ngOnInit(): void {
@@ -168,5 +183,47 @@ export class CategoryPageComponent implements OnInit, OnDestroy {
   changePage(newPage: number) {
     this.page = newPage
     window.scroll(0, 0)
+  }
+
+  changeFirstPrice(newPrice: number) {
+    if (this.priceChangeTimeout) clearTimeout(this.priceChangeTimeout)
+    this.priceChangeTimeout = setTimeout(() => {
+      this.firstPrice = newPrice
+    }, 500);
+  }
+
+  changeSecondPrice(event: number) {
+    if (this.priceChangeTimeout) clearTimeout(this.priceChangeTimeout)
+    this.priceChangeTimeout = setTimeout(() => {
+      this.secondPrice = event
+    }, 500);
+  }
+
+
+  openFiltersModal() {
+    window.scrollTo(0, 0);
+    this.dialog.open(ModalWindowComponent, {
+      data: {
+        type: 'Filters',
+        products: this.products,
+        firstPrice: this.firstPrice,
+        secondPrice: this.secondPrice,
+        maxRangeValue: this.maxRangeValue,
+        filters: this.filters,
+        filtersAreOpen: this.filtersAreOpen,
+        sorting: this.sorting,
+        filterProducts: this.filterProducts.bind(this),
+        productsOnChange: this.productsOnChange.bind(this),
+        filtersOnChange: this.filtersOnChange,
+        newListOfProductsOnChange: this.newListOfProductsOnChange,
+        changeFiltersAreOpen: this.changeFiltersAreOpen,
+        priceOnChange: this.priceOnChange,
+        categoryId: this.categoryId,
+        subcategoryId: this.subcategoryId,
+        changeProducts: this.changeProducts.bind(this),
+        changeFirstPrice: this.changeFirstPrice.bind(this),
+        changeSecondPrice: this.changeSecondPrice.bind(this),
+      }
+    });
   }
 }

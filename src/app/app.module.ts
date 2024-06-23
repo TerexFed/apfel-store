@@ -5,7 +5,7 @@ import {
 } from '@angular/platform-browser';
 import { MatDialogModule } from '@angular/material/dialog';
 import { CdkAccordionModule } from '@angular/cdk/accordion';
-import {MatProgressBarModule} from '@angular/material/progress-bar'
+import { MatProgressBarModule } from '@angular/material/progress-bar'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -50,7 +50,7 @@ import { MatListModule } from '@angular/material/list';
 import { BottomSheetComponent } from './UI/bottom-sheet/bottom-sheet.component';
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { CategoryPageComponent } from './pages/category-page/category-page.component';
-import { SubcategoryProductsComponent } from './components/subcategory-products/subcategory-products.component';
+import { FiltersComponent } from './modals/filters/filters.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -89,7 +89,7 @@ import { SubcategoryProductsComponent } from './components/subcategory-products/
     NightApplicationSendComponent,
     BottomSheetComponent,
     CategoryPageComponent,
-    SubcategoryProductsComponent,
+    FiltersComponent,
   ],
   imports: [
     BrowserModule,
@@ -107,4 +107,4 @@ import { SubcategoryProductsComponent } from './components/subcategory-products/
   providers: [provideClientHydration(), provideAnimations()],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }
