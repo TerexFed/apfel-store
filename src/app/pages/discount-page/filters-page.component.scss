@@ -14,10 +14,12 @@ label {
 .filters {
     display: flex;
     flex-direction: column;
-    max-width: 276px;
+    max-width: 420px;
     width: 100%;
+
+    padding-left: 100px;
+    padding-right: 20px;
     background-color: $bg-warranty-page;
-    padding: 15px;
 }
 
 .inputs {

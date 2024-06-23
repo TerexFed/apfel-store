@@ -38,6 +38,10 @@ export class HeaderComponent implements OnInit {
     this.router.navigate([`/category/${id}`])
   }
 
+  public navigateToDiscounts() {
+    this.router.navigate(['/discount'])
+  }
+
   async ngOnInit(): Promise<void> {
     const categories = await this.productService.getAllCategories();
     this.catalogs = categories;

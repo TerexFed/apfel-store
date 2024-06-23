@@ -1,0 +1,161 @@
+<section class="container">
+  <div class="list-container">
+    <div class="filters">
+      <p class="title">Цена</p>
+      <mat-slider class="input-range" [min]="0" [max]="maxRangeValue">
+        <input
+          [(ngModel)]="firstPrice"
+          (ngModelChange)="priceOnChange()"
+          matSliderStartThumb
+        />
+        <input
+          [(ngModel)]="secondPrice"
+          (ngModelChange)="priceOnChange()"
+          matSliderEndThumb
+        />
+      </mat-slider>
+      <div class="inputs">
+        <input
+          class="priceInput"
+          [max]="secondPrice"
+          [(ngModel)]="firstPrice"
+          (ngModelChange)="priceOnChange()"
+          type="text"
+        />
+        <input
+          class="priceInput"
+          [min]="firstPrice"
+          [(ngModel)]="secondPrice"
+          (ngModelChange)="priceOnChange()"
+          type="text"
+        />
+      </div>
+      <div class="promo">
+        <div class="promo__card">
+          <img
+            width="40"
+            height="40"
+            class=""
+            src="../../../assets/discount-page/money.svg"
+            alt="Стопка денег"
+          />
+          <div>
+            <p class="promo__title">Оплата</p>
+            <p class="promo__text">Все виды наличного и безналичного расчета</p>
+          </div>
+        </div>
+        <div class="promo__card">
+          <img
+          width="40"
+            height="40"
+          class=""
+          src="../../../assets/discount-page/fast-car.svg"
+          alt="Грузовик на бешеной скорости"
+        />
+        <div>
+          <p class="promo__title">Доставка за 2 часа</p>
+          <p class="promo__text">Быстро и бесплатно доставляем все заказы по Москве</p>
+        </div>
+        </div>
+        <div class="promo__card">
+          <img
+          width="40"
+            height="40"
+          class=""
+          src="../../../assets/discount-page/museum.svg"
+          alt="Музей"
+        />
+        <div class="promo__section">
+          <p class="promo__title">Кредит</p>
+          <p class="promo__text">Выгодные кредитные предложения от самых популярных банков</p>
+        </div>
+        </div>
+        <div class="promo__card">
+          <img
+          width="40"
+            height="40"
+          class=""
+          src="../../../assets/discount-page/shield.svg"
+          alt="Щит"
+        />
+        <div class="promo__section">
+          <p class="promo__title">Гарантия</p>
+          <p class="promo__text">Предоставляем целый год сервисного обслуживания</p>
+        </div>
+        </div>
+      </div>
+      @for (filter of filters; track $index) {
+      <div
+        [class]="
+          'filter-title ' + (filtersAreOpen.includes(filter.name) ? 'open' : '')
+        "
+        (click)="changeFiltersAreOpen(filter.name)"
+      >
+        <p>{{ filter.name }}</p>
+        <img src="/assets/filters/open-bar.svg" alt="+" />
+      </div>
+      @if (filtersAreOpen.includes(filter.name)) {
+      <div class="filter-block">
+        @for (filterValue of filter.values; track $index) {
+        <mat-checkbox
+          class="checkbox"
+          (click)="newListOfProductsOnChange()"
+          [(ngModel)]="filterValue.status"
+          ><span class="checkbox">{{ filterValue.value }}</span></mat-checkbox
+        >
+        }
+      </div>
+      } }
+    </div>
+    <app-gadget-list class="list" [gadgetList]="getPaginationProducts()" />
+  </div>
+  @if(getPaginationLength() > 1){
+  <div class="pagination">
+    <img
+      [ariaDisabled]="page === 1"
+      class="arrow-pagination"
+      (click)="page > 1 && changePage(page - 1)"
+      src="/assets/filters/arrow-pagination.svg"
+    />
+    @for (pag of getPagination(); track $index) {
+    <p
+      [class]="
+        'pag ' +
+        (page === pag ? 'active-pag' : pag === '...' ? 'not-active' : '')
+      "
+      (click)="pag !== '...' && changePage(+pag)"
+    >
+      {{ pag }}
+    </p>
+    }
+    <img
+      class="arrow-pagination arrow-pagination-reverse"
+      (click)="page < getPaginationLength() && changePage(page + 1)"
+      src="/assets/filters/arrow-pagination.svg"
+    />
+  </div>
+  }
+  <div class="new-models__text">
+    <h4 class="normal">Новые модели Айфонов по выгодным ценам</h4>
+    <p class="text">
+      Для тех, кто хочет приобрести новый телефон магазин Istoreapple.ru
+      предлагает:
+    </p>
+    <br />
+    <p class="new-iphone-text text">
+      Низкие цены на все виды устройств, недорогие аксессуары; <br />
+      Оригинальные подарки бренда; <br />
+      Новая линейка смартфонов и проверенные старые модели; <br />
+      Лаконичный дизайн, большой выбор цветов и оттенков; <br />
+      Все товары в каталоге есть в наличии и доступны для покупки в кредит и
+      рассрочку; <br />
+      Быстрая доставка по Санкт-Петербургу и области; <br />
+      Гарантия на все модели телефонов; <br />
+      Все способы оплаты! <br />
+      Товары, представленные на официальном сайте Istoreapple.ru,
+      сертифицированы. Мы занимаемся продажей айфонов с 2013 года. Вы всегда
+      можете прочитать отзывы о покупке наших клиентов, позвонить в магазин и
+      получить консультацию по любой модели Apple.
+    </p>
+  </div>
+</section>
