@@ -1,24 +1,23 @@
-import { Component, HostListener, Input, OnInit } from '@angular/core';
+import { Component, HostListener, Input, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ModalWindowComponent } from '../../UI/modal-window/modal-window.component';
 import { Router } from '@angular/router';
 import { BasketService } from '../../services/basket.service';
 import { WatchedGadgetsService } from '../../services/watched-gadgets.service';
-import { MatBottomSheet } from '@angular/material/bottom-sheet';
-import { BottomSheetComponent } from '../../UI/bottom-sheet/bottom-sheet.component';
-import { Product } from '../../types/product';
 import { GadgetService } from '../../services/gadget.service';
 import { ProductPageFiltersService } from '../../services/product-page-filters.service';
 import { FavouriteService } from '../../services/favourite.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-gadget-item',
   templateUrl: './gadget-item.component.html',
   styleUrl: './gadget-item.component.scss',
 })
-export class GadgetItemComponent implements OnInit {
+export class GadgetItemComponent implements OnInit, OnDestroy {
   constructor(public dialog: MatDialog, public router: Router, private basketService: BasketService, private watchedGadgetsService: WatchedGadgetsService, private favouriteService: FavouriteService, private productFilters: ProductPageFiltersService, public gadgetService: GadgetService) { }
   @Input() gadget: any
+  private favouriteSubscription: Subscription;
 
   public get5RatingArr() {
     return new Array(5).fill(true);
@@ -38,9 +37,11 @@ export class GadgetItemComponent implements OnInit {
   }
 
   public openGadget() {
-    this.watchedGadgetsService.watch(this.gadget)
     this.router.navigate([`gadget/${this.gadget.id}`])
-    this.gadgetService.getGadgetByID(this.gadget.id)
+    this.gadgetService.getGadgetByID(`${this.gadget.id}`)
+    this.watchedGadgetsService.watch(this.gadget)
+    this.productFilters.getMemoryCapacity(this.gadget, this.gadget.category)
+    this.productFilters.getOtherGadgets(this.gadget, this.gadget.category)
     window.scroll(0, 0)
   }
 
@@ -48,7 +49,16 @@ export class GadgetItemComponent implements OnInit {
 
   ngOnInit(): void {
     this.windowWidth = globalThis.innerWidth;
-    this.gadget.isFavorite = this.favouriteService.isFavourite(this.gadget)
+    this.gadget.isFavorite = this.favouriteService.isFavourite(this.gadget);
+    this.favouriteSubscription = this.favouriteService.favourites$.subscribe(() => {
+      this.gadget.isFavorite = this.favouriteService.isFavourite(this.gadget);
+    });
+  }
+
+  ngOnDestroy(): void {
+    if (this.favouriteSubscription) {
+      this.favouriteSubscription.unsubscribe();
+    }
   }
 
   @HostListener('window:resize', ['$event'])

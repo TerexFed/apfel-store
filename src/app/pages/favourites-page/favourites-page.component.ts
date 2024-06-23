@@ -1,54 +1,36 @@
 import { Component, OnInit } from '@angular/core';
 import { FavouriteService } from '../../services/favourite.service';
 import { Product } from '../../types/product';
+import { Subscription } from 'rxjs';
 @Component({
   selector: 'app-favourites-page',
   templateUrl: './favourites-page.component.html',
   styleUrl: './favourites-page.component.scss',
 })
 export class FavouritesPageComponent {
-  favourites: any[] = [];
-  filteredFavourites: Product[] = [];
-  firstPrice: number = 0;
-  secondPrice: number = 0;
-  sorting: '' | 'price' | 'date' = '';
+  favourites: Product[] = [];
+  private favouritesSubscription: Subscription;
+  public sort: 'default' | 'price' | 'date' = 'default'
 
-  constructor(private favouriteService: FavouriteService) {}
+  constructor(public favouriteService: FavouriteService) { }
 
   ngOnInit(): void {
     this.favourites = this.favouriteService.getFavourites();
+    this.favouritesSubscription = this.favouriteService.favourites$.subscribe(
+      (favourites) => {
+        this.favourites = favourites;
+      }
+    );
   }
 
-  trackByGadgetId(index: number, gadget: any): string {
-    return gadget.id;
+  public sortFavourites() {
+    this.favouriteService.filterBy(this.sort)
   }
 
-  // loadFavourites(): void {
-  //   this.favourites = this.favouriteService.getFavourites();
-  // }
+  ngOnDestroy(): void {
+    if (this.favouritesSubscription) {
+      this.favouritesSubscription.unsubscribe();
+    }
+  }
 
-  // applyFilters(): void {
-  //   this.filteredFavourites = this.favourites.filter((product) => {
-  //     const isWithinPriceRange =
-  //       (product.discount_price || product.price) >= this.firstPrice &&
-  //       (product.discount_price || product.price) <= this.secondPrice;
-  //     return isWithinPriceRange;
-  //   });
-
-  //   this.sortFilteredFavourites();р
-  // }
-
-  // sortFilteredFavourites(): void {
-  //   if (this.sorting === 'price') {
-  //     this.filteredFavourites.sort(
-  //       (a, b) => (a.discount_price || a.price) - (b.discount_price || b.price)
-  //     );
-  //   } else if (this.sorting === 'date') {
-  //     this.filteredFavourites.sort((a, b) => {
-  //       const dateA = new Date(a.createdAt).getTime();
-  //       const dateB = new Date(b.createdAt).getTime();
-  //       return dateB - dateA;
-  //     });
-  //   }
-  // }
 }

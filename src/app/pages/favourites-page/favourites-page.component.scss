@@ -10,6 +10,35 @@
     padding: 16px;
   }
 
+  .favourites-sort {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    select {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 8px;
+      width: 146px;
+      height: 40px;
+      border-radius: 8px;
+      align-items: center;
+      gap: 4px;
+      background-color: #F9F9F9;
+      width: 200px;
+      font-size: 16px;
+      outline: none;
+      background-image: url('../../../assets/filters/open-bar.svg');
+      background-repeat: no-repeat;
+      background-position: right;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      text-indent: 1px;
+      text-overflow: '';
+    }
+  }
+
 
   .favourites-title {
     font-size: 40px;
@@ -40,9 +69,10 @@
       gap: 20px;
       padding: 24px;
     }
+
     @media screen and (max-width: 769px) {
       gap: 11px;
-      padding: 0 16px 0 22px   ;
+      padding: 0 16px 0 22px;
     }
 
     .favourites-button {
