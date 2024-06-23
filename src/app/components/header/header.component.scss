@@ -155,6 +155,7 @@ input[type="search"] {
 .functions {
   display: flex;
   justify-content: center;
+  cursor: pointer;
 }
 
 .functions>img {
@@ -207,7 +208,7 @@ input[type="search"] {
   border-radius: 0 0 24px 24px;
 }
 
-@media screen and (max-width: 1440px) {
+@media screen and (max-width: 1201px) {
   .comp-header {
     display: none;
   }
@@ -235,7 +236,6 @@ input[type="search"] {
   }
 
   input[type="search"] {
-    // background-image: url("../../../assets/header/search-icon-black.svg");
     color: $text-color;
     background-image: none;
     border: none;

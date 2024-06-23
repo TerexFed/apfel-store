@@ -14,16 +14,21 @@
         '/assets/gadget-item/heart-' +
         (gadget.isFavorite ? 'active' : 'inactive') +
         '.svg'
-      " alt="" />
+      "
+      (click)="toggleFavourite()"
+      alt="favourite"
+    />
   </div>
   <p class="name">{{getName()}}</p>
+  <div class="gadget-image-size">
   <img class="gadget-image" [src]="'https://angular-final-project-backend.onrender.com/'+gadget.images[0]" alt="gadget-image"
     (click)="openGadget()" />
+  </div>
   <p class="name-mobile">{{getName()}}</p>
   @if (gadget.is_available) {
   <div class="second-section">
     <p><span class="isAvailable available"></span>Есть в наличии</p>
-    <p>Гарантия {{ gadget.guarantee === 12 ? '1' : gadget.guarantee }} год</p>
+    <p>Гарантия {{ gadget.guarantee === 12 ? "1" : gadget.guarantee }} год</p>
   </div>
   @if (windowWidth > 900) {
   <div class="prices-section">

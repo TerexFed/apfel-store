@@ -4,7 +4,7 @@ import { Product } from '../../types/product';
 @Component({
   selector: 'app-gadget-list',
   templateUrl: './gadget-list.component.html',
-  styleUrl: './gadget-list.component.scss'
+  styleUrl: './gadget-list.component.scss',
 })
 export class GadgetListComponent {
   @Input() gadgetList: Product[] | [{ errorMessage: string }] = []

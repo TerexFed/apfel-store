@@ -9,18 +9,19 @@ import { BottomSheetComponent } from '../../UI/bottom-sheet/bottom-sheet.compone
 import { Product } from '../../types/product';
 import { GadgetService } from '../../services/gadget.service';
 import { ProductPageFiltersService } from '../../services/product-page-filters.service';
+import { FavouriteService } from '../../services/favourite.service';
 
 @Component({
   selector: 'app-gadget-item',
   templateUrl: './gadget-item.component.html',
-  styleUrl: './gadget-item.component.scss'
+  styleUrl: './gadget-item.component.scss',
 })
 export class GadgetItemComponent implements OnInit {
-  constructor(public dialog: MatDialog, public router: Router, private productFilters: ProductPageFiltersService, private basketService: BasketService, private watchedGadgetsService: WatchedGadgetsService, private gadgetService: GadgetService) { }
+  constructor(public dialog: MatDialog, public router: Router, private basketService: BasketService, private watchedGadgetsService: WatchedGadgetsService, private favouriteService: FavouriteService, private productFilters: ProductPageFiltersService, public gadgetService: GadgetService) { }
   @Input() gadget: any
 
   public get5RatingArr() {
-    return new Array(5).fill(true)
+    return new Array(5).fill(true);
   }
 
   public getName() {
@@ -43,10 +44,11 @@ export class GadgetItemComponent implements OnInit {
     window.scroll(0, 0)
   }
 
-  windowWidth: number = 1440
+  windowWidth: number = 1201;
 
   ngOnInit(): void {
     this.windowWidth = globalThis.innerWidth;
+    this.gadget.isFavorite = this.favouriteService.isFavourite(this.gadget)
   }
 
   @HostListener('window:resize', ['$event'])
@@ -58,14 +60,17 @@ export class GadgetItemComponent implements OnInit {
     window.scrollTo(0, 0)
     this.dialog.open(ModalWindowComponent, { data: { type: 'Admission', title: this.getName(), image: 'https://angular-final-project-backend.onrender.com/' + this.gadget.images[0] } })
   }
+
   openModalPriceLower() {
-    window.scrollTo(0, 0)
-    this.dialog.open(ModalWindowComponent, { data: { type: 'PriceLower' } })
+    window.scrollTo(0, 0);
+    this.dialog.open(ModalWindowComponent, { data: { type: 'PriceLower' } });
   }
+
   openModalOneClick() {
     window.scrollTo(0, 0)
     this.dialog.open(ModalWindowComponent, { data: { type: 'OneClick', title: this.getName(), image: 'https://angular-final-project-backend.onrender.com/' + this.gadget.images[0], price: this.gadget.price, discountPrice: this.gadget.discount_price } })
   }
+
   openModalBasketAdd() {
     window.scrollTo(0, 0)
     this.gadget.isInCart = true
@@ -73,4 +78,11 @@ export class GadgetItemComponent implements OnInit {
     this.dialog.open(ModalWindowComponent, { data: { type: 'BasketAdd', title: this.getName(), image: 'https://angular-final-project-backend.onrender.com/' + this.gadget.images[0] } })
   }
 
+  toggleFavourite() {
+    if (this.gadget.isFavorite) {
+      this.favouriteService.removeFromFavourites(this.gadget);
+    } else {
+      this.favouriteService.addToFavourites(this.gadget)
+    }
+  }
 }

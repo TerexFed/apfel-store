@@ -9,13 +9,13 @@
     justify-content: center;
     z-index: 1;
 
-    @media screen and (max-width: 900px) {
-        gap: 40px;
-    }
+  @media screen and (max-width: 900px) {
+    gap: 40px;
+  }
 
-    @media screen and (max-width: 500px) {
-        gap: 8px;
-    }
+  @media screen and (max-width: 500px) {
+    gap: 8px;
+  }
 }
 
 @keyframes spin {

@@ -35,7 +35,7 @@
     <input [(ngModel)]="searchResultText" (ngModelChange)="getSearchResult()" (focus)="changeIsSearchResult(true)"
       (blur)="changeIsSearchResult(false)" type="search" placeholder="Поиск по каталогу товаров" />
     <div class="functions">
-      <img src="../../../assets/header/heart.svg" alt="Любимые" />
+      <img routerLink="/favourites" src="../../../assets/header/heart.svg" alt="Любимые" />
     </div>
     <button class="header-button button" (click)="openModalBasket()">
       <img src="../../../assets/header/basket.svg" alt="Корзина" />

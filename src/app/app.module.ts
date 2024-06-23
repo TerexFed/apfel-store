@@ -1,7 +1,11 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
+import {
+  BrowserModule,
+  provideClientHydration,
+} from '@angular/platform-browser';
 import { MatDialogModule } from '@angular/material/dialog';
 import { CdkAccordionModule } from '@angular/cdk/accordion';
+import {MatProgressBarModule} from '@angular/material/progress-bar'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -98,11 +102,9 @@ import { SubcategoryProductsComponent } from './components/subcategory-products/
     MatBottomSheetModule,
     FormsModule,
     ReactiveFormsModule,
+    MatProgressBarModule,
   ],
-  providers: [
-    provideClientHydration(),
-    provideAnimations(),
-  ],
-  bootstrap: [AppComponent]
+  providers: [provideClientHydration(), provideAnimations()],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
