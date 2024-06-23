@@ -41,11 +41,10 @@ export class ProductService {
         return products
     }
 
-    async getAllDiscounts(): Promise<Product[] | null> {
-      const products = await this.getProductsAPIMemoized("products")
-      if (products[0]?.errorMessage || products?.message) return null
-      return products.filter((product: Product) => product.discount_price)
-  }
+    async getAllDiscounts(): Promise<Product[] | [{ errorMessage: string }]> {
+        const products = await this.getProductsAPIMemoized("products")
+        return products.filter((product: Product) => product.discount_price && product.is_available).sort((productA: Product, productB: Product) => productA.id - productB.id)
+    }
 
     async getProductById(id: string): Promise<Product | null> {
         const product = await this.getProductsAPIMemoized(`products/${id}`)
