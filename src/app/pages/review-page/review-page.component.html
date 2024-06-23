@@ -11,14 +11,11 @@
             <h3 class="review__comments-title">{{ review.name }}</h3>
             <div class="review__comments-stars">
               @for (_ of get5RatingArr(); track $index) {
-              <img
-                [src]="
+              <img [src]="
                   '/assets/gadget-item/star-' +
                   ($index + 1 ? 'active' : 'inactive') +
                   '.svg'
-                "
-                alt="rating"
-              />
+                " alt="rating" />
               }
             </div>
           </div>
@@ -35,10 +32,7 @@
   <div class="review__recommends">
     <div>
       <div class="review__recommends-head">
-        <img
-          class="review__recommends-img"
-          src="../../../assets/review-page/circle-heart.svg"
-        />
+        <img class="review__recommends-img" src="../../../assets/review-page/circle-heart.svg" />
         <div>
           <h3 class="review__recommends-title">Люди рекомендуют</h3>
           <p class="review__recommends-text">
@@ -48,11 +42,7 @@
         </div>
       </div>
       <div class="popularProducts">
-        <img
-          class="arrow"
-          src="../../../assets/review-page/arrow_left.svg"
-          (click)="scrollLeft()"
-        />
+        <img class="arrow left" src="../../../assets/review-page/arrow_left.svg" (click)="scrollLeft('desktop')" />
         @for (product of popularProducts; track $index){ @if ( $index ===
         currentId) {
         <div>
@@ -60,50 +50,101 @@
             <div class="popularProducts__rating-stars">
               <div class="rating-stars">
                 @for (_ of get5RatingArr(); track $index) {
-                <img
-                  [src]="
+                <img [src]="
                     '/assets/gadget-item/star-' +
                     ($index + 1 <= product.rating ? 'active' : 'inactive') +
                     '.svg'
-                  "
-                  alt="rating"
-                />
+                  " alt="rating" />
                 }
               </div>
               <p class="popularProducts__review">{{ product.count_review }} отзывов</p>
             </div>
             <h4 class="popularProducts__name">{{ product.name }}</h4>
-            <img
-              class="popularProducts__card-img"
-              [src]="
+            <img class="popularProducts__card-img" [src]="
                 'https://angular-final-project-backend.onrender.com/' +
                 product.images[0]
-              "
-              alt="{{ product.name }}"
-            />
+              " alt="{{ product.name }}" />
             <p class="popularProducts__price">
               {{ product.price | customCurrency }}
             </p>
-            <button
-              class="popularProducts__button"
-              (click)="openGadget(product)"
-            >
+            <button class="popularProducts__button" (click)="openGadget(product)">
               подробнее
             </button>
           </div>
-          <mat-progress-bar
-                      mode="determinate"
-            value="{{ currentId * 9.2 }}"
-          ></mat-progress-bar>
+          <mat-progress-bar mode="determinate" value="{{ getProgressPercentage('desktop') }}"></mat-progress-bar>
         </div>
-        } }
-        <img
-          class="arrow"
-          src="../../../assets/review-page/arrow_right.svg"
-          (click)="scrollRight()"
-        />
+        }
+        }
+        <img class="arrow rigth" src="../../../assets/review-page/arrow_right.svg" (click)="scrollRight('desktop')" />
       </div>
 
+
+      <div class="popularProducts-tablet">
+        <div class="popularProducts-tablet-content">
+          <img class="arrow" src="../../../assets/review-page/arrow_left.svg" (click)="scrollLeft('tablet')" />
+          <div class="popularProducts__cards">
+            @for (product of popularProducts; track $index){
+
+            @if ($index === currentIdTablet[0]) {
+            <div class="popularProducts__card">
+              <div class="popularProducts__rating-stars">
+                <div class="rating-stars">
+                  @for (_ of get5RatingArr(); track $index) {
+                  <img [src]="
+                    '/assets/gadget-item/star-' +
+                    ($index + 1 <= product.rating ? 'active' : 'inactive') +
+                    '.svg'
+                  " alt="rating" />
+                  }
+                </div>
+                <p class="popularProducts__review">{{ product.count_review }} отзывов</p>
+              </div>
+              <h4 class="popularProducts__name">{{ product.name }}</h4>
+              <img class="popularProducts__card-img" [src]="
+                'https://angular-final-project-backend.onrender.com/' +
+                product.images[0]
+              " alt="{{ product.name }}" />
+              <p class="popularProducts__price">
+                {{ product.price | customCurrency }}
+              </p>
+              <button class="popularProducts__button" (click)="openGadget(product)">
+                подробнее
+              </button>
+            </div>
+            }
+            @if ($index === currentIdTablet[1]) {
+            <div class="popularProducts__card">
+              <div class="popularProducts__rating-stars">
+                <div class="rating-stars">
+                  @for (_ of get5RatingArr(); track $index) {
+                  <img [src]="
+                    '/assets/gadget-item/star-' +
+                    ($index + 1 <= product.rating ? 'active' : 'inactive') +
+                    '.svg'
+                  " alt="rating" />
+                  }
+                </div>
+                <p class="popularProducts__review">{{ product.count_review }} отзывов</p>
+              </div>
+              <h4 class="popularProducts__name">{{ product.name }}</h4>
+              <img class="popularProducts__card-img" [src]="
+                'https://angular-final-project-backend.onrender.com/' +
+                product.images[0]
+              " alt="{{ product.name }}" />
+              <p class="popularProducts__price">
+                {{ product.price | customCurrency }}
+              </p>
+              <button class="popularProducts__button" (click)="openGadget(product)">
+                подробнее
+              </button>
+            </div>
+            }
+            }
+          </div>
+          <img class="arrow" src="../../../assets/review-page/arrow_right.svg" (click)="scrollRight('tablet')" />
+        </div>
+        <mat-progress-bar mode="determinate" value="{{ getProgressPercentage('tablet') }}"></mat-progress-bar>
+      </div>
     </div>
   </div>
 </div>

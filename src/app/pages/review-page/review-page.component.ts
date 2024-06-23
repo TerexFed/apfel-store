@@ -51,14 +51,25 @@ export class ReviewPageComponent implements OnInit {
   }
 
   public currentId: number = 0;
+  public currentIdTablet: Array<number> = [0, 1];
   public maxItems: number = 12;
 
-  public scrollRight() {
-    this.currentId = (this.currentId + 1) % this.maxItems;
+  public scrollRight(type: string) {
+    if (type === 'desktop') {
+      this.currentId = (this.currentId + 1) % this.maxItems;
+    } else if (type === 'tablet') {
+      this.currentIdTablet[0] = (this.currentIdTablet[0] + 1) % this.maxItems;
+      this.currentIdTablet[1] = (this.currentIdTablet[1] + 1) % this.maxItems;
+    }
   }
 
-  public scrollLeft() {
-    this.currentId = (this.currentId - 1 + this.maxItems) % this.maxItems;
+  public scrollLeft(type: string) {
+    if (type === 'desktop') {
+      this.currentId = (this.currentId - 1 + this.maxItems) % this.maxItems;
+    } else if (type === 'tablet') {
+      this.currentIdTablet[0] = (this.currentIdTablet[0] - 1 + this.maxItems) % this.maxItems;
+      this.currentIdTablet[1] = (this.currentIdTablet[1] - 1 + this.maxItems) % this.maxItems;
+    }
   }
 
 
@@ -73,5 +84,17 @@ export class ReviewPageComponent implements OnInit {
 
   public get5RatingArr() {
     return new Array(5).fill(true);
+  }
+
+  public getProgressPercentage(type: string): number {
+    if (type === 'desktop') {
+      return this.currentId * 9.3
+    }
+    else if (type === 'tablet') {
+      const totalSteps = Math.ceil(this.maxItems / 2);
+      const currentStep = Math.floor(this.currentIdTablet[0] / 2);
+      return (currentStep / totalSteps) * 100;
+    }
+    return 0
   }
 }
