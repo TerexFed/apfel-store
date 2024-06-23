@@ -26,6 +26,10 @@ export class CategoryPageComponent implements OnInit, OnDestroy {
 
   sorting: "" | "incr" | "descr" = ""
 
+  isSorting: boolean = false;
+
+  sortingValues: ["", "incr", "descr"] = ["", "incr", "descr"];
+
   private routeSub: Subscription;
 
   private priceChangeTimeout: any;
@@ -158,10 +162,11 @@ export class CategoryPageComponent implements OnInit, OnDestroy {
     if (length <= 5) return new Array(length).fill(true).map((_, ind) => ind + 1)
     if (page <= 3) return [1, 2, 3, '...', length]
     if (page >= length - 2) return [1, '...', length - 2, length - 1, length]
-    return [1, '...', page, '...', length]
+    return [1, '...', page - 1, page, page + 1, '...', length]
   }
 
   changePage(newPage: number) {
     this.page = newPage
+    window.scroll(0, 0)
   }
 }

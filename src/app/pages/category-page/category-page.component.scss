@@ -110,6 +110,66 @@ p.text {
     justify-content: end;
 }
 
+.sorting-block {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
 .list {
     width: 100%;
+}
+
+.select-block {
+    display: flex;
+    flex-direction: row;
+    gap: 4px;
+    align-items: center;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.select {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 8px;
+    border-radius: 8px;
+    align-items: center;
+    gap: 4px;
+    background-color: $bg-warranty-page;
+    width: 200px;
+
+    &:hover {
+        cursor: pointer;
+    }
+
+    &>img {
+        transition: all .25s ease-in-out;
+    }
+
+    &.active {
+        border-radius: 8px 8px 0 0;
+
+        &>img {
+            transform: rotate(180deg);
+        }
+    }
+}
+
+.options {
+    position: absolute;
+    top: 40px;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    border-radius: 0 0 8px 8px;
+    background-color: $bg-warranty-page;
+    width: 200px;
+    z-index: 20;
+}
+
+.sort-option {
+    padding: 4px 8px;
+    cursor: pointer;
 }

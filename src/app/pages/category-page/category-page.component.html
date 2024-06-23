@@ -7,11 +7,29 @@
             }
         </div>
         <div class="sorting">
-            <select [(ngModel)]="sorting" (ngModelChange)="newListOfProductsOnChange()" name="" id="">
-                <option value="">по умолчанию</option>
-                <option value="incr">по возрастанию</option>
-                <option value="descr">по убыванию</option>
-            </select>
+            <div class="sorting-block">
+                <div class="select-block">
+                    Сортировать
+                    <div [class]="'select ' + (isSorting ? 'active' : '')" (click)="isSorting = !isSorting">
+                        <p>{{sorting === "incr" ? "по возрастанию" : sorting === "descr" ? "по убыванию" :
+                            "по умолчанию"}}
+                        </p>
+                        <img src="/assets/filters/open-bar.svg" alt="+">
+                    </div>
+                </div>
+                @if(isSorting){
+                <div class="options">
+                    @for (sort of sortingValues; track $index) {
+                    @if (sort !== sorting) {
+                    <p (click)="sorting = sort; isSorting = false" class="sort-option">{{sort === "incr" ? "по
+                        возрастанию"
+                        : sort ===
+                        "descr" ? "по убыванию" : "по умолчанию"}}</p>
+                    }
+                    }
+                </div>
+                }
+            </div>
         </div>
     </div>
 
@@ -23,20 +41,24 @@
                 <input [(ngModel)]="secondPrice" (ngModelChange)="priceOnChange()" matSliderEndThumb>
             </mat-slider>
             <div class="inputs">
-                <input [max]="secondPrice" [(ngModel)]="firstPrice" (ngModelChange)="priceOnChange()" type="text">
-                <input [min]="firstPrice" [(ngModel)]="secondPrice" (ngModelChange)="priceOnChange()" type="text">
+                <input class="priceInput" [max]="secondPrice" [(ngModel)]="firstPrice" (ngModelChange)="priceOnChange()"
+                    type="text">
+                <input class="priceInput" [min]="firstPrice" [(ngModel)]="secondPrice" (ngModelChange)="priceOnChange()"
+                    type="text">
             </div>
             @for (filter of filters; track $index) {
-            <div (click)="changeFiltersAreOpen(filter.name)">
+            <div [class]="'filter-title ' + (filtersAreOpen.includes(filter.name) ? 'open' : '')"
+                (click)="changeFiltersAreOpen(filter.name)">
                 <p>{{filter.name}}</p>
                 <img src="/assets/filters/open-bar.svg" alt="+">
             </div>
             @if (filtersAreOpen.includes(filter.name)) {
-            <div>
+            <div class="filter-block">
                 @for (filterValue of filter.values; track $index) {
-                <mat-checkbox (click)="newListOfProductsOnChange()" [(ngModel)]="filterValue.status">{{
-                    filterValue.value
-                    }}</mat-checkbox>
+                <mat-checkbox class="checkbox" (click)="newListOfProductsOnChange()"
+                    [(ngModel)]="filterValue.status"><span class="checkbox">{{
+                        filterValue.value
+                        }}</span></mat-checkbox>
                 }
             </div>
             }
@@ -44,14 +66,18 @@
         </div>
         <app-gadget-list class="list" [gadgetList]="getPaginationProducts()" />
     </div>
-    <div>
-        <p (click)="page > 1 && changePage(page-1)">
-            < </p>
-                @for (pag of getPagination(); track $index) {
-                <p [class]="page === pag ? 'active-pag' : ''" (click)="pag !== '...' && changePage(+pag)">{{pag}}</p>
-                }
-                <p (click)="page < getPaginationLength() && changePage(page+1)">></p>
+    @if(getPaginationLength() > 1){
+    <div class="pagination">
+        <img [ariaDisabled]="page === 1" class="arrow-pagination" (click)="page > 1 && changePage(page-1)"
+            src="/assets/filters/arrow-pagination.svg" />
+        @for (pag of getPagination(); track $index) {
+        <p [class]="'pag ' + (page === pag ? 'active-pag' : (pag === '...' ? 'not-active' : ''))"
+            (click)="pag !== '...' && changePage(+pag)">{{pag}}</p>
+        }
+        <img class="arrow-pagination arrow-pagination-reverse"
+            (click)="page < getPaginationLength() && changePage(page+1)" src="/assets/filters/arrow-pagination.svg" />
     </div>
+    }
     <div class="new-models__text">
         <h4 class="normal">Новые модели Айфонов по выгодным ценам</h4>
         <p class="text">

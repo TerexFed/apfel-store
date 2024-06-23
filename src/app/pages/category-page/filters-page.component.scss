@@ -1,3 +1,10 @@
+@import "./../../../variables.scss";
+
+label {
+    font-size: 16px !important;
+    font-weight: 400 !important;
+}
+
 .list-container {
     display: flex;
     flex-direction: row;
@@ -7,7 +14,11 @@
 .filters {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    max-width: 276px;
+    width: 100%;
+    background-color: $bg-warranty-page;
+    padding: 15px;
+    // gap: 10px;
 }
 
 .inputs {
@@ -18,4 +29,53 @@
     &>.input-range {
         width: 100%;
     }
+}
+
+.priceInput {
+    width: 100%;
+    border: 1px solid $accent-list;
+    border-radius: 8px;
+    padding: 8px;
+}
+
+.filter-title {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 5px 20px;
+    gap: 10px;
+    background-color: $title-color;
+    border-radius: 8px;
+
+    &>img {
+        transition: all 0.25s ease-in-out;
+    }
+
+    &.open {
+        border-radius: 8px 8px 0 0;
+
+        &>img {
+            transform: rotate(180deg);
+        }
+    }
+
+    p {
+        font-weight: 500;
+        font-size: 16px;
+    }
+}
+
+.filter-block {
+    border-radius: 0 0 8px 8px;
+    background-color: $title-color;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 5px 20px;
+}
+
+.checkbox {
+    font-size: 16px;
+    font-weight: 400;
 }
