@@ -85,10 +85,12 @@
 
 .tel-number {
   display: flex;
+  cursor: pointer;
 }
 
 .tel-icon {
   display: none;
+  cursor: pointer;
 }
 
 .tel-number>p {

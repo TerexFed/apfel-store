@@ -24,6 +24,10 @@
 }
 
 .dekstop {
+    >.crossed {
+        text-decoration: line-through;
+    }
+
     @media (max-width: 769px) {
         display: none;
     }
@@ -44,6 +48,19 @@
 .top-mobile-text {
     display: flex;
     flex-direction: column;
+}
+
+.prices {
+    display: flex;
+    gap: 5px;
+
+    >sup {
+        min-width: 70px;
+    }
+
+    >.crossed {
+        text-decoration: line-through;
+    }
 }
 
 .label-slider {
@@ -70,6 +87,11 @@
     width: 100%;
     margin: 32px 0 32px 0;
     gap: 8px;
+
+    input[type='tel'],
+    .send-button {
+        width: 100%;
+    }
 }
 
 .mobile {

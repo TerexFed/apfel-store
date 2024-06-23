@@ -136,13 +136,13 @@
     }
   </label>
   <div class="telephone">
-    <div class="tel-number">
+    <div class="tel-number" (click)="openModalCallback()">
       <img src="../../../assets/header/telephone.svg" alt="telephone" />
       <p href="tel:+78125619662" class="tel-number__number">+7 812 561 96 62</p>
     </div>
-    <!-- <span class="tel-number__text">Вам перезвонить?</span> -->
   </div>
-  <img class="tel-icon" src="../../../assets/header/telephone.svg" alt="telephone" width="15px" height="20px" />
+  <img (click)="openModalCallback()" class="tel-icon" src="../../../assets/header/telephone-black.svg" alt="telephone"
+    width="15px" height="20px" />
   <img [src]="
       '../../../assets/header/' + (isHeaderOpen ? 'close' : 'bx_menu') + '.svg'
     " alt="bx-menu" (click)="openHeader()" />
