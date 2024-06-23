@@ -21,7 +21,8 @@
                 <div class="options">
                     @for (sort of sortingValues; track $index) {
                     @if (sort !== sorting) {
-                    <p (click)="sorting = sort; isSorting = false" class="sort-option">{{sort === "incr" ? "по
+                    <p (click)="sorting = sort; isSorting = false; newListOfProductsOnChange()" class="sort-option">
+                        {{sort === "incr" ? "по
                         возрастанию"
                         : sort ===
                         "descr" ? "по убыванию" : "по умолчанию"}}</p>
@@ -32,7 +33,6 @@
             </div>
         </div>
     </div>
-
     <div class="list-container">
         <div class="filters">
             <p class="title">Цена</p>

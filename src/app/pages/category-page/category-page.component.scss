@@ -172,4 +172,8 @@ p.text {
 .sort-option {
     padding: 4px 8px;
     cursor: pointer;
+
+    &:last-of-type {
+        padding-bottom: 12px;
+    }
 }
