@@ -12,6 +12,7 @@ import { ContactPageComponent } from './pages/contact-page/contact-page.componen
 import { FavouritesPageComponent } from './pages/favourites-page/favourites-page.component';
 import { GadgetPageComponent } from './pages/gadget-page/gadget-page.component';
 import { CategoryPageComponent } from './pages/category-page/category-page.component';
+import { DiscountPageComponent } from './pages/discount-page/discount-page.component';
 
 const routes: Routes = [
   {
@@ -61,6 +62,10 @@ const routes: Routes = [
   {
     path: 'category/:id/:subId',
     component: CategoryPageComponent
+  },
+  {
+    path: 'discount',
+    component: DiscountPageComponent
   },
   {
     path: 'category',

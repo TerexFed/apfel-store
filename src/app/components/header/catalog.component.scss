@@ -36,7 +36,7 @@
 }
 
 .catalog__titles__title {
-    // min-width: 183px;
+    cursor: pointer;
     width: 100%;
     border-radius: 8px;
     padding: 8px;
@@ -70,6 +70,7 @@
 }
 
 .catalog__list__items__item {
+    cursor: pointer;
     padding: 8px;
     border-radius: 8px;
     background-color: #F9F9F9;

@@ -1,9 +1,11 @@
 @import "../../../variables.scss";
 
 .warranty {
+
   @media screen and (max-width: 1201px) {
     margin: 0 24px 0 24px;
   }
+
   .warranty__list {
     background-color: $bg-distribution;
     margin-top: 40px;

@@ -1,6 +1,6 @@
 <div class="gadget-page">
   <button class="back__button" (click)="back()">Назад</button>
-  @if (product?.id) {
+  <!-- @if (product?.id) { -->
   <div class="gadget__info">
     <h3 class="gadget-title tablet">{{ gadgetService.gadget?.category === 'Смартфоны' || gadgetService.gadget?.category
       ===
@@ -44,7 +44,7 @@
             <img
               [className]="otherGadgetItem?.id === gadgetService.gadget?.id  ? 'other-phones-item active-phone' : 'other-phones-item'"
               (click)="navigateToOtherGadgets(otherGadgetItem.id)"
-              [src]="'https://angular-final-project-backend.onrender.com/' + otherGadgetItem?.images[0]"
+              [src]="'https://angular-final-project-backend.onrender.com/' + otherGadgetItem.images[0]"
               alt="other-gadget-image" />
             }
           </div>
@@ -55,7 +55,7 @@
             <p class="a">Объем памяти</p>
             <div class="memory-capacities-list">
               @for (memoryCapacityItem of productFilters.memoryCapacity; track $index) {
-              <div (click)="changeMemoryCapacity(memoryCapacityItem)"
+              <div (click)="productFilters.memoryCapacity.length > 1 && changeMemoryCapacity(memoryCapacityItem)"
                 [className]="memoryCapacityItem === gadgetService.gadget?.characteristics[1]?.value || memoryCapacityItem === gadgetService.gadget?.characteristics[5]?.value ? 'memory-capacities-item active-memory' : 'memory-capacities-item'">
                 {{memoryCapacityItem}}{{gadgetService.gadget?.category === 'Смартфоны' || gadgetService.gadget?.category
                 === 'Компьютеры' || gadgetService.gadget?.category === 'Планшеты' ?
@@ -207,7 +207,7 @@
       </div>
     </div>
   </div>
-  }
+  <!-- } -->
 
   <div class="questions__back">
     <div class="questions">

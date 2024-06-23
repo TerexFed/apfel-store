@@ -1,10 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { GadgetService } from '../../services/gadget.service';
 import { ModalWindowComponent } from '../../UI/modal-window/modal-window.component';
 import { MatDialog } from '@angular/material/dialog';
 import { BasketService } from '../../services/basket.service';
-import { Location } from '@angular/common';
 import { ProductPageFiltersService } from '../../services/product-page-filters.service';
 import { ProductService } from '../../services/product.service';
 import { Product } from '../../types/product';
@@ -15,10 +14,10 @@ import { WatchedGadgetsService } from '../../services/watched-gadgets.service';
   templateUrl: './gadget-page.component.html',
   styleUrl: './gadget-page.component.scss'
 })
-export class GadgetPageComponent {
+export class GadgetPageComponent implements OnDestroy {
   product: Product
 
-  constructor(private route: ActivatedRoute, private router: Router, public gadgetService: GadgetService, private basketService: BasketService, public dialog: MatDialog, private location: Location, public productService: ProductService, public productFilters: ProductPageFiltersService, private watchedGadgetsService: WatchedGadgetsService) {
+  constructor(private route: ActivatedRoute, private router: Router, public gadgetService: GadgetService, private basketService: BasketService, public dialog: MatDialog, public productService: ProductService, public productFilters: ProductPageFiltersService, private watchedGadgetsService: WatchedGadgetsService) {
     (async () => {
       if (this.route.snapshot.params.id <= (await productService.getAllProducts()).length) {
         const productContent = await productService.getProductById(this.route.snapshot.params.id)
@@ -27,12 +26,9 @@ export class GadgetPageComponent {
           return;
         }
         this.product = productContent
+        this.gadgetService.getGadgetByID(productContent.id.toString())
         this.productFilters.getMemoryCapacity(productContent, productContent.category)
         this.productFilters.getOtherGadgets(productContent, productContent.category)
-
-        this.watchedGadgetsService.watch(productContent)
-        this.gadgetService.getGadgetByID(productContent.id.toString())
-
       }
       else {
         this.router.navigate(['/'])
@@ -48,12 +44,17 @@ export class GadgetPageComponent {
 
   public async changeMemoryCapacity(memory: string) {
     await this.productFilters.updateMemoryCapacity(this.product, this.product.category, memory);
-
     this.productFilters.otherGadgets.forEach(gadget => {
-      if (gadget.color === this.product.color) {
+      if (gadget.color === this.product.color && gadget.name === this.product.name) {
         this.navigateToOtherGadgets(gadget.id);
+        this.productFilters.getMemoryCapacity(gadget, gadget.category)
+        this.productFilters.getOtherGadgets(gadget, gadget.category)
       }
     });
+  }
+
+  ngOnDestroy(): void {
+    this.productFilters.clearFilters()
   }
 
   public back() {
@@ -80,7 +81,6 @@ export class GadgetPageComponent {
       default: previousUrl = ''
     }
     this.router.navigateByUrl(`category/${previousUrl}`);
-    this.productFilters.clearFilters()
   }
 
   openModalOneClick() {

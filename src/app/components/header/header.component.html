@@ -3,8 +3,8 @@
     <div class="links">
       <img class="apple-logo" src="../../../assets/header/apple.svg" alt="логотип apple store" routerLink="/" />
       <a routerLink="/all-catalog">Весь каталог</a>
-      <a class="promotion" routerLink="/">
-        <img src="../../../assets/header/fire-emoji.svg" alt="эмодзи огня акций" />
+      <a class="promotion" (click)="navigateToDiscounts()">
+        <img  src="../../../assets/header/fire-emoji.svg" alt="эмодзи огня акций" />
         Акции
       </a>
       <a routerLink="/warranty">Гарантия</a>
@@ -84,7 +84,7 @@
     <div class="catalog__list">
       <div class="catalog__list__items">
         @for (catalogItem of getCatalogProducts(); track $index) {
-        <a routerLink="/">
+        <a (click)="openGadget(catalogItem.id.toString())" [routerLink]="'/gadget/'+catalogItem.id ">
           <div class="catalog__list__items__item">
             <img class="catalog__list__items__item__image"
               [src]="'https://angular-final-project-backend.onrender.com/' + catalogItem.images[0]" alt="item image" />

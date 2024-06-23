@@ -5,6 +5,9 @@ import { BasketService } from '../../services/basket.service';
 import { ProductService } from '../../services/product.service';
 import { Product } from '../../types/product';
 import { Router } from '@angular/router';
+import { GadgetService } from '../../services/gadget.service';
+import { ProductPageFiltersService } from '../../services/product-page-filters.service';
+import { WatchedGadgetsService } from '../../services/watched-gadgets.service';
 
 @Component({
   selector: 'app-header',
@@ -25,11 +28,18 @@ export class HeaderComponent implements OnInit {
     public dialog: MatDialog,
     public basketService: BasketService,
     public productService: ProductService,
-    public router: Router
+    public router: Router,
+    private gadgetService: GadgetService,
+    private watchedGadgetService: WatchedGadgetsService,
+    public productFilters: ProductPageFiltersService
   ) { }
 
   public navigateToCategory(id: number) {
     this.router.navigate([`/category/${id}`])
+  }
+
+  public navigateToDiscounts() {
+    this.router.navigate(['/discount'])
   }
 
   async ngOnInit(): Promise<void> {
@@ -44,6 +54,20 @@ export class HeaderComponent implements OnInit {
 
   public openHeader(): void {
     this.isHeaderOpen = !this.isHeaderOpen;
+  }
+
+  public openGadget(id: string) {
+    (async () => {
+      const content = await this.productService.getProductById(id)
+      if (!content) {
+        this.router.navigate(['/'])
+        return;
+      }
+      this.gadgetService.getGadgetByID(content.id.toString())
+      this.watchedGadgetService.watch(content)
+      this.productFilters.getOtherGadgets(content, content.category)
+      this.productFilters.getMemoryCapacity(content, content.category)
+    })()
   }
 
   public openModalCallback(): void {
