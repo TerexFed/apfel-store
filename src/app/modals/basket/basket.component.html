@@ -4,9 +4,10 @@
   <h4 class="normal">В корзине пока ничего нет</h4>
   <sup>Но вы можете легко это исправить</sup>
   <button [mat-dialog-close]="true">начать покупки</button>
-
+  @if (watchedGadgets.watchedGadgets.length > 0) {
   <p class="watched-gadgets">Кстати, вы это смотрели</p>
   <watched-gadgets type="EmptyBasket"></watched-gadgets>
+  }
 </div>
 } @else if (basketService.basket.length >= 1) {
 <div class="basket">

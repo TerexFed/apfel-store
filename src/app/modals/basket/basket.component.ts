@@ -4,6 +4,7 @@ import { BasketItem, BasketService } from '../../services/basket.service';
 import { MatDialog } from '@angular/material/dialog';
 import { ModalWindowComponent } from '../../UI/modal-window/modal-window.component';
 import { AbstractControl, AsyncValidatorFn, FormBuilder, FormControl, FormGroup, ValidatorFn, Validators } from '@angular/forms';
+import { WatchedGadgetsService } from '../../services/watched-gadgets.service';
 
 @Component({
   selector: 'modal-basket',
@@ -20,7 +21,7 @@ export class BasketComponent implements OnInit {
     telephone: new FormControl(''),
     email: new FormControl(''),
   })
-  constructor(public router: Router, public basketService: BasketService, public dialog: MatDialog, private formBuilder: FormBuilder) { }
+  constructor(public router: Router, public basketService: BasketService, public dialog: MatDialog, private formBuilder: FormBuilder, public watchedGadgets: WatchedGadgetsService) { }
 
   private telephoneValidator(): AsyncValidatorFn {
     return (control: AbstractControl): Promise<{ [key: string]: any } | null> => {

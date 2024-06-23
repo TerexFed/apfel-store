@@ -5,6 +5,10 @@
 
 @import "../../../variables.scss";
 
+.apple-logo {
+  cursor: pointer;
+}
+
 .basket-length {
   display: flex;
   align-items: center;
@@ -61,6 +65,7 @@
   font-weight: 400;
   line-height: 21.48px;
   font-size: 18px;
+  text-underline-offset: 5px;
 }
 
 .promotion {

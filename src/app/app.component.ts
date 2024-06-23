@@ -12,12 +12,12 @@ import { BottomSheetService } from './services/bottom-sheet.service';
 export class AppComponent {
   constructor(private bottomSheet: MatBottomSheet, public bottomSheetService: BottomSheetService) { }
 
-  closeBottomSheet(): void {
+  public closeBottomSheet(): void {
     this.bottomSheet.dismiss();
     this.bottomSheetService.closeBottomSheet();
   }
 
-  openBottomSheet(type: string): void {
+  public openBottomSheet(type: string): void {
     this.bottomSheet.open(BottomSheetComponent, { data: { type: type, close: this.closeBottomSheet.bind(this) }, backdropClass: 'backdropBack' })
       .afterDismissed().subscribe(() => {
         if (type === 'basket') {
@@ -33,6 +33,5 @@ export class AppComponent {
       this.bottomSheetService.openCatalog();
     }
   }
-
 
 }
