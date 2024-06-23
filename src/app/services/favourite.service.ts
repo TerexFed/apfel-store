@@ -26,9 +26,8 @@ export class FavouriteService {
   removeFromFavourites(gadget: any) {
     let favourites = this.getFavourites();
     favourites = favourites.filter((item: any) => item.id !== gadget.id);
-    this.storageService.changeData(this.storageKey, JSON.stringify(favourites));
     gadget.isFavorite = false;
-    return favourites;
+    this.storageService.changeData(this.storageKey, JSON.stringify(favourites));
   }
 
 

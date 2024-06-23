@@ -4,11 +4,16 @@
   max-width: 1200px;
   margin: 32px auto;
   display: flex;
+  justify-content: space-between;
+  flex-direction: row;
 
   @media screen and (max-width: 1201px) {
-    .review {
-      display: none;
-    }
+    flex-direction: column;
+    padding: 24px;
+  }
+
+  @media screen and (max-width: 769px) {
+    padding: 16px;
   }
 
   .review__head {
@@ -60,21 +65,22 @@
   }
 
   .review__recommends {
-    background-color: $bg-scroll;
+    background-color: #f3f8ff;
     border-radius: 32px;
     padding: 32px 24px 32px 24px;
     display: flex;
     justify-content: center;
     text-align: center;
-    width: 394px;
+    max-width: 100%;
     height: 633px;
     margin-top: 88px;
-    margin-left: 406px;
 
     .review__recommends-head {
       display: flex;
+      justify-content: center;
       align-items: center;
       gap: 16px;
+      margin-bottom: 20px;
 
       .review__recommends-title {
         font-size: 24px;
@@ -87,5 +93,59 @@
         font-size: 16px;
       }
     }
+  }
+}
+
+.popularProducts {
+  display: flex;
+
+  .popularProducts__card {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    background-color: #fff;
+    border-radius: 16px;
+    margin-bottom: 24px;
+    padding: 25px;
+    width: 266px;
+    height: 466px;
+
+    .popularProducts__rating-stars {
+      display: flex;
+      font-size: 16px;
+      gap: 8px;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .popularProducts__name {
+      font-size: 20px;
+      color: #100e0e;
+    }
+
+    .popularProducts__review {
+      color: #0071E4;
+      font-size: 16px;
+    }
+
+    .popularProducts__price {
+      font-size: 32px;
+      line-height: 37.5px;
+    }
+
+    .popularProducts__button {
+      width: 218px;
+      height: 56px;
+      border-radius: 8px;
+    }
+
+    .popularProducts__card-img {
+      width: 160px;
+      height: 160px;
+    }
+  }
+  .arrow {
+    cursor: pointer;
   }
 }
