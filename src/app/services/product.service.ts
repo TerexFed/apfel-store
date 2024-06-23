@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Product, Subcategory } from '../types/product';
+import { Product, productTypeId, Subcategory } from '../types/product';
 
 @Injectable({
     providedIn: 'root'
@@ -40,6 +40,12 @@ export class ProductService {
         const products = await this.getProductsAPIMemoized("products")
         return products
     }
+
+    async getAllDiscounts(): Promise<Product[] | null> {
+      const products = await this.getProductsAPIMemoized("products")
+      if (products[0]?.errorMessage || products?.message) return null
+      return products.filter((product: Product) => product.discount_price)
+  }
 
     async getProductById(id: string): Promise<Product | null> {
         const product = await this.getProductsAPIMemoized(`products/${id}`)

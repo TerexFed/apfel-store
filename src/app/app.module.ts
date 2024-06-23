@@ -51,6 +51,7 @@ import { BottomSheetComponent } from './UI/bottom-sheet/bottom-sheet.component';
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { CategoryPageComponent } from './pages/category-page/category-page.component';
 import { SubcategoryProductsComponent } from './components/subcategory-products/subcategory-products.component';
+import { DiscountPageComponent } from './pages/discount-page/discount-page.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -90,6 +91,7 @@ import { SubcategoryProductsComponent } from './components/subcategory-products/
     BottomSheetComponent,
     CategoryPageComponent,
     SubcategoryProductsComponent,
+    DiscountPageComponent,
   ],
   imports: [
     BrowserModule,

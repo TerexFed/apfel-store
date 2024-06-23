@@ -27,12 +27,12 @@
     <li><a routerLink="">Политика конфеденциальности</a></li>
   </ul>
   <ul class="column">
-    <li><a routerLink="">iPhone</a></li>
-    <li><a routerLink="">iPad</a></li>
-    <li><a routerLink="">Macbook и iMac</a></li>
-    <li><a routerLink="">Watch</a></li>
-    <li><a routerLink="">Аксессуары</a></li>
-    <li><a routerLink="/">Акции</a></li>
+    <li><a (click)="navigateToCategory(2)">iPhone</a></li>
+    <li><a (click)="navigateToCategory(4)">iPad</a></li>
+    <li><a (click)="navigateToCategory(3)">Macbook и iMac</a></li>
+    <li><a (click)="navigateToCategory(5)">Watch</a></li>
+    <li><a (click)="navigateToCategory(1)">Аксессуары</a></li>
+    <li><a (click)="navigateToDiscounts()" >Акции</a></li>
   </ul>
   <div class="column call">
     <div class="order-tablet">

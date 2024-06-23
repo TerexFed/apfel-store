@@ -3,8 +3,8 @@
     <div class="links">
       <img class="apple-logo" src="../../../assets/header/apple.svg" alt="логотип apple store" routerLink="/" />
       <a routerLink="/all-catalog">Весь каталог</a>
-      <a class="promotion" routerLink="/">
-        <img src="../../../assets/header/fire-emoji.svg" alt="эмодзи огня акций" />
+      <a class="promotion" (click)="navigateToDiscounts()">
+        <img  src="../../../assets/header/fire-emoji.svg" alt="эмодзи огня акций" />
         Акции
       </a>
       <a routerLink="/warranty">Гарантия</a>
