@@ -13,7 +13,12 @@ export class FooterComponent {
   constructor(public dialog: MatDialog, public router: Router, private productService: ProductService) { }
 
   public navigateToCategory(id: number) {
+    window.scroll(0, 0)
     this.router.navigate([`/category/${id}`])
+  }
+
+  public scroll() {
+    window.scroll(0, 0)
   }
 
   public navigateToDiscounts() {
@@ -23,6 +28,6 @@ export class FooterComponent {
 
   public openModalCallBack() {
     window.scrollTo(0, 0)
-    this.dialog.open(ModalWindowComponent, { data: { type: 'CallBack'} })
+    this.dialog.open(ModalWindowComponent, { data: { type: 'CallBack' } })
   }
 }
